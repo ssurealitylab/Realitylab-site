@@ -3,8 +3,8 @@ $(document).ready(function() {
     var sliderImages = $('.slider-image');
     var researchTabs = $('.research-tab');
     var currentIndex = 0;
-    var autoSlideInterval;
-    var restartTimeout;
+    var autoSlideInterval = null;
+    var isUserInteracting = false;
     
     if (sliderImages.length === 0) return;
     
@@ -25,23 +25,29 @@ $(document).ready(function() {
     }
     
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % sliderImages.length;
-        showSlide(currentIndex);
+        if (!isUserInteracting) {
+            currentIndex = (currentIndex + 1) % sliderImages.length;
+            showSlide(currentIndex);
+        }
     }
     
     function startAutoSlide() {
-        stopAutoSlide(); // Ensure no duplicate intervals
-        autoSlideInterval = setInterval(nextSlide, 2500); // Changed to 2.5 seconds
+        // Clear any existing interval first
+        if (autoSlideInterval) {
+            clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+        
+        // Only start if user is not interacting
+        if (!isUserInteracting) {
+            autoSlideInterval = setInterval(nextSlide, 3000); // 3 seconds
+        }
     }
     
     function stopAutoSlide() {
         if (autoSlideInterval) {
             clearInterval(autoSlideInterval);
             autoSlideInterval = null;
-        }
-        if (restartTimeout) {
-            clearTimeout(restartTimeout);
-            restartTimeout = null;
         }
     }
     
@@ -55,14 +61,18 @@ $(document).ready(function() {
     researchTabs.on('click', function() {
         var clickedIndex = $(this).data('index');
         
-        // Stop auto-advance and any pending restart
+        // Set user interaction flag
+        isUserInteracting = true;
+        
+        // Stop auto-advance completely
         stopAutoSlide();
         
         // Show clicked slide
         showSlide(clickedIndex);
         
-        // Restart auto-advance after 5 seconds (only once)
-        restartTimeout = setTimeout(function() {
+        // Resume auto-advance after 5 seconds
+        setTimeout(function() {
+            isUserInteracting = false;
             startAutoSlide();
         }, 5000);
     });
