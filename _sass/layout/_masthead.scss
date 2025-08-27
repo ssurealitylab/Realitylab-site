@@ -110,12 +110,12 @@ header.masthead {
     padding: 0 20px 40px;
   }
   
-  // Image Slider Styles (21:9 aspect ratio, 25% larger)
+  // Image Slider Styles (16:9 aspect ratio, 25% larger)
   .image-slider {
     position: relative;
     width: 1000px; // 800px * 1.25 = 1000px
     max-width: 90vw;
-    height: calc(1000px * 9 / 21); // 21:9 aspect ratio with 25% increase
+    height: calc(1000px * 9 / 16); // 16:9 aspect ratio with 25% increase
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
@@ -206,7 +206,7 @@ header.masthead {
     
     .image-slider {
       width: 875px; // 700px * 1.25 = 875px
-      height: calc(875px * 9 / 21); // 21:9 aspect ratio with 25% increase
+      height: calc(875px * 9 / 16); // 16:9 aspect ratio with 25% increase
     }
   }
 }
