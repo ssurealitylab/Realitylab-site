@@ -6,7 +6,7 @@
     var sliderImages = null;
     var researchTabs = null;
     var slideTimer = null;
-    var SLIDE_INTERVAL = 4500; // 4.5 seconds exactly
+    var SLIDE_INTERVAL = 7000; // 7 seconds exactly
     
     function log(message) {
         console.log('[RealityLab Slider]', new Date().toISOString(), message);
