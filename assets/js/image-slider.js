@@ -4,6 +4,7 @@ $(document).ready(function() {
     var researchTabs = $('.research-tab');
     var currentIndex = 0;
     var autoSlideInterval;
+    var restartTimeout;
     
     if (sliderImages.length === 0) return;
     
@@ -29,12 +30,18 @@ $(document).ready(function() {
     }
     
     function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 3000);
+        stopAutoSlide(); // Ensure no duplicate intervals
+        autoSlideInterval = setInterval(nextSlide, 2500); // Changed to 2.5 seconds
     }
     
     function stopAutoSlide() {
         if (autoSlideInterval) {
             clearInterval(autoSlideInterval);
+            autoSlideInterval = null;
+        }
+        if (restartTimeout) {
+            clearTimeout(restartTimeout);
+            restartTimeout = null;
         }
     }
     
@@ -48,13 +55,15 @@ $(document).ready(function() {
     researchTabs.on('click', function() {
         var clickedIndex = $(this).data('index');
         
-        // Stop auto-advance temporarily
+        // Stop auto-advance and any pending restart
         stopAutoSlide();
         
         // Show clicked slide
         showSlide(clickedIndex);
         
-        // Restart auto-advance after 5 seconds
-        setTimeout(startAutoSlide, 5000);
+        // Restart auto-advance after 5 seconds (only once)
+        restartTimeout = setTimeout(function() {
+            startAutoSlide();
+        }, 5000);
     });
 });
