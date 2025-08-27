@@ -1,50 +1,24 @@
-// Image Slider functionality
-document.addEventListener('DOMContentLoaded', function() {
-    const sliderImages = document.querySelectorAll('.slider-image');
-    const sliderTitle = document.getElementById('sliderTitle');
-    const sliderDescription = document.getElementById('sliderDescription');
+// Test script
+alert('JavaScript is working!');
+
+$(document).ready(function() {
+    alert('jQuery is ready!');
     
-    if (sliderImages.length === 0) return;
+    // Simple test - change tab opacity every 3 seconds
+    var tabs = $('.research-tab');
+    var currentIndex = 0;
     
-    let currentIndex = 0;
-    
-    function showSlide(index) {
-        // Hide all images
-        sliderImages.forEach((img, i) => {
-            img.classList.remove('active');
-        });
+    setInterval(function() {
+        // Remove active from all tabs
+        tabs.removeClass('active');
         
-        // Show current image
-        sliderImages[index].classList.add('active');
+        // Add active to current tab
+        tabs.eq(currentIndex).addClass('active');
         
-        // Update text content with fade effect
-        const currentSlide = sliderImages[index];
-        const title = currentSlide.dataset.title;
-        const description = currentSlide.dataset.description;
+        // Change images too
+        $('.slider-image').removeClass('active');
+        $('.slider-image').eq(currentIndex).addClass('active');
         
-        if (sliderTitle && sliderDescription) {
-            // Fade out
-            sliderTitle.style.opacity = '0';
-            sliderDescription.style.opacity = '0';
-            
-            // Update content and fade in
-            setTimeout(() => {
-                sliderTitle.textContent = title;
-                sliderDescription.textContent = description;
-                sliderTitle.style.opacity = '1';
-                sliderDescription.style.opacity = '1';
-            }, 250);
-        }
-    }
-    
-    function nextSlide() {
-        currentIndex = (currentIndex + 1) % sliderImages.length;
-        showSlide(currentIndex);
-    }
-    
-    // Initialize first slide
-    showSlide(0);
-    
-    // Auto-advance slides every 3 seconds
-    setInterval(nextSlide, 3000);
+        currentIndex = (currentIndex + 1) % tabs.length;
+    }, 3000);
 });
