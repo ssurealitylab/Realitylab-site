@@ -11,67 +11,70 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to our Studio!
-    text: It's Nice To Meet You
-    button: Tell Me More
+    title: Advancing AI to Understand Reality
+    text: Reality Lab at Soongsil University
+    button: Learn About Our Research
     buttonlink: "#services"
 
   services:
-    title: "Services"
-    text: "Lorem ipsum"
+    title: "Research Areas"
+    text: "We develop intelligent systems that learn from real-world perception and interaction—just like humans."
     section: services
     list:
-      - title: "E-Commerce"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-shopping-cart #find more at https://fontawesome.com/icons
-      - title: "Responsive Design"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit."
-        icon: fas fa-laptop
-      - title: "[Markdown](https://en.wikipedia.org/wiki/Markdown)"
-        desc: "Your description here, full **Markdown** support"
-        icon: fab fa-markdown
+      - title: "Robotics"
+        desc: "Developing intelligent robotic systems that can perceive, learn, and interact with the physical world autonomously."
+        icon: fas fa-robot
+      - title: "Computer Vision"
+        desc: "Advanced visual recognition and understanding systems for real-world applications and human-AI interaction."
+        icon: fas fa-eye
+      - title: "Machine Learning"
+        desc: "Cutting-edge ML algorithms and models that bridge the gap between AI capabilities and real-world understanding."
+        icon: fas fa-brain
+      - title: "Multimodal Language Understanding"
+        desc: "Integrating language processing with visual and sensory inputs for comprehensive AI understanding."
+        icon: fas fa-comments
+      - title: "AI+X Applications"
+        desc: "Applying AI technologies to various domains including healthcare, education, and human-computer interaction."
+        icon: fas fa-plus-circle
 
   portfolio:
-    title: "Portfolio"
-    text: "Lorem ipsum dolor sit amet consectetur."
+    title: "Research Projects"
+    text: "Explore our cutting-edge AI research and applications."
     section: portfolio
     closebutton: "Close Project"
 
   timeline:
-    title: "Timeline"
-    text: "Lorem ipsum timeline"
+    title: "Our Journey"
+    text: "The story of Reality Lab"
     section: timeline
-    # left is the default
-    #start_align: "left"
     events:
-      - title: "Our Humble Beginnings"
-        year: "2009-2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+      - title: "Lab Foundation"
+        year: "2023"
+        desc: "Reality Lab was established at Soongsil University under the supervision of Prof. Heewon Kim, with a vision to advance AI technologies that understand and interact with the real world."
         image: assets/img/timeline/1.jpg
-        alt:
-      - title: "An Agency is Born"
-        year: "March 2011"
-        desc: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!"
+        alt: Lab Foundation
+      - title: "Research Focus Established"
+        year: "2023"
+        desc: "We defined our core research areas: Robotics, Computer Vision, Machine Learning, and Multimodal Language Understanding, setting the foundation for our interdisciplinary approach."
         image: assets/img/timeline/2.jpg
-        alt:
-      - title: "Jekyll Theme is created"
-        year: "2019"
-        desc: "Ravi Riley converted Agency, a Bootstrap-based theme, into a Jekyll theme. The Jekyll theme can be installed as a Ruby gem, or remotely. For more information, visit the documentation."
+        alt: Research Focus
+      - title: "Team Growth"
+        year: "2023-2024"
+        desc: "Our research team expanded with talented graduate students and research assistants, building a collaborative environment for cutting-edge AI research."
         image: assets/img/timeline/3.jpg
-        alt: image alt text
-      - title: "Title"
-        year: "2009-2011"
-        desc: "Your description here, **Markdown** is fully supported."
+        alt: Team Growth
+      - title: "Ongoing Research"
+        year: "Present"
+        desc: "We continue to push the boundaries of AI research, developing intelligent systems that bridge the gap between artificial intelligence and real-world understanding."
         image: assets/img/timeline/4.jpg
-        alt:
-        # you can enforce the alignment
+        alt: Ongoing Research
         align: right
-    end: "Be Part <br> of Our <br> Story!"
+    end: "Join Us <br> in Advancing <br> AI Reality!"
 
   about:
-    title: "About Us"
-    text: "our story"
-    body: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported."
+    title: "About Reality Lab"
+    text: "our mission"
+    body: "**Reality Lab** was founded in 2023 at Soongsil University under the supervision of Prof. Heewon Kim. We explore the intersection of AI and the physical world, developing intelligent systems that can perceive, understand, and interact with reality just like humans do. Our research focuses on bridging the gap between artificial intelligence capabilities and real-world understanding through cutting-edge technologies in robotics, computer vision, and machine learning."
     section: about
 
   clients:
@@ -93,45 +96,63 @@ en: &DEFAULT_EN
         logo: assets/img/clients/creative-market.jpg
 
   team:
-    title: "OUR AMAZING TEAM"
-    text: "Lorem ipsum dolor sit amet consectetur."
-    subtext: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde. **Markdown** supported.
+    title: "OUR RESEARCH TEAM"
+    text: "Meet the researchers advancing AI to understand reality."
+    subtext: Our team combines expertise in artificial intelligence, robotics, computer vision, and machine learning to push the boundaries of what's possible in AI research.
     section: team
     people:
-      - name: "Kay Garland"
-        role: "Lead Designer"
+      - name: "Prof. Heewon Kim"
+        role: "Principal Investigator"
         image: assets/img/team/500x500.jpg
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
-      - name: "Larry Parker"
-        role: "Lead Marketer"
+          - url: mailto:heewon@ssu.ac.kr
+            icon: fas fa-envelope
+      - name: "Youngjae Choi"
+        role: "PhD Student"
         image: assets/img/team/2.jpg
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
-      - name: "Diana Perterson"
-        role: "Lead Developer"
+          - url: https://github.com
+            icon: fab fa-github
+      - name: "Hyunsuh Koh"
+        role: "Master's Student"
         image: assets/img/team/500x500.jpg
         social:
-          - url: https://twitter.com
-            icon: fab fa-twitter
-          - url: https://facebook.com
-            icon: fab fa-facebook-f
           - url: https://linkedin.com
             icon: fab fa-linkedin-in
+          - url: https://github.com
+            icon: fab fa-github
+      - name: "Hojae Jeong"
+        role: "Master's Student"
+        image: assets/img/team/2.jpg
+        social:
+          - url: https://linkedin.com
+            icon: fab fa-linkedin-in
+          - url: https://github.com
+            icon: fab fa-github
+      - name: "ByungKwan Chae"
+        role: "Research Assistant"
+        image: assets/img/team/500x500.jpg
+        social:
+          - url: https://linkedin.com
+            icon: fab fa-linkedin-in
+          - url: https://github.com
+            icon: fab fa-github
+      - name: "Dowon Kim"
+        role: "Research Assistant"
+        image: assets/img/team/2.jpg
+        social:
+          - url: https://linkedin.com
+            icon: fab fa-linkedin-in
+          - url: https://github.com
+            icon: fab fa-github
 
   contact:
-    title: "Contact Us"
-    text: "Lorem ipsum or call 123456789"
+    title: "Contact Reality Lab"
+    text: "Get in touch with us | Seoul, Republic of Korea | Prof. Heewon Kim: +82-2-820-0679"
     section: contact
     name: "Name*"
     name-validation: "Please enter your name."
