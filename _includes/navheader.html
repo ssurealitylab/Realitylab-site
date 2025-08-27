@@ -67,32 +67,70 @@
   {% if site.locale and site.locale != "" and site.locale != nil %}
   <header class="masthead">
     <div class="container">
-      <div class="intro-text">
-	  {%- if site.data.sitetext[site.locale].header.title -%}
-        <div class="intro-lead-in">{{ site.data.sitetext[site.locale].header.title | markdownify }}</div>
-	  {%- endif -%}
-	  {%- if site.data.sitetext[site.locale].header.text -%}
-        <div class="intro-heading text-uppercase">{{ site.data.sitetext[site.locale].header.text | markdownify }}</div>
-	  {%- endif -%}
-	  {%- if site.data.sitetext[site.locale].header.button -%}
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">{{ site.data.sitetext[site.locale].header.button }}</a>
-	  {%- endif -%}
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="intro-text">
+            {%- if site.data.sitetext[site.locale].header.title -%}
+            <div class="intro-lead-in">{{ site.data.sitetext[site.locale].header.title | markdownify }}</div>
+            {%- endif -%}
+            {%- if site.data.sitetext[site.locale].header.text -%}
+            <div class="intro-heading text-uppercase">{{ site.data.sitetext[site.locale].header.text | markdownify }}</div>
+            {%- endif -%}
+            <div class="slider-content">
+              <h3 class="slider-title" id="sliderTitle">Robotics Research</h3>
+              <p class="slider-description" id="sliderDescription">Developing intelligent robotic systems</p>
+            </div>
+            {%- if site.data.sitetext[site.locale].header.button -%}
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ site.data.sitetext[site.locale].header.buttonlink }}">{{ site.data.sitetext[site.locale].header.button }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="image-slider">
+            {%- if site.data.sitetext[site.locale].header.slider -%}
+            {% for slide in site.data.sitetext[site.locale].header.slider %}
+            <div class="slider-image {% if forloop.first %}active{% endif %}" data-title="{{ slide.title }}" data-description="{{ slide.description }}">
+              <img src="{{ slide.image }}" alt="{{ slide.title }}" class="img-fluid rounded-lg">
+            </div>
+            {% endfor %}
+            {%- endif -%}
+          </div>
+        </div>
       </div>
     </div>
   </header>
   {% else %}
   <header class="masthead">
     <div class="container">
-      <div class="intro-text">
-	  {%- if site.data.sitetext.header.title -%}
-        <div class="intro-lead-in">{{ site.data.sitetext.header.title | markdownify }}</div>
-	  {%- endif -%}
-	  {%- if site.data.sitetext.header.text -%}
-        <div class="intro-heading text-uppercase">{{ site.data.sitetext.header.text | markdownify }}</div>
-	  {%- endif -%}
-	  {%- if site.data.sitetext.header.button -%}
-        <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ site.data.sitetext.header.buttonlink }}">{{ site.data.sitetext.header.button }}</a>
-	  {%- endif -%}
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="intro-text">
+            {%- if site.data.sitetext.header.title -%}
+            <div class="intro-lead-in">{{ site.data.sitetext.header.title | markdownify }}</div>
+            {%- endif -%}
+            {%- if site.data.sitetext.header.text -%}
+            <div class="intro-heading text-uppercase">{{ site.data.sitetext.header.text | markdownify }}</div>
+            {%- endif -%}
+            <div class="slider-content">
+              <h3 class="slider-title" id="sliderTitle">Robotics Research</h3>
+              <p class="slider-description" id="sliderDescription">Developing intelligent robotic systems</p>
+            </div>
+            {%- if site.data.sitetext.header.button -%}
+            <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="{{ site.data.sitetext.header.buttonlink }}">{{ site.data.sitetext.header.button }}</a>
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="image-slider">
+            {%- if site.data.sitetext.header.slider -%}
+            {% for slide in site.data.sitetext.header.slider %}
+            <div class="slider-image {% if forloop.first %}active{% endif %}" data-title="{{ slide.title }}" data-description="{{ slide.description }}">
+              <img src="{{ slide.image }}" alt="{{ slide.title }}" class="img-fluid rounded-lg">
+            </div>
+            {% endfor %}
+            {%- endif -%}
+          </div>
+        </div>
       </div>
     </div>
   </header>
