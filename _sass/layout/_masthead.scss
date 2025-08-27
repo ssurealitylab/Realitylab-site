@@ -64,31 +64,38 @@ header.masthead {
   .research-tabs {
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 1rem;
     margin: 2rem 0;
     flex-wrap: wrap;
     
     .research-tab {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 25px;
+      padding: 12px 24px;
       text-align: center;
       opacity: 0.4;
-      transition: opacity 0.5s ease;
+      transition: all 0.5s ease;
       cursor: pointer;
-      max-width: 200px;
+      backdrop-filter: blur(10px);
       
       &.active {
         opacity: 1;
+        background: rgba(59, 130, 246, 0.2);
+        border-color: rgba(59, 130, 246, 0.4);
+        transform: scale(1.05);
       }
       
       .tab-title {
-        font-size: 1.2rem;
+        font-size: 1rem;
         font-weight: 600;
         color: #1a1a1a;
-        margin-bottom: 0.5rem;
+        margin-bottom: 4px;
         @include heading-font;
       }
       
       .tab-description {
-        font-size: 0.9rem;
+        font-size: 0.8rem;
         color: #6b7280;
         margin-bottom: 0;
         @include body-font;
@@ -103,12 +110,12 @@ header.masthead {
     padding: 0 20px 40px;
   }
   
-  // Image Slider Styles (21:9 aspect ratio)
+  // Image Slider Styles (21:9 aspect ratio, 25% larger)
   .image-slider {
     position: relative;
-    width: 800px;
+    width: 1000px; // 800px * 1.25 = 1000px
     max-width: 90vw;
-    height: calc(800px * 9 / 21); // 21:9 aspect ratio
+    height: calc(1000px * 9 / 21); // 21:9 aspect ratio with 25% increase
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
@@ -198,8 +205,8 @@ header.masthead {
     }
     
     .image-slider {
-      width: 700px;
-      height: 450px;
+      width: 875px; // 700px * 1.25 = 875px
+      height: calc(875px * 9 / 21); // 21:9 aspect ratio with 25% increase
     }
   }
 }
