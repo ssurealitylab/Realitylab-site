@@ -1,9 +1,10 @@
-// Simple Image Slider with Tab Click functionality
+// Reality Lab Image Slider - Isolated from Bootstrap
 $(document).ready(function() {
-    var sliderImages = $('.slider-image');
-    var researchTabs = $('.research-tab');
+    // Use more specific selectors to avoid Bootstrap conflicts
+    var sliderImages = $('.image-slider .slider-image');
+    var researchTabs = $('.research-tabs .research-tab');
     var currentIndex = 0;
-    var slideInterval;
+    var realityLabSlideInterval = null; // Unique variable name
     
     if (sliderImages.length === 0) return;
     
@@ -24,27 +25,28 @@ $(document).ready(function() {
         showSlide(currentIndex);
     }
     
-    function startSlider() {
-        // Clear existing timer
-        if (slideInterval) {
-            clearInterval(slideInterval);
+    function startRealityLabSlider() {
+        // Clear existing timer with unique name
+        if (realityLabSlideInterval) {
+            clearInterval(realityLabSlideInterval);
+            realityLabSlideInterval = null;
         }
-        // Start new timer
-        slideInterval = setInterval(nextSlide, 4500);
+        // Start new timer with exact 4500ms interval
+        realityLabSlideInterval = setInterval(nextSlide, 4500);
     }
     
     // Initialize
     showSlide(0);
-    startSlider();
+    startRealityLabSlider();
     
-    // Tab click handler
-    researchTabs.on('click', function() {
-        var clickedIndex = $(this).data('index');
+    // Tab click handler with namespace
+    researchTabs.off('click.realitylab').on('click.realitylab', function() {
+        var clickedIndex = parseInt($(this).data('index'), 10);
         
         // Show clicked slide
         showSlide(clickedIndex);
         
         // Restart timer from current position
-        startSlider();
+        startRealityLabSlider();
     });
 });
