@@ -319,7 +319,8 @@ PLATFORMS
   x86_64-linux-musl
 
 DEPENDENCIES
-  github-pages
+  github-pages (~> 232)
+  webrick (~> 1.8)
 
 BUNDLED WITH
    2.7.1
