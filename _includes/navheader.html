@@ -16,25 +16,43 @@
         <ul class="navbar-nav text-uppercase ml-auto">
         {% if site.locale and site.locale != "" and site.locale != nil %}
         {% for link in site.data.navigation[site.locale].nav %}
-          <li class="nav-item">
-            {%- if link.url -%}
-              <a class="nav-link js-scroll-trigger" href="{{ link.url }}">{{ link.title }}</a>
+          <li class="nav-item{% if link.dropdown %} dropdown{% endif %}">
+            {%- if link.dropdown -%}
+              <a class="nav-link dropdown-toggle" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ link.title }}
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">
+                {% for sublink in link.dropdown %}
+                  <a class="dropdown-item" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                {% endfor %}
+              </div>
+            {%- elsif link.url -%}
+              <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
             {%- elsif link.section -%}
               <a class="nav-link js-scroll-trigger" href="#{{ link.section }}">{{ link.title }}</a>
             {%- else -%}
-              <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
+              <a class="nav-link" href="#">{{ link.title }}</a>
             {%- endif -%}
           </li>
         {% endfor %}
         {% else %}
         {% for link in site.data.navigation.nav %}
-        <li class="nav-item">
-          {%- if link.url -%}
-            <a class="nav-link js-scroll-trigger" href="{{ link.url }}">{{ link.title }}</a>
+        <li class="nav-item{% if link.dropdown %} dropdown{% endif %}">
+          {%- if link.dropdown -%}
+            <a class="nav-link dropdown-toggle" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {{ link.title }}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">
+              {% for sublink in link.dropdown %}
+                <a class="dropdown-item" href="{{ sublink.url }}">{{ sublink.title }}</a>
+              {% endfor %}
+            </div>
+          {%- elsif link.url -%}
+            <a class="nav-link" href="{{ link.url }}">{{ link.title }}</a>
           {%- elsif link.section -%}
             <a class="nav-link js-scroll-trigger" href="#{{ link.section }}">{{ link.title }}</a>
           {%- else -%}
-            <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
+            <a class="nav-link" href="#">{{ link.title }}</a>
           {%- endif -%}
         </li>
         {% endfor %}

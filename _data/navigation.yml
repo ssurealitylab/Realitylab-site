@@ -10,54 +10,54 @@
 # Default navigation (used when no locale is specified)
 nav:
   - title: "Home"
-    section: page-top
+    url: /
   - title: "News"
-    section: timeline
+    url: /news.html
   - title: "Members"
-    section: team
+    url: /members.html
     dropdown:
       - title: "Faculty"
-        section: team
+        url: /members.html#faculty
       - title: "Students"
-        section: team
+        url: /members.html#students
       - title: "Alumni"
-        section: team
+        url: /members.html#alumni
   - title: "Publication"
-    section: portfolio
+    url: /publication.html
     dropdown:
       - title: "International"
-        section: portfolio
+        url: /publication.html#international
       - title: "Domestic"
-        section: portfolio
+        url: /publication.html#domestic
   - title: "Courses"
-    section: services
+    url: /courses.html
 
 # English [default] (https://localizely.com/language-code/en/)
 # -----------------
 en: &DEFAULT_EN
   nav:
     - title: "Home"
-      section: page-top
+      url: /
     - title: "News"
-      section: timeline
+      url: /news.html
     - title: "Members"
-      section: team
+      url: /members.html
       dropdown:
         - title: "Faculty"
-          section: team
+          url: /members.html#faculty
         - title: "Students"
-          section: team
+          url: /members.html#students
         - title: "Alumni"
-          section: team
+          url: /members.html#alumni
     - title: "Publication"
-      section: portfolio
+      url: /publication.html
       dropdown:
         - title: "International"
-          section: portfolio
+          url: /publication.html#international
         - title: "Domestic"
-          section: portfolio
+          url: /publication.html#domestic
     - title: "Courses"
-      section: services
+      url: /courses.html
 
 en-001: #English (World)
   <<: *DEFAULT_EN
