@@ -30,12 +30,12 @@
         {%- for link in site.data.navigation[site.locale].nav -%}
         <li class="nav-item {% if link.dropdown %}dropdown{% endif %}">
           {%- if link.dropdown -%}
-          <a class="nav-link dropdown-toggle" href="#" data-dropdown="dropdown-{{ forloop.index }}">
+          <a class="nav-link dropdown-toggle" href="{{ link.url | default: '#' }}" data-dropdown="dropdown-{{ forloop.index }}">
             {{ link.title }} <i class="fas fa-chevron-down"></i>
           </a>
           <div class="dropdown-menu" id="dropdown-{{ forloop.index }}">
             {%- for item in link.dropdown -%}
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="{{ item.url }}">
               <div class="dropdown-item-content">
                 <i class="{{ item.icon }}"></i>
                 <div class="dropdown-item-text">
@@ -65,12 +65,12 @@
         {%- for link in site.data.navigation.nav -%}
         <li class="nav-item {% if link.dropdown %}dropdown{% endif %}">
           {%- if link.dropdown -%}
-          <a class="nav-link dropdown-toggle" href="#" data-dropdown="dropdown-{{ forloop.index }}">
+          <a class="nav-link dropdown-toggle" href="{{ link.url | default: '#' }}" data-dropdown="dropdown-{{ forloop.index }}">
             {{ link.title }} <i class="fas fa-chevron-down"></i>
           </a>
           <div class="dropdown-menu" id="dropdown-{{ forloop.index }}">
             {%- for item in link.dropdown -%}
-            <a class="dropdown-item" href="#">
+            <a class="dropdown-item" href="{{ item.url }}">
               <div class="dropdown-item-content">
                 <i class="{{ item.icon }}"></i>
                 <div class="dropdown-item-text">
