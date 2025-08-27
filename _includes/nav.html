@@ -30,7 +30,7 @@
         {%- for link in site.data.navigation[site.locale].nav -%}
         <li class="nav-item {% if link.dropdown %}dropdown{% endif %}">
           {%- if link.dropdown -%}
-          <a class="nav-link dropdown-toggle" href="#" onclick="toggleDropdown(this)" data-dropdown="dropdown-{{ forloop.index }}">
+          <a class="nav-link dropdown-toggle" href="#" data-dropdown="dropdown-{{ forloop.index }}">
             {{ link.title }} <i class="fas fa-chevron-down"></i>
           </a>
           <div class="dropdown-menu" id="dropdown-{{ forloop.index }}">
@@ -65,7 +65,7 @@
         {%- for link in site.data.navigation.nav -%}
         <li class="nav-item {% if link.dropdown %}dropdown{% endif %}">
           {%- if link.dropdown -%}
-          <a class="nav-link dropdown-toggle" href="#" onclick="toggleDropdown(this)" data-dropdown="dropdown-{{ forloop.index }}">
+          <a class="nav-link dropdown-toggle" href="#" data-dropdown="dropdown-{{ forloop.index }}">
             {{ link.title }} <i class="fas fa-chevron-down"></i>
           </a>
           <div class="dropdown-menu" id="dropdown-{{ forloop.index }}">

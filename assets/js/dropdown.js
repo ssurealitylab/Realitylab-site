@@ -1,34 +1,38 @@
-function toggleDropdown(element) {
-    const dropdownId = element.getAttribute('data-dropdown');
-    const dropdown = document.getElementById(dropdownId);
-    const chevron = element.querySelector('.fa-chevron-down');
+// Enhanced dropdown functionality for better mobile and accessibility support
+document.addEventListener('DOMContentLoaded', function() {
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
     
-    // Close all other dropdowns
-    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
-        if (menu.id !== dropdownId) {
-            menu.classList.remove('show');
-            const otherChevron = document.querySelector(`[data-dropdown="${menu.id}"] .fa-chevron-down`);
-            if (otherChevron) {
-                otherChevron.style.transform = '';
+    dropdownToggles.forEach(toggle => {
+        // Add click support for mobile
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            // Only use JavaScript toggle on mobile/tablet screens
+            if (window.innerWidth < 992) {
+                const dropdownId = this.getAttribute('data-dropdown');
+                const dropdown = document.getElementById(dropdownId);
+                
+                if (dropdown) {
+                    const isShown = dropdown.classList.contains('show');
+                    
+                    // Close all other dropdowns first
+                    document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                        if (menu.id !== dropdownId) {
+                            menu.classList.remove('show');
+                        }
+                    });
+                    
+                    // Toggle current dropdown
+                    if (isShown) {
+                        dropdown.classList.remove('show');
+                    } else {
+                        dropdown.classList.add('show');
+                    }
+                }
             }
-        }
+        });
     });
-    
-    // Toggle current dropdown
-    if (dropdown) {
-        const isShown = dropdown.classList.contains('show');
-        
-        if (isShown) {
-            dropdown.classList.remove('show');
-            chevron.style.transform = '';
-        } else {
-            dropdown.classList.add('show');
-            chevron.style.transform = 'rotate(180deg)';
-        }
-    }
-    
-    return false; // Prevent default link behavior
-}
+});
 
 // Close dropdowns when clicking outside
 document.addEventListener('click', function(event) {
