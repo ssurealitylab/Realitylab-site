@@ -1,0 +1,27 @@
+#Color Customization - Blue to Sky Blue gradient theme
+highlight: "#3B82F6"
+white: "#fff"
+black: "#000"
+primary: "#3B82F6"
+
+#Image Customization
+header-image: "../img/header.png"
+contact-image: "../img/contact.png"
+#Font Awesome icon for portfolio grid when an item is hovered over
+portfolio-icon: fas fa-expand-arrows-alt fa-3x #default: fas fa-plus fa-3x
+
+# Add custom fonts - Poppins like Apidog
+fonts_urls:
+    - "https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    - "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+
+# Set custom fonts
+fonts:
+  - name: "Poppins"
+    for: "heading"
+  - name: "Poppins"
+    for: "script"
+  - name: "Inter"
+    for: "serif"
+  - name: "Inter"
+    for: "body"
