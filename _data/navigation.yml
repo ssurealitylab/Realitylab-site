@@ -9,71 +9,55 @@
 
 # Default navigation (used when no locale is specified)
 nav:
-  - title: "Research"
-    section: services
-    dropdown:
-      - title: "Robotics"
-        icon: "fas fa-robot"
-        desc: "Intelligent robotic systems"
-      - title: "Computer Vision"
-        icon: "fas fa-eye"
-        desc: "Visual recognition systems"
-      - title: "Machine Learning"
-        icon: "fas fa-brain"
-        desc: "Advanced ML algorithms"
-      - title: "Multimodal AI"
-        icon: "fas fa-comments"
-        desc: "Language understanding"
-      - title: "AI+X Applications"
-        icon: "fas fa-plus-circle"
-        desc: "Real-world applications"
-  - title: "Portfolio"
-    section: portfolio
-  - title: "About"
-    section: about
-  - title: "Timeline"
+  - title: "Home"
+    section: page-top
+  - title: "News"
     section: timeline
-  - title: "Team"
+  - title: "Members"
     section: team
-  - title: "Contact"
-    section: contact
-  - title: "Theme Source"
-    url: https://github.com/raviriley/agency-jekyll-theme/
+    dropdown:
+      - title: "Faculty"
+        section: team
+      - title: "Students"
+        section: team
+      - title: "Alumni"
+        section: team
+  - title: "Publication"
+    section: portfolio
+    dropdown:
+      - title: "International"
+        section: portfolio
+      - title: "Domestic"
+        section: portfolio
+  - title: "Courses"
+    section: services
 
 # English [default] (https://localizely.com/language-code/en/)
 # -----------------
 en: &DEFAULT_EN
   nav:
-    - title: "Research"
-      section: services
-      dropdown:
-        - title: "Robotics"
-          icon: "fas fa-robot"
-          desc: "Intelligent robotic systems"
-        - title: "Computer Vision"
-          icon: "fas fa-eye"
-          desc: "Visual recognition systems"
-        - title: "Machine Learning"
-          icon: "fas fa-brain"
-          desc: "Advanced ML algorithms"
-        - title: "Multimodal AI"
-          icon: "fas fa-comments"
-          desc: "Language understanding"
-        - title: "AI+X Applications"
-          icon: "fas fa-plus-circle"
-          desc: "Real-world applications"
-    - title: "Portfolio"
-      section: portfolio
-    - title: "About"
-      section: about
-    - title: "Timeline"
+    - title: "Home"
+      section: page-top
+    - title: "News"
       section: timeline
-    - title: "Team"
+    - title: "Members"
       section: team
-    - title: "Contact"
-      section: contact
-    - title: "Theme Source"
-      url: https://github.com/raviriley/agency-jekyll-theme/
+      dropdown:
+        - title: "Faculty"
+          section: team
+        - title: "Students"
+          section: team
+        - title: "Alumni"
+          section: team
+    - title: "Publication"
+      section: portfolio
+      dropdown:
+        - title: "International"
+          section: portfolio
+        - title: "Domestic"
+          section: portfolio
+    - title: "Courses"
+      section: services
 
 en-001: #English (World)
   <<: *DEFAULT_EN
