@@ -30,7 +30,7 @@ $(document).ready(function() {
             clearInterval(slideInterval);
         }
         // Start new timer
-        slideInterval = setInterval(nextSlide, 3000);
+        slideInterval = setInterval(nextSlide, 4500);
     }
     
     // Initialize
