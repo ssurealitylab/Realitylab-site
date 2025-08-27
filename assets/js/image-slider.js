@@ -1,52 +1,99 @@
-// Reality Lab Image Slider - Isolated from Bootstrap
-$(document).ready(function() {
-    // Use more specific selectors to avoid Bootstrap conflicts
-    var sliderImages = $('.image-slider .slider-image');
-    var researchTabs = $('.research-tabs .research-tab');
-    var currentIndex = 0;
-    var realityLabSlideInterval = null; // Unique variable name
+// Reality Lab Image Slider - Pure JS Implementation
+(function() {
+    'use strict';
     
-    if (sliderImages.length === 0) return;
+    var currentIndex = 0;
+    var sliderImages = null;
+    var researchTabs = null;
+    var slideTimer = null;
+    var SLIDE_INTERVAL = 4500; // 4.5 seconds exactly
+    
+    function log(message) {
+        console.log('[RealityLab Slider]', new Date().toISOString(), message);
+    }
+    
+    function initializeElements() {
+        sliderImages = document.querySelectorAll('.image-slider .slider-image');
+        researchTabs = document.querySelectorAll('.research-tabs .research-tab');
+        
+        log('Found ' + sliderImages.length + ' images and ' + researchTabs.length + ' tabs');
+        
+        if (sliderImages.length === 0 || researchTabs.length === 0) {
+            log('No slider elements found - exiting');
+            return false;
+        }
+        return true;
+    }
     
     function showSlide(index) {
-        // Remove active from all
-        sliderImages.removeClass('active');
-        researchTabs.removeClass('active');
+        log('Showing slide ' + index);
+        
+        // Remove active class from all
+        for (var i = 0; i < sliderImages.length; i++) {
+            sliderImages[i].classList.remove('active');
+        }
+        for (var j = 0; j < researchTabs.length; j++) {
+            researchTabs[j].classList.remove('active');
+        }
         
         // Add active to current
-        sliderImages.eq(index).addClass('active');
-        researchTabs.eq(index).addClass('active');
+        if (sliderImages[index]) {
+            sliderImages[index].classList.add('active');
+        }
+        if (researchTabs[index]) {
+            researchTabs[index].classList.add('active');
+        }
         
         currentIndex = index;
     }
     
     function nextSlide() {
         currentIndex = (currentIndex + 1) % sliderImages.length;
+        log('Auto advancing to slide ' + currentIndex);
         showSlide(currentIndex);
     }
     
-    function startRealityLabSlider() {
-        // Clear existing timer with unique name
-        if (realityLabSlideInterval) {
-            clearInterval(realityLabSlideInterval);
-            realityLabSlideInterval = null;
+    function startTimer() {
+        if (slideTimer) {
+            clearInterval(slideTimer);
+            slideTimer = null;
         }
-        // Start new timer with exact 4500ms interval
-        realityLabSlideInterval = setInterval(nextSlide, 4500);
+        
+        log('Starting timer with ' + SLIDE_INTERVAL + 'ms interval');
+        slideTimer = setInterval(nextSlide, SLIDE_INTERVAL);
     }
     
-    // Initialize
-    showSlide(0);
-    startRealityLabSlider();
-    
-    // Tab click handler with namespace
-    researchTabs.off('click.realitylab').on('click.realitylab', function() {
-        var clickedIndex = parseInt($(this).data('index'), 10);
+    function handleTabClick(event) {
+        var clickedIndex = parseInt(event.target.closest('.research-tab').getAttribute('data-index'), 10);
+        log('Tab clicked: ' + clickedIndex);
         
-        // Show clicked slide
         showSlide(clickedIndex);
+        startTimer(); // Restart timer
+    }
+    
+    function init() {
+        if (!initializeElements()) {
+            return;
+        }
         
-        // Restart timer from current position
-        startRealityLabSlider();
-    });
-});
+        // Add click listeners to tabs
+        for (var i = 0; i < researchTabs.length; i++) {
+            researchTabs[i].addEventListener('click', handleTabClick);
+        }
+        
+        // Initialize first slide
+        showSlide(0);
+        
+        // Start timer
+        startTimer();
+        
+        log('Initialization complete');
+    }
+    
+    // Wait for DOM ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
