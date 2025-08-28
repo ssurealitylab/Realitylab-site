@@ -1,0 +1,88 @@
+---
+layout: default
+title: AI Chat
+---
+
+<section class="page-section" id="ai-chat">
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-heading text-uppercase">Reality Lab AI Chat</h2>
+      <h3 class="section-subheading text-muted">AI와 대화하고 연구실에 대해 질문해보세요!</h3>
+    </div>
+    
+    <!-- AI에게 질문하기 버튼 -->
+    <div class="text-center mb-5">
+      <a href="https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md" 
+         class="btn btn-primary btn-xl text-uppercase" 
+         target="_blank">
+        🤖 AI에게 질문하기
+      </a>
+      <p class="text-muted mt-2">
+        GitHub Issue를 통해 AI에게 질문하면 자동으로 답변해드립니다!<br>
+        <small>* Reality Lab 서버의 GPU에서 실시간으로 생성되는 답변입니다</small>
+      </p>
+    </div>
+    
+    <!-- 최근 AI 대화 내역 -->
+    <div class="row">
+      <div class="col-lg-8 mx-auto">
+        <h4 class="text-center mb-4">최근 AI 대화 내역</h4>
+        
+        {% if site.data.ai_conversations and site.data.ai_conversations.size > 0 %}
+          {% for conversation in site.data.ai_conversations limit:10 %}
+            <div class="card mb-3 ai-conversation">
+              <div class="card-body">
+                <h6 class="card-subtitle mb-2 text-muted">
+                  <i class="fas fa-user"></i> 질문 #{{ conversation.id }}
+                  <small class="float-end">{{ conversation.timestamp | date: "%Y-%m-%d %H:%M" }}</small>
+                </h6>
+                <p class="card-text question">
+                  <strong>Q:</strong> {{ conversation.question }}
+                </p>
+                <div class="ai-response">
+                  <p class="card-text">
+                    <i class="fas fa-robot text-primary"></i> <strong>AI 답변:</strong>
+                  </p>
+                  <div class="ai-answer">
+                    {{ conversation.answer | markdownify }}
+                  </div>
+                </div>
+                <a href="{{ conversation.github_issue }}" class="btn btn-sm btn-outline-secondary" target="_blank">
+                  <i class="fab fa-github"></i> GitHub에서 보기
+                </a>
+              </div>
+            </div>
+          {% endfor %}
+        {% else %}
+          <div class="text-center">
+            <p class="text-muted">아직 AI 대화 내역이 없습니다.</p>
+            <p>위의 "AI에게 질문하기" 버튼을 클릭해서 첫 질문을 해보세요!</p>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+.ai-conversation {
+  border-left: 4px solid #3366cc;
+}
+
+.ai-response {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.ai-answer {
+  color: #2c3e50;
+  line-height: 1.6;
+}
+
+.question {
+  font-size: 1.1em;
+  color: #2c3e50;
+}
+</style>
