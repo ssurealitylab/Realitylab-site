@@ -33,11 +33,15 @@ header.masthead {
     }
     .intro-heading {
       font-size: 56px;
-      font-weight: 700;
+      font-weight: 500;
       line-height: 1.2;
       margin-bottom: 30px;
       color: #1a1a1a;
       @include heading-font;
+      
+      .reality-lab-text {
+        color: #3366cc; // 80% blue + 20% purple mix
+      }
     }
   }
 }
@@ -57,11 +61,15 @@ header.masthead {
       }
       .intro-heading {
         font-size: 72px;
-        font-weight: 700;
+        font-weight: 500;
         line-height: 1.1;
         margin-bottom: 40px;
         color: #1a1a1a;
         @include heading-font;
+        
+        .reality-lab-text {
+          color: #3366cc; // 80% blue + 20% purple mix
+        }
       }
     }
   }
@@ -125,7 +133,7 @@ header.masthead {
       .tab-title {
         font-size: 0.72rem; // 0.9rem * 0.8 = 0.72rem (20% reduction)
         font-weight: 600;
-        color: #1a1a1a;
+        color: #3366cc; // Same blue-purple mix as title
         margin-bottom: 2px; // 3px * 0.8 = 2px (20% reduction)
         @include heading-font;
         white-space: nowrap; // Prevent text wrapping
@@ -133,7 +141,7 @@ header.masthead {
       
       .tab-description {
         font-size: 0.6rem; // 0.75rem * 0.8 = 0.6rem (20% reduction)
-        color: #6b7280;
+        color: #3366cc; // Same blue-purple mix as title
         margin-bottom: 0;
         @include body-font;
         line-height: 1.3;
