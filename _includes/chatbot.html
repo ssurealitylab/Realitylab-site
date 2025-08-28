@@ -399,81 +399,70 @@ document.addEventListener('DOMContentLoaded', function() {
   let isAIMode = true;
   let isEnglish = false;
 
-  // AI Model variables
-  let aiPipeline = null;
-  let isModelLoading = false;
-  let isModelLoaded = false;
+  // AI Server availability check
+  let isServerAvailable = null;
 
-  // Initialize AI model
-  async function initAIModel() {
-    if (isModelLoaded || isModelLoading) return;
+  // Check if AI server is available
+  async function checkAIServer() {
+    if (isServerAvailable !== null) return isServerAvailable;
     
-    isModelLoading = true;
     try {
-      console.log('Loading Tiny Llama model...');
-      addMessage('AI 모델을 로딩 중입니다... 잠시만 기다려주세요. 🤖', 'bot');
-      
-      if (window.transformers && window.transformers.pipeline) {
-        aiPipeline = await window.transformers.pipeline(
-          'text-generation',
-          'Xenova/TinyLlama-1.1B-Chat-v1.0',
-          {
-            quantized: true,
-            progress_callback: (progress) => {
-              if (progress.status === 'downloading') {
-                console.log(`Downloading: ${progress.name} - ${Math.round(progress.progress)}%`);
-              }
-            }
-          }
-        );
-        isModelLoaded = true;
-        addMessage('AI 모델이 성공적으로 로드되었습니다! 이제 질문해보세요. ✨', 'bot');
-        console.log('Tiny Llama model loaded successfully');
-      } else {
-        throw new Error('Transformers.js not available');
-      }
+      const response = await fetch('http://127.0.0.1:5000/health', {
+        method: 'GET',
+        timeout: 3000
+      });
+      isServerAvailable = response.ok;
     } catch (error) {
-      console.error('Error loading AI model:', error);
-      addMessage('AI 모델 로딩에 실패했습니다. 검색 모드를 사용해주세요. ❌', 'bot');
-    } finally {
-      isModelLoading = false;
+      console.log('AI server not available:', error);
+      isServerAvailable = false;
     }
+    
+    return isServerAvailable;
   }
 
-  // Generate AI response
+  // Generate AI response using local API
   async function generateAIResponse(question) {
-    if (!isModelLoaded) {
-      await initAIModel();
-      if (!isModelLoaded) {
-        return isEnglish ? 
-          "AI model is not available. Please use Search mode." :
-          "AI 모델을 사용할 수 없습니다. 검색 모드를 사용해주세요.";
-      }
+    // Check if we're running locally (development environment)
+    const isLocal = window.location.hostname === 'localhost' || 
+                   window.location.hostname === '127.0.0.1' ||
+                   window.location.protocol === 'http:';
+    
+    if (!isLocal) {
+      return isEnglish ? 
+        "AI server is only available in local development environment. Please use Search mode." :
+        "AI 서버는 로컬 개발 환경에서만 사용 가능합니다. 검색 모드를 사용해주세요.";
     }
-
+    
     try {
-      // Create a context-aware prompt for Reality Lab
-      const prompt = isEnglish ? 
-        `You are a helpful assistant for the Reality Lab at Soongsil University. Answer questions about the lab's research, team, and activities. Keep responses concise and informative.
-
-Question: ${question}
-Answer:` :
-        `당신은 숭실대학교 리얼리티 연구실의 도움이 되는 어시스턴트입니다. 연구실의 연구, 팀, 활동에 대한 질문에 답변해주세요. 간결하고 유익한 답변을 해주세요.
-
-질문: ${question}
-답변:`;
-
-      const result = await aiPipeline(prompt, {
-        max_new_tokens: 100,
-        temperature: 0.7,
-        do_sample: true,
-        top_p: 0.9,
+      // Call local AI server
+      const response = await fetch('http://127.0.0.1:5000/generate', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          prompt: question,
+          language: isEnglish ? 'en' : 'ko'
+        })
       });
 
-      return result[0].generated_text.split(isEnglish ? 'Answer:' : '답변:')[1]?.trim() || 
-             (isEnglish ? "I'm here to help with Reality Lab questions!" : "리얼리티 연구실에 관한 질문을 도와드리겠습니다!");
+      if (!response.ok) {
+        throw new Error(`Server error: ${response.status}`);
+      }
+
+      const data = await response.json();
+      return data.response || (isEnglish ? "Sorry, no response generated." : "응답을 생성할 수 없습니다.");
+      
     } catch (error) {
-      console.error('Error generating AI response:', error);
+      console.error('Error calling AI server:', error);
+      
+      // Check if server is not running
+      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        return isEnglish ? 
+          "AI server is not available. Please use Search mode or try again later." :
+          "AI 서버를 사용할 수 없습니다. 검색 모드를 사용하거나 나중에 다시 시도해주세요.";
+      }
+      
       return isEnglish ? 
         "Sorry, I encountered an error. Please try again." :
         "죄송합니다. 오류가 발생했습니다. 다시 시도해주세요.";
@@ -511,18 +500,18 @@ Answer:` :
       isAIMode = this.checked;
       updateModeUI();
       
-      // Initialize AI model when switching to AI mode
-      if (isAIMode && !isModelLoaded && !isModelLoading) {
-        initAIModel();
+      // Check AI server when switching to AI mode
+      if (isAIMode) {
+        checkAIServer();
       }
     });
   }
 
-  // Initialize AI model on first load if AI mode is default
-  if (isAIMode && !isModelLoaded && !isModelLoading) {
-    // Wait a bit for the UI to load, then initialize
+  // Check AI server on first load if AI mode is default
+  if (isAIMode) {
+    // Wait a bit for the UI to load, then check server
     setTimeout(() => {
-      initAIModel();
+      checkAIServer();
     }, 1000);
   }
 
