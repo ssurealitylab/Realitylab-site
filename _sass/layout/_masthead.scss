@@ -1,8 +1,12 @@
-// Styling for the masthead - Apidog style
+// Styling for the masthead - Apidog style with gradient background
 header.masthead {
   text-align: center;
   color: #1a1a1a;
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+  background: 
+    radial-gradient(ellipse 80% 50% at 50% 60%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 40%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 20% 70%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+    linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -10,6 +14,8 @@ header.masthead {
   min-height: 90vh;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
   .intro-text {
     padding-top: 80px;
     padding-bottom: 40px;
@@ -30,7 +36,10 @@ header.masthead {
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 30px;
-      color: #1a1a1a;
+      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #ec4899 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
       @include heading-font;
     }
   }
@@ -54,7 +63,10 @@ header.masthead {
         font-weight: 700;
         line-height: 1.1;
         margin-bottom: 40px;
-        color: #1a1a1a;
+        background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #ec4899 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
         @include heading-font;
       }
     }
