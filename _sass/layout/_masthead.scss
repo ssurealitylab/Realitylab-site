@@ -72,10 +72,11 @@ header.masthead {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 40px;
-    padding: 20px 24px; // Increased padding to accommodate scale effect
+    padding: 20px 30px; // Increased padding for better spacing
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    max-width: fit-content;
+    min-width: 884px; // 680px * 1.3 = 884px (30% wider)
+    max-width: 90vw; // Responsive maximum width
     overflow: visible; // Ensure scaled elements don't get clipped
     
     .research-tab {
@@ -175,6 +176,8 @@ header.masthead {
     .research-tabs {
       gap: 0.5rem;
       padding: 16px 20px; // Increased padding for mobile
+      min-width: auto; // Allow flexible width on mobile
+      max-width: 95vw; // Better responsive width
       
       .research-tab {
         min-width: 110px;
