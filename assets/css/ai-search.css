@@ -7,40 +7,34 @@
   width: 36px;
   height: 36px;
   cursor: pointer;
-  border-radius: 50%;
-  background: linear-gradient(135deg, rgba(51, 102, 204, 0.1) 0%, rgba(41, 84, 179, 0.15) 100%);
-  backdrop-filter: blur(10px) saturate(1.5);
-  -webkit-backdrop-filter: blur(10px) saturate(1.5);
-  border: 1px solid rgba(51, 102, 204, 0.2);
   transition: all 0.3s ease;
 }
 
 .ai-search-btn svg {
   position: absolute;
-  color: #3366cc;
   width: 32px;
   height: 32px;
   stroke-width: 2.5;
+  stroke: url(#blueGradient);
   filter: drop-shadow(0 1px 3px rgba(51, 102, 204, 0.3));
   transition: all 0.3s ease;
 }
 
 .ai-search-btn:hover {
-  background: linear-gradient(135deg, rgba(51, 102, 204, 0.2) 0%, rgba(41, 84, 179, 0.25) 100%);
-  border: 1px solid rgba(51, 102, 204, 0.4);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 15px rgba(51, 102, 204, 0.3);
+  transform: translateY(-2px);
 }
 
 .ai-search-btn:hover svg {
-  color: #2954b3;
-  filter: drop-shadow(0 2px 5px rgba(41, 84, 179, 0.4));
+  stroke: url(#blueGradientHover);
+  filter: drop-shadow(0 2px 8px rgba(51, 102, 204, 0.5));
 }
 
 .ai-search-btn:active {
-  background: linear-gradient(135deg, rgba(51, 102, 204, 0.3) 0%, rgba(41, 84, 179, 0.35) 100%);
-  transform: translateY(0);
-  box-shadow: 0 2px 8px rgba(51, 102, 204, 0.4);
+  transform: translateY(-1px);
+}
+
+.ai-search-btn:active svg {
+  stroke: url(#blueGradientActive);
 }
 
 .ai-text {
@@ -82,7 +76,7 @@
 /* Align with other nav items */
 .navbar-nav .nav-item #ai-search {
   line-height: 1.2;
-  margin-top: -6px;
+  margin-top: -10px;
 }
 
 /* Responsive adjustments */

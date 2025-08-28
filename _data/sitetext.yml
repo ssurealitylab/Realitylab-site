@@ -12,7 +12,7 @@
 en: &DEFAULT_EN
   header:
     title: 
-    text: Welcome to the SSU <span class="reality-lab-text">Reality Lab</span>! 
+    text: Welcome to the SSU <span class="reality-lab-text">Reality Lab</span>! <img src="assets/img/ssu-logo.png" alt="SSU Logo" class="ssu-logo-inline"> 
     button: Learn About Our Research
     buttonlink: "#services"
     slider:
