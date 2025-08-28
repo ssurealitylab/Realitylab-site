@@ -10,11 +10,11 @@
       <div class="chatbot-controls">
         <div class="mode-toggle">
           <div class="toggle-labels">
-            <span class="toggle-label search-label">검색</span>
-            <span class="toggle-label ai-label active">AI</span>
+            <span class="toggle-label search-label active">검색</span>
+            <span class="toggle-label ai-label">WebLLM</span>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="mode-toggle" class="toggle-input" checked>
+            <input type="checkbox" id="mode-toggle" class="toggle-input">
             <label for="mode-toggle" class="toggle-slider"></label>
           </div>
         </div>
@@ -396,7 +396,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const suggestionChipsElements = document.querySelectorAll('.suggestion-chip');
   
   // Current modes
-  let isAIMode = true;
+  let isAIMode = false;
   let isEnglish = false;
 
   // AI Server availability check
@@ -525,26 +525,27 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.display = 'none';
   });
 
-  // Mode toggle functionality
+  // Mode toggle functionality - Switch to WebLLM when toggled
   if (modeToggle) {
     modeToggle.addEventListener('change', function() {
       isAIMode = this.checked;
-      updateModeUI();
-      
-      // Check AI server when switching to AI mode
       if (isAIMode) {
-        checkAIServer();
+        // Close search chatbot and open WebLLM
+        chatbotWindow.style.display = 'none';
+        toggleWebLLMChatbot();
+      } else {
+        // Close WebLLM if it's open and stay in search mode
+        const webllmContainer = document.getElementById('webllm-chatbot-container');
+        if (webllmContainer && webllmContainer.style.display === 'block') {
+          webllmContainer.style.display = 'none';
+        }
       }
+      updateModeUI();
     });
   }
 
-  // Check AI server on first load if AI mode is default
-  if (isAIMode) {
-    // Wait a bit for the UI to load, then check server
-    setTimeout(() => {
-      checkAIServer();
-    }, 1000);
-  }
+  // Initialize in search mode by default
+  updateAllUI();
 
   function updateModeUI() {
     updateAllUI();
