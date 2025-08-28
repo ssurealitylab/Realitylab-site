@@ -75,7 +75,7 @@ header.masthead {
     padding: 20px 30px; // Increased padding for better spacing
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    min-width: 822px; // 1494px * 0.55 = 822px (45% reduction)
+    min-width: 945px; // 822px * 1.15 = 945px (15% increase)
     max-width: 90vw; // Responsive maximum width
     overflow: visible; // Ensure scaled elements don't get clipped
     
