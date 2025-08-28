@@ -159,7 +159,7 @@ if __name__ == '__main__':
     # Load model on startup
     if load_model():
         logger.info("AI Server ready!")
-        # Enable HTTPS with self-signed certificate for public access
+        # Enable HTTPS for public access (required for GitHub Pages HTTPS)
         # WARNING: This makes the server accessible from the internet
         app.run(host='0.0.0.0', port=5000, debug=False, ssl_context='adhoc')
     else:
