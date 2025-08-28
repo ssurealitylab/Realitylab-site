@@ -7,11 +7,23 @@
         <div class="chatbot-title">Reality Lab Assistant</div>
         <div class="chatbot-subtitle">연구실에 대해 궁금한 것을 물어보세요!</div>
       </div>
-      <button id="chatbot-close" class="chatbot-close">
-        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
+      <div class="chatbot-controls">
+        <div class="mode-toggle">
+          <div class="toggle-labels">
+            <span class="toggle-label search-label active">검색</span>
+            <span class="toggle-label ai-label">AI</span>
+          </div>
+          <div class="toggle-switch">
+            <input type="checkbox" id="mode-toggle" class="toggle-input">
+            <label for="mode-toggle" class="toggle-slider"></label>
+          </div>
+        </div>
+        <button id="chatbot-close" class="chatbot-close">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
     </div>
     
     <div id="chatbot-messages" class="chatbot-messages">
@@ -111,6 +123,81 @@
 
 .chatbot-close:hover {
   background: rgba(0, 0, 0, 0.05);
+}
+
+.chatbot-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.mode-toggle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.toggle-labels {
+  display: flex;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.toggle-label {
+  color: #6b7280;
+  transition: color 0.2s ease;
+}
+
+.toggle-label.active {
+  color: #3366cc;
+  font-weight: 600;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+}
+
+.toggle-input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #3366cc;
+  border-radius: 24px;
+  transition: all 0.3s ease;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 20px;
+  width: 20px;
+  left: 2px;
+  bottom: 2px;
+  background: white;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-input:checked + .toggle-slider {
+  background: #10b981;
+}
+
+.toggle-input:checked + .toggle-slider:before {
+  transform: translateX(20px);
 }
 
 .chatbot-messages {
@@ -256,6 +343,15 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatbotSend = document.getElementById('chatbot-send');
   const chatbotMessages = document.getElementById('chatbot-messages');
   const suggestionChips = document.querySelectorAll('.suggestion-chip');
+  
+  // Mode toggle elements
+  const modeToggle = document.getElementById('mode-toggle');
+  const searchLabel = document.querySelector('.search-label');
+  const aiLabel = document.querySelector('.ai-label');
+  const chatbotSubtitle = document.querySelector('.chatbot-subtitle');
+  
+  // Current mode (false = search, true = AI)
+  let isAIMode = false;
 
   // Toggle chatbot
   function toggleChatbot() {
@@ -282,6 +378,30 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.display = 'none';
   });
 
+  // Mode toggle functionality
+  if (modeToggle) {
+    modeToggle.addEventListener('change', function() {
+      isAIMode = this.checked;
+      updateModeUI();
+    });
+  }
+
+  function updateModeUI() {
+    if (isAIMode) {
+      // AI mode
+      searchLabel.classList.remove('active');
+      aiLabel.classList.add('active');
+      chatbotSubtitle.textContent = 'AI가 연구실에 대해 답변해드립니다!';
+      chatbotInput.placeholder = 'AI에게 궁금한 것을 물어보세요...';
+    } else {
+      // Search mode
+      searchLabel.classList.add('active');
+      aiLabel.classList.remove('active');
+      chatbotSubtitle.textContent = '연구실에 대해 궁금한 것을 물어보세요!';
+      chatbotInput.placeholder = '궁금한 것을 물어보세요...';
+    }
+  }
+
   // Handle input
   function handleSend() {
     const question = chatbotInput.value.trim();
@@ -293,7 +413,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Generate and add bot response
     setTimeout(() => {
-      const answer = generateAnswer(question);
+      let answer;
+      if (isAIMode) {
+        // AI mode - show "not implemented" message
+        answer = "죄송합니다. AI 모드는 아직 준비 중입니다. 🤖<br>현재는 검색 모드만 이용 가능합니다. 토글을 '검색'으로 변경해주세요.";
+      } else {
+        // Search mode - use existing knowledge base
+        answer = generateAnswer(question);
+      }
       addMessage(answer, 'bot');
     }, 500);
   }
