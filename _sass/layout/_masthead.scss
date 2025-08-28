@@ -23,13 +23,13 @@ header.masthead {
     max-width: 800px;
     margin: 0 auto;
     .intro-lead-in {
-      font-size: 56px;
+      font-size: 20px;
       font-style: normal;
-      line-height: 1.2;
+      line-height: 1.6;
       margin-bottom: 30px;
-      color: #1a1a1a;
-      font-weight: 700;
-      @include heading-font;
+      color: #6b7280;
+      font-weight: 400;
+      @include body-font;
     }
     .intro-heading {
       font-size: 56px;
@@ -47,13 +47,13 @@ header.masthead {
       padding-top: 120px;
       padding-bottom: 120px;
       .intro-lead-in {
-        font-size: 72px;
+        font-size: 24px;
         font-style: normal;
-        line-height: 1.1;
+        line-height: 1.6;
         margin-bottom: 40px;
-        color: #1a1a1a;
-        font-weight: 700;
-        @include heading-font;
+        color: #6b7280;
+        font-weight: 400;
+        @include body-font;
       }
       .intro-heading {
         font-size: 72px;

@@ -11,8 +11,8 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to the SSU Reality Lab!
-    text: 
+    title: 
+    text: Welcome to the SSU Reality Lab! 
     button: Learn About Our Research
     buttonlink: "#services"
     slider:
