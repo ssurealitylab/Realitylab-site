@@ -36,10 +36,7 @@ header.masthead {
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 30px;
-      background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+      color: #1a1a1a;
       @include heading-font;
     }
   }
@@ -63,10 +60,7 @@ header.masthead {
         font-weight: 700;
         line-height: 1.1;
         margin-bottom: 40px;
-        background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        background-clip: text;
+        color: #1a1a1a;
         @include heading-font;
       }
     }
@@ -78,7 +72,7 @@ header.masthead {
     justify-content: center;
     align-items: center;
     gap: 0.64rem; // 0.8rem * 0.8 = 0.64rem (20% reduction)
-    margin: 0.2rem auto 0.64rem; // 60% reduction: 0.5rem * 0.4 = 0.2rem, 1.6rem * 0.4 = 0.64rem
+    margin: 0.1rem auto 0.32rem; // Additional 50% reduction: 0.2rem * 0.5 = 0.1rem, 0.64rem * 0.5 = 0.32rem
     flex-wrap: nowrap; // Force single row
     width: fit-content; // Allow container to size itself
     
