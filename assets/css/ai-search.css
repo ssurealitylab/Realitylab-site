@@ -23,13 +23,13 @@
 
 .ai-text {
   position: absolute;
-  top: 50%;
+  top: 48%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 10px;
+  font-size: 9px;
   font-weight: 700;
   color: #3366cc;
-  letter-spacing: 0.2px;
+  letter-spacing: 0.1px;
   pointer-events: none;
   z-index: 2;
 }
@@ -53,7 +53,7 @@
 /* Align with other nav items */
 .navbar-nav .nav-item #ai-search {
   line-height: 1.2;
-  margin-top: -2px;
+  margin-top: -6px;
 }
 
 /* Responsive adjustments */
