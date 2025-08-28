@@ -407,7 +407,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (isServerAvailable !== null) return isServerAvailable;
     
     try {
-      const response = await fetch('http://127.0.0.1:5000/health', {
+      const response = await fetch('https://127.0.0.1:5000/health', {
         method: 'GET',
         timeout: 3000
       });
@@ -422,20 +422,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Generate AI response using local API
   async function generateAIResponse(question) {
-    // Check if we're running locally (development environment)
-    const isLocal = window.location.hostname === 'localhost' || 
-                   window.location.hostname === '127.0.0.1' ||
-                   window.location.protocol === 'http:';
-    
-    if (!isLocal) {
-      return isEnglish ? 
-        "AI server is only available in local development environment. Please use Search mode." :
-        "AI 서버는 로컬 개발 환경에서만 사용 가능합니다. 검색 모드를 사용해주세요.";
-    }
-    
     try {
       // Call local AI server
-      const response = await fetch('http://127.0.0.1:5000/generate', {
+      const response = await fetch('https://127.0.0.1:5000/generate', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
