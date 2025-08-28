@@ -11,8 +11,8 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Welcome to Reality Lab!
-    text: 
+    title: 
+    text: Welcome to Reality Lab! 
     button: Learn About Our Research
     buttonlink: "#services"
     slider:
