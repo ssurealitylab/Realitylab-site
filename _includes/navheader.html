@@ -5,7 +5,11 @@
           {%- if site.logo -%}
             <img height="{{ site.logo.height | default: 52 }}" src="{{ site.logo.path }}"/>
           {%- else -%}
-            {{ site.title }}
+            <div class="brand-container">
+              <span class="brand-text">{{ site.title }}</span>
+              <span class="brand-divider">|</span>
+              <img src="assets/img/ssu-logo.png" alt="SSU Logo" class="ssu-logo-nav">
+            </div>
           {%- endif -%}
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">

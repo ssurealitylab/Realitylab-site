@@ -1,0 +1,45 @@
+/* Navbar Brand Styles */
+.brand-container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #3366cc;
+  text-decoration: none;
+}
+
+.brand-divider {
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #333;
+  margin: 0 4px;
+}
+
+.ssu-logo-nav {
+  height: 35px;
+  width: auto;
+  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.1));
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .brand-container {
+    gap: 8px;
+  }
+  
+  .brand-text {
+    font-size: 1.3rem;
+  }
+  
+  .brand-divider {
+    font-size: 1.6rem;
+  }
+  
+  .ssu-logo-nav {
+    height: 28px;
+  }
+}
