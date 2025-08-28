@@ -37,6 +37,8 @@
   }
   
   .navbar-nav {
+    align-items: center;
+    
     .nav-item {
       .nav-link {
         font-size: 14px;
@@ -46,7 +48,8 @@
         color: #4b5563;
         @include heading-font;
         transition: color 0.2s ease;
-        margin-top: 8px;
+        display: flex;
+        align-items: center;
         
         &.active,
         &:hover {
@@ -218,7 +221,9 @@
         .nav-link {
           padding: 0.75rem 1.2rem !important;
           border-radius: 6px;
-          margin: 8px 0.2rem 0 0.2rem;
+          margin: 0 0.2rem;
+          display: flex;
+          align-items: center;
           
           &:hover {
             background-color: rgba(99, 102, 241, 0.05);

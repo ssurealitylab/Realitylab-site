@@ -76,7 +76,9 @@
 /* Align with other nav items */
 .navbar-nav .nav-item #ai-search {
   line-height: 1.2;
-  margin-top: -14px;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
 }
 
 /* Responsive adjustments */
