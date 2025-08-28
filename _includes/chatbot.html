@@ -280,15 +280,26 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatbotToggle = document.getElementById('chatbot-toggle');
   const chatbotWindow = document.getElementById('chatbot-window');
   const chatbotClose = document.getElementById('chatbot-close');
+  const aiSearchBtn = document.getElementById('ai-search');
   const chatbotInput = document.getElementById('chatbot-input');
   const chatbotSend = document.getElementById('chatbot-send');
   const chatbotMessages = document.getElementById('chatbot-messages');
   const suggestionChips = document.querySelectorAll('.suggestion-chip');
 
   // Toggle chatbot
-  chatbotToggle.addEventListener('click', () => {
+  function toggleChatbot() {
     chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
-  });
+  }
+
+  chatbotToggle.addEventListener('click', toggleChatbot);
+  
+  // AI Search button in navigation
+  if (aiSearchBtn) {
+    aiSearchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      toggleChatbot();
+    });
+  }
 
   chatbotClose.addEventListener('click', () => {
     chatbotWindow.style.display = 'none';

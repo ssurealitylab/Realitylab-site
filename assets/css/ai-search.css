@@ -1,0 +1,66 @@
+/* AI Search Button Styles */
+.ai-search-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #3366cc 0%, #4f75d1 100%);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.ai-search-btn:hover {
+  background: linear-gradient(135deg, #2954b3 0%, #4066be 100%);
+  transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(51, 102, 204, 0.3);
+}
+
+.ai-search-btn svg {
+  position: absolute;
+  color: white;
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+.ai-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-weight: 700;
+  color: white;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Navigation item styling */
+#ai-search {
+  padding: 0 !important;
+  margin-left: 10px;
+}
+
+#ai-search:hover {
+  background: none !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .ai-search-btn {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .ai-text {
+    font-size: 9px;
+  }
+  
+  .ai-search-btn svg {
+    width: 14px;
+    height: 14px;
+  }
+}
