@@ -11,8 +11,8 @@
 # -----------------
 en: &DEFAULT_EN
   header:
-    title: Advancing AI to Understand Reality
-    text: Reality Lab at Soongsil University
+    title: Welcome to Reality Lab!
+    text: 
     button: Learn About Our Research
     buttonlink: "#services"
     slider:
