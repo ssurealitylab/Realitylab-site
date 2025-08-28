@@ -487,11 +487,11 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Fallback also failed:', fallbackError);
       }
       
-      // Check if server is not running or certificate issues
+      // Check if server is not running or blocked by network
       if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
         return isEnglish ? 
-          "🔒 AI server certificate needs approval first. Please visit the AI Chat page and follow the certificate approval steps, then refresh this page." :
-          "🔒 AI 서버 인증서를 먼저 승인해야 합니다. AI Chat 페이지에서 인증서 승인 단계를 따른 후 이 페이지를 새로고침하세요.";
+          "🌐 AI server is not accessible from external networks. Please use GitHub Issues for AI questions: https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md" :
+          "🌐 외부 네트워크에서 AI 서버에 접근할 수 없습니다. AI 질문은 GitHub Issue를 이용해주세요: https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md";
       }
       
       return isEnglish ? 
