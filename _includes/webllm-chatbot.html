@@ -1,0 +1,433 @@
+<!-- WebLLM Chatbot - Browser-based AI without server -->
+<div id="webllm-chatbot-container" style="display: none;">
+  <div id="webllm-chatbot-window">
+    <div class="webllm-chatbot-header">
+      <div class="webllm-header-content">
+        <h4>Reality Lab AI (WebLLM)</h4>
+        <div class="webllm-model-status">
+          <span id="webllm-model-indicator">🔴 AI 로딩 중...</span>
+        </div>
+      </div>
+      <button class="webllm-close-btn" onclick="toggleWebLLMChatbot()">×</button>
+    </div>
+    
+    <div id="webllm-loading-screen">
+      <div class="webllm-loading-content">
+        <div class="webllm-spinner"></div>
+        <h3>AI 모델 준비 중...</h3>
+        <p id="webllm-loading-text">모델을 다운로드하고 있습니다...</p>
+        <div class="webllm-progress-bar">
+          <div id="webllm-progress-fill"></div>
+        </div>
+        <small>처음 사용시 모델 다운로드로 시간이 걸릴 수 있습니다 (약 2-3GB)</small>
+      </div>
+    </div>
+    
+    <div id="webllm-chat-interface" style="display: none;">
+      <div class="webllm-messages" id="webllm-messages"></div>
+      
+      <div class="webllm-input-container">
+        <input type="text" id="webllm-input" placeholder="Reality Lab에 대해 질문하세요..." disabled>
+        <button id="webllm-send-btn" onclick="sendWebLLMMessage()" disabled>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22,2 15,22 11,13 2,9"></polygon>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+#webllm-chatbot-container {
+  position: fixed;
+  bottom: 100px;
+  right: 20px;
+  z-index: 9999;
+}
+
+#webllm-chatbot-window {
+  width: 380px;
+  height: 600px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+.webllm-chatbot-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, #3366cc, #2954b3);
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.webllm-header-content h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.webllm-model-status {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.webllm-close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background-color 0.2s;
+}
+
+.webllm-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+#webllm-loading-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+}
+
+.webllm-loading-content h3 {
+  margin: 20px 0 10px 0;
+  color: #333;
+}
+
+.webllm-loading-content p {
+  color: #666;
+  margin: 10px 0;
+}
+
+.webllm-spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #3366cc;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.webllm-progress-bar {
+  width: 100%;
+  height: 8px;
+  background: #f0f0f0;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+#webllm-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3366cc, #2954b3);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+#webllm-chat-interface {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.webllm-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.webllm-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.webllm-user-message {
+  align-items: flex-end;
+}
+
+.webllm-user-message .webllm-message-content {
+  background: #3366cc;
+  color: white;
+  border-radius: 18px 18px 4px 18px;
+  padding: 12px 16px;
+  max-width: 85%;
+}
+
+.webllm-bot-message .webllm-message-content {
+  background: #f3f4f6;
+  color: #1a1a1a;
+  border-radius: 18px 18px 18px 4px;
+  padding: 12px 16px;
+  max-width: 85%;
+}
+
+.webllm-input-container {
+  display: flex;
+  padding: 16px 20px 10px;
+  gap: 12px;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+#webllm-input {
+  flex: 1;
+  border: 1px solid #e1e5e9;
+  border-radius: 20px;
+  padding: 12px 16px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+#webllm-input:focus {
+  border-color: #3366cc;
+}
+
+#webllm-send-btn {
+  background: #3366cc;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+#webllm-send-btn:hover:not(:disabled) {
+  background: #2954b3;
+}
+
+#webllm-send-btn:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.webllm-typing-indicator {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 16px;
+  background: #f3f4f6;
+  border-radius: 18px 18px 18px 4px;
+  max-width: 85%;
+}
+
+.webllm-typing-dots {
+  display: flex;
+  gap: 4px;
+}
+
+.webllm-typing-dot {
+  width: 8px;
+  height: 8px;
+  background: #666;
+  border-radius: 50%;
+  animation: webllm-typing 1.4s infinite ease-in-out;
+}
+
+.webllm-typing-dot:nth-child(1) { animation-delay: -0.32s; }
+.webllm-typing-dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes webllm-typing {
+  0%, 80%, 100% { transform: scale(0.8); opacity: 0.5; }
+  40% { transform: scale(1); opacity: 1; }
+}
+</style>
+
+<script src="https://cdn.jsdelivr.net/npm/@mlc-ai/web-llm@0.2.79/lib/web-llm.js"></script>
+
+<script>
+let webLLMEngine = null;
+let isWebLLMLoading = false;
+let webLLMMessages = [];
+
+// Initialize WebLLM when chatbot opens
+async function initializeWebLLM() {
+  if (webLLMEngine || isWebLLMLoading) return;
+  
+  isWebLLMLoading = true;
+  
+  try {
+    // Update UI to show loading
+    document.getElementById('webllm-loading-text').textContent = '모델 초기화 중...';
+    
+    // Initialize with a smaller model for faster loading
+    webLLMEngine = await WebLLM.CreateMLCEngine('Phi-3.5-mini-instruct-q4f16_1-MLC', {
+      initProgressCallback: (progress) => {
+        const percentage = Math.round(progress.progress * 100);
+        document.getElementById('webllm-progress-fill').style.width = `${percentage}%`;
+        document.getElementById('webllm-loading-text').textContent = 
+          `모델 다운로드 중... ${percentage}%`;
+      }
+    });
+    
+    // Model loaded successfully
+    document.getElementById('webllm-loading-screen').style.display = 'none';
+    document.getElementById('webllm-chat-interface').style.display = 'flex';
+    document.getElementById('webllm-model-indicator').innerHTML = '🟢 AI 준비완료';
+    document.getElementById('webllm-input').disabled = false;
+    document.getElementById('webllm-send-btn').disabled = false;
+    
+    // Add system message for Reality Lab context
+    webLLMMessages = [{
+      role: 'system',
+      content: '당신은 숭실대학교 리얼리티 연구실(Reality Lab)의 도움이 되는 AI 어시스턴트입니다. 연구실의 연구 분야, 팀 구성원, 활동에 대한 질문에 친근하고 유익한 답변을 해주세요. 답변은 간결하고 명확하게 해주세요.'
+    }];
+    
+    // Add welcome message
+    addWebLLMMessage('안녕하세요! 숭실대학교 리얼리티 연구실 AI입니다. 연구실에 대해 궁금한 것이 있으시면 언제든 물어보세요! 🤖', 'bot');
+    
+  } catch (error) {
+    console.error('WebLLM initialization failed:', error);
+    document.getElementById('webllm-loading-text').textContent = 
+      '모델 로딩에 실패했습니다. 브라우저가 WebGPU를 지원하는지 확인해주세요.';
+    document.getElementById('webllm-model-indicator').innerHTML = '🔴 로딩 실패';
+  }
+  
+  isWebLLMLoading = false;
+}
+
+// Toggle WebLLM chatbot
+function toggleWebLLMChatbot() {
+  const container = document.getElementById('webllm-chatbot-container');
+  if (container.style.display === 'block') {
+    container.style.display = 'none';
+  } else {
+    container.style.display = 'block';
+    if (!webLLMEngine && !isWebLLMLoading) {
+      initializeWebLLM();
+    }
+  }
+}
+
+// Add message to chat
+function addWebLLMMessage(text, sender) {
+  const messagesContainer = document.getElementById('webllm-messages');
+  const messageDiv = document.createElement('div');
+  messageDiv.className = `webllm-message webllm-${sender}-message`;
+  
+  const contentDiv = document.createElement('div');
+  contentDiv.className = 'webllm-message-content';
+  contentDiv.textContent = text;
+  
+  messageDiv.appendChild(contentDiv);
+  messagesContainer.appendChild(messageDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Show typing indicator
+function showWebLLMTyping() {
+  const messagesContainer = document.getElementById('webllm-messages');
+  const typingDiv = document.createElement('div');
+  typingDiv.id = 'webllm-typing';
+  typingDiv.className = 'webllm-message webllm-bot-message';
+  
+  const typingContent = document.createElement('div');
+  typingContent.className = 'webllm-typing-indicator';
+  typingContent.innerHTML = `
+    <div class="webllm-typing-dots">
+      <div class="webllm-typing-dot"></div>
+      <div class="webllm-typing-dot"></div>
+      <div class="webllm-typing-dot"></div>
+    </div>
+    <span>AI가 답변을 생성하고 있습니다...</span>
+  `;
+  
+  typingDiv.appendChild(typingContent);
+  messagesContainer.appendChild(typingDiv);
+  messagesContainer.scrollTop = messagesContainer.scrollHeight;
+}
+
+// Remove typing indicator
+function hideWebLLMTyping() {
+  const typing = document.getElementById('webllm-typing');
+  if (typing) typing.remove();
+}
+
+// Send message
+async function sendWebLLMMessage() {
+  if (!webLLMEngine) return;
+  
+  const input = document.getElementById('webllm-input');
+  const message = input.value.trim();
+  if (!message) return;
+  
+  // Add user message
+  addWebLLMMessage(message, 'user');
+  input.value = '';
+  
+  // Add to message history
+  webLLMMessages.push({ role: 'user', content: message });
+  
+  // Show typing indicator
+  showWebLLMTyping();
+  
+  try {
+    // Generate response with WebLLM
+    const completion = await webLLMEngine.chat.completions.create({
+      messages: webLLMMessages,
+      temperature: 0.7,
+      max_tokens: 512,
+    });
+    
+    const response = completion.choices[0].message.content;
+    
+    // Hide typing and show response
+    hideWebLLMTyping();
+    addWebLLMMessage(response, 'bot');
+    
+    // Add to message history
+    webLLMMessages.push({ role: 'assistant', content: response });
+    
+  } catch (error) {
+    console.error('WebLLM generation error:', error);
+    hideWebLLMTyping();
+    addWebLLMMessage('죄송합니다. 응답 생성 중 오류가 발생했습니다. 다시 시도해주세요.', 'bot');
+  }
+}
+
+// Enter key handler
+document.addEventListener('DOMContentLoaded', function() {
+  const input = document.getElementById('webllm-input');
+  if (input) {
+    input.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        sendWebLLMMessage();
+      }
+    });
+  }
+});
+</script>
