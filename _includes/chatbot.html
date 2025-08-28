@@ -422,6 +422,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Generate AI response using local API
   async function generateAIResponse(question) {
+    // Only allow AI mode in local development
+    const isLocalDev = window.location.hostname === 'localhost' || 
+                      window.location.hostname === '127.0.0.1';
+    
+    if (!isLocalDev) {
+      return isEnglish ? 
+        "AI server is only available in local development. Please use Search mode for public website." :
+        "AI 서버는 로컬 개발환경에서만 사용 가능합니다. 공개 웹사이트에서는 검색 모드를 사용해주세요.";
+    }
+    
     try {
       // Call local AI server
       const response = await fetch('https://127.0.0.1:5000/generate', {
