@@ -32,7 +32,7 @@ header.masthead {
       @include body-font;
     }
     .intro-heading {
-      font-size: 48px;
+      font-size: 56px;
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 30px;
@@ -56,7 +56,7 @@ header.masthead {
         @include body-font;
       }
       .intro-heading {
-        font-size: 64px;
+        font-size: 72px;
         font-weight: 700;
         line-height: 1.1;
         margin-bottom: 40px;
@@ -72,7 +72,7 @@ header.masthead {
     justify-content: center;
     align-items: center;
     gap: 0.64rem; // 0.8rem * 0.8 = 0.64rem (20% reduction)
-    margin: 0.1rem auto 0.32rem; // Additional 50% reduction: 0.2rem * 0.5 = 0.1rem, 0.64rem * 0.5 = 0.32rem
+    margin: 0rem auto 0.1rem; // Nearly no spacing - almost touching the image
     flex-wrap: nowrap; // Force single row
     width: fit-content; // Allow container to size itself
     
