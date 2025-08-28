@@ -159,8 +159,8 @@ if __name__ == '__main__':
     # Load model on startup
     if load_model():
         logger.info("AI Server ready!")
-        # Enable HTTPS with self-signed certificate for development
-        # For local development only - change to public IP for remote access
-        app.run(host='127.0.0.1', port=5000, debug=False, ssl_context='adhoc')
+        # Enable HTTPS with self-signed certificate for public access
+        # WARNING: This makes the server accessible from the internet
+        app.run(host='0.0.0.0', port=5000, debug=False, ssl_context='adhoc')
     else:
         logger.error("Failed to load model. Server not started.")
