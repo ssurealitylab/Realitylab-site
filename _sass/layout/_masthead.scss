@@ -66,41 +66,54 @@ header.masthead {
     justify-content: center;
     align-items: center;
     gap: 0.64rem; // 0.8rem * 0.8 = 0.64rem (20% reduction)
-    margin: 1.6rem auto; // 2rem * 0.8 = 1.6rem, added auto for centering
+    margin: 0.5rem auto 1.6rem; // Reduced top margin to bring closer to image
     flex-wrap: nowrap; // Force single row
     width: fit-content; // Allow container to size itself
     
-    // Large container capsule background - 20% smaller
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.12);
+    // Large container capsule background - Apple Glass style
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 32px; // 40px * 0.8 = 32px (20% reduction)
     padding: 11px 24px; // 14px * 0.8 = 11px, 30px * 0.8 = 24px (20% reduction)
-    backdrop-filter: blur(15px);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.12),
+      0 1px 0 rgba(255, 255, 255, 0.3) inset,
+      0 -1px 0 rgba(255, 255, 255, 0.1) inset;
     min-width: 831px; // 1039px * 0.8 = 831px (20% reduction)
     max-width: 90vw; // Responsive maximum width
     overflow: visible; // Ensure scaled elements don't get clipped
     
     .research-tab {
-      background: rgba(255, 255, 255, 0.1);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 20px; // 25px * 0.8 = 20px (20% reduction)
       padding: 8px 13px; // 10px * 0.8 = 8px, 16px * 0.8 = 13px (20% reduction)
       text-align: center;
-      opacity: 0.4;
+      opacity: 0.6;
       transition: all 0.5s ease;
       cursor: pointer;
-      backdrop-filter: blur(10px);
+      backdrop-filter: blur(12px) saturate(1.5);
+      -webkit-backdrop-filter: blur(12px) saturate(1.5);
+      box-shadow: 
+        0 4px 16px rgba(0, 0, 0, 0.08),
+        0 1px 0 rgba(255, 255, 255, 0.2) inset;
       flex: 0 0 auto; // Don't grow or shrink
       min-width: 112px; // 140px * 0.8 = 112px (20% reduction)
       margin: 3px; // 4px * 0.8 = 3px (20% reduction)
       
       &.active {
         opacity: 1;
-        background: rgba(59, 130, 246, 0.25);
-        border-color: rgba(59, 130, 246, 0.5);
+        background: rgba(59, 130, 246, 0.2);
+        border: 1px solid rgba(59, 130, 246, 0.4);
         transform: scale(1.03); // Reduced scale to prevent overflow
-        box-shadow: 0 4px 16px rgba(59, 130, 246, 0.2);
+        backdrop-filter: blur(15px) saturate(2);
+        -webkit-backdrop-filter: blur(15px) saturate(2);
+        box-shadow: 
+          0 6px 24px rgba(59, 130, 246, 0.25),
+          0 1px 0 rgba(255, 255, 255, 0.4) inset,
+          0 0 20px rgba(59, 130, 246, 0.1);
       }
       
       .tab-title {
