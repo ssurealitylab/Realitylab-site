@@ -4,8 +4,8 @@ header.masthead {
   color: #1a1a1a;
   background: 
     radial-gradient(ellipse 80% 50% at 50% 60%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 40%, rgba(147, 51, 234, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 20% 70%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 80% 40%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 40% at 20% 70%, rgba(29, 78, 216, 0.08) 0%, transparent 50%),
     linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   background-repeat: no-repeat;
   background-attachment: scroll;
@@ -36,7 +36,7 @@ header.masthead {
       font-weight: 700;
       line-height: 1.2;
       margin-bottom: 30px;
-      background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #ec4899 100%);
+      background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -63,7 +63,7 @@ header.masthead {
         font-weight: 700;
         line-height: 1.1;
         margin-bottom: 40px;
-        background: linear-gradient(135deg, #1e40af 0%, #7c3aed 50%, #ec4899 100%);
+        background: linear-gradient(135deg, #1e40af 0%, #2563eb 50%, #3b82f6 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
@@ -78,7 +78,7 @@ header.masthead {
     justify-content: center;
     align-items: center;
     gap: 0.64rem; // 0.8rem * 0.8 = 0.64rem (20% reduction)
-    margin: 0.5rem auto 1.6rem; // Reduced top margin to bring closer to image
+    margin: 0.2rem auto 0.64rem; // 60% reduction: 0.5rem * 0.4 = 0.2rem, 1.6rem * 0.4 = 0.64rem
     flex-wrap: nowrap; // Force single row
     width: fit-content; // Allow container to size itself
     
