@@ -259,6 +259,6 @@ if __name__ == '__main__':
         # Enable HTTPS with self-signed certificate for public access
         # Users need to accept certificate warning once
         # WARNING: This makes the server accessible from the internet
-        app.run(host='0.0.0.0', port=4003, debug=False, ssl_context='adhoc')
+        app.run(host='0.0.0.0', port=4003, debug=False)
     else:
         logger.error("Failed to load model. Server not started.")
