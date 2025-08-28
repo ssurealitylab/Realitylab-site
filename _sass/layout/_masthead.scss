@@ -72,7 +72,7 @@ header.masthead {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
     border-radius: 40px;
-    padding: 19px 30px; // 20px * 0.95 = 19px (5% height reduction)
+    padding: 15px 30px; // 19px * 0.8 = 15px (20% height reduction)
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     min-width: 1009px; // 1040px * 0.97 = 1009px (3% width reduction)
