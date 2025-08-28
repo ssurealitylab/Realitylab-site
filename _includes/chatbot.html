@@ -11,7 +11,7 @@
         <div class="mode-toggle">
           <div class="toggle-labels">
             <span class="toggle-label search-label active">검색</span>
-            <span class="toggle-label ai-label">WebLLM</span>
+            <span class="toggle-label ai-label">AI 서버</span>
           </div>
           <div class="toggle-switch">
             <input type="checkbox" id="mode-toggle" class="toggle-input">
@@ -525,22 +525,16 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.display = 'none';
   });
 
-  // Mode toggle functionality - Switch to WebLLM when toggled
+  // Mode toggle functionality - Switch between Search and AI Server
   if (modeToggle) {
     modeToggle.addEventListener('change', function() {
       isAIMode = this.checked;
-      if (isAIMode) {
-        // Close search chatbot and open WebLLM
-        chatbotWindow.style.display = 'none';
-        toggleWebLLMChatbot();
-      } else {
-        // Close WebLLM if it's open and stay in search mode
-        const webllmContainer = document.getElementById('webllm-chatbot-container');
-        if (webllmContainer && webllmContainer.style.display === 'block') {
-          webllmContainer.style.display = 'none';
-        }
-      }
       updateModeUI();
+      
+      // Check AI server when switching to AI mode
+      if (isAIMode) {
+        checkAIServer();
+      }
     });
   }
 
