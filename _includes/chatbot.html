@@ -420,17 +420,17 @@ document.addEventListener('DOMContentLoaded', function() {
     return isServerAvailable;
   }
 
-  // Generate AI response using public AI server
+  // Generate AI response using public AI server with auto-save
   async function generateAIResponse(question) {
     try {
-      // Call public AI server
-      const response = await fetch('https://203.253.25.165:5000/generate', {
+      // Call new chat endpoint with auto-save functionality
+      const response = await fetch('https://203.253.25.165:5000/chat', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          prompt: question,
+          question: question,
           language: isEnglish ? 'en' : 'ko'
         })
       });
@@ -440,10 +440,37 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
       const data = await response.json();
+      
+      // Show success message if auto-saved
+      if (data.auto_saved) {
+        console.log('✅ AI 대화가 GitHub에 자동 저장되었습니다!');
+      }
+      
       return data.response || (isEnglish ? "Sorry, no response generated." : "응답을 생성할 수 없습니다.");
       
     } catch (error) {
       console.error('Error calling AI server:', error);
+      
+      // Fallback to basic generate endpoint
+      try {
+        const fallbackResponse = await fetch('https://203.253.25.165:5000/generate', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            prompt: question,
+            language: isEnglish ? 'en' : 'ko'
+          })
+        });
+        
+        if (fallbackResponse.ok) {
+          const fallbackData = await fallbackResponse.json();
+          return fallbackData.response || (isEnglish ? "Sorry, no response generated." : "응답을 생성할 수 없습니다.");
+        }
+      } catch (fallbackError) {
+        console.error('Fallback also failed:', fallbackError);
+      }
       
       // Check if server is not running
       if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {

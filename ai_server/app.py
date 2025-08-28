@@ -153,6 +153,103 @@ Question: """
         logger.error(f"Error in generate endpoint: {e}")
         return jsonify({'error': 'Internal server error'}), 500
 
+@app.route('/chat', methods=['POST'])
+def chat():
+    """Auto-save chat and generate AI response"""
+    try:
+        data = request.json
+        if not data or 'question' not in data:
+            return jsonify({'error': 'No question provided'}), 400
+        
+        user_question = data['question']
+        language = data.get('language', 'ko')
+        
+        # Generate AI response directly
+        system_prompt = """당신은 숭실대학교 리얼리티 연구실의 도움이 되는 어시스턴트입니다. 연구실의 연구 분야, 팀 구성원, 활동에 대한 질문에 답변해주세요. 간결하고 유익한 답변을 해주세요.
+
+질문: """ if language == 'ko' else """You are a helpful assistant for the Reality Lab at Soongsil University. Answer questions about the lab's research areas, team members, and activities. Keep responses concise and informative.
+
+Question: """
+        
+        prompt = system_prompt + user_question + ("\n답변:" if language == 'ko' else "\nAnswer:")
+        ai_response = generate_response(prompt, max_length=100, temperature=0.7)
+        
+        # Clean up response
+        if language == 'en' and "Answer:" in ai_response:
+            ai_response = ai_response.split("Answer:")[-1].strip()
+        elif language == 'ko' and "답변:" in ai_response:
+            ai_response = ai_response.split("답변:")[-1].strip()
+        
+        # Auto-save to GitHub (create issue and response)
+        try:
+            from github import Github
+            import os
+            import yaml
+            from datetime import datetime
+            
+            # Create GitHub issue automatically
+            g = Github(os.getenv('GITHUB_TOKEN', ''))
+            if os.getenv('GITHUB_TOKEN'):
+                repo = g.get_repo("ssurealitylab-spec/Realitylab-site")
+                
+                # Create issue with AI question
+                issue_title = f"[자동 AI 질문] {user_question[:50]}..."
+                issue_body = f"""**자동 생성된 AI 질문**
+
+**질문:** {user_question}
+
+**AI 응답:** {ai_response}
+
+---
+*이 질문과 답변은 웹사이트의 AI 모드에서 자동으로 생성되었습니다.*
+"""
+                issue = repo.create_issue(
+                    title=issue_title,
+                    body=issue_body,
+                    labels=['ai-question', 'auto-generated']
+                )
+                
+                # Update conversation data
+                data_file = '_data/ai_conversations.yml'
+                try:
+                    with open(data_file, 'r', encoding='utf-8') as f:
+                        conversations = yaml.safe_load(f) or []
+                except FileNotFoundError:
+                    conversations = []
+                
+                new_conversation = {
+                    'id': issue.number,
+                    'question': user_question,
+                    'answer': ai_response,
+                    'timestamp': datetime.now().isoformat(),
+                    'github_issue': issue.html_url,
+                    'auto_generated': True
+                }
+                
+                conversations.insert(0, new_conversation)
+                conversations = conversations[:50]  # Keep last 50
+                
+                with open(data_file, 'w', encoding='utf-8') as f:
+                    yaml.dump(conversations, f, default_flow_style=False, allow_unicode=True)
+                
+                # Auto-commit to git
+                os.system('git add _data/ai_conversations.yml')
+                os.system(f'git commit -m "Auto-add AI conversation #{issue.number}"')
+                os.system('git push')
+                
+        except Exception as e:
+            logger.warning(f"GitHub auto-save failed: {e}")
+        
+        return jsonify({
+            'response': ai_response,
+            'language': language,
+            'auto_saved': True
+        })
+        
+    except Exception as e:
+        logger.error(f"Error in chat endpoint: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
+
 if __name__ == '__main__':
     logger.info("Starting Reality Lab AI Server...")
     
