@@ -1,13 +1,5 @@
 <!-- Reality Lab Chatbot -->
-<div id="chatbot-container" class="chatbot-container">
-  <div id="chatbot-toggle" class="chatbot-toggle">
-    <div class="chatbot-icon">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M8 10.5H16M8 14.5H13M21 12C21 16.9706 16.9706 21 12 21C10.2915 21 8.69082 20.4633 7.35842 19.5379L3 21L4.46208 16.6416C3.53672 15.3092 3 13.7085 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </div>
-    <span class="chatbot-text">Reality Lab에 궁금한 것이 있나요?</span>
-  </div>
+<div id="chatbot-container" class="chatbot-container" style="display: none;">
   
   <div id="chatbot-window" class="chatbot-window">
     <div class="chatbot-header">
@@ -59,38 +51,6 @@
   right: 20px;
   z-index: 1000;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-.chatbot-toggle {
-  background: #3366cc;
-  color: white;
-  border-radius: 30px;
-  padding: 16px 24px;
-  cursor: pointer;
-  box-shadow: 0 4px 20px rgba(51, 102, 204, 0.3);
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  transition: all 0.3s ease;
-  max-width: 280px;
-}
-
-.chatbot-toggle:hover {
-  background: #2954b3;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(51, 102, 204, 0.4);
-}
-
-.chatbot-icon {
-  flex-shrink: 0;
-  width: 24px;
-  height: 24px;
-}
-
-.chatbot-text {
-  font-size: 14px;
-  font-weight: 500;
-  white-space: nowrap;
 }
 
 .chatbot-window {
@@ -290,8 +250,6 @@ document.addEventListener('DOMContentLoaded', function() {
   function toggleChatbot() {
     chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
   }
-
-  chatbotToggle.addEventListener('click', toggleChatbot);
   
   // AI Search button in navigation
   if (aiSearchBtn) {
