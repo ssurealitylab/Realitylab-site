@@ -58,7 +58,7 @@ en: &DEFAULT_EN
           url: /publication.html#domestic
     - title: "Courses"
       url: /courses.html
-    - title: '<div class="ai-search-btn"><svg width="28" height="28" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor"/><path d="m21 21-4.35-4.35" stroke="currentColor"/></svg><span class="ai-text">AI</span></div>'
+    - title: '<div class="ai-search-btn"><svg width="32" height="32" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="8" stroke="currentColor"/><path d="m21 21-4.35-4.35" stroke="currentColor"/></svg><span class="ai-text">AI</span></div>'
       id: "ai-search"
 
 en-001: #English (World)

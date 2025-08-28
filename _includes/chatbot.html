@@ -248,7 +248,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Toggle chatbot
   function toggleChatbot() {
-    chatbotWindow.style.display = chatbotWindow.style.display === 'flex' ? 'none' : 'flex';
+    const container = document.getElementById('chatbot-container');
+    if (chatbotWindow.style.display === 'flex') {
+      chatbotWindow.style.display = 'none';
+    } else {
+      container.style.display = 'block';
+      chatbotWindow.style.display = 'flex';
+    }
   }
   
   // AI Search button in navigation
@@ -260,7 +266,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   chatbotClose.addEventListener('click', () => {
+    const container = document.getElementById('chatbot-container');
     chatbotWindow.style.display = 'none';
+    container.style.display = 'none';
   });
 
   // Handle input

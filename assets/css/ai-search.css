@@ -4,16 +4,16 @@
   align-items: center;
   justify-content: center;
   position: relative;
-  width: 32px;
-  height: 32px;
+  width: 36px;
+  height: 36px;
   cursor: pointer;
 }
 
 .ai-search-btn svg {
   position: absolute;
   color: #3366cc;
-  width: 28px;
-  height: 28px;
+  width: 32px;
+  height: 32px;
   stroke-width: 2.5;
 }
 
@@ -26,11 +26,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
   color: #3366cc;
-  letter-spacing: 0.3px;
+  letter-spacing: 0.2px;
   pointer-events: none;
+  z-index: 2;
 }
 
 .ai-search-btn:hover .ai-text {
