@@ -399,6 +399,87 @@ document.addEventListener('DOMContentLoaded', function() {
   let isAIMode = true;
   let isEnglish = false;
 
+  // AI Model variables
+  let aiPipeline = null;
+  let isModelLoading = false;
+  let isModelLoaded = false;
+
+  // Initialize AI model
+  async function initAIModel() {
+    if (isModelLoaded || isModelLoading) return;
+    
+    isModelLoading = true;
+    try {
+      console.log('Loading Tiny Llama model...');
+      addMessage('AI 모델을 로딩 중입니다... 잠시만 기다려주세요. 🤖', 'bot');
+      
+      if (window.transformers && window.transformers.pipeline) {
+        aiPipeline = await window.transformers.pipeline(
+          'text-generation',
+          'Xenova/TinyLlama-1.1B-Chat-v1.0',
+          {
+            quantized: true,
+            progress_callback: (progress) => {
+              if (progress.status === 'downloading') {
+                console.log(`Downloading: ${progress.name} - ${Math.round(progress.progress)}%`);
+              }
+            }
+          }
+        );
+        isModelLoaded = true;
+        addMessage('AI 모델이 성공적으로 로드되었습니다! 이제 질문해보세요. ✨', 'bot');
+        console.log('Tiny Llama model loaded successfully');
+      } else {
+        throw new Error('Transformers.js not available');
+      }
+    } catch (error) {
+      console.error('Error loading AI model:', error);
+      addMessage('AI 모델 로딩에 실패했습니다. 검색 모드를 사용해주세요. ❌', 'bot');
+    } finally {
+      isModelLoading = false;
+    }
+  }
+
+  // Generate AI response
+  async function generateAIResponse(question) {
+    if (!isModelLoaded) {
+      await initAIModel();
+      if (!isModelLoaded) {
+        return isEnglish ? 
+          "AI model is not available. Please use Search mode." :
+          "AI 모델을 사용할 수 없습니다. 검색 모드를 사용해주세요.";
+      }
+    }
+
+    try {
+      // Create a context-aware prompt for Reality Lab
+      const prompt = isEnglish ? 
+        `You are a helpful assistant for the Reality Lab at Soongsil University. Answer questions about the lab's research, team, and activities. Keep responses concise and informative.
+
+Question: ${question}
+Answer:` :
+        `당신은 숭실대학교 리얼리티 연구실의 도움이 되는 어시스턴트입니다. 연구실의 연구, 팀, 활동에 대한 질문에 답변해주세요. 간결하고 유익한 답변을 해주세요.
+
+질문: ${question}
+답변:`;
+
+      const result = await aiPipeline(prompt, {
+        max_new_tokens: 100,
+        temperature: 0.7,
+        do_sample: true,
+        top_p: 0.9,
+      });
+
+      return result[0].generated_text.split(isEnglish ? 'Answer:' : '답변:')[1]?.trim() || 
+             (isEnglish ? "I'm here to help with Reality Lab questions!" : "리얼리티 연구실에 관한 질문을 도와드리겠습니다!");
+    } catch (error) {
+      console.error('Error generating AI response:', error);
+      return isEnglish ? 
+        "Sorry, I encountered an error. Please try again." :
+        "죄송합니다. 오류가 발생했습니다. 다시 시도해주세요.";
+    }
+  }
+
   // Toggle chatbot
   function toggleChatbot() {
     const container = document.getElementById('chatbot-container');
@@ -429,7 +510,20 @@ document.addEventListener('DOMContentLoaded', function() {
     modeToggle.addEventListener('change', function() {
       isAIMode = this.checked;
       updateModeUI();
+      
+      // Initialize AI model when switching to AI mode
+      if (isAIMode && !isModelLoaded && !isModelLoading) {
+        initAIModel();
+      }
     });
+  }
+
+  // Initialize AI model on first load if AI mode is default
+  if (isAIMode && !isModelLoaded && !isModelLoading) {
+    // Wait a bit for the UI to load, then initialize
+    setTimeout(() => {
+      initAIModel();
+    }, 1000);
   }
 
   function updateModeUI() {
@@ -505,7 +599,7 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Handle input
-  function handleSend() {
+  async function handleSend() {
     const question = chatbotInput.value.trim();
     if (!question) return;
 
@@ -514,21 +608,32 @@ document.addEventListener('DOMContentLoaded', function() {
     chatbotInput.value = '';
 
     // Generate and add bot response
-    setTimeout(() => {
-      let answer;
-      if (isAIMode) {
-        // AI mode - show "not implemented" message
-        if (isEnglish) {
-          answer = "Sorry, AI mode is still in preparation. 🤖<br>Currently only Search mode is available. Please switch the toggle to 'Search'.";
-        } else {
-          answer = "죄송합니다. AI 모드는 아직 준비 중입니다. 🤖<br>현재는 검색 모드만 이용 가능합니다. 토글을 '검색'으로 변경해주세요.";
+    if (isAIMode) {
+      // AI mode - use Tiny Llama
+      try {
+        addMessage(isEnglish ? 'Thinking...' : '생각 중...', 'bot', true); // temporary loading message
+        const aiResponse = await generateAIResponse(question);
+        // Remove the loading message and add the real response
+        const messages = chatbotMessages.querySelectorAll('.message');
+        const lastMessage = messages[messages.length - 1];
+        if (lastMessage && lastMessage.classList.contains('bot-message')) {
+          lastMessage.remove();
         }
-      } else {
-        // Search mode - use existing knowledge base
-        answer = generateAnswer(question);
+        addMessage(aiResponse, 'bot');
+      } catch (error) {
+        console.error('Error in AI response:', error);
+        addMessage(
+          isEnglish ? 'Sorry, I encountered an error. Please try again.' : '죄송합니다. 오류가 발생했습니다. 다시 시도해주세요.',
+          'bot'
+        );
       }
-      addMessage(answer, 'bot');
-    }, 500);
+    } else {
+      // Search mode - use existing knowledge base
+      setTimeout(() => {
+        const answer = generateAnswer(question);
+        addMessage(answer, 'bot');
+      }, 500);
+    }
   }
 
   chatbotSend.addEventListener('click', handleSend);
