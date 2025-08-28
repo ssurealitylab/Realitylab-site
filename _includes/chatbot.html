@@ -57,8 +57,12 @@
   position: absolute;
   bottom: 80px;
   right: 0;
-  width: 380px;
-  height: 500px;
+  width: 450px;
+  height: 600px;
+  min-width: 320px;
+  min-height: 400px;
+  max-width: 800px;
+  max-height: 800px;
   background: rgba(255, 255, 255, 0.95);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 16px;
@@ -67,6 +71,8 @@
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  resize: both;
+  overflow: hidden;
 }
 
 .chatbot-header {
@@ -75,6 +81,11 @@
   align-items: center;
   padding: 20px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: move;
+  user-select: none;
+  background: linear-gradient(135deg, rgba(51, 102, 204, 0.1) 0%, rgba(41, 84, 179, 0.15) 100%);
+  backdrop-filter: blur(10px);
+  border-radius: 16px 16px 0 0;
 }
 
 .chatbot-title {
@@ -383,6 +394,65 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     return matchCount >= Math.min(words1.length, words2.length) * 0.4;
+  }
+
+  // Drag functionality
+  let isDragging = false;
+  let currentX = 0;
+  let currentY = 0;
+  let initialX = 0;
+  let initialY = 0;
+  let xOffset = 0;
+  let yOffset = 0;
+
+  const chatbotHeader = document.querySelector('.chatbot-header');
+  
+  if (chatbotHeader) {
+    chatbotHeader.addEventListener('mousedown', dragStart);
+    document.addEventListener('mousemove', dragMove);
+    document.addEventListener('mouseup', dragEnd);
+  }
+
+  function dragStart(e) {
+    if (e.target === chatbotClose || e.target.closest('.chatbot-close')) return;
+    
+    initialX = e.clientX - xOffset;
+    initialY = e.clientY - yOffset;
+
+    if (e.target === chatbotHeader || chatbotHeader.contains(e.target)) {
+      isDragging = true;
+      chatbotWindow.style.transition = 'none';
+    }
+  }
+
+  function dragMove(e) {
+    if (isDragging) {
+      e.preventDefault();
+      currentX = e.clientX - initialX;
+      currentY = e.clientY - initialY;
+
+      xOffset = currentX;
+      yOffset = currentY;
+
+      // Convert to fixed positioning when dragging
+      if (chatbotWindow.style.position !== 'fixed') {
+        const rect = chatbotWindow.getBoundingClientRect();
+        chatbotWindow.style.position = 'fixed';
+        chatbotWindow.style.bottom = 'auto';
+        chatbotWindow.style.right = 'auto';
+        chatbotWindow.style.top = rect.top + 'px';
+        chatbotWindow.style.left = rect.left + 'px';
+      }
+
+      chatbotWindow.style.transform = `translate(${currentX}px, ${currentY}px)`;
+    }
+  }
+
+  function dragEnd(e) {
+    initialX = currentX;
+    initialY = currentY;
+    isDragging = false;
+    chatbotWindow.style.transition = '';
   }
 });
 </script>
