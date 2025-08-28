@@ -64,34 +64,36 @@ header.masthead {
   .research-tabs {
     display: flex;
     justify-content: center;
-    gap: 0.8rem;
-    margin: 2rem 0;
+    align-items: center;
+    gap: 0.64rem; // 0.8rem * 0.8 = 0.64rem (20% reduction)
+    margin: 1.6rem auto; // 2rem * 0.8 = 1.6rem, added auto for centering
     flex-wrap: nowrap; // Force single row
+    width: fit-content; // Allow container to size itself
     
-    // Large container capsule background
+    // Large container capsule background - 20% smaller
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.12);
-    border-radius: 40px;
-    padding: 14px 30px; // 15px * 0.95 = 14px (5% height reduction)
+    border-radius: 32px; // 40px * 0.8 = 32px (20% reduction)
+    padding: 11px 24px; // 14px * 0.8 = 11px, 30px * 0.8 = 24px (20% reduction)
     backdrop-filter: blur(15px);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-    min-width: 1039px; // 1009px * 1.03 = 1039px (3% width increase)
+    min-width: 831px; // 1039px * 0.8 = 831px (20% reduction)
     max-width: 90vw; // Responsive maximum width
     overflow: visible; // Ensure scaled elements don't get clipped
     
     .research-tab {
       background: rgba(255, 255, 255, 0.1);
       border: 1px solid rgba(255, 255, 255, 0.2);
-      border-radius: 25px;
-      padding: 10px 16px;
+      border-radius: 20px; // 25px * 0.8 = 20px (20% reduction)
+      padding: 8px 13px; // 10px * 0.8 = 8px, 16px * 0.8 = 13px (20% reduction)
       text-align: center;
       opacity: 0.4;
       transition: all 0.5s ease;
       cursor: pointer;
       backdrop-filter: blur(10px);
       flex: 0 0 auto; // Don't grow or shrink
-      min-width: 140px; // Minimum width for 4 tabs
-      margin: 4px; // Add margin to prevent overlap when scaled
+      min-width: 112px; // 140px * 0.8 = 112px (20% reduction)
+      margin: 3px; // 4px * 0.8 = 3px (20% reduction)
       
       &.active {
         opacity: 1;
@@ -102,16 +104,16 @@ header.masthead {
       }
       
       .tab-title {
-        font-size: 0.9rem;
+        font-size: 0.72rem; // 0.9rem * 0.8 = 0.72rem (20% reduction)
         font-weight: 600;
         color: #1a1a1a;
-        margin-bottom: 3px;
+        margin-bottom: 2px; // 3px * 0.8 = 2px (20% reduction)
         @include heading-font;
         white-space: nowrap; // Prevent text wrapping
       }
       
       .tab-description {
-        font-size: 0.75rem;
+        font-size: 0.6rem; // 0.75rem * 0.8 = 0.6rem (20% reduction)
         color: #6b7280;
         margin-bottom: 0;
         @include body-font;
