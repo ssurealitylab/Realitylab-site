@@ -10,16 +10,35 @@ title: AI Chat
       <h3 class="section-subheading text-muted">AI와 대화하고 연구실에 대해 질문해보세요!</h3>
     </div>
     
+    <!-- AI 사용 안내 -->
+    <div class="alert alert-info mb-4">
+      <h5><i class="fas fa-info-circle"></i> AI 챗봇 사용 방법</h5>
+      <p class="mb-2"><strong>방법 1: 실시간 AI 챗봇 (권장)</strong></p>
+      <ol>
+        <li>우측 하단 AI 돋보기 버튼 클릭</li>
+        <li>AI 모드로 토글</li>
+        <li>질문 입력 → 즉시 AI 응답!</li>
+      </ol>
+      
+      <div class="alert alert-warning mt-3 mb-2">
+        <small><strong>⚠️ 처음 사용시:</strong> AI 서버 인증서를 승인해야 합니다.</small><br>
+        <small>1. <a href="https://203.253.25.165:5000/health" target="_blank" class="btn btn-sm btn-outline-primary">AI 서버 승인하기</a> 클릭</small><br>
+        <small>2. "고급" → "203.253.25.165:5000(으)로 이동" 클릭</small><br>
+        <small>3. 이후 AI 챗봇 정상 사용 가능!</small>
+      </div>
+      
+      <p class="mb-0"><strong>방법 2: GitHub Issue (백업)</strong></p>
+    </div>
+    
     <!-- AI에게 질문하기 버튼 -->
     <div class="text-center mb-5">
       <a href="https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md" 
-         class="btn btn-primary btn-xl text-uppercase" 
+         class="btn btn-outline-primary btn-xl text-uppercase" 
          target="_blank">
-        🤖 AI에게 질문하기
+        📝 GitHub Issue로 질문하기
       </a>
       <p class="text-muted mt-2">
-        GitHub Issue를 통해 AI에게 질문하면 자동으로 답변해드립니다!<br>
-        <small>* Reality Lab 서버의 GPU에서 실시간으로 생성되는 답변입니다</small>
+        <small>* GitHub Issue를 통한 수동 질문 방식 (실시간 챗봇 사용 불가시)</small>
       </p>
     </div>
     
