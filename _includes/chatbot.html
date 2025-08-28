@@ -8,14 +8,26 @@
         <div class="chatbot-subtitle">연구실에 대해 궁금한 것을 물어보세요!</div>
       </div>
       <div class="chatbot-controls">
-        <div class="mode-toggle">
-          <div class="toggle-labels">
-            <span class="toggle-label search-label active">검색</span>
-            <span class="toggle-label ai-label">AI</span>
+        <div class="toggle-container">
+          <div class="mode-toggle">
+            <div class="toggle-labels">
+              <span class="toggle-label search-label active">검색</span>
+              <span class="toggle-label ai-label">AI</span>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="mode-toggle" class="toggle-input">
+              <label for="mode-toggle" class="toggle-slider"></label>
+            </div>
           </div>
-          <div class="toggle-switch">
-            <input type="checkbox" id="mode-toggle" class="toggle-input">
-            <label for="mode-toggle" class="toggle-slider"></label>
+          <div class="language-toggle">
+            <div class="toggle-labels">
+              <span class="toggle-label kr-label active">한글</span>
+              <span class="toggle-label en-label">Eng</span>
+            </div>
+            <div class="toggle-switch">
+              <input type="checkbox" id="lang-toggle" class="toggle-input">
+              <label for="lang-toggle" class="toggle-slider"></label>
+            </div>
           </div>
         </div>
         <button id="chatbot-close" class="chatbot-close">
@@ -131,7 +143,13 @@
   gap: 16px;
 }
 
-.mode-toggle {
+.toggle-container {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.mode-toggle, .language-toggle {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -349,9 +367,16 @@ document.addEventListener('DOMContentLoaded', function() {
   const searchLabel = document.querySelector('.search-label');
   const aiLabel = document.querySelector('.ai-label');
   const chatbotSubtitle = document.querySelector('.chatbot-subtitle');
+  const chatbotTitle = document.querySelector('.chatbot-title');
   
-  // Current mode (false = search, true = AI)
+  // Language toggle elements
+  const langToggle = document.getElementById('lang-toggle');
+  const krLabel = document.querySelector('.kr-label');
+  const enLabel = document.querySelector('.en-label');
+  
+  // Current modes
   let isAIMode = false;
+  let isEnglish = false;
 
   // Toggle chatbot
   function toggleChatbot() {
@@ -387,18 +412,56 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function updateModeUI() {
+    updateAllUI();
+  }
+
+  // Language toggle functionality
+  if (langToggle) {
+    langToggle.addEventListener('change', function() {
+      isEnglish = this.checked;
+      updateLanguageUI();
+    });
+  }
+
+  function updateLanguageUI() {
+    updateAllUI();
+  }
+
+  function updateAllUI() {
+    // Update language labels
+    if (isEnglish) {
+      krLabel.classList.remove('active');
+      enLabel.classList.add('active');
+    } else {
+      krLabel.classList.add('active');
+      enLabel.classList.remove('active');
+    }
+
+    // Update mode labels and content based on current language
     if (isAIMode) {
-      // AI mode
       searchLabel.classList.remove('active');
       aiLabel.classList.add('active');
-      chatbotSubtitle.textContent = 'AI가 연구실에 대해 답변해드립니다!';
-      chatbotInput.placeholder = 'AI에게 궁금한 것을 물어보세요...';
+      if (isEnglish) {
+        chatbotTitle.textContent = 'Reality Lab Assistant';
+        chatbotSubtitle.textContent = 'AI will answer about our research lab!';
+        chatbotInput.placeholder = 'Ask AI anything about our lab...';
+      } else {
+        chatbotTitle.textContent = 'Reality Lab Assistant';
+        chatbotSubtitle.textContent = 'AI가 연구실에 대해 답변해드립니다!';
+        chatbotInput.placeholder = 'AI에게 궁금한 것을 물어보세요...';
+      }
     } else {
-      // Search mode
       searchLabel.classList.add('active');
       aiLabel.classList.remove('active');
-      chatbotSubtitle.textContent = '연구실에 대해 궁금한 것을 물어보세요!';
-      chatbotInput.placeholder = '궁금한 것을 물어보세요...';
+      if (isEnglish) {
+        chatbotTitle.textContent = 'Reality Lab Assistant';
+        chatbotSubtitle.textContent = 'Ask anything about our research lab!';
+        chatbotInput.placeholder = 'Ask anything about our lab...';
+      } else {
+        chatbotTitle.textContent = 'Reality Lab Assistant';
+        chatbotSubtitle.textContent = '연구실에 대해 궁금한 것을 물어보세요!';
+        chatbotInput.placeholder = '궁금한 것을 물어보세요...';
+      }
     }
   }
 
@@ -416,7 +479,11 @@ document.addEventListener('DOMContentLoaded', function() {
       let answer;
       if (isAIMode) {
         // AI mode - show "not implemented" message
-        answer = "죄송합니다. AI 모드는 아직 준비 중입니다. 🤖<br>현재는 검색 모드만 이용 가능합니다. 토글을 '검색'으로 변경해주세요.";
+        if (isEnglish) {
+          answer = "Sorry, AI mode is still in preparation. 🤖<br>Currently only Search mode is available. Please switch the toggle to 'Search'.";
+        } else {
+          answer = "죄송합니다. AI 모드는 아직 준비 중입니다. 🤖<br>현재는 검색 모드만 이용 가능합니다. 토글을 '검색'으로 변경해주세요.";
+        }
       } else {
         // Search mode - use existing knowledge base
         answer = generateAnswer(question);
