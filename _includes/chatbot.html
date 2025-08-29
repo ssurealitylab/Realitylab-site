@@ -18,6 +18,15 @@
             <label for="mode-toggle" class="toggle-slider"></label>
           </div>
         </div>
+        
+        <!-- Model Selection Dropdown -->
+        <div id="model-selection" class="model-selection" style="display: none;">
+          <label for="model-dropdown" class="model-label">AI Model:</label>
+          <select id="model-dropdown" class="model-dropdown">
+            <option value="kullm3-awq" selected>KULLM3-AWQ (Korea University)</option>
+            <option value="tinyllama">TinyLlama</option>
+          </select>
+        </div>
         <button id="chatbot-close" class="chatbot-close">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -203,6 +212,63 @@
 
 .toggle-input:checked + .toggle-slider:before {
   transform: translateX(25px);
+}
+
+/* Model Selection Styles */
+.model-selection {
+  margin-top: 12px;
+  padding: 8px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.model-label {
+  display: block;
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 12px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.model-dropdown {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  color: white;
+  font-size: 13px;
+  padding: 8px 12px;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.model-dropdown:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.model-dropdown:focus {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
+}
+
+.model-dropdown option {
+  background: #1a1a1a;
+  color: white;
+  padding: 8px;
 }
 
 .chatbot-messages {
@@ -391,6 +457,10 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatbotSubtitle = document.querySelector('.chatbot-subtitle');
   const chatbotTitle = document.querySelector('.chatbot-title');
   
+  // Model selection elements
+  const modelSelection = document.getElementById('model-selection');
+  const modelDropdown = document.getElementById('model-dropdown');
+  
   // Language button elements
   const langButtons = document.querySelectorAll('.lang-btn');
   const suggestionChipsElements = document.querySelectorAll('.suggestion-chip');
@@ -398,19 +468,39 @@ document.addEventListener('DOMContentLoaded', function() {
   // Current modes
   let isAIMode = false;
   let isEnglish = false;
+  let selectedModel = 'kullm3-awq';
 
   // AI Server availability check
   let isServerAvailable = null;
+  
+  // Get API endpoints based on selected model
+  function getModelEndpoints(model) {
+    const endpoints = {
+      'kullm3-awq': {
+        health: 'https://hold-p-contests-descriptions.trycloudflare.com/health',
+        chat: 'https://hold-p-contests-descriptions.trycloudflare.com/chat',
+        generate: 'https://hold-p-contests-descriptions.trycloudflare.com/generate'
+      },
+      'tinyllama': {
+        health: 'https://illinois-franchise-oral-always.trycloudflare.com/health',
+        chat: 'https://illinois-franchise-oral-always.trycloudflare.com/chat', 
+        generate: 'https://illinois-franchise-oral-always.trycloudflare.com/generate'
+      }
+    };
+    return endpoints[model] || endpoints['kullm3-awq'];
+  }
 
   // Check if AI server is available
   async function checkAIServer() {
-    if (isServerAvailable !== null) return isServerAvailable;
+    // Reset availability status when checking different models
+    isServerAvailable = null;
     
     try {
       const controller = new AbortController();
       const timeoutId = setTimeout(() => controller.abort(), 3000);
+      const endpoints = getModelEndpoints(selectedModel);
       
-      const response = await fetch('https://hold-p-contests-descriptions.trycloudflare.com/health', {
+      const response = await fetch(endpoints.health, {
         method: 'GET',
         signal: controller.signal
       });
@@ -438,8 +528,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // Generate AI response using public AI server with auto-save
   async function generateAIResponse(question) {
     try {
-      // Call new chat endpoint with auto-save functionality
-      const response = await fetch('https://hold-p-contests-descriptions.trycloudflare.com/chat', {
+      const endpoints = getModelEndpoints(selectedModel);
+      
+      // Call chat endpoint with auto-save functionality
+      const response = await fetch(endpoints.chat, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -468,7 +560,8 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Fallback to basic generate endpoint
       try {
-        const fallbackResponse = await fetch('https://hold-p-contests-descriptions.trycloudflare.com/generate', {
+        const endpoints = getModelEndpoints(selectedModel);
+        const fallbackResponse = await fetch(endpoints.generate, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -489,9 +582,10 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Check if server is not running or blocked by network
       if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
+        const modelName = selectedModel === 'kullm3-awq' ? 'KULLM3-AWQ' : 'TinyLlama';
         return isEnglish ? 
           "🌐 AI server is not accessible from external networks. Please use GitHub Issues for AI questions: https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md" :
-          "🤖 KULLM3-AWQ AI 서버가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도하거나 GitHub Issue를 이용해주세요.";
+          `🤖 ${modelName} AI 서버가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도하거나 GitHub Issue를 이용해주세요.`;
       }
       
       return isEnglish ? 
@@ -531,7 +625,24 @@ document.addEventListener('DOMContentLoaded', function() {
       isAIMode = this.checked;
       updateModeUI();
       
+      // Show/hide model selection dropdown
+      if (modelSelection) {
+        modelSelection.style.display = isAIMode ? 'block' : 'none';
+      }
+      
       // Check AI server when switching to AI mode
+      if (isAIMode) {
+        checkAIServer();
+      }
+    });
+  }
+  
+  // Model selection functionality
+  if (modelDropdown) {
+    modelDropdown.addEventListener('change', function() {
+      selectedModel = this.value;
+      
+      // Re-check AI server when model changes
       if (isAIMode) {
         checkAIServer();
       }
