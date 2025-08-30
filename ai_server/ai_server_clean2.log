@@ -1,0 +1,8 @@
+/home/i0179/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+INFO:__main__:Starting Reality Lab AI Server...
+INFO:__main__:Using GPU: NVIDIA GeForce RTX 4090
+INFO:__main__:Loading local model: /home/i0179/.cache/huggingface/hub/models--nlpai-lab--kullm-polyglot-12.8b-v2/snapshots/9e0c9be881f663ca088b10faad15b54ea3ba779c
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards: 100%|██████████| 3/3 [00:00<00:00, 75.89it/s]
+ERROR:__main__:Error loading model: CUDA out of memory. Tried to allocate 200.00 MiB. GPU 
+ERROR:__main__:Failed to load model. Server not started.

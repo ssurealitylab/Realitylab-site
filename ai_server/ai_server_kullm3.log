@@ -1,0 +1,6 @@
+/home/i0179/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+INFO:__main__:Starting Reality Lab AI Server...
+INFO:__main__:Using GPU: NVIDIA GeForce RTX 4090
+INFO:__main__:Loading model: nlpai-lab/KULLM3
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]

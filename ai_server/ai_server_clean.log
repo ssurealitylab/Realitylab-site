@@ -1,0 +1,10 @@
+/home/i0179/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+INFO:__main__:Starting Reality Lab AI Server...
+INFO:__main__:Using GPU: NVIDIA GeForce RTX 4090
+INFO:__main__:Loading model: nlpai-lab/kullm-polyglot-12.8b-v2
+Fetching 3 files:   0%|          | 0/3 [00:00<?, ?it/s]Fetching 3 files:  33%|███▎      | 1/3 [00:00<00:00,  4.75it/s]Fetching 3 files: 100%|██████████| 3/3 [00:00<00:00, 13.63it/s]
+Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/3 [00:00<?, ?it/s]
+ERROR:__main__:Error loading model: Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.
+See the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434
+ERROR:__main__:Failed to load model. Server not started.

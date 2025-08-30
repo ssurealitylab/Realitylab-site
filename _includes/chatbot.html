@@ -23,8 +23,11 @@
         <div id="model-selection" class="model-selection" style="display: none;">
           <label for="model-dropdown" class="model-label">AI Model:</label>
           <select id="model-dropdown" class="model-dropdown">
-            <option value="kullm3-awq" selected>KULLM3-AWQ (Korea University)</option>
-            <option value="tinyllama">TinyLlama</option>
+            <option value="qwen25-3b" selected>Qwen2.5-3B (Recommended)</option>
+            <option value="phi35-mini">Phi-3.5-mini (Microsoft)</option>
+            <option value="qwen25-1.5b">Qwen2.5-1.5B (Fast & Korean)</option>
+            <option value="tinyllama">TinyLlama (1.1B - English)</option>
+            <option value="kullm3-awq">KULLM3-AWQ (Korea Univ)</option>
           </select>
         </div>
         <button id="chatbot-close" class="chatbot-close">
@@ -468,7 +471,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Current modes
   let isAIMode = false;
   let isEnglish = false;
-  let selectedModel = 'kullm3-awq';
+  let selectedModel = 'qwen25-3b';
 
   // AI Server availability check
   let isServerAvailable = null;
@@ -477,17 +480,32 @@ document.addEventListener('DOMContentLoaded', function() {
   function getModelEndpoints(model) {
     const endpoints = {
       'kullm3-awq': {
-        health: 'https://hold-p-contests-descriptions.trycloudflare.com/health',
-        chat: 'https://hold-p-contests-descriptions.trycloudflare.com/chat',
-        generate: 'https://hold-p-contests-descriptions.trycloudflare.com/generate'
+        health: 'https://tba-or-executives-aqua.trycloudflare.com/health',
+        chat: 'https://tba-or-executives-aqua.trycloudflare.com/chat',
+        generate: 'https://tba-or-executives-aqua.trycloudflare.com/generate'
       },
       'tinyllama': {
-        health: 'https://rates-madrid-claimed-ignored.trycloudflare.com/health',
-        chat: 'https://rates-madrid-claimed-ignored.trycloudflare.com/chat', 
-        generate: 'https://rates-madrid-claimed-ignored.trycloudflare.com/generate'
+        health: 'http://localhost:4005/health',
+        chat: 'http://localhost:4005/chat', 
+        generate: 'http://localhost:4005/generate'
+      },
+      'qwen25-3b': {
+        health: 'http://localhost:4009/health',
+        chat: 'http://localhost:4009/chat', 
+        generate: 'http://localhost:4009/generate'
+      },
+      'phi35-mini': {
+        health: 'http://localhost:4010/health',
+        chat: 'http://localhost:4010/chat', 
+        generate: 'http://localhost:4010/generate'
+      },
+      'qwen25-1.5b': {
+        health: 'http://localhost:4009/health',
+        chat: 'http://localhost:4009/chat', 
+        generate: 'http://localhost:4009/generate'
       }
     };
-    return endpoints[model] || endpoints['kullm3-awq'];
+    return endpoints[model] || endpoints['qwen25-1.5b'];
   }
 
   // Check if AI server is available
@@ -553,7 +571,10 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('✅ AI 대화가 GitHub에 자동 저장되었습니다!');
       }
       
-      return data.response || (isEnglish ? "Sorry, no response generated." : "응답을 생성할 수 없습니다.");
+      return {
+        response: data.response || (isEnglish ? "Sorry, no response generated." : "응답을 생성할 수 없습니다."),
+        responseTime: data.response_time
+      };
       
     } catch (error) {
       console.error('Error calling AI server:', error);
@@ -582,7 +603,9 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Check if server is not running or blocked by network
       if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
-        const modelName = selectedModel === 'kullm3-awq' ? 'KULLM3-AWQ' : 'TinyLlama';
+        const modelName = selectedModel === 'qwen25-3b' ? 'Qwen2.5-3B' : 
+                         selectedModel === 'phi35-mini' ? 'Phi-3.5-mini' :
+                         selectedModel === 'kullm3-awq' ? 'KULLM3-AWQ' : 'TinyLlama';
         return isEnglish ? 
           "🌐 AI server is not accessible from external networks. Please use GitHub Issues for AI questions: https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md" :
           `🤖 ${modelName} AI 서버가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도하거나 GitHub Issue를 이용해주세요.`;
@@ -738,16 +761,26 @@ document.addEventListener('DOMContentLoaded', function() {
       // AI mode - use Tiny Llama
       try {
         addMessage(isEnglish ? 'Thinking...' : '생각 중...', 'bot', true); // temporary loading message
-        const aiResponse = await generateAIResponse(question);
+        const aiResult = await generateAIResponse(question);
+        // Clear thinking timer
+        clearThinkingTimer();
         // Remove the loading message and add the real response
         const messages = chatbotMessages.querySelectorAll('.message');
         const lastMessage = messages[messages.length - 1];
         if (lastMessage && lastMessage.classList.contains('bot-message')) {
           lastMessage.remove();
         }
-        addMessage(aiResponse, 'bot');
+        addMessage(aiResult.response, 'bot', aiResult.responseTime);
       } catch (error) {
         console.error('Error in AI response:', error);
+        // Clear thinking timer on error
+        clearThinkingTimer();
+        // Remove the loading message on error
+        const messages = chatbotMessages.querySelectorAll('.message');
+        const lastMessage = messages[messages.length - 1];
+        if (lastMessage && lastMessage.classList.contains('bot-message') && (lastMessage.textContent.includes('생각 중') || lastMessage.textContent.includes('Thinking'))) {
+          lastMessage.remove();
+        }
         addMessage(
           isEnglish ? 'Sorry, I encountered an error. Please try again.' : '죄송합니다. 오류가 발생했습니다. 다시 시도해주세요.',
           'bot'
@@ -778,8 +811,12 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
+  // Timer variables
+  let thinkingTimer = null;
+  let thinkingStartTime = null;
+
   // Add message to chat
-  function addMessage(content, type) {
+  function addMessage(content, type, responseTime = null) {
     const messageDiv = document.createElement('div');
     messageDiv.className = `message ${type}-message`;
     
@@ -788,10 +825,48 @@ document.addEventListener('DOMContentLoaded', function() {
     contentDiv.innerHTML = content.replace(/\n/g, '<br>');
     
     messageDiv.appendChild(contentDiv);
+    
+    // Add response time for bot messages
+    if (type === 'bot' && responseTime !== null) {
+      const timeDiv = document.createElement('div');
+      timeDiv.className = 'response-time';
+      timeDiv.innerHTML = `<small style="color: #888; font-size: 11px;">응답 시간: ${responseTime}초</small>`;
+      messageDiv.appendChild(timeDiv);
+    }
+    
     chatbotMessages.appendChild(messageDiv);
+    
+    // Start real-time timer for thinking messages after DOM insertion
+    if (type === 'bot' && (content.includes('생각 중') || content.includes('Thinking'))) {
+      const timeDiv = document.createElement('div');
+      timeDiv.className = 'thinking-timer';
+      timeDiv.innerHTML = `<small style="color: #888; font-size: 11px;">⏱️ 0초</small>`;
+      messageDiv.appendChild(timeDiv);
+      
+      // Start timer
+      thinkingStartTime = Date.now();
+      thinkingTimer = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - thinkingStartTime) / 1000);
+        const timerElement = messageDiv.querySelector('.thinking-timer small');
+        if (timerElement) {
+          timerElement.innerHTML = `⏱️ ${elapsed}초`;
+        } else {
+          clearInterval(thinkingTimer);
+        }
+      }, 1000);
+    }
     
     // Scroll to bottom
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+  }
+
+  // Clear thinking timer
+  function clearThinkingTimer() {
+    if (thinkingTimer) {
+      clearInterval(thinkingTimer);
+      thinkingTimer = null;
+      thinkingStartTime = null;
+    }
   }
 
   // Simple knowledge-based answer generation

@@ -1,0 +1,85 @@
+/home/i0179/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+INFO:__main__:Starting Multi-GPU Reality Lab TinyLlama Server...
+INFO:__main__:Found 4 GPUs
+INFO:__main__:Loading tokenizer
+/home/i0179/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:__main__:Loading model on GPU 0...
+INFO:__main__:Loading TinyLlama model on GPU 0
+/home/i0179/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+INFO:__main__:Successfully loaded model on GPU 0
+INFO:__main__:✅ Model loaded successfully on GPU 0
+INFO:__main__:Loading model on GPU 1...
+INFO:__main__:Loading TinyLlama model on GPU 1
+INFO:__main__:Successfully loaded model on GPU 1
+INFO:__main__:✅ Model loaded successfully on GPU 1
+INFO:__main__:Loading model on GPU 2...
+INFO:__main__:Loading TinyLlama model on GPU 2
+INFO:__main__:Successfully loaded model on GPU 2
+INFO:__main__:✅ Model loaded successfully on GPU 2
+INFO:__main__:Loading model on GPU 3...
+INFO:__main__:Loading TinyLlama model on GPU 3
+INFO:__main__:Successfully loaded model on GPU 3
+INFO:__main__:✅ Model loaded successfully on GPU 3
+INFO:__main__:Successfully loaded models on 4 GPUs: [0, 1, 2, 3]
+INFO:__main__:🚀 Multi-GPU TinyLlama server ready!
+ * Serving Flask app 'tinyllama_server_multigpu'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4005
+ * Running on http://203.253.25.165:4005
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:12:46] "GET /gpu_status HTTP/1.1" 200 -
+ERROR:__main__:Error in chat endpoint: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:12:52] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 21963MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 21676MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:13:03] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:18:06] "GET /health HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:18:06] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 15639MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 15488MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:18:12] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:20:54] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 15637MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 15488MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:00] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:05] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 15637MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 15488MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:06] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:10] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 15637MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 15488MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:16] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:18] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 15637MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 15488MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:21] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:40] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 15637MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 15637MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:21:43] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:24:27] "GET /health HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:24:27] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 15488MB)
+INFO:__main__:Generated response on GPU 3
+INFO:__main__:Selected GPU 0 (utilization: 0%, free memory: 15290MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 20:24:33] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 21:55:41] "GET /health HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 21:55:42] "OPTIONS /chat HTTP/1.1" 200 -
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 21825MB)
+INFO:__main__:Generated response on GPU 1
+INFO:__main__:Selected GPU 3 (utilization: 0%, free memory: 21538MB)
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 21:55:45] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 22:00:19] "GET /health HTTP/1.1" 200 -

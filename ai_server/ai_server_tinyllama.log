@@ -1,0 +1,19 @@
+/home/i0179/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+INFO:__main__:Starting Reality Lab AI Server...
+INFO:__main__:Using GPU: NVIDIA GeForce RTX 4090
+INFO:__main__:Loading model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+INFO:__main__:Model loaded successfully!
+INFO:__main__:AI Server ready!
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4003
+ * Running on http://203.253.25.165:4003
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2025 23:55:07] "GET /health HTTP/1.1" 200 -
+ERROR:__main__:Error in generate endpoint: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2025 23:55:16] "[35m[1mPOST /generate HTTP/1.1[0m" 500 -
+The attention mask is not set and cannot be inferred from input because pad token is same as eos token. As a consequence, you may observe unexpected behavior. Please pass your input's `attention_mask` to obtain reliable results.
+INFO:werkzeug:127.0.0.1 - - [29/Aug/2025 23:55:28] "POST /generate HTTP/1.1" 200 -

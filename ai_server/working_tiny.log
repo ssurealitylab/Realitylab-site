@@ -1,0 +1,22 @@
+/home/i0179/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+INFO:__main__:Starting Reality Lab TinyLlama Server...
+INFO:__main__:Selected GPU 1 (utilization: 0%, free memory: 24550MB)
+INFO:__main__:Using GPU 1: NVIDIA GeForce RTX 4090
+INFO:__main__:Loading model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+/home/i0179/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+/home/i0179/lib/python3.10/site-packages/huggingface_hub/file_download.py:945: FutureWarning: `resume_download` is deprecated and will be removed in version 1.0.0. Downloads always resume when possible. If you want to force a new download, use `force_download=True`.
+  warnings.warn(
+WARNING:accelerate.big_modeling:You shouldn't move a model when it is dispatched on multiple devices.
+INFO:__main__:TinyLlama model loaded successfully!
+INFO:__main__:TinyLlama Server ready!
+ * Serving Flask app 'tinyllama_server'
+ * Debug mode: off
+INFO:werkzeug:[31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:4005
+ * Running on http://203.253.25.165:4005
+INFO:werkzeug:[33mPress CTRL+C to quit[0m
+ERROR:__main__:Error in chat endpoint: 400 Bad Request: The browser (or proxy) sent a request that this server could not understand.
+INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 05:10:19] "[35m[1mPOST /chat HTTP/1.1[0m" 500 -

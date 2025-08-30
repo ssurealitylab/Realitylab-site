@@ -1,0 +1,27 @@
+/home/i0179/lib/python3.10/site-packages/requests/__init__.py:86: RequestsDependencyWarning: Unable to find acceptable character detection dependency (chardet or charset_normalizer).
+  warnings.warn(
+/home/i0179/lib/python3.10/site-packages/awq/__init__.py:21: DeprecationWarning: 
+I have left this message as the final dev message to help you transition.
+
+Important Notice:
+- AutoAWQ is officially deprecated and will no longer be maintained.
+- The last tested configuration used Torch 2.6.0 and Transformers 4.51.3.
+- If future versions of Transformers break AutoAWQ compatibility, please report the issue to the Transformers project.
+
+Alternative:
+- AutoAWQ has been adopted by the vLLM Project: https://github.com/vllm-project/llm-compressor
+
+For further inquiries, feel free to reach out:
+- X: https://x.com/casper_hansen_
+- LinkedIn: https://www.linkedin.com/in/casper-hansen-804005170/
+
+  warnings.warn(_FINAL_DEV_MESSAGE, category=DeprecationWarning, stacklevel=1)
+INFO:__main__:Starting Reality Lab AI Server...
+INFO:__main__:Using GPU: NVIDIA GeForce RTX 4090
+INFO:__main__:Loading model: TinyLlama/TinyLlama-1.1B-Chat-v1.0
+INFO:__main__:Model loaded successfully!
+INFO:__main__:AI Server ready!
+ * Serving Flask app 'app'
+ * Debug mode: off
+Address already in use
+Port 4003 is in use by another program. Either identify and stop that program, or start the server with a different port.

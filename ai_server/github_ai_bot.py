@@ -96,7 +96,7 @@ def main():
 {ai_answer}
 
 ---
-*이 응답은 Reality Lab의 GPU 서버에서 TinyLlama 모델로 생성되었습니다.*
+*이 응답은 Reality Lab의 GPU 서버에서 고려대 KULLM 모델로 생성되었습니다.*
 *더 자세한 정보가 필요하시면 [웹사이트](https://ssurealitylab-spec.github.io/Realitylab-site/)를 방문해주세요!*
 """
     

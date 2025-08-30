@@ -7,9 +7,15 @@ Local GPU-accelerated inference server
 import os
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+try:
+    from awq import AutoAWQForCausalLM
+    AWQ_AVAILABLE = True
+except ImportError:
+    AWQ_AVAILABLE = False
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import logging
+import time
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -36,7 +42,8 @@ def load_model():
             device = torch.device("cpu")
             logger.info("Using CPU")
         
-        model_name = "TinyLlama/TinyLlama-1.1B-Chat-v1.0"
+        # Use local KULLM3-AWQ files
+        model_name = "/home/i0179/models/KULLM3-awq"
         logger.info(f"Loading model: {model_name}")
         
         # Load tokenizer
@@ -45,15 +52,39 @@ def load_model():
             trust_remote_code=True
         )
         
-        # Load model with GPU support
-        model = AutoModelForCausalLM.from_pretrained(
-            model_name,
-            torch_dtype=torch.float16 if device.type == "cuda" else torch.float32,
-            trust_remote_code=True
-        )
+        # Load model with GPU support (set env var to disable weights_only check)
+        os.environ['TORCH_DISABLE_WEIGHTS_ONLY_WARNING'] = '1'
         
-        # Move model to device
-        model = model.to(device)
+        # Try AutoAWQ first, fallback to CPU inference if kernels fail
+        if AWQ_AVAILABLE and device.type == "cuda":
+            try:
+                logger.info("Loading AWQ quantized model with AutoAWQForCausalLM")
+                model = AutoAWQForCausalLM.from_quantized(
+                    model_name,
+                    fuse_layers=False,  # Disable layer fusion to avoid kernel issues
+                    trust_remote_code=True,
+                    safetensors=True
+                )
+                logger.info("AWQ model loaded successfully!")
+            except Exception as e:
+                logger.warning(f"AWQ loading failed: {e}, falling back to CPU inference")
+                model = AutoAWQForCausalLM.from_quantized(
+                    model_name,
+                    fuse_layers=False,
+                    trust_remote_code=True,
+                    safetensors=True,
+                    device_map="cpu"
+                )
+        else:
+            logger.warning("AutoAWQ not available, falling back to standard loading")
+            model = AutoModelForCausalLM.from_pretrained(
+                model_name,
+                torch_dtype=torch.float16 if device.type == "cuda" else torch.float32,
+                trust_remote_code=True,
+                device_map="cuda:0" if device.type == "cuda" else "cpu",
+                low_cpu_mem_usage=True
+            )
+            model = model.to(device)
         
         # Set padding token
         if tokenizer.pad_token is None:
@@ -66,26 +97,27 @@ def load_model():
         logger.error(f"Error loading model: {e}")
         return False
 
-def generate_response(prompt, max_length=150, temperature=0.7):
-    """Generate AI response using Tiny Llama"""
+def generate_response(prompt, max_length=300, temperature=0.7):
+    """Generate AI response using KULLM3-AWQ"""
     global model, tokenizer, device
     
     if model is None or tokenizer is None:
         return "AI model is not loaded"
     
     try:
-        # Tokenize input
-        inputs = tokenizer.encode(prompt, return_tensors="pt").to(device)
+        # Tokenize input with attention mask
+        inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True, max_length=512)
+        inputs = {k: v.to(device) for k, v in inputs.items()}
         
-        # Generate response
+        # Generate response with greedy decoding to avoid sampling issues
         with torch.no_grad():
             outputs = model.generate(
-                inputs,
-                max_length=inputs.shape[1] + max_length,
-                temperature=temperature,
-                do_sample=True,
-                top_p=0.9,
+                input_ids=inputs["input_ids"],
+                attention_mask=inputs.get("attention_mask"),
+                max_new_tokens=max_length,
+                do_sample=False,  # Use greedy decoding
                 pad_token_id=tokenizer.eos_token_id,
+                eos_token_id=tokenizer.eos_token_id,
                 num_return_sequences=1
             )
         
@@ -93,7 +125,8 @@ def generate_response(prompt, max_length=150, temperature=0.7):
         response = tokenizer.decode(outputs[0], skip_special_tokens=True)
         
         # Extract only the generated part (remove input prompt)
-        generated_text = response[len(tokenizer.decode(inputs[0], skip_special_tokens=True)):].strip()
+        input_text = tokenizer.decode(inputs["input_ids"][0], skip_special_tokens=True)
+        generated_text = response[len(input_text):].strip()
         
         return generated_text if generated_text else "죄송합니다. 응답을 생성할 수 없습니다."
         
@@ -114,6 +147,8 @@ def health_check():
 def generate():
     """Generate AI response endpoint"""
     try:
+        start_time = time.time()
+        
         data = request.json
         if not data or 'prompt' not in data:
             return jsonify({'error': 'No prompt provided'}), 400
@@ -134,7 +169,7 @@ Question: """
             prompt = system_prompt + user_question + "\n답변:"
         
         # Generate response
-        response = generate_response(prompt, max_length=100, temperature=0.7)
+        response = generate_response(prompt, max_length=300, temperature=0.7)
         
         # Clean up response (remove system prompt remnants)
         if language == 'en':
@@ -144,9 +179,13 @@ Question: """
             if "답변:" in response:
                 response = response.split("답변:")[-1].strip()
         
+        end_time = time.time()
+        response_time = round(end_time - start_time, 2)
+        
         return jsonify({
             'response': response,
-            'language': language
+            'language': language,
+            'response_time': response_time
         })
         
     except Exception as e:
@@ -157,6 +196,8 @@ Question: """
 def chat():
     """Auto-save chat and generate AI response"""
     try:
+        start_time = time.time()
+        
         data = request.json
         if not data or 'question' not in data:
             return jsonify({'error': 'No question provided'}), 400
@@ -172,7 +213,7 @@ def chat():
 Question: """
         
         prompt = system_prompt + user_question + ("\n답변:" if language == 'ko' else "\nAnswer:")
-        ai_response = generate_response(prompt, max_length=100, temperature=0.7)
+        ai_response = generate_response(prompt, max_length=300, temperature=0.7)
         
         # Clean up response
         if language == 'en' and "Answer:" in ai_response:
@@ -240,10 +281,14 @@ Question: """
         except Exception as e:
             logger.warning(f"GitHub auto-save failed: {e}")
         
+        end_time = time.time()
+        response_time = round(end_time - start_time, 2)
+        
         return jsonify({
             'response': ai_response,
             'language': language,
-            'auto_saved': True
+            'auto_saved': True,
+            'response_time': response_time
         })
         
     except Exception as e:
