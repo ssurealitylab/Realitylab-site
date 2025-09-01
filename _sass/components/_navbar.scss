@@ -70,7 +70,9 @@
           color: $primary !important;
           margin: 0 0.5rem;
           
-          i.fa-search {
+          i.fa-search,
+          i.fas.fa-search,
+          i.far.fa-search {
             font-size: 28px;
             margin-left: -18px;
             margin-top: 2px;
