@@ -1,0 +1,168 @@
+<!-- Robot Easter Egg -->
+<div id="robot-easter-egg" style="display: none;">
+  <div id="robot-container">
+    <!-- Robot SVG Animation -->
+    <svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
+      <!-- Robot Head -->
+      <ellipse cx="100" cy="80" rx="50" ry="40" fill="#E8E8E8" stroke="#333" stroke-width="2"/>
+      
+      <!-- Eyes -->
+      <circle cx="85" cy="75" r="8" fill="#4A90E2"/>
+      <circle cx="115" cy="75" r="8" fill="#4A90E2"/>
+      <circle cx="85" cy="75" r="3" fill="#FFF"/>
+      <circle cx="115" cy="75" r="3" fill="#FFF"/>
+      
+      <!-- Mouth -->
+      <rect x="90" y="90" width="20" height="4" fill="#333" rx="2"/>
+      
+      <!-- Body -->
+      <rect x="70" y="120" width="60" height="80" fill="#F0F0F0" stroke="#333" stroke-width="2" rx="10"/>
+      
+      <!-- Arms -->
+      <rect x="40" y="130" width="25" height="50" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
+      <rect x="135" y="130" width="25" height="50" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
+      
+      <!-- Legs -->
+      <rect x="80" y="200" width="15" height="60" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
+      <rect x="105" y="200" width="15" height="60" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
+      
+      <!-- Hand (waving) -->
+      <circle cx="147" cy="160" r="8" fill="#C0C0C0" stroke="#333" stroke-width="2"/>
+      
+      <!-- Text bubble -->
+      <g id="hello-text">
+        <ellipse cx="180" cy="100" rx="35" ry="20" fill="#FFF" stroke="#333" stroke-width="1"/>
+        <text x="180" y="105" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">Hello!</text>
+        <polygon points="155,110 145,115 150,105" fill="#FFF" stroke="#333" stroke-width="1"/>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<style>
+#robot-easter-egg {
+  position: fixed;
+  top: 50%;
+  left: -250px; /* Start off-screen */
+  transform: translateY(-50%);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+#robot-container {
+  animation-fill-mode: forwards;
+}
+
+/* Slide-in animation */
+@keyframes slideInRobot {
+  0% {
+    left: -250px;
+  }
+  20% {
+    left: 20px; /* Stop so left edge is visible */
+  }
+  80% {
+    left: 20px; /* Stay visible longer */
+  }
+  100% {
+    left: -250px; /* Slide back out */
+  }
+}
+
+/* Wave animation */
+@keyframes waveHand {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-15deg); }
+  75% { transform: rotate(15deg); }
+}
+
+/* Text bubble animation */
+@keyframes fadeText {
+  0%, 20% { opacity: 0; }
+  30%, 60% { opacity: 1; }
+  70%, 100% { opacity: 0; }
+}
+
+.robot-animate {
+  animation: slideInRobot 5s ease-in-out;
+}
+
+.robot-animate #robot-container circle[cx="147"] {
+  transform-origin: 147px 160px;
+  animation: waveHand 0.5s ease-in-out infinite;
+}
+
+.robot-animate #hello-text {
+  animation: fadeText 5s ease-in-out;
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let clickCount = 0;
+    let clickTimer = null;
+    let isAnimating = false;
+    
+    console.log('Robot Easter Egg script loaded');
+    
+    function initEasterEgg() {
+        const logo = document.getElementById('reality-lab-logo');
+        const robotEgg = document.getElementById('robot-easter-egg');
+        
+        console.log('Logo element:', logo);
+        console.log('Robot egg element:', robotEgg);
+        
+        if (!logo || !robotEgg) {
+            console.log('Elements not found, retrying in 1 second...');
+            setTimeout(initEasterEgg, 1000);
+            return;
+        }
+        
+        logo.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            console.log('Logo clicked! Count:', clickCount + 1);
+            
+            // Reset timer if more than 3 seconds passed
+            if (clickTimer) {
+                clearTimeout(clickTimer);
+            }
+            
+            clickCount++;
+            
+            // Reset click count after 3 seconds
+            clickTimer = setTimeout(function() {
+                console.log('Click count reset');
+                clickCount = 0;
+            }, 3000);
+            
+            // Trigger easter egg if 5 clicks within 3 seconds
+            if (clickCount >= 5 && !isAnimating) {
+                console.log('Easter egg triggered!');
+                triggerRobotEasterEgg();
+                clickCount = 0;
+            }
+        });
+        
+        function triggerRobotEasterEgg() {
+            if (isAnimating) return;
+            
+            console.log('Showing robot animation');
+            isAnimating = true;
+            robotEgg.style.display = 'block';
+            robotEgg.classList.add('robot-animate');
+            
+            // Hide after animation completes (5 seconds total)
+            setTimeout(function() {
+                robotEgg.style.display = 'none';
+                robotEgg.classList.remove('robot-animate');
+                isAnimating = false;
+                console.log('Robot animation completed');
+            }, 5000);
+        }
+    }
+    
+    // Initialize after DOM is ready
+    initEasterEgg();
+});
+</script>
