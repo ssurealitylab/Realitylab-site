@@ -37,10 +37,10 @@
             {%- for item in link.dropdown -%}
             <a class="dropdown-item" href="{{ item.url }}">
               <div class="dropdown-item-content">
-                <i class="{{ item.icon }}"></i>
+                {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
                 <div class="dropdown-item-text">
                   <strong>{{ item.title }}</strong>
-                  <small>{{ item.desc }}</small>
+                  {% if item.desc %}<small>{{ item.desc }}</small>{% endif %}
                 </div>
               </div>
             </a>
@@ -72,10 +72,10 @@
             {%- for item in link.dropdown -%}
             <a class="dropdown-item" href="{{ item.url }}">
               <div class="dropdown-item-content">
-                <i class="{{ item.icon }}"></i>
+                {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
                 <div class="dropdown-item-text">
                   <strong>{{ item.title }}</strong>
-                  <small>{{ item.desc }}</small>
+                  {% if item.desc %}<small>{{ item.desc }}</small>{% endif %}
                 </div>
               </div>
             </a>
