@@ -31,10 +31,13 @@ nav:
         url: /publication.html#domestic
   - title: "Courses"
     url: /courses.html
-  - title: "AI Chat"
-    url: /ai-chat.html
   - title: "AI"
     url: "#ai"
+    dropdown:
+      - title: "AI Chat"
+        url: /ai-chat.html
+        icon: "fas fa-search"
+        desc: "Chat with AI Assistant"
 
 # English [default] (https://localizely.com/language-code/en/)
 # -----------------
@@ -62,10 +65,13 @@ en: &DEFAULT_EN
           url: /publication.html#domestic
     - title: "Courses"
       url: /courses.html
-    - title: "AI Chat"
-      url: /ai-chat.html
     - title: "AI"
       url: "#ai"
+      dropdown:
+        - title: "AI Chat"
+          url: /ai-chat.html
+          icon: "fas fa-search"
+          desc: "Chat with AI Assistant"
 
 en-001: #English (World)
   <<: *DEFAULT_EN
