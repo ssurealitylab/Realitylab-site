@@ -24,10 +24,9 @@
           <label for="model-dropdown" class="model-label">AI Model:</label>
           <select id="model-dropdown" class="model-dropdown">
             <option value="qwen25-3b" selected>Qwen2.5-3B (Recommended)</option>
+            <option value="gemma2-9b">Gemma2-9B (Google)</option>
             <option value="phi35-mini">Phi-3.5-mini (Microsoft)</option>
-            <option value="qwen25-1.5b">Qwen2.5-1.5B (Fast & Korean)</option>
-            <option value="tinyllama">TinyLlama (1.1B - English)</option>
-            <option value="kullm3-awq">KULLM3-AWQ (Korea Univ)</option>
+            <option value="tinyllama">TinyLlama (1.1B - Fast)</option>
           </select>
         </div>
         <button id="chatbot-close" class="chatbot-close">
@@ -479,33 +478,28 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get API endpoints based on selected model
   function getModelEndpoints(model) {
     const endpoints = {
-      'kullm3-awq': {
-        health: 'https://tba-or-executives-aqua.trycloudflare.com/health',
-        chat: 'https://tba-or-executives-aqua.trycloudflare.com/chat',
-        generate: 'https://tba-or-executives-aqua.trycloudflare.com/generate'
-      },
-      'tinyllama': {
-        health: 'http://localhost:4005/health',
-        chat: 'http://localhost:4005/chat', 
-        generate: 'http://localhost:4005/generate'
-      },
       'qwen25-3b': {
-        health: 'http://localhost:4009/health',
-        chat: 'http://localhost:4009/chat', 
-        generate: 'http://localhost:4009/generate'
+        health: 'https://storm-seasonal-assists-affairs.trycloudflare.com/health',
+        chat: 'https://storm-seasonal-assists-affairs.trycloudflare.com/chat',
+        generate: 'https://storm-seasonal-assists-affairs.trycloudflare.com/generate'
+      },
+      'gemma2-9b': {
+        health: 'https://203.253.25.165:4005/health',
+        chat: 'https://203.253.25.165:4005/chat', 
+        generate: 'https://203.253.25.165:4005/generate'
       },
       'phi35-mini': {
-        health: 'http://localhost:4010/health',
-        chat: 'http://localhost:4010/chat', 
-        generate: 'http://localhost:4010/generate'
+        health: 'https://203.253.25.165:4006/health',
+        chat: 'https://203.253.25.165:4006/chat', 
+        generate: 'https://203.253.25.165:4006/generate'
       },
-      'qwen25-1.5b': {
-        health: 'http://localhost:4009/health',
-        chat: 'http://localhost:4009/chat', 
-        generate: 'http://localhost:4009/generate'
+      'tinyllama': {
+        health: 'https://203.253.25.165:4007/health',
+        chat: 'https://203.253.25.165:4007/chat', 
+        generate: 'https://203.253.25.165:4007/generate'
       }
     };
-    return endpoints[model] || endpoints['qwen25-1.5b'];
+    return endpoints[model] || endpoints['qwen25-3b'];
   }
 
   // Check if AI server is available
@@ -515,7 +509,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     try {
       const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 3000);
+      const timeoutId = setTimeout(() => controller.abort(), 15000);
       const endpoints = getModelEndpoints(selectedModel);
       
       const response = await fetch(endpoints.health, {
@@ -549,6 +543,9 @@ document.addEventListener('DOMContentLoaded', function() {
       const endpoints = getModelEndpoints(selectedModel);
       
       // Call chat endpoint with auto-save functionality
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
+      
       const response = await fetch(endpoints.chat, {
         method: 'POST',
         headers: {
@@ -557,14 +554,18 @@ document.addEventListener('DOMContentLoaded', function() {
         body: JSON.stringify({
           question: question,
           language: isEnglish ? 'en' : 'ko'
-        })
+        }),
+        signal: controller.signal
       });
+      
+      clearTimeout(timeoutId);
 
       if (!response.ok) {
         throw new Error(`Server error: ${response.status}`);
       }
 
       const data = await response.json();
+      console.log('AI Response:', data);
       
       // Show success message if auto-saved
       if (data.auto_saved) {
@@ -573,7 +574,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       return {
         response: data.response || (isEnglish ? "Sorry, no response generated." : "응답을 생성할 수 없습니다."),
-        responseTime: data.response_time
+        response_time: data.response_time
       };
       
     } catch (error) {
@@ -617,9 +618,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  // Toggle chatbot
-  function toggleChatbot() {
+  // Toggle chatbot (global function)
+  window.toggleChatbot = function() {
     const container = document.getElementById('chatbot-container');
+    const chatbotWindow = document.getElementById('chatbot-window');
     if (chatbotWindow.style.display === 'flex') {
       chatbotWindow.style.display = 'none';
     } else {
@@ -770,7 +772,9 @@ document.addEventListener('DOMContentLoaded', function() {
         if (lastMessage && lastMessage.classList.contains('bot-message')) {
           lastMessage.remove();
         }
-        addMessage(aiResult.response, 'bot', aiResult.responseTime);
+        const response = aiResult?.response || aiResult || 'No response';
+        const responseTime = aiResult?.response_time || null;
+        addMessage(response, 'bot', responseTime);
       } catch (error) {
         console.error('Error in AI response:', error);
         // Clear thinking timer on error
