@@ -19,3 +19,24 @@ Thumbs.db
 .idea/
 *.swp
 *.swo
+
+# Python files and ML directories
+*.pyc
+__pycache__/
+finetune_env/
+qwen_reality_lab_lora/
+reality_lab_dataset/
+reality_lab_qwen/
+reality_lab_qwen_lora/
+
+# Specific files to ignore
+data_crawler.py
+data_processor.py
+download_gemma2.py
+finetune_qwen.py
+qwen_3hour_finetune.py
+simple_finetune.py
+simple_lora_finetune.py
+
+# Korean filename images
+"참고 이미지/"
