@@ -23,3 +23,4 @@ INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 22:01:24] "GET /health HTTP/1.1" 200 -
 /home/i0179/lib/python3.10/site-packages/transformers/generation/configuration_utils.py:453: UserWarning: `num_beams` is set to 1. However, `early_stopping` is set to `True` -- this flag is only used in beam-based generation modes. You should set `num_beams>1` or unset `early_stopping`.
   warnings.warn(
 INFO:werkzeug:127.0.0.1 - - [30/Aug/2025 22:04:17] "POST /chat HTTP/1.1" 200 -
+INFO:werkzeug:127.0.0.1 - - [31/Aug/2025 04:38:10] "[33mGET / HTTP/1.1[0m" 404 -

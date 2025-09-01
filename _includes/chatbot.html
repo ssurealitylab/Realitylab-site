@@ -634,9 +634,29 @@ document.addEventListener('DOMContentLoaded', function() {
   if (aiSearchBtn) {
     aiSearchBtn.addEventListener('click', (e) => {
       e.preventDefault();
-      toggleChatbot();
+      window.toggleChatbot();
     });
   }
+  
+  // Also look for AI button by id
+  const aiButtonById = document.getElementById('ai-search');
+  if (aiButtonById) {
+    aiButtonById.addEventListener('click', (e) => {
+      e.preventDefault();
+      window.toggleChatbot();
+    });
+  }
+  
+  // Also look for any element with AI-related classes
+  const aiButtons = document.querySelectorAll('[href="#"], .ai-search-btn, a[title="AI"]');
+  aiButtons.forEach(btn => {
+    if (btn.textContent.includes('AI') || btn.id === 'ai-search') {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.toggleChatbot();
+      });
+    }
+  });
 
   chatbotClose.addEventListener('click', () => {
     const container = document.getElementById('chatbot-container');

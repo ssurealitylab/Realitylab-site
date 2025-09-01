@@ -42,8 +42,8 @@ def load_model():
             device = torch.device("cpu")
             logger.info("Using CPU")
         
-        # Use local KULLM3-AWQ files
-        model_name = "/home/i0179/models/KULLM3-awq"
+        # Use Qwen2.5-3B-Instruct model
+        model_name = "Qwen/Qwen2.5-3B-Instruct"
         logger.info(f"Loading model: {model_name}")
         
         # Load tokenizer
