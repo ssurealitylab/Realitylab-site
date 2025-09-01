@@ -60,21 +60,15 @@
         &.ai-menu-circular {
           background: rgba(59, 130, 246, 0.1);
           border-radius: 50%;
-          width: 55px;
-          height: 55px;
+          width: 45px;
+          height: 45px;
           padding: 0 !important;
           justify-content: center;
-          align-items: center;
-          font-size: 14px;
+          gap: 3px;
+          font-size: 13px;
           font-weight: 600;
           color: $primary !important;
           margin: 0 0.5rem;
-          
-          .ai-menu-text {
-            font-size: 16px;
-            font-weight: 600;
-            color: $primary !important;
-          }
           
           &:hover {
             background: rgba(59, 130, 246, 0.2);
