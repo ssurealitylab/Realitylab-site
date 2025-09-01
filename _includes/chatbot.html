@@ -479,9 +479,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function getModelEndpoints(model) {
     const endpoints = {
       'qwen25-3b': {
-        health: 'https://storm-seasonal-assists-affairs.trycloudflare.com/health',
-        chat: 'https://storm-seasonal-assists-affairs.trycloudflare.com/chat',
-        generate: 'https://storm-seasonal-assists-affairs.trycloudflare.com/generate'
+        health: 'http://203.253.25.165:4003/health',
+        chat: 'http://203.253.25.165:4003/chat',
+        generate: 'http://203.253.25.165:4003/generate'
       },
       'gemma2-9b': {
         health: 'https://203.253.25.165:4005/health',
@@ -494,9 +494,9 @@ document.addEventListener('DOMContentLoaded', function() {
         generate: 'https://203.253.25.165:4006/generate'
       },
       'tinyllama': {
-        health: 'https://203.253.25.165:4007/health',
-        chat: 'https://203.253.25.165:4007/chat', 
-        generate: 'https://203.253.25.165:4007/generate'
+        health: 'http://203.253.25.165:4007/health',
+        chat: 'http://203.253.25.165:4007/chat', 
+        generate: 'http://203.253.25.165:4007/generate'
       }
     };
     return endpoints[model] || endpoints['qwen25-3b'];

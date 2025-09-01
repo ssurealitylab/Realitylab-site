@@ -57,7 +57,9 @@
             >{{ link.title }}</a
           >
           {%- else -%}
-          <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
+          <a class="nav-link js-scroll-trigger" href="#">
+            {{ link.title }}{% if link.title == 'AI' %} <i class="fas fa-search"></i>{% endif %}
+          </a>
           {%- endif -%}
         </li>
         {%- endfor -%}
@@ -92,7 +94,9 @@
             >{{ link.title }}</a
           >
           {%- else -%}
-          <a class="nav-link js-scroll-trigger" href="#">{{ link.title }}</a>
+          <a class="nav-link js-scroll-trigger" href="#">
+            {{ link.title }}{% if link.title == 'AI' %} <i class="fas fa-search"></i>{% endif %}
+          </a>
           {%- endif -%}
         </li>
         {%- endfor -%}
