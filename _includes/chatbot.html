@@ -648,9 +648,9 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
   // Also look for any element with AI-related classes
-  const aiButtons = document.querySelectorAll('[href="#"], .ai-search-btn, a[title="AI"]');
+  const aiButtons = document.querySelectorAll('[href="#ai"], [href="#"], .ai-search-btn, a[title="AI"]');
   aiButtons.forEach(btn => {
-    if (btn.textContent.includes('AI') || btn.id === 'ai-search') {
+    if (btn.textContent.includes('AI') || btn.id === 'ai-search' || btn.href?.includes('#ai')) {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
         window.toggleChatbot();

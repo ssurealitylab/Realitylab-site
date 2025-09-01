@@ -34,8 +34,7 @@ nav:
   - title: "AI Chat"
     url: /ai-chat.html
   - title: "AI"
-    url: "#"
-    id: "ai-search"
+    url: "#ai"
 
 # English [default] (https://localizely.com/language-code/en/)
 # -----------------
@@ -66,8 +65,7 @@ en: &DEFAULT_EN
     - title: "AI Chat"
       url: /ai-chat.html
     - title: "AI"
-      url: "#"
-      id: "ai-search"
+      url: "#ai"
 
 en-001: #English (World)
   <<: *DEFAULT_EN
