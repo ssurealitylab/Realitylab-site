@@ -114,8 +114,8 @@ def generate_response(prompt, max_length=400):
         response = tokenizer.decode(outputs[0], skip_special_tokens=True)
         
         # Extract generated text
-        if "<|im_start|>assistant\n" in response:
-            parts = response.split("<|im_start|>assistant\n")
+        if "assistant\n" in response:
+            parts = response.split("assistant\n")
             if len(parts) > 1:
                 generated_text = parts[-1].replace("<|im_end|>", "").strip()
             else:
