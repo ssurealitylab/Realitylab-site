@@ -1,0 +1,19 @@
+{
+  "total_pages": 11,
+  "total_characters": 40401,
+  "average_content_length": 3672.818181818182,
+  "urls_crawled": [
+    "https://reality.ssu.ac.kr/publication/international",
+    "https://reality.ssu.ac.kr/courses",
+    "https://reality.ssu.ac.kr/members",
+    "https://reality.ssu.ac.kr/publication/domestic",
+    "https://reality.ssu.ac.kr/publication",
+    "https://reality.ssu.ac.kr/news",
+    "https://reality.ssu.ac.kr/home",
+    "https://reality.ssu.ac.kr/members/alumni",
+    "https://reality.ssu.ac.kr/members/faculty",
+    "https://reality.ssu.ac.kr/members/students",
+    "https://reality.ssu.ac.kr/"
+  ],
+  "qa_pairs": 11
+}

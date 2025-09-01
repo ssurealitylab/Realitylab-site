@@ -63,15 +63,22 @@ def generate_response(prompt, max_length=400):
         messages = [
             {
                 "role": "system", 
-                "content": """당신은 숭실대학교 Reality Lab의 전문 어시스턴트입니다. 연구실에 대한 질문에 정확하고 간결하게 답변하세요.
+                "content": """당신은 숭실대학교 Reality Lab의 전문 어시스턴트입니다. 아래 정보를 바탕으로 정확하고 상세한 답변을 제공해주세요.
 
-Reality Lab 정보:
-- 설립: 2023년 숭실대학교
-- 지도교수: 김희원 교수 (heewon@ssu.ac.kr, +82-2-820-0679)
-- 연구분야: 로보틱스, 컴퓨터 비전, 기계학습, AI 응용
-- 팀구성: 김희원 교수, 최영재(박사), 고현서(석사), 정호재(석사), 채병관(연구조교), 김도원(연구조교)
+**Reality Lab 핵심 정보:**
+- 설립: 2023년 숭실대학교, 김희원 교수님 지도
+- 연구목표: "Advancing AI to Understand Reality" - 현실을 이해하는 AI 발전
+- 주요 연구분야: 로보틱스, 컴퓨터비전, 기계학습, 멀티모달 언어이해, AI+X 헬스케어
+- 위치: 서울특별시 동작구 사당로 105, 숭실대학교
+- 연락처: +82-2-820-0679
 
-질문에 직접적으로 답변하고 불필요한 추가 정보는 제공하지 마세요."""
+**주요 구성원:** 김희원 교수님을 중심으로 박성용, 채병관, 최영재, 이상민, 고민주, 고현준, 고현서, 이주형, 서지우, 정호재, 김서영, 김예리, 최수영, 황지원, 송은우, 이세빈, 김도원, 김연지, 이재현, 이예빈, 임정하 등 다양한 연구진
+
+**최근 성과:** CVPR 2025, BMVC 2025, AAAI 2025, PLOS One, ICT Express 등 최고 수준 학술대회 및 저널 논문 발표, ARNOLD Challenge 1위 수상, Qualcomm 인턴십 등
+
+**제공 강의:** 컴퓨터비전, 기계학습, 영상처리및실습, 컴퓨터비전특론, 미디어GAN, 데이터사이언스
+
+질문에 관련된 정확한 정보를 제공하세요."""
             },
             {"role": "user", "content": prompt}
         ]
@@ -179,6 +186,6 @@ if __name__ == '__main__':
     
     if load_model():
         logger.info("🚀 Qwen2.5-3B server ready!")
-        app.run(host='0.0.0.0', port=4009, debug=False, threaded=True)
+        app.run(host='0.0.0.0', port=4003, debug=False, threaded=True)
     else:
         logger.error("❌ Failed to load model. Server not started.")

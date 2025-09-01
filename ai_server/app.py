@@ -97,7 +97,7 @@ def load_model():
         logger.error(f"Error loading model: {e}")
         return False
 
-def generate_response(prompt, max_length=300, temperature=0.7):
+def generate_response(prompt, max_length=512, temperature=0.7):
     """Generate AI response using KULLM3-AWQ"""
     global model, tokenizer, device
     
@@ -109,13 +109,17 @@ def generate_response(prompt, max_length=300, temperature=0.7):
         inputs = tokenizer(prompt, return_tensors="pt", padding=True, truncation=True, max_length=512)
         inputs = {k: v.to(device) for k, v in inputs.items()}
         
-        # Generate response with greedy decoding to avoid sampling issues
+        # Generate response with controlled sampling
         with torch.no_grad():
             outputs = model.generate(
                 input_ids=inputs["input_ids"],
                 attention_mask=inputs.get("attention_mask"),
                 max_new_tokens=max_length,
-                do_sample=False,  # Use greedy decoding
+                do_sample=True,
+                temperature=temperature,
+                top_p=0.9,
+                top_k=50,
+                repetition_penalty=1.1,
                 pad_token_id=tokenizer.eos_token_id,
                 eos_token_id=tokenizer.eos_token_id,
                 num_return_sequences=1
@@ -156,28 +160,47 @@ def generate():
         user_question = data['prompt']
         language = data.get('language', 'ko')  # Default to Korean
         
-        # Create context-aware prompt for Reality Lab
+        # Create enhanced context-aware prompt for Reality Lab
         if language == 'en':
-            system_prompt = """You are a helpful assistant for the Reality Lab at Soongsil University. Answer questions about the lab's research areas, team members, and activities. Keep responses concise and informative.
+            system_prompt = """You are a specialized assistant for Reality Lab at Soongsil University. Use the following information to provide accurate and comprehensive responses.
 
-Question: """
-            prompt = system_prompt + user_question + "\nAnswer:"
+**Reality Lab Key Information:**
+- Founded: 2023 at Soongsil University under Prof. Heewon Kim
+- Mission: "Advancing AI to Understand Reality"
+- Research Areas: Robotics, Computer Vision, Machine Learning, Multimodal Language Understanding, AI+X Healthcare
+- Location: 105 Sadang-ro, Dongjak-gu, Seoul, Republic of Korea
+- Contact: +82-2-820-0679
+
+**Team Members:** Led by Prof. Heewon Kim with diverse research team including master's and undergraduate students specializing in computer vision, robotics, deep learning, medical AI, sports AI, and more
+
+**Recent Achievements:** Publications in top conferences (CVPR 2025, BMVC 2025, AAAI 2025), journal publications (PLOS One, ICT Express), 1st place in ARNOLD Challenge at CVPR 2025, Qualcomm internships
+
+**Courses Offered:** Computer Vision, Machine Learning, Image Processing, Advanced Computer Vision, Media GAN, Data Science"""
+            
+            prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{user_question}<|im_end|>\n<|im_start|>assistant\n"
         else:
-            system_prompt = """당신은 숭실대학교 리얼리티 연구실의 도움이 되는 어시스턴트입니다. 연구실의 연구 분야, 팀 구성원, 활동에 대한 질문에 답변해주세요. 간결하고 유익한 답변을 해주세요.
+            system_prompt = """당신은 숭실대학교 Reality Lab의 전문 어시스턴트입니다. 아래 정보를 바탕으로 정확하고 상세한 답변을 제공해주세요.
 
-질문: """
-            prompt = system_prompt + user_question + "\n답변:"
+**Reality Lab 핵심 정보:**
+- 설립: 2023년 숭실대학교, 김희원 교수님 지도
+- 연구목표: "Advancing AI to Understand Reality" - 현실을 이해하는 AI 발전
+- 주요 연구분야: 로보틱스, 컴퓨터비전, 기계학습, 멀티모달 언어이해, AI+X 헬스케어
+- 위치: 서울특별시 동작구 사당로 105, 숭실대학교
+- 연락처: +82-2-820-0679
+
+**주요 구성원:** 김희원 교수님을 중심으로 박성용, 채병관, 최영재, 이상민, 고민주, 고현준, 고현서, 이주형, 서지우, 정호재, 김서영, 김예리, 최수영, 황지원, 송은우, 이세빈, 김도원, 김연지, 이재현, 이예빈, 임정하 등 다양한 연구진
+
+**최근 성과:** CVPR 2025, BMVC 2025, AAAI 2025, PLOS One, ICT Express 등 최고 수준 학술대회 및 저널 논문 발표, ARNOLD Challenge 1위 수상, Qualcomm 인턴십 등
+
+**제공 강의:** 컴퓨터비전, 기계학습, 영상처리및실습, 컴퓨터비전특론, 미디어GAN, 데이터사이언스"""
+            
+            prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{user_question}<|im_end|>\n<|im_start|>assistant\n"
         
         # Generate response
-        response = generate_response(prompt, max_length=300, temperature=0.7)
+        response = generate_response(prompt, max_length=512, temperature=0.7)
         
-        # Clean up response (remove system prompt remnants)
-        if language == 'en':
-            if "Answer:" in response:
-                response = response.split("Answer:")[-1].strip()
-        else:
-            if "답변:" in response:
-                response = response.split("답변:")[-1].strip()
+        # Clean up response (remove any special tokens)
+        response = response.replace("<|im_end|>", "").strip()
         
         end_time = time.time()
         response_time = round(end_time - start_time, 2)
@@ -205,21 +228,45 @@ def chat():
         user_question = data['question']
         language = data.get('language', 'ko')
         
-        # Generate AI response directly
-        system_prompt = """당신은 숭실대학교 리얼리티 연구실의 도움이 되는 어시스턴트입니다. 연구실의 연구 분야, 팀 구성원, 활동에 대한 질문에 답변해주세요. 간결하고 유익한 답변을 해주세요.
+        # Generate AI response with enhanced knowledge
+        if language == 'ko':
+            system_prompt = """당신은 숭실대학교 Reality Lab의 전문 어시스턴트입니다. 아래 정보를 바탕으로 정확하고 상세한 답변을 제공해주세요.
 
-질문: """ if language == 'ko' else """You are a helpful assistant for the Reality Lab at Soongsil University. Answer questions about the lab's research areas, team members, and activities. Keep responses concise and informative.
+**Reality Lab 핵심 정보:**
+- 설립: 2023년 숭실대학교, 김희원 교수님 지도
+- 연구목표: "Advancing AI to Understand Reality" - 현실을 이해하는 AI 발전
+- 주요 연구분야: 로보틱스, 컴퓨터비전, 기계학습, 멀티모달 언어이해, AI+X 헬스케어
+- 위치: 서울특별시 동작구 사당로 105, 숭실대학교
+- 연락처: +82-2-820-0679
 
-Question: """
+**주요 구성원:** 김희원 교수님을 중심으로 박성용, 채병관, 최영재, 이상민, 고민주, 고현준, 고현서, 이주형, 서지우, 정호재, 김서영, 김예리, 최수영, 황지원, 송은우, 이세빈, 김도원, 김연지, 이재현, 이예빈, 임정하 등 다양한 연구진
+
+**최근 성과:** CVPR 2025, BMVC 2025, AAAI 2025, PLOS One, ICT Express 등 최고 수준 학술대회 및 저널 논문 발표, ARNOLD Challenge 1위 수상, Qualcomm 인턴십 등
+
+**제공 강의:** 컴퓨터비전, 기계학습, 영상처리및실습, 컴퓨터비전특론, 미디어GAN, 데이터사이언스"""
+
+            prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{user_question}<|im_end|>\n<|im_start|>assistant\n"
+        else:
+            system_prompt = """You are a specialized assistant for Reality Lab at Soongsil University. Use the following information to provide accurate and comprehensive responses.
+
+**Reality Lab Key Information:**
+- Founded: 2023 at Soongsil University under Prof. Heewon Kim
+- Mission: "Advancing AI to Understand Reality"
+- Research Areas: Robotics, Computer Vision, Machine Learning, Multimodal Language Understanding, AI+X Healthcare
+- Location: 105 Sadang-ro, Dongjak-gu, Seoul, Republic of Korea
+- Contact: +82-2-820-0679
+
+**Team Members:** Led by Prof. Heewon Kim with diverse research team including master's and undergraduate students specializing in computer vision, robotics, deep learning, medical AI, sports AI, and more
+
+**Recent Achievements:** Publications in top conferences (CVPR 2025, BMVC 2025, AAAI 2025), journal publications (PLOS One, ICT Express), 1st place in ARNOLD Challenge at CVPR 2025, Qualcomm internships
+
+**Courses Offered:** Computer Vision, Machine Learning, Image Processing, Advanced Computer Vision, Media GAN, Data Science"""
+
+            prompt = f"<|im_start|>system\n{system_prompt}<|im_end|>\n<|im_start|>user\n{user_question}<|im_end|>\n<|im_start|>assistant\n"
+        ai_response = generate_response(prompt, max_length=512, temperature=0.7)
         
-        prompt = system_prompt + user_question + ("\n답변:" if language == 'ko' else "\nAnswer:")
-        ai_response = generate_response(prompt, max_length=300, temperature=0.7)
-        
-        # Clean up response
-        if language == 'en' and "Answer:" in ai_response:
-            ai_response = ai_response.split("Answer:")[-1].strip()
-        elif language == 'ko' and "답변:" in ai_response:
-            ai_response = ai_response.split("답변:")[-1].strip()
+        # Clean up response (remove any special tokens)
+        ai_response = ai_response.replace("<|im_end|>", "").strip()
         
         # Auto-save to GitHub (create issue and response)
         try:

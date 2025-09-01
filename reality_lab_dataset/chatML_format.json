@@ -1,0 +1,306 @@
+[
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab에 대해 설명해주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 2023년 숭실대학교에 설립된 연구실로, 김희원 교수님의 지도 하에 운영되고 있습니다.\n\n**연구 목표**: \"Advancing AI to Understand Reality\" - 현실을 이해하는 AI 발전\n\n**주요 연구 분야**:\n- 로보틱스 (Robotics)\n- 컴퓨터 비전 (Computer Vision)  \n- 기계학습 (Machine Learning)\n- 멀티모달 언어 이해 (Multimodal Language Understanding)\n- AI+X 헬스케어 응용\n\nReality Lab은 인공지능과 물리적 세계의 교차점을 탐구하며, 인간처럼 실제 세계의 인식과 상호작용으로부터 학습하는 지능형 시스템을 개발하는 것을 목표로 하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 연구 목표는 무엇인가요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 2023년 숭실대학교에 설립된 연구실로, 김희원 교수님의 지도 하에 운영되고 있습니다.\n\n**연구 목표**: \"Advancing AI to Understand Reality\" - 현실을 이해하는 AI 발전\n\n**주요 연구 분야**:\n- 로보틱스 (Robotics)\n- 컴퓨터 비전 (Computer Vision)  \n- 기계학습 (Machine Learning)\n- 멀티모달 언어 이해 (Multimodal Language Understanding)\n- AI+X 헬스케어 응용\n\nReality Lab은 인공지능과 물리적 세계의 교차점을 탐구하며, 인간처럼 실제 세계의 인식과 상호작용으로부터 학습하는 지능형 시스템을 개발하는 것을 목표로 하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab은 언제 설립되었나요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 2023년 숭실대학교에 설립된 연구실로, 김희원 교수님의 지도 하에 운영되고 있습니다.\n\n**연구 목표**: \"Advancing AI to Understand Reality\" - 현실을 이해하는 AI 발전\n\n**주요 연구 분야**:\n- 로보틱스 (Robotics)\n- 컴퓨터 비전 (Computer Vision)  \n- 기계학습 (Machine Learning)\n- 멀티모달 언어 이해 (Multimodal Language Understanding)\n- AI+X 헬스케어 응용\n\nReality Lab은 인공지능과 물리적 세계의 교차점을 탐구하며, 인간처럼 실제 세계의 인식과 상호작용으로부터 학습하는 지능형 시스템을 개발하는 것을 목표로 하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 최근 뉴스나 성과를 알려주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab의 최근 주요 성과들:\n\nNews Youngjae Choi, Hyunsuh Koh, Hojae Jeong, and ByungKwan Chae's paper has been accepted to BMVC 2025! Congrats! Dowon Kim, Chaewoo Lim, Sungyong Park, and Sangmin Lee got 1st place in ARNOLD Challenge at CVPR 2025 Embodied AI Workshop! Congrats! Jun 4, 2025 Awards Yeri Kim and Seoyoung Kim's paper has been accepted to PLOS One! Congrats! Sangmin Lee is starting a software internship for Automated Driving at Qualcomm! Congrats! Seunghyun Oh's paper has been accepted to ICT Express! Congrats! Sangmin Lee and Sungyong Park's paper has been accepted to CVPR 2025! Congrats! Sooyoung Choi and Sungyong Park's paper has been accepted to AAAI 2025! Congrats! Prof. Heewon Kim has been nominated as an outstanding reviewer for BMVC 2024! Three master students joined our lab! Welcome! Our team won an NRF grant! Aug 28, 2024 Grants Sangmin Lee and Sungyong Park got 3rd place in ARNOLD Challenge at CVPR 2024 Embodied AI Workshop! Congrats! Jun 18, 2024 Awards Our lab is supported by the Graduate School of Metaverse program! Our lab is supported by the Graduate School of Security program! Our lab is supported by the National Program of Excellence in Software! Six master students joined our lab! Welcome! One paper has been accepted to TIP (IF: 11.041)! One paper has been accepted to TPAMI (IF: 24.314)! 17 students started 2023 summer internships at our lab! One paper has been accepted to ICLR 2023! Jul 26 2025 Publication May 1 2025 Publication Mar 24, 2025 Internship Mar 18, 2025 Publication Feb 26, 2025 Publication Dec 10, 2024 Publication Aug 6, 2023 Publication Mar 15, 2023 Publication Jun 26, 2023 Members Jan 21, 2023 Publication Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses"
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab에서 최근에 발표한 논문이 있나요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab의 최근 주요 성과들:\n\nNews Youngjae Choi, Hyunsuh Koh, Hojae Jeong, and ByungKwan Chae's paper has been accepted to BMVC 2025! Congrats! Dowon Kim, Chaewoo Lim, Sungyong Park, and Sangmin Lee got 1st place in ARNOLD Challenge at CVPR 2025 Embodied AI Workshop! Congrats! Jun 4, 2025 Awards Yeri Kim and Seoyoung Kim's paper has been accepted to PLOS One! Congrats! Sangmin Lee is starting a software internship for Automated Driving at Qualcomm! Congrats! Seunghyun Oh's paper has been accepted to ICT Express! Congrats! Sangmin Lee and Sungyong Park's paper has been accepted to CVPR 2025! Congrats! Sooyoung Choi and Sungyong Park's paper has been accepted to AAAI 2025! Congrats! Prof. Heewon Kim has been nominated as an outstanding reviewer for BMVC 2024! Three master students joined our lab! Welcome! Our team won an NRF grant! Aug 28, 2024 Grants Sangmin Lee and Sungyong Park got 3rd place in ARNOLD Challenge at CVPR 2024 Embodied AI Workshop! Congrats! Jun 18, 2024 Awards Our lab is supported by the Graduate School of Metaverse program! Our lab is supported by the Graduate School of Security program! Our lab is supported by the National Program of Excellence in Software! Six master students joined our lab! Welcome! One paper has been accepted to TIP (IF: 11.041)! One paper has been accepted to TPAMI (IF: 24.314)! 17 students started 2023 summer internships at our lab! One paper has been accepted to ICLR 2023! Jul 26 2025 Publication May 1 2025 Publication Mar 24, 2025 Internship Mar 18, 2025 Publication Feb 26, 2025 Publication Dec 10, 2024 Publication Aug 6, 2023 Publication Mar 15, 2023 Publication Jun 26, 2023 Members Jan 21, 2023 Publication Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses"
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab 구성원들의 최근 수상 내역을 알려주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab의 최근 주요 성과들:\n\nNews Youngjae Choi, Hyunsuh Koh, Hojae Jeong, and ByungKwan Chae's paper has been accepted to BMVC 2025! Congrats! Dowon Kim, Chaewoo Lim, Sungyong Park, and Sangmin Lee got 1st place in ARNOLD Challenge at CVPR 2025 Embodied AI Workshop! Congrats! Jun 4, 2025 Awards Yeri Kim and Seoyoung Kim's paper has been accepted to PLOS One! Congrats! Sangmin Lee is starting a software internship for Automated Driving at Qualcomm! Congrats! Seunghyun Oh's paper has been accepted to ICT Express! Congrats! Sangmin Lee and Sungyong Park's paper has been accepted to CVPR 2025! Congrats! Sooyoung Choi and Sungyong Park's paper has been accepted to AAAI 2025! Congrats! Prof. Heewon Kim has been nominated as an outstanding reviewer for BMVC 2024! Three master students joined our lab! Welcome! Our team won an NRF grant! Aug 28, 2024 Grants Sangmin Lee and Sungyong Park got 3rd place in ARNOLD Challenge at CVPR 2024 Embodied AI Workshop! Congrats! Jun 18, 2024 Awards Our lab is supported by the Graduate School of Metaverse program! Our lab is supported by the Graduate School of Security program! Our lab is supported by the National Program of Excellence in Software! Six master students joined our lab! Welcome! One paper has been accepted to TIP (IF: 11.041)! One paper has been accepted to TPAMI (IF: 24.314)! 17 students started 2023 summer internships at our lab! One paper has been accepted to ICLR 2023! Jul 26 2025 Publication May 1 2025 Publication Mar 24, 2025 Internship Mar 18, 2025 Publication Feb 26, 2025 Publication Dec 10, 2024 Publication Aug 6, 2023 Publication Mar 15, 2023 Publication Jun 26, 2023 Members Jan 21, 2023 Publication Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses Home News MembersFacultyStudentsAlumni PublicationInternationalDomestic Courses"
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 구성원들을 소개해주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 김희원 교수님을 중심으로 한 활발한 연구팀입니다.\n\n**구성**:\n- 지도교수: 김희원 교수님\n- 석사과정 학생들: 다양한 연구 분야에서 활동\n- 학부 인턴: 연구 경험을 쌓는 학부생들\n\n**주요 연구진의 관심 분야**:\n- 컴퓨터 비전 및 딥러닝\n- 로보틱스 및 Embodied AI  \n- 이미지 처리 및 영상 복원\n- 3D 비전 및 증강현실\n- 의료 AI 및 스포츠 AI\n- 자연어 처리 및 멀티모달 학습\n\n각 구성원은 자신의 전문 분야에서 국제적 수준의 연구를 수행하고 있으며, 정기적으로 최고 수준의 국제 학술대회와 저널에 논문을 발표하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 교수님은 누구인가요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 김희원 교수님을 중심으로 한 활발한 연구팀입니다.\n\n**구성**:\n- 지도교수: 김희원 교수님\n- 석사과정 학생들: 다양한 연구 분야에서 활동\n- 학부 인턴: 연구 경험을 쌓는 학부생들\n\n**주요 연구진의 관심 분야**:\n- 컴퓨터 비전 및 딥러닝\n- 로보틱스 및 Embodied AI  \n- 이미지 처리 및 영상 복원\n- 3D 비전 및 증강현실\n- 의료 AI 및 스포츠 AI\n- 자연어 처리 및 멀티모달 학습\n\n각 구성원은 자신의 전문 분야에서 국제적 수준의 연구를 수행하고 있으며, 정기적으로 최고 수준의 국제 학술대회와 저널에 논문을 발표하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab에는 몇 명의 학생이 있나요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 김희원 교수님을 중심으로 한 활발한 연구팀입니다.\n\n**구성**:\n- 지도교수: 김희원 교수님\n- 석사과정 학생들: 다양한 연구 분야에서 활동\n- 학부 인턴: 연구 경험을 쌓는 학부생들\n\n**주요 연구진의 관심 분야**:\n- 컴퓨터 비전 및 딥러닝\n- 로보틱스 및 Embodied AI  \n- 이미지 처리 및 영상 복원\n- 3D 비전 및 증강현실\n- 의료 AI 및 스포츠 AI\n- 자연어 처리 및 멀티모달 학습\n\n각 구성원은 자신의 전문 분야에서 국제적 수준의 연구를 수행하고 있으며, 정기적으로 최고 수준의 국제 학술대회와 저널에 논문을 발표하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab 구성원들의 연구 분야는 무엇인가요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 김희원 교수님을 중심으로 한 활발한 연구팀입니다.\n\n**구성**:\n- 지도교수: 김희원 교수님\n- 석사과정 학생들: 다양한 연구 분야에서 활동\n- 학부 인턴: 연구 경험을 쌓는 학부생들\n\n**주요 연구진의 관심 분야**:\n- 컴퓨터 비전 및 딥러닝\n- 로보틱스 및 Embodied AI  \n- 이미지 처리 및 영상 복원\n- 3D 비전 및 증강현실\n- 의료 AI 및 스포츠 AI\n- 자연어 처리 및 멀티모달 학습\n\n각 구성원은 자신의 전문 분야에서 국제적 수준의 연구를 수행하고 있으며, 정기적으로 최고 수준의 국제 학술대회와 저널에 논문을 발표하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab에서 발표한 논문들을 알려주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab에서는 국제 및 국내 학술지에 다수의 고품질 논문을 발표하고 있습니다. 주요 연구 성과는 웹사이트의 Publication 섹션에서 확인하실 수 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 국제 학술지 논문 목록을 보여주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab에서는 국제 및 국내 학술지에 다수의 고품질 논문을 발표하고 있습니다. 주요 연구 성과는 웹사이트의 Publication 섹션에서 확인하실 수 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 국내 학술지 논문 목록을 보여주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab에서는 국제 및 국내 학술지에 다수의 고품질 논문을 발표하고 있습니다. 주요 연구 성과는 웹사이트의 Publication 섹션에서 확인하실 수 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab에서 CVPR, ICCV, ECCV에 발표한 논문이 있나요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab에서 발표한 주요 국제 논문들:\n\n**최고 수준 학술대회 (CVPR, ICCV, ECCV)**:\n- CVPR 2025: \"DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI\"\n- CVPR 2022: \"Attentive Fine-Grained Structured Sparsity for Image Restoration\"\n- ICCV 2021: \"Meta-Learning with Task-Adaptive Loss Function for Few-Shot Learning\" (ORAL)\n- ICCV 2021: \"Motion-Aware Dynamic Architecture for Efficient Frame Interpolation\"\n- ECCV 2022: \"CADyQ: Content-Aware Dynamic Quantization for Image Super Resolution\"\n\n**최고 수준 저널**:\n- IEEE TPAMI: \"Learning to Learn Task-Adaptive Hyperparameters for Few-Shot Learning\"\n- IEEE TIP: \"Learning Controllable ISP for Image Enhancement\"\n\n**기타 주요 학술대회**:\n- BMVC 2025, AAAI 2025, ICLR 2023, NeurIPS 2020 등 다수\n\nReality Lab은 컴퓨터 비전 분야 최고 수준의 연구 성과를 지속적으로 발표하고 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab에서 제공하는 강의는 무엇인가요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab에서 제공하는 주요 강의 과목들:\n\n**전공 핵심 과목**:\n- 컴퓨터비전 (Computer Vision)\n- 기계학습 (머신러닝, Machine Learning)\n- 영상처리및실습 (Image Processing and Practice)\n\n**전공 심화 과목**:\n- 컴퓨터비전특론 (Advanced Computer Vision)\n- 미디어GAN (Media GAN)\n- 데이터 사이언스 (Data Science)\n\n이러한 강의들은 Reality Lab의 연구 분야와 직접적으로 연관되어 있으며, 최신 연구 동향과 실무 경험을 바탕으로 구성되어 있습니다. 학생들은 이론적 지식과 함께 실제 연구 프로젝트에 참여할 수 있는 기회를 얻을 수 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "김희원 교수님이 담당하는 과목은 무엇인가요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab에서 제공하는 주요 강의 과목들:\n\n**전공 핵심 과목**:\n- 컴퓨터비전 (Computer Vision)\n- 기계학습 (머신러닝, Machine Learning)\n- 영상처리및실습 (Image Processing and Practice)\n\n**전공 심화 과목**:\n- 컴퓨터비전특론 (Advanced Computer Vision)\n- 미디어GAN (Media GAN)\n- 데이터 사이언스 (Data Science)\n\n이러한 강의들은 Reality Lab의 연구 분야와 직접적으로 연관되어 있으며, 최신 연구 동향과 실무 경험을 바탕으로 구성되어 있습니다. 학생들은 이론적 지식과 함께 실제 연구 프로젝트에 참여할 수 있는 기회를 얻을 수 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "컴퓨터 비전 관련 강의가 있나요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab에서 제공하는 주요 강의 과목들:\n\n**전공 핵심 과목**:\n- 컴퓨터비전 (Computer Vision)\n- 기계학습 (머신러닝, Machine Learning)\n- 영상처리및실습 (Image Processing and Practice)\n\n**전공 심화 과목**:\n- 컴퓨터비전특론 (Advanced Computer Vision)\n- 미디어GAN (Media GAN)\n- 데이터 사이언스 (Data Science)\n\n이러한 강의들은 Reality Lab의 연구 분야와 직접적으로 연관되어 있으며, 최신 연구 동향과 실무 경험을 바탕으로 구성되어 있습니다. 학생들은 이론적 지식과 함께 실제 연구 프로젝트에 참여할 수 있는 기회를 얻을 수 있습니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 연락처 정보를 알려주세요."
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab은 숭실대학교에 위치하고 있습니다.\n\n- 주소: 서울특별시 동작구 사당로 105, 숭실대학교\n- 교수: 김희원 교수님\n- 전화: +82-2-820-0679\n- 연구실: 07027호실, 과학기술관 6층 602호\n\n더 자세한 정보나 문의사항은 Reality Lab 웹사이트(https://reality.ssu.ac.kr)를 참조하시거나 직접 연락 바랍니다."
+      }
+    ]
+  },
+  {
+    "messages": [
+      {
+        "role": "system",
+        "content": "당신은 숭실대학교 Reality Lab에 대한 전문 지식을 가진 도움이 되는 어시스턴트입니다. 연구실에 대한 정확하고 상세한 정보를 제공해주세요."
+      },
+      {
+        "role": "user",
+        "content": "Reality Lab의 연구 분야는 무엇인가요?"
+      },
+      {
+        "role": "assistant",
+        "content": "Reality Lab의 주요 연구 분야는 다음과 같습니다:\n\n1. **컴퓨터 비전 (Computer Vision)**: 이미지 처리, 영상 인식, 3D 비전\n2. **로보틱스 (Robotics)**: 로봇 조작, 자율 주행, Embodied AI\n3. **기계학습 (Machine Learning)**: 딥러닝, 신경망, AI 모델 개발\n4. **멀티모달 언어 이해 (Multimodal Language Understanding)**: 텍스트-이미지 연동, 대화형 AI\n5. **AI+X 응용 분야**: 헬스케어 AI, 스포츠 AI, 의료 AI\n\nReality Lab은 '현실을 이해하는 AI 발전'을 목표로 인공지능과 물리적 세계의 교차점을 탐구하며, 인간처럼 실제 세계의 인식과 상호작용으로부터 학습하는 지능형 시스템을 개발하고 있습니다."
+      }
+    ]
+  }
+]
