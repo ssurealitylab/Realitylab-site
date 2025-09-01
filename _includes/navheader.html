@@ -22,7 +22,7 @@
         {% for link in site.data.navigation[site.locale].nav %}
           <li class="nav-item{% if link.dropdown %} dropdown{% endif %}">
             {%- if link.dropdown -%}
-              <a class="nav-link dropdown-toggle" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <a class="nav-link dropdown-toggle{% if link.title == 'AI' %} ai-menu-circular{% endif %}" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ link.title }}{% if link.title == 'AI' %} <i class="fas fa-search"></i>{% endif %}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">
@@ -53,7 +53,7 @@
         {% for link in site.data.navigation.nav %}
         <li class="nav-item{% if link.dropdown %} dropdown{% endif %}">
           {%- if link.dropdown -%}
-            <a class="nav-link dropdown-toggle" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle{% if link.title == 'AI' %} ai-menu-circular{% endif %}" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               {{ link.title }}{% if link.title == 'AI' %} <i class="fas fa-search"></i>{% endif %}
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">

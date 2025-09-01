@@ -55,6 +55,33 @@
         &:hover {
           color: $primary;
         }
+        
+        // Special circular styling for AI menu
+        &.ai-menu-circular {
+          background: rgba(59, 130, 246, 0.1);
+          border-radius: 50%;
+          width: 45px;
+          height: 45px;
+          padding: 0 !important;
+          justify-content: center;
+          gap: 3px;
+          font-size: 13px;
+          font-weight: 600;
+          color: $primary !important;
+          margin: 0 0.5rem;
+          
+          i.fa-search {
+            font-size: 14px;
+            margin-left: 2px;
+          }
+          
+          &:hover {
+            background: rgba(59, 130, 246, 0.2);
+            color: $primary !important;
+            transform: scale(1.05);
+            transition: all 0.2s ease;
+          }
+        }
       }
       
       // Dropdown styles
