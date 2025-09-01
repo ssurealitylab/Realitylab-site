@@ -23,10 +23,7 @@
         <div id="model-selection" class="model-selection" style="display: none;">
           <label for="model-dropdown" class="model-label">AI Model:</label>
           <select id="model-dropdown" class="model-dropdown">
-            <option value="qwen25-3b" selected>Qwen2.5-3B (Recommended)</option>
-            <option value="gemma2-9b">Gemma2-9B (Google)</option>
-            <option value="phi35-mini">Phi-3.5-mini (Microsoft)</option>
-            <option value="tinyllama">TinyLlama (1.1B - Fast)</option>
+            <option value="qwen25-3b" selected>Qwen3-4B (Recommended)</option>
           </select>
         </div>
         <button id="chatbot-close" class="chatbot-close">
@@ -483,21 +480,6 @@ document.addEventListener('DOMContentLoaded', function() {
         chat: 'https://decimal-sensor-submit-standard.trycloudflare.com/chat',
         generate: 'https://decimal-sensor-submit-standard.trycloudflare.com/generate'
       },
-      'gemma2-9b': {
-        health: 'https://203.253.25.165:4005/health',
-        chat: 'https://203.253.25.165:4005/chat', 
-        generate: 'https://203.253.25.165:4005/generate'
-      },
-      'phi35-mini': {
-        health: 'https://203.253.25.165:4006/health',
-        chat: 'https://203.253.25.165:4006/chat', 
-        generate: 'https://203.253.25.165:4006/generate'
-      },
-      'tinyllama': {
-        health: 'http://203.253.25.165:4007/health',
-        chat: 'http://203.253.25.165:4007/chat', 
-        generate: 'http://203.253.25.165:4007/generate'
-      }
     };
     return endpoints[model] || endpoints['qwen25-3b'];
   }
@@ -604,9 +586,7 @@ document.addEventListener('DOMContentLoaded', function() {
       
       // Check if server is not running or blocked by network
       if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
-        const modelName = selectedModel === 'qwen25-3b' ? 'Qwen2.5-3B' : 
-                         selectedModel === 'phi35-mini' ? 'Phi-3.5-mini' :
-                         selectedModel === 'kullm3-awq' ? 'KULLM3-AWQ' : 'TinyLlama';
+        const modelName = 'Qwen3-4B';
         return isEnglish ? 
           "🌐 AI server is not accessible from external networks. Please use GitHub Issues for AI questions: https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md" :
           `🤖 ${modelName} AI 서버가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도하거나 GitHub Issue를 이용해주세요.`;
