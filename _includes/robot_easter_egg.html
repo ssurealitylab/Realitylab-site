@@ -1,39 +1,62 @@
 <!-- Robot Easter Egg -->
 <div id="robot-easter-egg" style="display: none;">
   <div id="robot-container">
-    <!-- Robot SVG Animation -->
+    <!-- Reality Lab Robot based on provided image -->
     <svg width="200" height="300" viewBox="0 0 200 300" xmlns="http://www.w3.org/2000/svg">
-      <!-- Robot Head -->
-      <ellipse cx="100" cy="80" rx="50" ry="40" fill="#E8E8E8" stroke="#333" stroke-width="2"/>
+      <!-- Robot Head (round) -->
+      <circle cx="100" cy="70" r="35" fill="#F5F5F5" stroke="#DDD" stroke-width="2"/>
       
-      <!-- Eyes -->
-      <circle cx="85" cy="75" r="8" fill="#4A90E2"/>
-      <circle cx="115" cy="75" r="8" fill="#4A90E2"/>
-      <circle cx="85" cy="75" r="3" fill="#FFF"/>
-      <circle cx="115" cy="75" r="3" fill="#FFF"/>
+      <!-- Head stripe -->
+      <rect x="85" y="55" width="30" height="8" fill="#333" rx="4"/>
       
-      <!-- Mouth -->
-      <rect x="90" y="90" width="20" height="4" fill="#333" rx="2"/>
+      <!-- Eyes (camera-like) -->
+      <circle cx="90" cy="68" r="6" fill="#333"/>
+      <circle cx="110" cy="68" r="6" fill="#333"/>
+      <circle cx="90" cy="68" r="3" fill="#4A90E2"/>
+      <circle cx="110" cy="68" r="3" fill="#4A90E2"/>
+      <circle cx="90" cy="68" r="1" fill="#FFF"/>
+      <circle cx="110" cy="68" r="1" fill="#FFF"/>
       
-      <!-- Body -->
-      <rect x="70" y="120" width="60" height="80" fill="#F0F0F0" stroke="#333" stroke-width="2" rx="10"/>
+      <!-- Main Body (hexagonal torso) -->
+      <polygon points="75,110 125,110 135,130 135,170 125,190 75,190 65,170 65,130" fill="#FFFFFF" stroke="#DDD" stroke-width="2"/>
       
-      <!-- Arms -->
-      <rect x="40" y="130" width="25" height="50" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
-      <rect x="135" y="130" width="25" height="50" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
+      <!-- Chest panel -->
+      <rect x="85" y="125" width="30" height="40" fill="#F0F0F0" stroke="#CCC" stroke-width="1" rx="5"/>
+      <circle cx="100" cy="145" r="8" fill="#4A90E2" stroke="#333" stroke-width="1"/>
       
-      <!-- Legs -->
-      <rect x="80" y="200" width="15" height="60" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
-      <rect x="105" y="200" width="15" height="60" fill="#D0D0D0" stroke="#333" stroke-width="2" rx="5"/>
+      <!-- Left Arm -->
+      <g id="left-arm">
+        <rect x="45" y="120" width="18" height="35" fill="#FFFFFF" stroke="#DDD" stroke-width="2" rx="9"/>
+        <rect x="38" y="155" width="18" height="25" fill="#FFFFFF" stroke="#DDD" stroke-width="2" rx="9"/>
+        <!-- Left Hand -->
+        <circle cx="47" cy="185" r="8" fill="#F0F0F0" stroke="#DDD" stroke-width="2"/>
+      </g>
       
-      <!-- Hand (waving) -->
-      <circle cx="147" cy="160" r="8" fill="#C0C0C0" stroke="#333" stroke-width="2"/>
+      <!-- Right Arm (waving) -->
+      <g id="right-arm">
+        <rect x="137" y="120" width="18" height="35" fill="#FFFFFF" stroke="#DDD" stroke-width="2" rx="9"/>
+        <rect x="144" y="155" width="18" height="25" fill="#FFFFFF" stroke="#DDD" stroke-width="2" rx="9" transform="rotate(-30 153 167)"/>
+        <!-- Right Hand (waving) -->
+        <circle cx="158" cy="175" r="8" fill="#F0F0F0" stroke="#DDD" stroke-width="2" transform="rotate(-30 158 175)"/>
+      </g>
+      
+      <!-- Waist joint -->
+      <circle cx="100" cy="195" r="8" fill="#E0E0E0" stroke="#CCC" stroke-width="2"/>
+      
+      <!-- Left Leg -->
+      <rect x="85" y="200" width="12" height="40" fill="#FFFFFF" stroke="#DDD" stroke-width="2" rx="6"/>
+      <rect x="82" y="240" width="18" height="15" fill="#F0F0F0" stroke="#DDD" stroke-width="2" rx="3"/>
+      
+      <!-- Right Leg -->
+      <rect x="103" y="200" width="12" height="40" fill="#FFFFFF" stroke="#DDD" stroke-width="2" rx="6"/>
+      <rect x="100" y="240" width="18" height="15" fill="#F0F0F0" stroke="#DDD" stroke-width="2" rx="3"/>
       
       <!-- Text bubble -->
       <g id="hello-text">
-        <ellipse cx="180" cy="100" rx="35" ry="20" fill="#FFF" stroke="#333" stroke-width="1"/>
-        <text x="180" y="105" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">Hello!</text>
-        <polygon points="155,110 145,115 150,105" fill="#FFF" stroke="#333" stroke-width="1"/>
+        <ellipse cx="180" cy="90" rx="35" ry="20" fill="#FFF" stroke="#333" stroke-width="1"/>
+        <text x="180" y="95" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">Hello,</text>
+        <text x="180" y="108" text-anchor="middle" font-family="Arial" font-size="12" fill="#333">World!</text>
+        <polygon points="155,100 145,105 150,95" fill="#FFF" stroke="#333" stroke-width="1"/>
       </g>
     </svg>
   </div>
@@ -72,8 +95,8 @@
 /* Wave animation */
 @keyframes waveHand {
   0%, 100% { transform: rotate(0deg); }
-  25% { transform: rotate(-15deg); }
-  75% { transform: rotate(15deg); }
+  25% { transform: rotate(-20deg); }
+  75% { transform: rotate(20deg); }
 }
 
 /* Text bubble animation */
@@ -87,9 +110,9 @@
   animation: slideInRobot 5s ease-in-out;
 }
 
-.robot-animate #robot-container circle[cx="147"] {
-  transform-origin: 147px 160px;
-  animation: waveHand 0.5s ease-in-out infinite;
+.robot-animate #right-arm {
+  transform-origin: 146px 140px;
+  animation: waveHand 0.8s ease-in-out infinite;
 }
 
 .robot-animate #hello-text {
