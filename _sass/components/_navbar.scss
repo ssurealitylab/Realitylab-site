@@ -70,6 +70,17 @@
           color: $primary !important;
           margin: 0 0.5rem;
           
+          i.fa-search,
+          i.fas.fa-search,
+          i.far.fa-search,
+          i.fal.fa-search {
+            font-size: 28px;
+            margin-left: -18px;
+            margin-top: 2px;
+            color: $primary !important;
+            font-weight: 300;
+          }
+          
           &:hover {
             background: rgba(59, 130, 246, 0.2);
             color: $primary !important;
