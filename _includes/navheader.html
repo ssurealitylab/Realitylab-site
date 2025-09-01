@@ -23,7 +23,7 @@
           <li class="nav-item{% if link.dropdown %} dropdown{% endif %}">
             {%- if link.dropdown -%}
               <a class="nav-link dropdown-toggle{% if link.title == 'AI' %} ai-menu-circular{% endif %}" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {% if link.title == 'AI' %}<i class="far fa-search"></i>{% else %}{{ link.title }}{% endif %}
+                {% if link.title == 'AI' %}🔍{% else %}{{ link.title }}{% endif %}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">
                 {% for sublink in link.dropdown %}
