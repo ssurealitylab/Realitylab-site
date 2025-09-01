@@ -98,25 +98,38 @@
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
+// Wait for everything to load, then try multiple times
+setTimeout(function() {
     let clickCount = 0;
     let clickTimer = null;
     let isAnimating = false;
     
-    console.log('Robot Easter Egg script loaded');
+    console.log('Robot Easter Egg script starting...');
+    
+    function findLogo() {
+        // Try multiple selectors for the logo
+        return document.getElementById('reality-lab-logo') || 
+               document.querySelector('.navbar-brand') || 
+               document.querySelector('a.navbar-brand') ||
+               document.querySelector('nav .container a:first-child') ||
+               document.querySelector('#mainNav .navbar-brand');
+    }
     
     function initEasterEgg() {
-        const logo = document.getElementById('reality-lab-logo');
+        const logo = findLogo();
         const robotEgg = document.getElementById('robot-easter-egg');
         
+        console.log('Trying to find logo...');
         console.log('Logo element:', logo);
+        console.log('Logo text content:', logo ? logo.textContent : 'N/A');
         console.log('Robot egg element:', robotEgg);
         
         if (!logo || !robotEgg) {
-            console.log('Elements not found, retrying in 1 second...');
-            setTimeout(initEasterEgg, 1000);
-            return;
+            console.log('Elements not found, will keep trying...');
+            return false;
         }
+        
+        console.log('✅ Logo found! Setting up easter egg...');
         
         logo.addEventListener('click', function(e) {
             e.preventDefault();
@@ -138,7 +151,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Trigger easter egg if 5 clicks within 3 seconds
             if (clickCount >= 5 && !isAnimating) {
-                console.log('Easter egg triggered!');
+                console.log('🤖 Easter egg triggered!');
                 triggerRobotEasterEgg();
                 clickCount = 0;
             }
@@ -147,7 +160,7 @@ document.addEventListener('DOMContentLoaded', function() {
         function triggerRobotEasterEgg() {
             if (isAnimating) return;
             
-            console.log('Showing robot animation');
+            console.log('🎬 Showing robot animation');
             isAnimating = true;
             robotEgg.style.display = 'block';
             robotEgg.classList.add('robot-animate');
@@ -157,12 +170,31 @@ document.addEventListener('DOMContentLoaded', function() {
                 robotEgg.style.display = 'none';
                 robotEgg.classList.remove('robot-animate');
                 isAnimating = false;
-                console.log('Robot animation completed');
+                console.log('🎬 Robot animation completed');
             }, 5000);
+        }
+        
+        return true;
+    }
+    
+    // Try multiple times with increasing delays
+    let attempts = 0;
+    function tryInit() {
+        attempts++;
+        console.log(`🔍 Easter egg init attempt ${attempts}`);
+        
+        if (initEasterEgg()) {
+            console.log('🎉 Easter egg successfully initialized!');
+            return;
+        }
+        
+        if (attempts < 10) {
+            setTimeout(tryInit, attempts * 1000); // 1s, 2s, 3s, etc.
+        } else {
+            console.log('❌ Failed to initialize easter egg after 10 attempts');
         }
     }
     
-    // Initialize after DOM is ready
-    initEasterEgg();
-});
+    tryInit();
+}, 2000); // Start after 2 seconds
 </script>
