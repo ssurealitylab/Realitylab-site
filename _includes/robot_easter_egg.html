@@ -2,15 +2,15 @@
 <div id="robot-easter-egg" style="display: none;">
   <div id="robot-container">
     <!-- Your actual robot image -->
-    <img src="{{ '/assets/images/robot_hello_world.png' | relative_url }}" alt="Hello World Robot" width="250" height="auto" />
+    <img src="{{ '/assets/images/robot_hello_world.png' | relative_url }}" alt="Hello World Robot" width="350" height="auto" />
   </div>
 </div>
 
 <style>
 #robot-easter-egg {
   position: fixed;
-  top: 50%;
-  left: -250px; /* Start off-screen */
+  top: 40%; /* 조금 더 위로 올림 */
+  left: -300px; /* 더 큰 이미지에 맞게 조정, 사진의 왼쪽이 화면 외곽에 */
   transform: translateY(-50%);
   z-index: 9999;
   pointer-events: none;
@@ -23,32 +23,21 @@
 /* Slide-in animation */
 @keyframes slideInRobot {
   0% {
-    left: -250px;
+    left: -300px;
   }
   20% {
-    left: 20px; /* Stop so left edge is visible */
+    left: 0px; /* 사진의 왼쪽이 화면 외곽에 딱 맞게 */
   }
   80% {
-    left: 20px; /* Stay visible longer */
+    left: 0px; /* Stay visible longer */
   }
   100% {
-    left: -250px; /* Slide back out */
+    left: -300px; /* Slide back out */
   }
-}
-
-/* Bounce animation for the robot image */
-@keyframes bounceRobot {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(-10px); }
-  60% { transform: translateY(-5px); }
 }
 
 .robot-animate {
   animation: slideInRobot 5s ease-in-out;
-}
-
-.robot-animate #robot-container img {
-  animation: bounceRobot 1s ease-in-out infinite;
 }
 </style>
 
