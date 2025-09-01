@@ -27,7 +27,15 @@
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">
                 {% for sublink in link.dropdown %}
-                  <a class="dropdown-item" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                  <a class="dropdown-item" href="{{ sublink.url }}">
+                    <div class="dropdown-item-content">
+                      {% if sublink.icon %}<i class="{{ sublink.icon }}"></i>{% endif %}
+                      <div class="dropdown-item-text">
+                        <strong>{{ sublink.title }}</strong>
+                        {% if sublink.desc %}<small>{{ sublink.desc }}</small>{% endif %}
+                      </div>
+                    </div>
+                  </a>
                 {% endfor %}
               </div>
             {%- elsif link.url -%}
@@ -50,7 +58,15 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">
               {% for sublink in link.dropdown %}
-                <a class="dropdown-item" href="{{ sublink.url }}">{{ sublink.title }}</a>
+                <a class="dropdown-item" href="{{ sublink.url }}">
+                  <div class="dropdown-item-content">
+                    {% if sublink.icon %}<i class="{{ sublink.icon }}"></i>{% endif %}
+                    <div class="dropdown-item-text">
+                      <strong>{{ sublink.title }}</strong>
+                      {% if sublink.desc %}<small>{{ sublink.desc }}</small>{% endif %}
+                    </div>
+                  </div>
+                </a>
               {% endfor %}
             </div>
           {%- elsif link.url -%}
