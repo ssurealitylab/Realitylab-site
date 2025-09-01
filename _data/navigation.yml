@@ -13,6 +13,8 @@ nav:
     url: /
   - title: "News"
     url: /news.html
+  - title: "GIT"
+    url: https://github.com/ssurealitylab-spec
   - title: "Members"
     url: /members.html
     dropdown:
@@ -47,6 +49,8 @@ en: &DEFAULT_EN
       url: /
     - title: "News"
       url: /news.html
+    - title: "GIT"
+      url: https://github.com/ssurealitylab-spec
     - title: "Members"
       url: /members.html
       dropdown:
