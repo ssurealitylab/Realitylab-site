@@ -23,7 +23,7 @@
           <li class="nav-item{% if link.dropdown %} dropdown{% endif %}">
             {%- if link.dropdown -%}
               <a class="nav-link dropdown-toggle{% if link.title == 'AI' %} ai-menu-circular{% endif %}" href="{{ link.url | default: '#' }}" id="navbarDropdown{{ forloop.index }}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                {% if link.title == 'AI' %}<svg width="32" height="32" viewBox="0 0 512 512" style="fill: none; stroke: #3B82F6; stroke-width: 32;"><circle cx="208" cy="208" r="144"/><path d="m338 338 116 116"/><text x="208" y="230" text-anchor="middle" font-size="120" font-weight="bold" fill="#3B82F6">AI</text></svg>{% else %}{{ link.title }}{% endif %}
+                {% if link.title == 'AI' %}<svg width="32" height="32" viewBox="0 0 512 512" style="fill: none; stroke: #3B82F6; stroke-width: 16;"><circle cx="208" cy="208" r="144"/><path d="m338 338 116 116"/><text x="208" y="230" text-anchor="middle" font-size="120" font-weight="300" fill="#3B82F6">AI</text></svg>{% else %}{{ link.title }}{% endif %}
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown{{ forloop.index }}">
                 {% for sublink in link.dropdown %}
