@@ -14,7 +14,7 @@ nav:
   - title: "News"
     url: /news.html
   - title: "GIT"
-    url: /github.html
+    url: /Realitylab-site/github.html
   - title: "Members"
     url: /members.html
     dropdown:
@@ -50,7 +50,7 @@ en: &DEFAULT_EN
     - title: "News"
       url: /news.html
     - title: "GIT"
-      url: /github.html
+      url: /Realitylab-site/github.html
     - title: "Members"
       url: /members.html
       dropdown:
