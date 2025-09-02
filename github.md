@@ -105,7 +105,7 @@ title: GitHub Repositories
               <i class="fas fa-eye fa-3x"></i>
             </div>
           </div>
-          <img class="repo-img img-fluid" src="https://sidl-benchmark.github.io/assets/images/teaser.png" alt="SIDL Benchmark Dataset">
+          <img class="repo-img img-fluid" src="{{ site.baseurl }}/assets/img/sidl-teaser.png" alt="SIDL Benchmark Dataset">
         </a>
         <div class="portfolio-caption">
           <h4>SIDL Benchmark</h4>
