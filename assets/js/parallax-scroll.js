@@ -42,31 +42,44 @@
         if (!parallaxContainer || !masthead) return;
         
         var scrollY = window.pageYOffset || document.documentElement.scrollTop;
-        var mastheadHeight = masthead.offsetHeight;
         var windowHeight = window.innerHeight;
         
-        // Find the image slider position to use as fade trigger point
+        // Get masthead position relative to document
+        var mastheadRect = masthead.getBoundingClientRect();
+        var mastheadTop = mastheadRect.top + scrollY;
+        var mastheadHeight = mastheadRect.height;
+        
+        // Find the image slider position more accurately
         var imageSlider = masthead.querySelector('.image-slider');
-        var imageSliderTop = 0;
+        var imageSliderTop = mastheadHeight * 0.6; // Default to 60% of masthead height
         
         if (imageSlider) {
-            var rect = imageSlider.getBoundingClientRect();
-            var mastheadRect = masthead.getBoundingClientRect();
-            imageSliderTop = rect.top - mastheadRect.top + scrollY - mastheadRect.top;
+            var sliderRect = imageSlider.getBoundingClientRect();
+            // Calculate image slider position relative to masthead start
+            imageSliderTop = (sliderRect.top + scrollY) - mastheadTop;
         }
         
-        // Calculate scroll progress based on image slider position
-        // Start fading when image slider reaches top of viewport
-        var fadeStartPoint = Math.max(imageSliderTop - windowHeight * 0.2, 0); // Start fade 20% before image top
-        var scrollProgress = Math.min(Math.max(scrollY - fadeStartPoint, 0) / (mastheadHeight - fadeStartPoint), 1);
+        // Calculate when to start fading based on image slider top position
+        var absoluteImageTop = mastheadTop + imageSliderTop;
+        var fadeStartPoint = absoluteImageTop - windowHeight * 0.3; // Start fade when image is 30% from top
+        var fadeDistance = windowHeight * 1.2; // Fade over 1.2 screen heights for smoother effect
         
-        // Calculate parallax effects
-        var translateY = scrollY * 0.5; // Move slower than scroll (parallax effect)
-        var blur = scrollProgress * 8; // Increase blur as scrolling
-        var opacity = Math.max(1 - scrollProgress * 1.2, 0); // Fade out
-        var scale = Math.max(1 - scrollProgress * 0.1, 0.9); // Slightly scale down
+        // Calculate smooth scroll progress
+        var scrollProgress = 0;
+        if (scrollY >= fadeStartPoint) {
+            scrollProgress = Math.min((scrollY - fadeStartPoint) / fadeDistance, 1);
+        }
         
-        // Apply transforms
+        // Apply easing function for smoother transitions
+        var easedProgress = scrollProgress * scrollProgress * (3 - 2 * scrollProgress); // Smoothstep function
+        
+        // Calculate parallax effects with smoother curves
+        var translateY = scrollY * 0.4; // Slightly slower parallax
+        var blur = easedProgress * 12; // More blur for better effect
+        var opacity = Math.max(1 - easedProgress * 1.1, 0); // Smoother fade out
+        var scale = Math.max(1 - easedProgress * 0.08, 0.92); // Slightly more scale
+        
+        // Apply transforms with hardware acceleration
         var transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;
         var filter = `blur(${blur}px)`;
         
@@ -74,13 +87,17 @@
         parallaxContainer.style.transform = transform;
         parallaxContainer.style.filter = filter;
         parallaxContainer.style.opacity = opacity;
+        parallaxContainer.style.willChange = 'transform, filter, opacity'; // Optimize for animations
         
         // Add class for additional styling when scrolled
-        if (scrollProgress > 0.05) {
+        if (easedProgress > 0.02) {
             masthead.classList.add('scrolled');
         } else {
             masthead.classList.remove('scrolled');
         }
+        
+        // Debug log (remove in production)
+        // console.log(`ScrollY: ${scrollY}, ImageTop: ${absoluteImageTop}, FadeStart: ${fadeStartPoint}, Progress: ${easedProgress.toFixed(2)}`);
     }
     
     function init() {
