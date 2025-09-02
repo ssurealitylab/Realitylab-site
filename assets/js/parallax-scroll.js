@@ -45,8 +45,20 @@
         var mastheadHeight = masthead.offsetHeight;
         var windowHeight = window.innerHeight;
         
-        // Calculate scroll progress (0 to 1)
-        var scrollProgress = Math.min(scrollY / mastheadHeight, 1);
+        // Find the image slider position to use as fade trigger point
+        var imageSlider = masthead.querySelector('.image-slider');
+        var imageSliderTop = 0;
+        
+        if (imageSlider) {
+            var rect = imageSlider.getBoundingClientRect();
+            var mastheadRect = masthead.getBoundingClientRect();
+            imageSliderTop = rect.top - mastheadRect.top + scrollY - mastheadRect.top;
+        }
+        
+        // Calculate scroll progress based on image slider position
+        // Start fading when image slider reaches top of viewport
+        var fadeStartPoint = Math.max(imageSliderTop - windowHeight * 0.2, 0); // Start fade 20% before image top
+        var scrollProgress = Math.min(Math.max(scrollY - fadeStartPoint, 0) / (mastheadHeight - fadeStartPoint), 1);
         
         // Calculate parallax effects
         var translateY = scrollY * 0.5; // Move slower than scroll (parallax effect)
@@ -64,7 +76,7 @@
         parallaxContainer.style.opacity = opacity;
         
         // Add class for additional styling when scrolled
-        if (scrollProgress > 0.1) {
+        if (scrollProgress > 0.05) {
             masthead.classList.add('scrolled');
         } else {
             masthead.classList.remove('scrolled');

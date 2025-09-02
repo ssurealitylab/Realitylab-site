@@ -277,7 +277,7 @@ header.masthead {
     position: relative;
     width: 1020px; // 1200px * 0.85 = 1020px (15% reduction)
     max-width: 90vw;
-    height: calc(1020px * 9 / 16); // 16:9 aspect ratio with 15% reduction
+    height: calc(1020px * 9 / 18); // 18:9 aspect ratio (2:1 ratio)
     overflow: visible; // Allow border to extend outside
     
     // Main container - matches image shape exactly
@@ -518,7 +518,7 @@ header.masthead {
     
     .image-slider {
       width: 893px; // 1050px * 0.85 = 893px (15% reduction)
-      height: calc(893px * 9 / 16); // 16:9 aspect ratio with 15% reduction
+      height: calc(893px * 9 / 18); // 18:9 aspect ratio (2:1 ratio)
     }
   }
 }
