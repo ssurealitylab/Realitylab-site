@@ -38,10 +38,10 @@ nav:
     url: "#ai"
     dropdown:
       - title: "AI Chat"
-        url: "javascript:void(0);"
-        onclick: "window.toggleChatbot && window.toggleChatbot();"
+        url: "#"
         icon: "fas fa-search"
         desc: "Chat with AI Assistant"
+        class: "ai-chat-trigger"
 
 # English [default] (https://localizely.com/language-code/en/)
 # -----------------
@@ -76,10 +76,10 @@ en: &DEFAULT_EN
       url: "#ai"
       dropdown:
         - title: "AI Chat"
-          url: "javascript:void(0);"
-          onclick: "window.toggleChatbot && window.toggleChatbot();"
+          url: "#"
           icon: "fas fa-search"
           desc: "Chat with AI Assistant"
+          class: "ai-chat-trigger"
 
 en-001: #English (World)
   <<: *DEFAULT_EN

@@ -633,12 +633,23 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Also look for any element with AI-related classes
+  // Look for AI Chat triggers by class name
+  const aiChatTriggers = document.querySelectorAll('.ai-chat-trigger');
+  aiChatTriggers.forEach(trigger => {
+    trigger.addEventListener('click', (e) => {
+      e.preventDefault();
+      console.log('AI Chat trigger clicked');
+      window.toggleChatbot();
+    });
+  });
+  
+  // Also look for any element with AI-related classes (fallback)
   const aiButtons = document.querySelectorAll('[href="#ai"], [href="#"], .ai-search-btn, a[title="AI"]');
   aiButtons.forEach(btn => {
     if (btn.textContent.includes('AI') || btn.id === 'ai-search' || btn.href?.includes('#ai')) {
       btn.addEventListener('click', (e) => {
         e.preventDefault();
+        console.log('AI fallback trigger clicked');
         window.toggleChatbot();
       });
     }

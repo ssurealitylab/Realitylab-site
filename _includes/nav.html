@@ -35,7 +35,7 @@
           </a>
           <div class="dropdown-menu">
             {%- for item in link.dropdown -%}
-            <a class="dropdown-item" href="{{ item.url }}"{% if item.onclick %} onclick="{{ item.onclick }}"{% endif %}>
+            <a class="dropdown-item{% if item.class %} {{ item.class }}{% endif %}" href="{{ item.url }}"{% if item.onclick %} onclick="{{ item.onclick }}"{% endif %}>
               <div class="dropdown-item-content">
                 {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
                 <div class="dropdown-item-text">
@@ -70,7 +70,7 @@
           </a>
           <div class="dropdown-menu">
             {%- for item in link.dropdown -%}
-            <a class="dropdown-item" href="{{ item.url }}"{% if item.onclick %} onclick="{{ item.onclick }}"{% endif %}>
+            <a class="dropdown-item{% if item.class %} {{ item.class }}{% endif %}" href="{{ item.url }}"{% if item.onclick %} onclick="{{ item.onclick }}"{% endif %}>
               <div class="dropdown-item-content">
                 {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
                 <div class="dropdown-item-text">
