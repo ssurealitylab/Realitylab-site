@@ -3,6 +3,8 @@ layout: page
 title: GitHub Repositories
 ---
 
+{% include sidl-script.html %}
+
 <style>
 .portfolio-item {
   margin-bottom: 30px;
