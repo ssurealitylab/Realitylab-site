@@ -219,8 +219,7 @@ header.masthead {
         radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.3) 0%, transparent 60%),
         radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.25) 0%, transparent 60%),
         radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
-      background-size: 400% 400%, 80% 80%, 80% 80%, 80% 80%, 80% 80%;
-      animation: liquidFlow 8s ease-in-out infinite;
+      background-size: 100% 100%, 80% 80%, 80% 80%, 80% 80%, 80% 80%;
       z-index: 1; // Changed from -1 to 1 to make it visible above background
       filter: blur(1px); // Reduced blur
       backdrop-filter: blur(20px) saturate(1.5) brightness(1.1);
@@ -346,8 +345,7 @@ header.masthead {
         right: -6px;
         bottom: -6px;
         border-radius: 26px; // 20px (image radius) + 6px (border thickness) = 26px
-        animation: liquidFlow 6s ease-in-out infinite; // Faster on mobile
-        filter: blur(1.5px);
+        filter: blur(1px);
         background: 
           linear-gradient(45deg,
             rgba(255, 255, 255, 0.35) 0%,
@@ -360,7 +358,7 @@ header.masthead {
           radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.25) 0%, transparent 60%),
           radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.2) 0%, transparent 60%),
           radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
-        background-size: 400% 400%, 70% 70%, 70% 70%, 70% 70%, 70% 70%;
+        background-size: 100% 100%, 70% 70%, 70% 70%, 70% 70%, 70% 70%;
         z-index: 1; // Make border visible
         filter: blur(1px); // Reduced blur
         backdrop-filter: blur(18px) saturate(1.4) brightness(1.08);
