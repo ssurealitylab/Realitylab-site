@@ -3,6 +3,8 @@ layout: page
 title: GitHub Repositories
 ---
 
+{% include sidl-script.html %}
+
 <style>
 .portfolio-item {
   margin-bottom: 30px;
@@ -213,7 +215,51 @@ title: GitHub Repositories
             <div class="modal-body">
               <h2 class="text-uppercase">SIDL Benchmark</h2>
               <p class="item-intro text-muted">Smartphone Images with Dirty Lenses Dataset</p>
-              <img class="img-fluid d-block mx-auto" src="https://sidl-benchmark.github.io/assets/images/teaser.png" alt="SIDL Benchmark">
+              
+              <!-- Contamination Type Toggles -->
+              <div class="text-center mb-4">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons" id="contaminantTypes">
+                  <label class="btn btn-outline-primary active">
+                    <input type="radio" name="contaminant" id="dust" value="dust" checked> Dust
+                  </label>
+                  <label class="btn btn-outline-primary">
+                    <input type="radio" name="contaminant" id="finger" value="finger"> Fingerprint
+                  </label>
+                  <label class="btn btn-outline-primary">
+                    <input type="radio" name="contaminant" id="mixed" value="mixed"> Mixed
+                  </label>
+                  <label class="btn btn-outline-primary">
+                    <input type="radio" name="contaminant" id="scratch" value="scratch"> Scratch
+                  </label>
+                  <label class="btn btn-outline-primary">
+                    <input type="radio" name="contaminant" id="water" value="water"> Water
+                  </label>
+                </div>
+              </div>
+
+              <!-- Image Comparison Container -->
+              <div class="sidl-comparison-container mb-4" style="position: relative; max-width: 500px; margin: 0 auto;">
+                <div class="sidl-image-wrapper" style="position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 8px;">
+                  <img id="sidlInputImage" class="sidl-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" src="{{ site.baseurl }}/assets/img/sidl/dust/input/Case073_D.png" alt="Input Image">
+                  <img id="sidlTargetImage" class="sidl-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;" src="{{ site.baseurl }}/assets/img/sidl/dust/target/Case073_D.png" alt="Target Image">
+                </div>
+                
+                <!-- Slider Controls -->
+                <div class="sidl-slider-container mt-3">
+                  <div class="row align-items-center">
+                    <div class="col-2 text-center">
+                      <small class="text-muted">Input</small>
+                    </div>
+                    <div class="col-8">
+                      <input type="range" class="custom-range" id="sidlSlider" min="0" max="100" value="0" style="width: 100%;">
+                    </div>
+                    <div class="col-2 text-center">
+                      <small class="text-muted">Target</small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <p><strong>Description:</strong> A novel dataset designed to restore images captured through contaminated smartphone lenses with diverse real-world contaminants.</p>
               <p><strong>Technologies:</strong> Computer Vision, Image Restoration, Machine Learning, Dataset</p>
               <p><strong>Key Features:</strong></p>

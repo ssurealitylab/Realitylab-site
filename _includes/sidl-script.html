@@ -1,0 +1,106 @@
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  // SIDL Image Data
+  const sidlImageData = {
+    dust: [
+      'Case073_D.png', 'Case101_D.png', 'Case107_D.png', 'Case159_D.png', 
+      'Case193_D.png', 'Case196_D.png', 'Case213_D.png'
+    ],
+    finger: [
+      'Case051_F.png', 'Case073_F.png', 'Case101_F.png', 'Case102_F.png',
+      'Case107_F.png', 'Case151_F.png', 'Case159_F.png', 'Case193_F.png',
+      'Case196_F.png', 'Case213_F.png', 'Case298_F.png'
+    ],
+    mixed: [
+      'Case051_M.png', 'Case073_M.png', 'Case101_M.png', 'Case102_M.png',
+      'Case107_M.png', 'Case151_M.png', 'Case159_M.png', 'Case193_M.png',
+      'Case196_M.png', 'Case213_M.png', 'Case298_M.png'
+    ],
+    scratch: [
+      'Case051_S.png', 'Case073_S.png', 'Case101_S.png', 'Case102_S.png',
+      'Case107_S.png', 'Case151_S.png', 'Case159_S.png', 'Case193_S.png',
+      'Case196_S.png', 'Case213_S.png', 'Case298_S.png'
+    ],
+    water: [
+      'Case051_W.png', 'Case073_W.png', 'Case102_W.png', 'Case107_W.png',
+      'Case151_W.png', 'Case193_W.png', 'Case196_W.png', 'Case213_W.png'
+    ]
+  };
+
+  let currentContaminant = 'dust';
+  let currentImageIndex = 0;
+  let autoRotateTimer;
+  
+  const inputImage = document.getElementById('sidlInputImage');
+  const targetImage = document.getElementById('sidlTargetImage');
+  const slider = document.getElementById('sidlSlider');
+
+  // Update images based on current selection
+  function updateImages() {
+    const images = sidlImageData[currentContaminant];
+    if (images && images.length > 0) {
+      const imageName = images[currentImageIndex];
+      const basePath = `{{ site.baseurl }}/assets/img/sidl/${currentContaminant}`;
+      
+      if (inputImage) inputImage.src = `${basePath}/input/${imageName}`;
+      if (targetImage) targetImage.src = `${basePath}/target/${imageName}`;
+    }
+  }
+
+  // Start auto rotation
+  function startAutoRotation() {
+    clearInterval(autoRotateTimer);
+    autoRotateTimer = setInterval(() => {
+      const images = sidlImageData[currentContaminant];
+      if (images && images.length > 0) {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        updateImages();
+      }
+    }, 5000); // Change every 5 seconds
+  }
+
+  // Handle contamination type change
+  document.querySelectorAll('input[name="contaminant"]').forEach(input => {
+    input.addEventListener('change', function() {
+      if (this.checked) {
+        currentContaminant = this.value;
+        currentImageIndex = 0;
+        updateImages();
+        startAutoRotation();
+      }
+    });
+  });
+
+  // Handle slider change
+  if (slider) {
+    slider.addEventListener('input', function() {
+      const opacity = this.value / 100;
+      if (targetImage) targetImage.style.opacity = opacity;
+      if (inputImage) inputImage.style.opacity = 1 - opacity;
+    });
+  }
+
+  // Initialize when modal opens
+  const modal = document.getElementById('repo1');
+  if (modal) {
+    modal.addEventListener('shown.bs.modal', function() {
+      updateImages();
+      startAutoRotation();
+      if (slider) slider.value = 0;
+      if (targetImage) targetImage.style.opacity = 0;
+      if (inputImage) inputImage.style.opacity = 1;
+    });
+
+    // Clean up when modal closes
+    modal.addEventListener('hidden.bs.modal', function() {
+      clearInterval(autoRotateTimer);
+    });
+  }
+
+  // Initialize immediately if elements exist
+  if (inputImage && targetImage) {
+    updateImages();
+    startAutoRotation();
+  }
+});
+</script>
