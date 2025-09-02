@@ -191,27 +191,27 @@ header.masthead {
       -webkit-backdrop-filter: blur(8px) saturate(1.1) brightness(1.01);
     }
     
-    // Liquid glass border - follows image contour perfectly (20% thickness)
+    // Liquid glass border - 6px thickness for perfect visibility
     &::before {
       content: '';
       position: absolute;
-      top: -8px; // 40px * 0.2 = 8px thick border
-      left: -8px;
-      right: -8px;
-      bottom: -8px;
-      border-radius: 38px; // 30px (image radius) + 8px (border thickness) = 38px
+      top: -6px; // 6px thick border
+      left: -6px;
+      right: -6px;
+      bottom: -6px;
+      border-radius: 36px; // 30px (image radius) + 6px (border thickness) = 36px
       background: 
         linear-gradient(45deg,
-          rgba(255, 255, 255, 0.08) 0%,
-          rgba(59, 130, 246, 0.04) 25%,
-          rgba(168, 85, 247, 0.03) 50%,
-          rgba(255, 255, 255, 0.06) 75%,
-          rgba(59, 130, 246, 0.03) 100%
+          rgba(255, 255, 255, 0.15) 0%,
+          rgba(59, 130, 246, 0.08) 25%,
+          rgba(168, 85, 247, 0.06) 50%,
+          rgba(255, 255, 255, 0.12) 75%,
+          rgba(59, 130, 246, 0.07) 100%
         ),
-        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
-        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.06) 0%, transparent 60%),
-        radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.04) 0%, transparent 60%),
-        radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.2) 0%, transparent 60%),
+        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.08) 0%, transparent 60%),
+        radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 60%);
       background-size: 400% 400%, 80% 80%, 80% 80%, 80% 80%, 80% 80%;
       animation: liquidFlow 8s ease-in-out infinite;
       z-index: -1;
@@ -330,7 +330,7 @@ header.masthead {
       }
       
       &::before {
-        top: -6px; // 30px * 0.2 = 6px thick border for mobile
+        top: -6px; // 6px thick border for mobile (same as desktop)
         left: -6px;
         right: -6px;
         bottom: -6px;
@@ -339,16 +339,16 @@ header.masthead {
         filter: blur(1.5px);
         background: 
           linear-gradient(45deg,
-            rgba(255, 255, 255, 0.06) 0%,
-            rgba(59, 130, 246, 0.03) 25%,
-            rgba(168, 85, 247, 0.02) 50%,
-            rgba(255, 255, 255, 0.05) 75%,
-            rgba(59, 130, 246, 0.025) 100%
+            rgba(255, 255, 255, 0.12) 0%,
+            rgba(59, 130, 246, 0.06) 25%,
+            rgba(168, 85, 247, 0.04) 50%,
+            rgba(255, 255, 255, 0.1) 75%,
+            rgba(59, 130, 246, 0.05) 100%
           ),
-          radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.08) 0%, transparent 60%),
-          radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.04) 0%, transparent 60%),
-          radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.03) 0%, transparent 60%),
-          radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.06) 0%, transparent 60%);
+          radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+          radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.08) 0%, transparent 60%),
+          radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.06) 0%, transparent 60%),
+          radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.12) 0%, transparent 60%);
         background-size: 400% 400%, 70% 70%, 70% 70%, 70% 70%, 70% 70%;
         backdrop-filter: blur(12px) saturate(1.2) brightness(1.015);
         -webkit-backdrop-filter: blur(12px) saturate(1.2) brightness(1.015);
