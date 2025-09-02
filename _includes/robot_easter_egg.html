@@ -39,6 +39,25 @@
 .robot-animate {
   animation: slideInRobot 5s ease-in-out;
 }
+
+/* Shake animation for the title */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  10% { transform: translateX(-10px); }
+  20% { transform: translateX(10px); }
+  30% { transform: translateX(-10px); }
+  40% { transform: translateX(10px); }
+  50% { transform: translateX(-5px); }
+  60% { transform: translateX(5px); }
+  70% { transform: translateX(-3px); }
+  80% { transform: translateX(3px); }
+  90% { transform: translateX(-1px); }
+  100% { transform: translateX(0); }
+}
+
+.title-shake {
+  animation: shake 0.8s ease-in-out;
+}
 </style>
 
 <script>
@@ -87,14 +106,26 @@ setTimeout(function() {
             
             clickCount++;
             
+            // Add shake animation if clicked 3 or more times
+            if (clickCount >= 3) {
+                logo.classList.remove('title-shake');
+                void logo.offsetWidth; // Force reflow
+                logo.classList.add('title-shake');
+                
+                // Remove shake class after animation
+                setTimeout(function() {
+                    logo.classList.remove('title-shake');
+                }, 800);
+            }
+            
             // Reset click count after 3 seconds
             clickTimer = setTimeout(function() {
                 console.log('Click count reset');
                 clickCount = 0;
             }, 3000);
             
-            // Trigger easter egg if 5 clicks within 3 seconds
-            if (clickCount >= 5 && !isAnimating) {
+            // Trigger easter egg if 7 clicks within 3 seconds
+            if (clickCount >= 7 && !isAnimating) {
                 console.log('🤖 Easter egg triggered!');
                 triggerRobotEasterEgg();
                 clickCount = 0;
