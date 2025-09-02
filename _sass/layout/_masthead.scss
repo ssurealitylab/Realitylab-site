@@ -74,13 +74,13 @@ header.masthead {
     }
   }
   
-  // Research Tabs Styles with Scrollable Carousel (for 12 tabs)
+  // Research Tabs Styles with Scrollable Carousel (for 12 tabs) - Now below slider
   .research-tabs {
     display: flex;
     justify-content: flex-start; // Changed from center
     align-items: center;
     gap: 0.64rem; // 0.8rem * 0.8 = 0.64rem (20% reduction)
-    margin: 0rem auto 0.1rem; // Nearly no spacing - almost touching the image
+    margin: 0 auto; // Centered with no special spacing since it's below slider now
     flex-wrap: nowrap; // Force single row
     width: 100%; // Full width container
     max-width: 90vw; // Responsive maximum width
@@ -165,7 +165,14 @@ header.masthead {
   .image-slider-container {
     display: flex;
     justify-content: center;
-    padding: 0 20px 40px;
+    padding: 0 20px 20px; // Reduced bottom padding since tabs are now below
+  }
+  
+  // Research Tabs Container (now below slider)
+  .research-tabs-container {
+    display: flex;
+    justify-content: center;
+    padding: 20px 20px 40px; // Added top padding, kept bottom padding
   }
   
   // Image Slider Styles with Liquid Glass effect - Perfect border wrapping
@@ -311,7 +318,11 @@ header.masthead {
     }
     
     .image-slider-container {
-      padding: 0 10px 40px;
+      padding: 0 10px 20px; // Reduced bottom padding since tabs are now below
+    }
+    
+    .research-tabs-container {
+      padding: 20px 10px 40px; // Added top padding, kept bottom padding
     }
     
     .image-slider {

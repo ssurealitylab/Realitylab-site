@@ -98,16 +98,6 @@
         {%- if site.data.sitetext[site.locale].header.text -%}
         <div class="intro-heading text-uppercase">{{ site.data.sitetext[site.locale].header.text | markdownify }}</div>
         {%- endif -%}
-        <div class="research-tabs">
-          {%- if site.data.sitetext[site.locale].header.slider -%}
-          {% for slide in site.data.sitetext[site.locale].header.slider %}
-          <div class="research-tab {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
-            <h3 class="tab-title">{{ slide.title }}</h3>
-            <p class="tab-description">{{ slide.description }}</p>
-          </div>
-          {% endfor %}
-          {%- endif -%}
-        </div>
       </div>
       
       <div class="image-slider-container">
@@ -121,6 +111,19 @@
             {% endfor %}
             {%- endif -%}
           </div>
+        </div>
+      </div>
+      
+      <div class="research-tabs-container">
+        <div class="research-tabs">
+          {%- if site.data.sitetext[site.locale].header.slider -%}
+          {% for slide in site.data.sitetext[site.locale].header.slider %}
+          <div class="research-tab {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+            <h3 class="tab-title">{{ slide.title }}</h3>
+            <p class="tab-description">{{ slide.description }}</p>
+          </div>
+          {% endfor %}
+          {%- endif -%}
         </div>
       </div>
       
@@ -141,16 +144,6 @@
         {%- if site.data.sitetext.header.text -%}
         <div class="intro-heading text-uppercase">{{ site.data.sitetext.header.text | markdownify }}</div>
         {%- endif -%}
-        <div class="research-tabs">
-          {%- if site.data.sitetext.header.slider -%}
-          {% for slide in site.data.sitetext.header.slider %}
-          <div class="research-tab {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
-            <h3 class="tab-title">{{ slide.title }}</h3>
-            <p class="tab-description">{{ slide.description }}</p>
-          </div>
-          {% endfor %}
-          {%- endif -%}
-        </div>
       </div>
       
       <div class="image-slider-container">
@@ -164,6 +157,19 @@
             {% endfor %}
             {%- endif -%}
           </div>
+        </div>
+      </div>
+      
+      <div class="research-tabs-container">
+        <div class="research-tabs">
+          {%- if site.data.sitetext.header.slider -%}
+          {% for slide in site.data.sitetext.header.slider %}
+          <div class="research-tab {% if forloop.first %}active{% endif %}" data-index="{{ forloop.index0 }}">
+            <h3 class="tab-title">{{ slide.title }}</h3>
+            <p class="tab-description">{{ slide.description }}</p>
+          </div>
+          {% endfor %}
+          {%- endif -%}
         </div>
       </div>
       
