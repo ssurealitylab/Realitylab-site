@@ -1,4 +1,4 @@
-// Styling for the masthead - Apidog style with gradient background
+// Styling for the masthead - Apidog style with gradient background and parallax effect
 header.masthead {
   text-align: center;
   color: #1a1a1a;
@@ -8,14 +8,43 @@ header.masthead {
     radial-gradient(ellipse 60% 40% at 20% 70%, rgba(29, 78, 216, 0.08) 0%, transparent 50%),
     linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  background-attachment: fixed; // Enable parallax effect
   background-position: center center;
   background-size: cover;
-  min-height: 90vh;
+  min-height: 100vh; // Full viewport height for better parallax
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
+  
+  // Parallax container
+  .parallax-container {
+    position: relative; // Changed from absolute to relative
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.1s ease-out, filter 0.3s ease-out, opacity 0.3s ease-out;
+  }
+  
+  // Additional styles when scrolled
+  &.scrolled {
+    .parallax-container {
+      pointer-events: none; // Disable interactions when fading out
+    }
+    
+    // Reduce background opacity when scrolled
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(255, 255, 255, 0.3);
+      z-index: 1;
+      pointer-events: none;
+    }
+  }
   .intro-text {
     padding-top: 80px;
     padding-bottom: 40px;
@@ -246,9 +275,9 @@ header.masthead {
   // Image Slider Styles with Liquid Glass effect - Perfect border wrapping
   .image-slider {
     position: relative;
-    width: 1200px; // 1000px * 1.2 = 1200px (20% increase)
+    width: 1020px; // 1200px * 0.85 = 1020px (15% reduction)
     max-width: 90vw;
-    height: calc(1200px * 9 / 16); // 16:9 aspect ratio with 20% increase
+    height: calc(1020px * 9 / 16); // 16:9 aspect ratio with 15% reduction
     overflow: visible; // Allow border to extend outside
     
     // Main container - matches image shape exactly
@@ -488,8 +517,8 @@ header.masthead {
     }
     
     .image-slider {
-      width: 1050px; // 875px * 1.2 = 1050px (20% increase)
-      height: calc(1050px * 9 / 16); // 16:9 aspect ratio with 20% increase
+      width: 893px; // 1050px * 0.85 = 893px (15% reduction)
+      height: calc(893px * 9 / 16); // 16:9 aspect ratio with 15% reduction
     }
   }
 }
