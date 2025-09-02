@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function() {
       'Case217_F.png', 'Case218_F.png', 'Case247_F.png'
     ],
     mixed: [
-      'Case151_DW.png'
+      'Case245_DW.png', 'Case297_DW.png', 'Case151_DW.png', 'Case151_FD.png', 
+      'Case151_FS.png', 'Case151_FW.png', 'Case245_DS.png'
     ],
     scratch: [
       'Case073_S.png', 'Case074_S.png', 'Case101_S.png', 'Case102_S.png',
@@ -159,12 +160,6 @@ document.addEventListener('DOMContentLoaded', function() {
     
     const newCategoryImages = sidlImageData[newCategory];
     
-    // Special handling for mixed category - always start from index 0 to avoid confusion
-    if (currentContaminant === 'mixed' || newCategory === 'mixed') {
-      console.log(`Mixed category transition detected, using index 0`);
-      return 0;
-    }
-    
     for (let i = 0; i < newCategoryImages.length; i++) {
       const newCaseNumber = getCaseNumberFromFilename(newCategoryImages[i]);
       if (newCaseNumber === caseNumber) {
@@ -178,21 +173,15 @@ document.addEventListener('DOMContentLoaded', function() {
   function switchContaminationType(newType) {
     console.log('Switching contamination type from', currentContaminant, 'to', newType);
     
-    // Special handling for mixed category - always reset to index 0
-    if (newType === 'mixed' || currentContaminant === 'mixed') {
-      console.log('Mixed category detected - resetting to index 0');
-      currentImageIndex = 0;
+    // Try to find the same case number in the new category
+    const currentImages = sidlImageData[currentContaminant];
+    if (currentImages && currentImages[currentImageIndex]) {
+      const currentFilename = currentImages[currentImageIndex];
+      const newImageIndex = findSameCaseInCategory(currentFilename, newType);
+      console.log(`Looking for same case as ${currentFilename} in ${newType} category, found index: ${newImageIndex}`);
+      currentImageIndex = newImageIndex;
     } else {
-      // Try to find the same case number in the new category
-      const currentImages = sidlImageData[currentContaminant];
-      if (currentImages && currentImages[currentImageIndex]) {
-        const currentFilename = currentImages[currentImageIndex];
-        const newImageIndex = findSameCaseInCategory(currentFilename, newType);
-        console.log(`Looking for same case as ${currentFilename} in ${newType} category, found index: ${newImageIndex}`);
-        currentImageIndex = newImageIndex;
-      } else {
-        currentImageIndex = 0;
-      }
+      currentImageIndex = 0;
     }
     
     currentContaminant = newType;
