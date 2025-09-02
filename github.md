@@ -36,6 +36,13 @@ title: GitHub Repositories
   margin-top: -12px;
   color: white;
 }
+.portfolio-link {
+  transform: scale(1);
+  transition: transform 0.3s ease;
+}
+.portfolio-link:hover {
+  transform: scale(1.05);
+}
 .portfolio-caption {
   max-width: 400px;
   margin: 0 auto;
@@ -73,12 +80,28 @@ title: GitHub Repositories
     </div>
     <div class="row">
       
-      <!-- Main Website Repository -->
+      <!-- SIDL Benchmark Dataset -->
       <div class="col-md-4 col-sm-6 portfolio-item">
         <a class="portfolio-link" data-toggle="modal" href="#repo1">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-              <i class="fas fa-plus fa-3x"></i>
+              <i class="fas fa-eye fa-3x"></i>
+            </div>
+          </div>
+          <img class="repo-img img-fluid" src="https://sidl-benchmark.github.io/assets/images/teaser.png" alt="SIDL Benchmark Dataset">
+        </a>
+        <div class="portfolio-caption">
+          <h4>SIDL Benchmark</h4>
+          <p class="text-muted">Smartphone Dirty Lens Dataset</p>
+        </div>
+      </div>
+
+      <!-- Main Website Repository -->
+      <div class="col-md-4 col-sm-6 portfolio-item">
+        <a class="portfolio-link" data-toggle="modal" href="#repo2">
+          <div class="portfolio-hover">
+            <div class="portfolio-hover-content">
+              <i class="fas fa-globe fa-3x"></i>
             </div>
           </div>
           <img class="repo-img img-fluid" src="https://opengraph.githubassets.com/1/ssurealitylab-spec/Realitylab-site" alt="Reality Lab Website">
@@ -91,10 +114,10 @@ title: GitHub Repositories
 
       <!-- Computer Vision Projects -->
       <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#repo2">
+        <a class="portfolio-link" data-toggle="modal" href="#repo3">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-              <i class="fas fa-plus fa-3x"></i>
+              <i class="fas fa-brain fa-3x"></i>
             </div>
           </div>
           <img class="repo-img img-fluid" src="https://raw.githubusercontent.com/github/explore/main/topics/computer-vision/computer-vision.png" alt="Computer Vision">
@@ -107,10 +130,10 @@ title: GitHub Repositories
 
       <!-- Robotics & AI -->
       <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#repo3">
+        <a class="portfolio-link" data-toggle="modal" href="#repo4">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-              <i class="fas fa-plus fa-3x"></i>
+              <i class="fas fa-robot fa-3x"></i>
             </div>
           </div>
           <img class="repo-img img-fluid" src="https://raw.githubusercontent.com/github/explore/main/topics/robotics/robotics.png" alt="Robotics">
@@ -123,10 +146,10 @@ title: GitHub Repositories
 
       <!-- Machine Learning -->
       <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#repo4">
+        <a class="portfolio-link" data-toggle="modal" href="#repo5">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-              <i class="fas fa-plus fa-3x"></i>
+              <i class="fas fa-network-wired fa-3x"></i>
             </div>
           </div>
           <img class="repo-img img-fluid" src="https://raw.githubusercontent.com/github/explore/main/topics/machine-learning/machine-learning.png" alt="Machine Learning">
@@ -139,10 +162,10 @@ title: GitHub Repositories
 
       <!-- Research Papers Code -->
       <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#repo5">
+        <a class="portfolio-link" data-toggle="modal" href="#repo6">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-              <i class="fas fa-plus fa-3x"></i>
+              <i class="fas fa-file-alt fa-3x"></i>
             </div>
           </div>
           <img class="repo-img img-fluid" src="https://raw.githubusercontent.com/github/explore/main/topics/research/research.png" alt="Research">
@@ -155,10 +178,10 @@ title: GitHub Repositories
 
       <!-- Development Tools -->
       <div class="col-md-4 col-sm-6 portfolio-item">
-        <a class="portfolio-link" data-toggle="modal" href="#repo6">
+        <a class="portfolio-link" data-toggle="modal" href="#repo7">
           <div class="portfolio-hover">
             <div class="portfolio-hover-content">
-              <i class="fas fa-plus fa-3x"></i>
+              <i class="fas fa-tools fa-3x"></i>
             </div>
           </div>
           <img class="repo-img img-fluid" src="https://raw.githubusercontent.com/github/explore/main/topics/tools/tools.png" alt="Tools">
@@ -175,8 +198,50 @@ title: GitHub Repositories
 
 <!-- Repository Modals -->
 
-<!-- Modal 1: Main Website -->
+<!-- Modal 1: SIDL Benchmark -->
 <div class="portfolio-modal modal fade" id="repo1" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="close-modal" data-dismiss="modal">
+        <div class="lr">
+          <div class="rl"></div>
+        </div>
+      </div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="modal-body">
+              <h2 class="text-uppercase">SIDL Benchmark</h2>
+              <p class="item-intro text-muted">Smartphone Images with Dirty Lenses Dataset</p>
+              <img class="img-fluid d-block mx-auto" src="https://sidl-benchmark.github.io/assets/images/teaser.png" alt="SIDL Benchmark">
+              <p><strong>Description:</strong> A novel dataset designed to restore images captured through contaminated smartphone lenses with diverse real-world contaminants.</p>
+              <p><strong>Technologies:</strong> Computer Vision, Image Restoration, Machine Learning, Dataset</p>
+              <p><strong>Key Features:</strong></p>
+              <ul>
+                <li>300 static scenes with 1,588 degraded-clean image pairs</li>
+                <li>Full ProRAW resolution (4032 × 3024, 12-bit DNG)</li>
+                <li>5 contaminant types: fingerprints, dust, scratches, water drops, mixed debris</li>
+                <li>Difficulty levels: Easy, Medium, Hard</li>
+                <li>Comprehensive evaluation framework</li>
+              </ul>
+              <div class="text-center">
+                <a href="https://sidl-benchmark.github.io/" target="_blank" class="btn btn-primary">
+                  <i class="fas fa-globe"></i> Visit Website
+                </a>
+              </div>
+              <button class="btn btn-secondary" data-dismiss="modal" type="button">
+                <i class="fas fa-times"></i> Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal 2: Main Website -->
+<div class="portfolio-modal modal fade" id="repo2" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="close-modal" data-dismiss="modal">
@@ -216,8 +281,8 @@ title: GitHub Repositories
   </div>
 </div>
 
-<!-- Modal 2: Computer Vision -->
-<div class="portfolio-modal modal fade" id="repo2" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Modal 3: Computer Vision -->
+<div class="portfolio-modal modal fade" id="repo3" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="close-modal" data-dismiss="modal">
@@ -256,8 +321,8 @@ title: GitHub Repositories
   </div>
 </div>
 
-<!-- Modal 3: Robotics & AI -->
-<div class="portfolio-modal modal fade" id="repo3" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- Modal 4: Robotics & AI -->
+<div class="portfolio-modal modal fade" id="repo4" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="close-modal" data-dismiss="modal">
@@ -296,47 +361,7 @@ title: GitHub Repositories
   </div>
 </div>
 
-<!-- Modal 4: Machine Learning -->
-<div class="portfolio-modal modal fade" id="repo4" tabindex="-1" role="dialog" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="close-modal" data-dismiss="modal">
-        <div class="lr">
-          <div class="rl"></div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-8 mx-auto">
-            <div class="modal-body">
-              <h2 class="text-uppercase">Machine Learning</h2>
-              <p class="item-intro text-muted">AI algorithms and neural network models</p>
-              <img class="img-fluid d-block mx-auto" src="https://raw.githubusercontent.com/github/explore/main/topics/machine-learning/machine-learning.png" alt="Machine Learning">
-              <p><strong>Focus Areas:</strong></p>
-              <ul>
-                <li>Deep reinforcement learning for robotics</li>
-                <li>Multimodal language understanding</li>
-                <li>Cross-modal learning systems</li>
-                <li>Few-shot and meta-learning approaches</li>
-              </ul>
-              <p><strong>Conferences:</strong> AAAI 2025, NeurIPS 2024, ICML 2024</p>
-              <div class="text-center">
-                <a href="https://github.com/ssurealitylab-spec" target="_blank" class="btn btn-primary">
-                  <i class="fab fa-github"></i> View Organization
-                </a>
-              </div>
-              <button class="btn btn-secondary" data-dismiss="modal" type="button">
-                <i class="fas fa-times"></i> Close
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Modal 5: Research Papers -->
+<!-- Modal 5: Machine Learning -->
 <div class="portfolio-modal modal fade" id="repo5" tabindex="-1" role="dialog" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
