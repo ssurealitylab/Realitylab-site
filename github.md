@@ -80,6 +80,21 @@ title: GitHub Repositories
         <h3 class="section-subheading text-muted">Open source projects and research code from Reality Lab</h3>
       </div>
     </div>
+    
+    <!-- SIDL Featured Image -->
+    <div class="row mb-5">
+      <div class="col-lg-12 text-center">
+        <div style="max-width: 800px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+          <img src="https://sidl-benchmark.github.io/assets/images/teaser.png" 
+               alt="SIDL Benchmark Dataset Overview" 
+               class="img-fluid" 
+               style="max-height: 400px; width: auto; border-radius: 8px;">
+          <p class="mt-3 text-muted" style="font-style: italic;">
+            SIDL: Smartphone Dirty Lens Benchmark Dataset for Image Restoration
+          </p>
+        </div>
+      </div>
+    </div>
     <div class="row">
       
       <!-- SIDL Benchmark Dataset -->
@@ -95,6 +110,9 @@ title: GitHub Repositories
         <div class="portfolio-caption">
           <h4>SIDL Benchmark</h4>
           <p class="text-muted">Smartphone Dirty Lens Dataset</p>
+          <p style="color: #007bff; font-weight: bold; margin-top: 8px;">
+            🎉 AAAI25 Accept!
+          </p>
         </div>
       </div>
 
