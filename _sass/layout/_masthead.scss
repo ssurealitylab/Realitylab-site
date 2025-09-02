@@ -74,17 +74,22 @@ header.masthead {
     }
   }
   
-  // Research Tabs Styles with Container Background (4 tabs in single row)
+  // Research Tabs Styles with Scrollable Carousel (for 12 tabs)
   .research-tabs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start; // Changed from center
     align-items: center;
     gap: 0.64rem; // 0.8rem * 0.8 = 0.64rem (20% reduction)
     margin: 0rem auto 0.1rem; // Nearly no spacing - almost touching the image
     flex-wrap: nowrap; // Force single row
-    width: fit-content; // Allow container to size itself
+    width: 100%; // Full width container
+    max-width: 90vw; // Responsive maximum width
+    overflow-x: auto; // Enable horizontal scrolling
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch; // Smooth scrolling on iOS
     
-    // Large container capsule background - Apple Glass style
+    // Large container capsule background - Apple Glass style with scrolling
     background: rgba(255, 255, 255, 0.15);
     border: 1px solid rgba(255, 255, 255, 0.25);
     border-radius: 32px; // 40px * 0.8 = 32px (20% reduction)
@@ -95,9 +100,16 @@ header.masthead {
       0 8px 32px rgba(0, 0, 0, 0.12),
       0 1px 0 rgba(255, 255, 255, 0.3) inset,
       0 -1px 0 rgba(255, 255, 255, 0.1) inset;
-    min-width: 831px; // 1039px * 0.8 = 831px (20% reduction)
-    max-width: 90vw; // Responsive maximum width
-    overflow: visible; // Ensure scaled elements don't get clipped
+    
+    // Hide scrollbar while keeping functionality
+    scrollbar-width: none; // Firefox
+    -ms-overflow-style: none; // IE/Edge
+    &::-webkit-scrollbar {
+      display: none; // Chrome/Safari
+    }
+    
+    // Auto-scroll animation container
+    position: relative;
     
     .research-tab {
       background: rgba(255, 255, 255, 0.12);
@@ -267,8 +279,17 @@ header.masthead {
     .research-tabs {
       gap: 0.5rem;
       padding: 16px 20px; // Increased padding for mobile
-      min-width: auto; // Allow flexible width on mobile
+      width: 100%; // Full width for mobile
       max-width: 95vw; // Better responsive width
+      overflow-x: auto; // Enable horizontal scrolling on mobile
+      justify-content: flex-start; // Left align tabs on mobile
+      
+      // Hide scrollbar on mobile too
+      scrollbar-width: none; // Firefox
+      -ms-overflow-style: none; // IE/Edge
+      &::-webkit-scrollbar {
+        display: none; // Chrome/Safari
+      }
       
       .research-tab {
         min-width: 110px;

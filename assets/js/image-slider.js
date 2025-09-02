@@ -42,9 +42,40 @@
         }
         if (researchTabs[index]) {
             researchTabs[index].classList.add('active');
+            
+            // Auto-scroll the active tab into view
+            scrollTabIntoView(researchTabs[index]);
         }
         
         currentIndex = index;
+    }
+    
+    function scrollTabIntoView(activeTab) {
+        var tabsContainer = document.querySelector('.research-tabs');
+        if (!tabsContainer || !activeTab) return;
+        
+        var containerRect = tabsContainer.getBoundingClientRect();
+        var tabRect = activeTab.getBoundingClientRect();
+        var scrollLeft = tabsContainer.scrollLeft;
+        
+        // Calculate if tab is visible
+        var tabLeftVisible = tabRect.left >= containerRect.left;
+        var tabRightVisible = tabRect.right <= containerRect.right;
+        
+        if (!tabLeftVisible || !tabRightVisible) {
+            // Calculate scroll position to center the active tab
+            var tabOffset = activeTab.offsetLeft;
+            var tabWidth = activeTab.offsetWidth;
+            var containerWidth = tabsContainer.offsetWidth;
+            
+            var scrollTo = tabOffset - (containerWidth / 2) + (tabWidth / 2);
+            
+            // Smooth scroll to position
+            tabsContainer.scrollTo({
+                left: Math.max(0, scrollTo),
+                behavior: 'smooth'
+            });
+        }
     }
     
     function nextSlide() {
