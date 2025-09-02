@@ -35,7 +35,7 @@
           </a>
           <div class="dropdown-menu">
             {%- for item in link.dropdown -%}
-            <a class="dropdown-item" href="{{ site.baseurl }}{{ item.url }}">
+            <a class="dropdown-item" href="{{ item.url }}">
               <div class="dropdown-item-content">
                 {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
                 <div class="dropdown-item-text">
@@ -47,7 +47,7 @@
             {%- endfor -%}
           </div>
           {%- elsif link.url -%}
-          <a class="nav-link{% unless link.external_page %} js-scroll-trigger{% endunless %}" href="{{ site.baseurl }}{{ link.url }}"
+          <a class="nav-link{% unless link.external_page %} js-scroll-trigger{% endunless %}" href="{{ link.url }}"
             >{{ link.title }}</a
           >
           {%- elsif link.section -%}
@@ -70,7 +70,7 @@
           </a>
           <div class="dropdown-menu">
             {%- for item in link.dropdown -%}
-            <a class="dropdown-item" href="{{ site.baseurl }}{{ item.url }}">
+            <a class="dropdown-item" href="{{ item.url }}">
               <div class="dropdown-item-content">
                 {% if item.icon %}<i class="{{ item.icon }}"></i>{% endif %}
                 <div class="dropdown-item-text">
@@ -82,7 +82,7 @@
             {%- endfor -%}
           </div>
           {%- elsif link.url -%}
-          <a class="nav-link{% unless link.external_page %} js-scroll-trigger{% endunless %}" href="{{ site.baseurl }}{{ link.url }}"
+          <a class="nav-link{% unless link.external_page %} js-scroll-trigger{% endunless %}" href="{{ link.url }}"
             >{{ link.title }}</a
           >
           {%- elsif link.section -%}
