@@ -1,6 +1,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-  // SIDL Image Data - Fixed to use actual matching image names
+  // SIDL Image Data - Updated with correct filenames
   const sidlImageData = {
     dust: [
       'Case073_D.png', 'Case101_D.png', 'Case107_D.png', 'Case151_D.png', 
@@ -24,6 +24,9 @@ document.addEventListener('DOMContentLoaded', function() {
       'Case151_W.png', 'Case193_W.png', 'Case196_W.png', 'Case213_W.png'
     ]
   };
+  
+  // Debug: Log image data on load
+  console.log('SIDL Image Data loaded:', sidlImageData);
 
   let currentContaminant = 'dust';
   let currentImageIndex = 0;
@@ -145,31 +148,47 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // Handle contamination type change
-  document.querySelectorAll('input[name="contaminant"]').forEach(input => {
-    input.addEventListener('change', function() {
-      if (this.checked) {
-        console.log('Switching to contamination type:', this.value);
-        currentContaminant = this.value;
-        currentImageIndex = 0;
-        updateImages();
-        startAutoRotation();
+  function switchContaminationType(newType) {
+    console.log('Switching contamination type from', currentContaminant, 'to', newType);
+    currentContaminant = newType;
+    currentImageIndex = 0;
+    updateImages();
+    startAutoRotation();
+    
+    // Update button active states
+    document.querySelectorAll('#contaminantTypes .btn').forEach(btn => {
+      const input = btn.querySelector('input[name="contaminant"]');
+      if (input && input.value === newType) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
       }
     });
-  });
+  }
 
-  // Also handle click events on labels for better responsiveness
-  document.querySelectorAll('#contaminantTypes label').forEach(label => {
-    label.addEventListener('click', function(e) {
-      const input = this.querySelector('input[name="contaminant"]');
-      if (input && !input.checked) {
-        console.log('Label clicked, switching to:', input.value);
-        currentContaminant = input.value;
-        currentImageIndex = 0;
-        updateImages();
-        startAutoRotation();
-      }
+  // Unified event handler for contamination type buttons
+  function setupContaminationTypeButtons() {
+    document.querySelectorAll('#contaminantTypes .btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const input = this.querySelector('input[name="contaminant"]');
+        if (input && input.value !== currentContaminant) {
+          // Clear all selections first
+          document.querySelectorAll('input[name="contaminant"]').forEach(r => r.checked = false);
+          document.querySelectorAll('#contaminantTypes .btn').forEach(b => b.classList.remove('active'));
+          
+          // Set new selection
+          input.checked = true;
+          this.classList.add('active');
+          
+          // Switch contamination type
+          switchContaminationType(input.value);
+        }
+      });
     });
-  });
+  }
 
   // Initialize when modal opens
   const modal = document.getElementById('repo1');
@@ -178,6 +197,7 @@ document.addEventListener('DOMContentLoaded', function() {
       updateImages();
       startAutoRotation();
       updateSliderPosition(50); // Start with 50/50 split
+      setupContaminationTypeButtons(); // Setup button event handlers
     });
 
     // Clean up when modal closes
@@ -192,6 +212,7 @@ document.addEventListener('DOMContentLoaded', function() {
     updateImages();
     startAutoRotation();
     updateSliderPosition(50); // Start with 50/50 split
+    setupContaminationTypeButtons(); // Setup button event handlers
   }
 });
 </script>
