@@ -80,7 +80,7 @@ header.masthead {
         background-clip: text;
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
-        animation: liquidTextFlow 4s ease-in-out infinite;
+        animation: liquidTextFlow 8s ease-in-out infinite;
         filter: drop-shadow(0 0 8px rgba(59, 130, 246, 0.3)) 
                 drop-shadow(0 0 16px rgba(59, 130, 246, 0.2));
         position: relative;
@@ -102,7 +102,21 @@ header.masthead {
           backdrop-filter: blur(12px) saturate(1.2);
           -webkit-backdrop-filter: blur(12px) saturate(1.2);
           z-index: -1;
-          animation: liquidGlassGlow 4s ease-in-out infinite;
+          animation: liquidGlassGlow 8s ease-in-out infinite;
+        }
+        
+        // Blinking exclamation mark
+        .blinking-exclamation {
+          display: inline-block;
+          background: linear-gradient(45deg, #3b82f6, #ffffff, #1d4ed8, #ffffff);
+          background-size: 400% 400%;
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: blinkingExclamation 1.5s ease-in-out infinite;
+          font-weight: 700;
+          margin-left: 2px;
+          filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.4));
         }
       }
     }
@@ -142,7 +156,7 @@ header.masthead {
           background-clip: text;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
-          animation: liquidTextFlow 4s ease-in-out infinite;
+          animation: liquidTextFlow 8s ease-in-out infinite;
           filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.25)) 
                   drop-shadow(0 0 12px rgba(59, 130, 246, 0.15));
           position: relative;
@@ -164,7 +178,21 @@ header.masthead {
             backdrop-filter: blur(10px) saturate(1.1);
             -webkit-backdrop-filter: blur(10px) saturate(1.1);
             z-index: -1;
-            animation: liquidGlassGlow 4s ease-in-out infinite;
+            animation: liquidGlassGlow 8s ease-in-out infinite;
+          }
+          
+          // Blinking exclamation mark (smaller for mobile)
+          .blinking-exclamation {
+            display: inline-block;
+            background: linear-gradient(45deg, #3b82f6, #ffffff, #1d4ed8, #ffffff);
+            background-size: 400% 400%;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: blinkingExclamation 1.5s ease-in-out infinite;
+            font-weight: 700;
+            margin-left: 1px;
+            filter: drop-shadow(0 0 3px rgba(59, 130, 246, 0.3));
           }
         }
       }
@@ -295,15 +323,15 @@ header.masthead {
       -webkit-backdrop-filter: blur(8px) saturate(1.1) brightness(1.01);
     }
     
-    // Liquid glass border - 6px thickness for perfect visibility
+    // Liquid glass border - 12px thickness (doubled)
     &::before {
       content: '';
       position: absolute;
-      top: -6px; // 6px thick border
-      left: -6px;
-      right: -6px;
-      bottom: -6px;
-      border-radius: 36px; // 30px (image radius) + 6px (border thickness) = 36px
+      top: -12px; // 12px thick border (doubled)
+      left: -12px;
+      right: -12px;
+      bottom: -12px;
+      border-radius: 42px; // 30px (image radius) + 12px (border thickness) = 42px
       background: 
         linear-gradient(45deg,
           rgba(255, 255, 255, 0.4) 0%,
@@ -437,11 +465,11 @@ header.masthead {
       }
       
       &::before {
-        top: -6px; // 6px thick border for mobile (same as desktop)
-        left: -6px;
-        right: -6px;
-        bottom: -6px;
-        border-radius: 26px; // 20px (image radius) + 6px (border thickness) = 26px
+        top: -12px; // 12px thick border for mobile (doubled)
+        left: -12px;
+        right: -12px;
+        bottom: -12px;
+        border-radius: 32px; // 20px (image radius) + 12px (border thickness) = 32px
         filter: blur(1px);
         background: 
           linear-gradient(45deg,
@@ -592,6 +620,35 @@ header.masthead {
     opacity: 0.8;
     transform: scale(1);
     filter: blur(12px);
+  }
+}
+
+// Blinking exclamation mark animation (blue to white)
+@keyframes blinkingExclamation {
+  0% {
+    background-position: 0% 50%;
+    opacity: 1;
+    transform: scale(1);
+  }
+  25% {
+    background-position: 100% 50%;
+    opacity: 0.7;
+    transform: scale(1.1);
+  }
+  50% {
+    background-position: 200% 50%;
+    opacity: 1;
+    transform: scale(1);
+  }
+  75% {
+    background-position: 300% 50%;
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+  100% {
+    background-position: 400% 50%;
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
