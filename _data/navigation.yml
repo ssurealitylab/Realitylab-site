@@ -10,35 +10,35 @@
 # Default navigation (used when no locale is specified)
 nav:
   - title: "Home"
-    url: /
+    url: /Realitylab-site/
   - title: "News"
-    url: /news.html
+    url: /Realitylab-site/news.html
   - title: "GIT"
-    url: /github.html
+    url: /Realitylab-site/github.html
     external_page: true
   - title: "Members"
-    url: /members.html
+    url: /Realitylab-site/members.html
     dropdown:
       - title: "Faculty"
-        url: /members.html#faculty
+        url: /Realitylab-site/members.html#faculty
       - title: "Students"
-        url: /members.html#students
+        url: /Realitylab-site/members.html#students
       - title: "Alumni"
-        url: /members.html#alumni
+        url: /Realitylab-site/members.html#alumni
   - title: "Publication"
-    url: /publication.html
+    url: /Realitylab-site/publication.html
     dropdown:
       - title: "International"
-        url: /publication.html#international
+        url: /Realitylab-site/publication.html#international
       - title: "Domestic"
-        url: /publication.html#domestic
+        url: /Realitylab-site/publication.html#domestic
   - title: "Courses"
-    url: /courses.html
+    url: /Realitylab-site/courses.html
   - title: "AI"
     url: "#ai"
     dropdown:
       - title: "AI Chat"
-        url: /ai-chat.html
+        url: /Realitylab-site/ai-chat.html
         icon: "fas fa-search"
         desc: "Chat with AI Assistant"
 
@@ -47,35 +47,35 @@ nav:
 en: &DEFAULT_EN
   nav:
     - title: "Home"
-      url: /
+      url: /Realitylab-site/
     - title: "News"
-      url: /news.html
+      url: /Realitylab-site/news.html
     - title: "GIT"
-      url: /github.html
+      url: /Realitylab-site/github.html
       external_page: true
     - title: "Members"
-      url: /members.html
+      url: /Realitylab-site/members.html
       dropdown:
         - title: "Faculty"
-          url: /members.html#faculty
+          url: /Realitylab-site/members.html#faculty
         - title: "Students"
-          url: /members.html#students
+          url: /Realitylab-site/members.html#students
         - title: "Alumni"
-          url: /members.html#alumni
+          url: /Realitylab-site/members.html#alumni
     - title: "Publication"
-      url: /publication.html
+      url: /Realitylab-site/publication.html
       dropdown:
         - title: "International"
-          url: /publication.html#international
+          url: /Realitylab-site/publication.html#international
         - title: "Domestic"
-          url: /publication.html#domestic
+          url: /Realitylab-site/publication.html#domestic
     - title: "Courses"
-      url: /courses.html
+      url: /Realitylab-site/courses.html
     - title: "AI"
       url: "#ai"
       dropdown:
         - title: "AI Chat"
-          url: /ai-chat.html
+          url: /Realitylab-site/ai-chat.html
           icon: "fas fa-search"
           desc: "Chat with AI Assistant"
 
