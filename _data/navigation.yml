@@ -38,7 +38,8 @@ nav:
     url: "#ai"
     dropdown:
       - title: "AI Chat"
-        url: "javascript:toggleChatbot()"
+        url: "#"
+        onclick: "toggleChatbot(); return false;"
         icon: "fas fa-search"
         desc: "Chat with AI Assistant"
 
@@ -75,7 +76,8 @@ en: &DEFAULT_EN
       url: "#ai"
       dropdown:
         - title: "AI Chat"
-          url: "javascript:toggleChatbot()"
+          url: "#"
+          onclick: "toggleChatbot(); return false;"
           icon: "fas fa-search"
           desc: "Chat with AI Assistant"
 
