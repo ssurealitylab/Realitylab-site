@@ -239,22 +239,32 @@ title: GitHub Repositories
 
               <!-- Image Comparison Container -->
               <div class="sidl-comparison-container mb-4" style="position: relative; max-width: 500px; margin: 0 auto;">
-                <div class="sidl-image-wrapper" style="position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 8px;">
-                  <img id="sidlInputImage" class="sidl-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" src="{{ site.baseurl }}/assets/img/sidl/dust/input/Case073_D.png" alt="Input Image">
-                  <img id="sidlTargetImage" class="sidl-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0;" src="{{ site.baseurl }}/assets/img/sidl/dust/target/Case073_D.png" alt="Target Image">
+                <div class="sidl-image-wrapper" style="position: relative; width: 100%; height: 400px; overflow: hidden; border-radius: 8px; cursor: col-resize;">
+                  <!-- Target Image (Base) -->
+                  <img id="sidlTargetImage" class="sidl-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" src="{{ site.baseurl }}/assets/img/sidl/dust/target/Case073_D.png" alt="Target Image">
+                  
+                  <!-- Input Image (Overlay with clip-path) -->
+                  <div id="sidlInputContainer" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; clip-path: inset(0 50% 0 0);">
+                    <img id="sidlInputImage" class="sidl-image" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;" src="{{ site.baseurl }}/assets/img/sidl/dust/input/Case073_D.png" alt="Input Image">
+                  </div>
+                  
+                  <!-- Vertical Divider Line -->
+                  <div id="sidlDivider" style="position: absolute; top: 0; left: 50%; width: 2px; height: 100%; background: white; z-index: 10; box-shadow: 0 0 4px rgba(0,0,0,0.3);"></div>
+                  
+                  <!-- Slider Handle -->
+                  <div id="sidlHandle" style="position: absolute; top: 50%; left: 50%; width: 20px; height: 20px; background: white; border-radius: 50%; transform: translate(-50%, -50%); z-index: 11; box-shadow: 0 0 4px rgba(0,0,0,0.3); cursor: col-resize;">
+                    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-size: 10px; color: #666;">⟷</div>
+                  </div>
                 </div>
                 
-                <!-- Slider Controls -->
-                <div class="sidl-slider-container mt-3">
-                  <div class="row align-items-center">
-                    <div class="col-2 text-center">
-                      <small class="text-muted">Input</small>
+                <!-- Labels -->
+                <div class="sidl-labels mt-2">
+                  <div class="row">
+                    <div class="col-6 text-center">
+                      <small class="text-muted"><strong>Input (Contaminated)</strong></small>
                     </div>
-                    <div class="col-8">
-                      <input type="range" class="custom-range" id="sidlSlider" min="0" max="100" value="0" style="width: 100%;">
-                    </div>
-                    <div class="col-2 text-center">
-                      <small class="text-muted">Target</small>
+                    <div class="col-6 text-center">
+                      <small class="text-muted"><strong>Target (Restored)</strong></small>
                     </div>
                   </div>
                 </div>
