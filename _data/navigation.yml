@@ -38,7 +38,7 @@ nav:
     url: "#ai"
     dropdown:
       - title: "AI Chat"
-        url: https://ssurealitylab-spec.github.io/Realitylab-site/ai-chat.html
+        url: "javascript:toggleChatbot()"
         icon: "fas fa-search"
         desc: "Chat with AI Assistant"
 
@@ -75,7 +75,7 @@ en: &DEFAULT_EN
       url: "#ai"
       dropdown:
         - title: "AI Chat"
-          url: https://ssurealitylab-spec.github.io/Realitylab-site/ai-chat.html
+          url: "javascript:toggleChatbot()"
           icon: "fas fa-search"
           desc: "Chat with AI Assistant"
 
