@@ -14,7 +14,7 @@
 # theme: jekyll-agency  # Removed theme dependency
 
 url    : "https://ssurealitylab-spec.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-baseurl: "/Realitylab-site" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 
 title      : Reality Lab
 email      : heewon@ssu.ac.kr #this is also the email contact forms will go to
