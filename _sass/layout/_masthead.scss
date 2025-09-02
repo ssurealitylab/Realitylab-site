@@ -159,9 +159,9 @@ header.masthead {
   // Image Slider Styles with Apple Glass effect
   .image-slider {
     position: relative;
-    width: 1000px; // 800px * 1.25 = 1000px
+    width: 1200px; // 1000px * 1.2 = 1200px (20% increase)
     max-width: 90vw;
-    height: calc(1000px * 9 / 16); // 16:9 aspect ratio with 25% increase
+    height: calc(1200px * 9 / 16); // 16:9 aspect ratio with 20% increase
     border-radius: 20px;
     overflow: hidden;
     background: rgba(255, 255, 255, 0.08);
@@ -284,8 +284,8 @@ header.masthead {
     }
     
     .image-slider {
-      width: 875px; // 700px * 1.25 = 875px
-      height: calc(875px * 9 / 16); // 16:9 aspect ratio with 25% increase
+      width: 1050px; // 875px * 1.2 = 1050px (20% increase)
+      height: calc(1050px * 9 / 16); // 16:9 aspect ratio with 20% increase
     }
   }
 }
