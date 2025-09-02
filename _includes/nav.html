@@ -47,7 +47,7 @@
             {%- endfor -%}
           </div>
           {%- elsif link.url -%}
-          <a class="nav-link js-scroll-trigger" href="{{ site.baseurl }}{{ link.url }}"
+          <a class="nav-link{% unless link.external_page %} js-scroll-trigger{% endunless %}" href="{{ site.baseurl }}{{ link.url }}"
             >{{ link.title }}</a
           >
           {%- elsif link.section -%}
@@ -82,7 +82,7 @@
             {%- endfor -%}
           </div>
           {%- elsif link.url -%}
-          <a class="nav-link js-scroll-trigger" href="{{ site.baseurl }}{{ link.url }}"
+          <a class="nav-link{% unless link.external_page %} js-scroll-trigger{% endunless %}" href="{{ site.baseurl }}{{ link.url }}"
             >{{ link.title }}</a
           >
           {%- elsif link.section -%}
