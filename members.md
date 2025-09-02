@@ -5,13 +5,13 @@ title: Members
 
 # Lab Members
 
-## Faculty
+## Faculty {#faculty}
 
 **Prof. Heewon Kim**
 - Principal Investigator
 - Email: heewon@ssu.ac.kr
 
-## Current Students
+## Current Students {#students}
 
 ### Graduate Students
 
@@ -35,7 +35,7 @@ title: Members
 - **정미나 (Mina Jung)** - Natural Language Processing
 - **김태우 (Taewoo Kim)** - Robotics
 
-## Alumni
+## Alumni {#alumni}
 
 ### 2024 Graduates
 

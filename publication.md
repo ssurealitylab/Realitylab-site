@@ -5,7 +5,7 @@ title: Publication
 
 # Publications
 
-## International Publications
+## International Publications {#international}
 
 ### 2025 (Accepted/In Press)
 
@@ -21,7 +21,7 @@ title: Publication
 
 5. **Jung, M.**, Lee, S., Kim, H. (2024). "Cross-modal Learning for Vision-Language Understanding." *Proceedings of Conference on Neural Information Processing Systems (NeurIPS 2024)*, pp. 8901-8912.
 
-## Domestic Publications
+## Domestic Publications {#domestic}
 
 ### 2024
 
