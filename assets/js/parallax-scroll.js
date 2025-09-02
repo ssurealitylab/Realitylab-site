@@ -51,17 +51,16 @@
         
         // Find the image slider position more accurately
         var imageSlider = masthead.querySelector('.image-slider');
-        var imageSliderTop = mastheadHeight * 0.6; // Default to 60% of masthead height
+        var absoluteImageTop = mastheadTop + mastheadHeight * 0.6; // Default fallback
         
         if (imageSlider) {
             var sliderRect = imageSlider.getBoundingClientRect();
-            // Calculate image slider position relative to masthead start
-            imageSliderTop = (sliderRect.top + scrollY) - mastheadTop;
+            // Get the ACTUAL top position of the image slider
+            absoluteImageTop = sliderRect.top + scrollY;
         }
         
-        // Calculate when to start fading based on image slider top position
-        var absoluteImageTop = mastheadTop + imageSliderTop;
-        var fadeStartPoint = absoluteImageTop - windowHeight * 0.3; // Start fade when image is 30% from top
+        // Calculate when to start fading based on EXACTLY when image top reaches viewport top
+        var fadeStartPoint = absoluteImageTop - windowHeight * 0.1; // Start fade just before image top hits viewport top
         var fadeDistance = windowHeight * 1.2; // Fade over 1.2 screen heights for smoother effect
         
         // Calculate smooth scroll progress
@@ -96,8 +95,10 @@
             masthead.classList.remove('scrolled');
         }
         
-        // Debug log (remove in production)
-        // console.log(`ScrollY: ${scrollY}, ImageTop: ${absoluteImageTop}, FadeStart: ${fadeStartPoint}, Progress: ${easedProgress.toFixed(2)}`);
+        // Debug log for troubleshooting
+        if (easedProgress > 0) {
+            console.log(`ScrollY: ${scrollY}, ImageTop: ${absoluteImageTop}, FadeStart: ${fadeStartPoint}, Progress: ${easedProgress.toFixed(2)}`);
+        }
     }
     
     function init() {
