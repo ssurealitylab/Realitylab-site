@@ -12,8 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
       'Case217_F.png', 'Case218_F.png', 'Case247_F.png'
     ],
     mixed: [
-      'Case151_DW.png', 'Case151_FD.png', 'Case151_FS.png', 'Case151_FW.png',
-      'Case245_DS.png', 'Case245_DW.png', 'Case297_DW.png'
+      'Case151_DW.png', 'Case245_DW.png', 'Case297_DW.png'
     ],
     scratch: [
       'Case073_S.png', 'Case074_S.png', 'Case101_S.png', 'Case102_S.png',
@@ -179,15 +178,21 @@ document.addEventListener('DOMContentLoaded', function() {
   function switchContaminationType(newType) {
     console.log('Switching contamination type from', currentContaminant, 'to', newType);
     
-    // Try to find the same case number in the new category
-    const currentImages = sidlImageData[currentContaminant];
-    if (currentImages && currentImages[currentImageIndex]) {
-      const currentFilename = currentImages[currentImageIndex];
-      const newImageIndex = findSameCaseInCategory(currentFilename, newType);
-      console.log(`Looking for same case as ${currentFilename} in ${newType} category, found index: ${newImageIndex}`);
-      currentImageIndex = newImageIndex;
-    } else {
+    // Special handling for mixed category - always reset to index 0
+    if (newType === 'mixed' || currentContaminant === 'mixed') {
+      console.log('Mixed category detected - resetting to index 0');
       currentImageIndex = 0;
+    } else {
+      // Try to find the same case number in the new category
+      const currentImages = sidlImageData[currentContaminant];
+      if (currentImages && currentImages[currentImageIndex]) {
+        const currentFilename = currentImages[currentImageIndex];
+        const newImageIndex = findSameCaseInCategory(currentFilename, newType);
+        console.log(`Looking for same case as ${currentFilename} in ${newType} category, found index: ${newImageIndex}`);
+        currentImageIndex = newImageIndex;
+      } else {
+        currentImageIndex = 0;
+      }
     }
     
     currentContaminant = newType;
