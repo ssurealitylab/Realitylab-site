@@ -159,6 +159,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (!caseNumber || !sidlImageData[newCategory]) return 0;
     
     const newCategoryImages = sidlImageData[newCategory];
+    
+    // Special handling for mixed category - always start from index 0 to avoid confusion
+    if (currentContaminant === 'mixed' || newCategory === 'mixed') {
+      console.log(`Mixed category transition detected, using index 0`);
+      return 0;
+    }
+    
     for (let i = 0; i < newCategoryImages.length; i++) {
       const newCaseNumber = getCaseNumberFromFilename(newCategoryImages[i]);
       if (newCaseNumber === caseNumber) {
