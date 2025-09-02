@@ -6,6 +6,16 @@
   </div>
 </div>
 
+<!-- Confetti Container -->
+<div id="confetti-container"></div>
+
+<!-- Congratulations Message -->
+<div id="congratulations-message" style="display: none;">
+  <div class="congrats-content">
+    🎉 Congratulations! You found the Easter Egg! 🎉
+  </div>
+</div>
+
 <style>
 #robot-easter-egg {
   position: fixed;
@@ -57,6 +67,87 @@
 
 .title-shake {
   animation: shake 0.8s ease-in-out;
+}
+
+/* Confetti Styles */
+#confetti-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10000;
+}
+
+.confetti-piece {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: #ff6b6b;
+  animation: confettiFall linear;
+}
+
+.confetti-piece:nth-child(odd) { background: #4ecdc4; }
+.confetti-piece:nth-child(3n) { background: #45b7d1; }
+.confetti-piece:nth-child(4n) { background: #f9ca24; }
+.confetti-piece:nth-child(5n) { background: #f0932b; }
+.confetti-piece:nth-child(6n) { background: #eb4d4b; }
+.confetti-piece:nth-child(7n) { background: #6c5ce7; }
+
+@keyframes confettiFall {
+  0% {
+    transform: translateY(-100vh) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+/* Congratulations Message Styles */
+#congratulations-message {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10001;
+  max-width: 350px;
+}
+
+.congrats-content {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 20px 25px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  animation: slideInFromRight 0.8s ease-out;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%) translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOutToRight {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(100%) translateY(50px);
+    opacity: 0;
+  }
 }
 </style>
 
@@ -132,11 +223,54 @@ setTimeout(function() {
             }
         });
         
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#f9ca24', '#f0932b', '#eb4d4b', '#6c5ce7'];
+            
+            // Create 100 confetti pieces
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti-piece';
+                confetti.style.left = Math.random() * 100 + '%';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                confetti.style.animationDelay = Math.random() * 2 + 's';
+                container.appendChild(confetti);
+            }
+            
+            // Remove confetti after 6 seconds
+            setTimeout(function() {
+                container.innerHTML = '';
+            }, 6000);
+        }
+        
+        function showCongratulations() {
+            const congratsMessage = document.getElementById('congratulations-message');
+            congratsMessage.style.display = 'block';
+            
+            // Hide after 4 seconds with slide-out animation
+            setTimeout(function() {
+                congratsMessage.style.animation = 'slideOutToRight 0.8s ease-in';
+                setTimeout(function() {
+                    congratsMessage.style.display = 'none';
+                    congratsMessage.style.animation = 'slideInFromRight 0.8s ease-out';
+                }, 800);
+            }, 4000);
+        }
+        
         function triggerRobotEasterEgg() {
             if (isAnimating) return;
             
             console.log('🎬 Showing robot animation');
             isAnimating = true;
+            
+            // Start confetti explosion
+            createConfetti();
+            
+            // Show congratulations message
+            showCongratulations();
+            
+            // Show robot animation
             robotEgg.style.display = 'block';
             robotEgg.classList.add('robot-animate');
             
