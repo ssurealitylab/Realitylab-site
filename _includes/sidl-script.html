@@ -148,7 +148,22 @@ document.addEventListener('DOMContentLoaded', function() {
   document.querySelectorAll('input[name="contaminant"]').forEach(input => {
     input.addEventListener('change', function() {
       if (this.checked) {
+        console.log('Switching to contamination type:', this.value);
         currentContaminant = this.value;
+        currentImageIndex = 0;
+        updateImages();
+        startAutoRotation();
+      }
+    });
+  });
+
+  // Also handle click events on labels for better responsiveness
+  document.querySelectorAll('#contaminantTypes label').forEach(label => {
+    label.addEventListener('click', function(e) {
+      const input = this.querySelector('input[name="contaminant"]');
+      if (input && !input.checked) {
+        console.log('Label clicked, switching to:', input.value);
+        currentContaminant = input.value;
         currentImageIndex = 0;
         updateImages();
         startAutoRotation();
