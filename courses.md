@@ -5,65 +5,42 @@ title: Courses
 
 # Courses
 
-## Graduate Courses
-
-### Spring 2024
-
-**CSE8101 - Advanced Computer Vision** (김희원 교수)
-- 딥러닝 기반 컴퓨터 비전 이론 및 실습
-- Object Detection, Semantic Segmentation, Image Generation
-- Prerequisites: Machine Learning, Linear Algebra
-- Credits: 3
-
-**CSE8102 - Robotics and AI** (김희원 교수)
-- 로봇공학과 인공지능의 융합 기술
-- SLAM, Motion Planning, Human-Robot Interaction
-- Prerequisites: Computer Vision, Probability Theory
-- Credits: 3
-
-### Fall 2024
-
-**CSE8201 - Machine Learning for Robotics** (김희원 교수)
-- 로봇 시스템을 위한 머신러닝 기법
-- Reinforcement Learning, Deep Learning, Sensor Fusion
-- Prerequisites: Machine Learning Fundamentals
-- Credits: 3
-
-**CSE8202 - Multimodal AI Systems** (김희원 교수)
-- 멀티모달 인공지능 시스템 설계 및 구현
-- Vision-Language Models, Cross-modal Learning
-- Prerequisites: Deep Learning, Natural Language Processing
-- Credits: 3
-
 ## Undergraduate Courses
 
-### 2024 Special Topics
+### 데이터사이언스 (Data Science)
+- 빅데이터 분석 및 머신러닝 기초
+- 통계적 데이터 분석 방법론
+- Python을 활용한 데이터 처리
 
-**CSE4991 - Introduction to AI and Robotics** (김희원 교수)
-- 인공지능과 로봇공학 입문
-- Basic concepts, hands-on projects with real robots
-- No prerequisites required
-- Credits: 3
+### 영상처리및실습 (Image Processing and Practice)
+- 디지털 영상처리 이론 및 실습
+- OpenCV를 활용한 영상처리 기법
+- 컴퓨터 비전 기초
 
-## Research Seminars
+### 미디어GAN (Media GAN)
+- 생성적 적대 신경망 이론
+- 이미지 및 비디오 생성 모델
+- 창작 AI 및 미디어 응용
 
-**Weekly Lab Seminar**
-- Every Friday 2:00-3:30 PM
-- Recent research paper reviews and student presentations
-- Open to all lab members and interested students
+### 컴퓨터비전 (Computer Vision)
+- 컴퓨터 비전 기초 이론
+- 객체 검출 및 인식
+- 영상 분류 및 분할
 
-**Monthly Industry Collaboration Seminar**
-- Guest lectures from industry partners
-- Samsung Research, LG Electronics, NAVER Labs
-- Career guidance and internship opportunities
+### 기계학습 (Machine Learning)
+- 머신러닝 알고리즘 기초
+- 지도학습 및 비지도학습
+- 딥러닝 기초
 
-## Special Programs
+## Graduate Course
 
-**Summer Internship Program**
-- 8-week intensive research experience
-- Available for undergraduate and graduate students
-- Stipend provided for selected participants
+### 컴퓨터비전특론 (Advanced Computer Vision)
+- 최신 컴퓨터 비전 연구 동향
+- 딥러닝 기반 비전 시스템
+- 연구 논문 분석 및 구현
 
-**International Exchange Program**
-- Partnership with leading AI/Robotics labs worldwide
-- Research exchange opportunities for graduate students
+---
+
+**Location:** Global School of Media, College of IT, Soongsil University, Seoul, Republic of Korea
+
+**Instructor:** Prof. Heewon Kim
