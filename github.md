@@ -230,9 +230,6 @@ title: GitHub Repositories
                     <input type="radio" name="contaminant" id="finger" value="finger"> Fingerprint
                   </label>
                   <label class="btn btn-outline-primary">
-                    <input type="radio" name="contaminant" id="mixed" value="mixed"> Mixed
-                  </label>
-                  <label class="btn btn-outline-primary">
                     <input type="radio" name="contaminant" id="scratch" value="scratch"> Scratch
                   </label>
                   <label class="btn btn-outline-primary">
@@ -280,7 +277,7 @@ title: GitHub Repositories
               <ul>
                 <li>300 static scenes with 1,588 degraded-clean image pairs</li>
                 <li>Full ProRAW resolution (4032 × 3024, 12-bit DNG)</li>
-                <li>5 contaminant types: fingerprints, dust, scratches, water drops, mixed debris</li>
+                <li>4 contaminant types: fingerprints, dust, scratches, water drops</li>
                 <li>Difficulty levels: Easy, Medium, Hard</li>
                 <li>Comprehensive evaluation framework</li>
               </ul>
