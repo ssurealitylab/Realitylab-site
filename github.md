@@ -79,20 +79,6 @@ title: GitHub Repositories
       </div>
     </div>
     
-    <!-- SIDL Featured Image -->
-    <div class="row mb-5">
-      <div class="col-lg-12 text-center">
-        <div style="max-width: 800px; margin: 0 auto; padding: 20px; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
-          <img src="{{ site.baseurl }}/assets/img/sidl/dust/input/Case151_D.png" 
-               alt="SIDL Benchmark Dataset Overview" 
-               class="img-fluid" 
-               style="max-height: 400px; width: auto; border-radius: 8px;">
-          <p class="mt-3 text-muted" style="font-style: italic;">
-            SIDL: Smartphone Dirty Lens Benchmark Dataset for Image Restoration
-          </p>
-        </div>
-      </div>
-    </div>
     <div class="row">
       
       <!-- SIDL Benchmark Dataset -->
