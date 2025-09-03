@@ -23,8 +23,7 @@
         <div id="model-selection" class="model-selection" style="display: none;">
           <label for="model-dropdown" class="model-label">AI Model:</label>
           <select id="model-dropdown" class="model-dropdown">
-            <option value="qwen25-3b" selected>Qwen2.5-3B (Current)</option>
-            <option value="qwen3-4b">Qwen3-4B (Coming Soon)</option>
+            <option value="qwen3-4b" selected>Qwen3-4B</option>
           </select>
         </div>
         <button id="chatbot-close" class="chatbot-close">
@@ -468,7 +467,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Current modes
   let isAIMode = false;
   let isEnglish = false;
-  let selectedModel = 'qwen25-3b';
+  let selectedModel = 'qwen3-4b';
 
   // AI Server availability check
   let isServerAvailable = null;
@@ -476,18 +475,13 @@ document.addEventListener('DOMContentLoaded', function() {
   // Get API endpoints based on selected model
   function getModelEndpoints(model) {
     const endpoints = {
-      'qwen25-3b': {
-        health: 'https://decimal-sensor-submit-standard.trycloudflare.com/health',
-        chat: 'https://decimal-sensor-submit-standard.trycloudflare.com/chat',
-        generate: 'https://decimal-sensor-submit-standard.trycloudflare.com/generate'
-      },
       'qwen3-4b': {
         health: 'https://decimal-sensor-submit-standard.trycloudflare.com/health',
         chat: 'https://decimal-sensor-submit-standard.trycloudflare.com/chat',
         generate: 'https://decimal-sensor-submit-standard.trycloudflare.com/generate'
       },
     };
-    return endpoints[model] || endpoints['qwen25-3b'];
+    return endpoints[model] || endpoints['qwen3-4b'];
   }
 
   // Check if AI server is available
