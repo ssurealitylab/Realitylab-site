@@ -875,6 +875,12 @@ document.addEventListener('DOMContentLoaded', function() {
     chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
   }
 
+  // Detect language (Korean vs English)
+  function detectLanguage(text) {
+    const koreanRegex = /[\u3131-\u3163\uac00-\ud7a3]/;
+    return koreanRegex.test(text) ? 'ko' : 'en';
+  }
+
   // Clear thinking timer
   function clearThinkingTimer() {
     if (thinkingTimer) {
@@ -897,37 +903,77 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Research areas
+    // Research areas (with language detection)
     for (const area of knowledgeBase.research_areas) {
       for (const keyword of area.keywords) {
         if (q.includes(keyword.toLowerCase()) || q.includes(area.name.toLowerCase())) {
-          return `${area.name}: ${area.description}`;
+          const language = detectLanguage(query);
+          
+          if (language === 'en') {
+            return `${area.name}: ${area.description}`;
+          } else {
+            return `${area.name}: ${area.description}`;
+          }
         }
       }
     }
     
-    // Team members
-    if (q.includes('팀') || q.includes('구성원') || q.includes('멤버') || q.includes('사람')) {
-      let teamInfo = "Reality Lab 팀 구성원들을 소개해드릴게요:\n\n";
-      knowledgeBase.team_members.forEach(member => {
-        teamInfo += `• ${member.name} - ${member.role}\n`;
-      });
+    // Team members (with language detection)
+    if (q.includes('팀') || q.includes('구성원') || q.includes('멤버') || q.includes('사람') ||
+        q.includes('team') || q.includes('member') || q.includes('people') || q.includes('staff')) {
+      
+      const language = detectLanguage(query);
+      let teamInfo;
+      
+      if (language === 'en') {
+        teamInfo = "Let me introduce Reality Lab team members:\n\n";
+        knowledgeBase.team_members.forEach(member => {
+          teamInfo += `• ${member.name} - ${member.role}\n`;
+        });
+      } else {
+        teamInfo = "Reality Lab 팀 구성원들을 소개해드릴게요:\n\n";
+        knowledgeBase.team_members.forEach(member => {
+          teamInfo += `• ${member.name} - ${member.role}\n`;
+        });
+      }
       return teamInfo;
     }
     
-    // Lab info
-    if (q.includes('연구실') || q.includes('랩') || q.includes('소개')) {
-      return `${knowledgeBase.lab_info.full_name}은 ${knowledgeBase.lab_info.established}년에 설립되었습니다. ${knowledgeBase.lab_info.director}님이 이끄시며, ${knowledgeBase.lab_info.mission}`;
+    // Lab info (with language detection)
+    if (q.includes('연구실') || q.includes('랩') || q.includes('소개') ||
+        q.includes('lab') || q.includes('about') || q.includes('introduction') || q.includes('info')) {
+      
+      const language = detectLanguage(query);
+      
+      if (language === 'en') {
+        return `${knowledgeBase.lab_info.full_name} was established in ${knowledgeBase.lab_info.established}. Led by ${knowledgeBase.lab_info.director}, ${knowledgeBase.lab_info.mission}`;
+      } else {
+        return `${knowledgeBase.lab_info.full_name}은 ${knowledgeBase.lab_info.established}년에 설립되었습니다. ${knowledgeBase.lab_info.director}님이 이끄시며, ${knowledgeBase.lab_info.mission}`;
+      }
     }
     
-    // Contact info
-    if (q.includes('연락') || q.includes('이메일') || q.includes('전화') || q.includes('연락처')) {
-      return `연락처 정보입니다:\n• 이메일: ${knowledgeBase.lab_info.email}\n• 전화: ${knowledgeBase.lab_info.phone}\n• 위치: ${knowledgeBase.lab_info.location}`;
+    // Contact info (with language detection)
+    if (q.includes('연락') || q.includes('이메일') || q.includes('전화') || q.includes('연락처') || 
+        q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('number')) {
+      
+      const language = detectLanguage(query);
+      
+      if (language === 'en') {
+        return `Contact Information:\n• Email: ${knowledgeBase.lab_info.email}\n• Phone: ${knowledgeBase.lab_info.phone}\n• Location: ${knowledgeBase.lab_info.location}`;
+      } else {
+        return `연락처 정보입니다:\n• 이메일: ${knowledgeBase.lab_info.email}\n• 전화: ${knowledgeBase.lab_info.phone}\n• 위치: ${knowledgeBase.lab_info.location}`;
+      }
     }
     
-    // Location
-    if (q.includes('위치') || q.includes('어디')) {
-      return `Reality Lab은 ${knowledgeBase.lab_info.location}에 위치하고 있습니다.`;
+    // Location (with language detection)
+    if (q.includes('위치') || q.includes('어디') || q.includes('location') || q.includes('where') || q.includes('address')) {
+      const language = detectLanguage(query);
+      
+      if (language === 'en') {
+        return `Reality Lab is located at ${knowledgeBase.lab_info.location}.`;
+      } else {
+        return `Reality Lab은 ${knowledgeBase.lab_info.location}에 위치하고 있습니다.`;
+      }
     }
     
     // Fallback
