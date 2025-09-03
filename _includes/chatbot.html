@@ -10,21 +10,13 @@
       <div class="chatbot-controls">
         <div class="mode-toggle">
           <div class="toggle-labels">
+            <span class="toggle-label ai-label active">AI</span>
             <span class="toggle-label search-label">검색</span>
-            <span class="toggle-label ai-label active">AI 서버</span>
           </div>
           <div class="toggle-switch">
             <input type="checkbox" id="mode-toggle" class="toggle-input" checked>
             <label for="mode-toggle" class="toggle-slider"></label>
           </div>
-        </div>
-        
-        <!-- Model Selection Dropdown -->
-        <div id="model-selection" class="model-selection" style="display: block;">
-          <label for="model-dropdown" class="model-label">AI Model:</label>
-          <select id="model-dropdown" class="model-dropdown">
-            <option value="qwen3-4b" selected>Qwen3-4B</option>
-          </select>
         </div>
         <button id="chatbot-close" class="chatbot-close">
           <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -262,62 +254,7 @@
   transform: translateX(25px);
 }
 
-/* Model Selection Styles */
-.model-selection {
-  margin-top: 12px;
-  padding: 8px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  animation: slideDown 0.3s ease-out;
-}
 
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.model-label {
-  display: block;
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 12px;
-  font-weight: 500;
-  margin-bottom: 6px;
-}
-
-.model-dropdown {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
-  color: white;
-  font-size: 13px;
-  padding: 8px 12px;
-  outline: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.model-dropdown:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.3);
-}
-
-.model-dropdown:focus {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
-}
-
-.model-dropdown option {
-  background: #1a1a1a;
-  color: white;
-  padding: 8px;
-}
 
 .chatbot-messages {
   flex: 1;
@@ -646,9 +583,6 @@ document.addEventListener('DOMContentLoaded', function() {
   const chatbotSubtitle = document.querySelector('.chatbot-subtitle');
   const chatbotTitle = document.querySelector('.chatbot-title');
   
-  // Model selection elements
-  const modelSelection = document.getElementById('model-selection');
-  const modelDropdown = document.getElementById('model-dropdown');
   
   // Language button elements
   const langButtons = document.querySelectorAll('.lang-btn');
@@ -852,9 +786,6 @@ document.addEventListener('DOMContentLoaded', function() {
       updateModeUI();
       
       // Show/hide model selection dropdown
-      if (modelSelection) {
-        modelSelection.style.display = isAIMode ? 'block' : 'none';
-      }
       
       // Check AI server when switching to AI mode
       if (isAIMode) {
@@ -863,17 +794,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
   
-  // Model selection functionality
-  if (modelDropdown) {
-    modelDropdown.addEventListener('change', function() {
-      selectedModel = this.value;
-      
-      // Re-check AI server when model changes
-      if (isAIMode) {
-        checkAIServer();
-      }
-    });
-  }
 
   // Initialize in search mode by default
   updateAllUI();
