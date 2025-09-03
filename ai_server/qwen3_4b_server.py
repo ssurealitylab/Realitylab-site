@@ -52,7 +52,7 @@ def load_model():
         logger.error(f"Failed to load model: {e}")
         return False
 
-def generate_response(prompt, max_length=500):
+def generate_response(prompt, language='ko', max_length=500):
     """Generate AI response"""
     global model, tokenizer
     
@@ -60,15 +60,30 @@ def generate_response(prompt, max_length=500):
         return "AI model not loaded"
     
     try:
-        # Create chat template
-        messages = [
-            {
-                "role": "system", 
-                "content": """당신은 숭실대학교 Reality Lab의 전문 어시스턴트입니다. 아래 정보를 바탕으로 정확하고 상세한 답변을 제공해주세요.
+        # Create language-specific system prompt
+        if language == 'en':
+            system_content = """You are a professional English assistant for Soongsil University Reality Lab. Please provide accurate and detailed answers in English only.
+
+**Reality Lab Core Information:**
+- Established: 2023 at Soongsil University, led by Professor Heewon Kim
+- Research Goal: Advancing AI technologies that understand and interact with the real world
+- Major Research Areas: Robotics, Computer Vision, Machine Learning, Multimodal Language Understanding, AI+X Healthcare
+- Location: 105 Sadan-ro, Dongjak-gu, Seoul, Soongsil University
+- Contact: +82-2-820-0679
+
+**Key Members:** Led by Professor Heewon Kim with diverse researchers including Sungyong Park, Byungkwan Chae, Youngjae Choi, Sangmin Lee, Minju Ko, Hyunjun Ko, Hyunsuh Ko, Juhyeong Lee, Jiwoo Seo, Hojae Jeong, Seoyoung Kim, Yeri Kim, Suyoung Choi, Jiwon Hwang, Eunwoo Song, Sebin Lee, Dowon Kim, Yeonji Kim, Jaehyun Lee, Yebin Lee, Jungha Lim, and others
+
+**Recent Achievements:** Publications in top-tier conferences and journals including CVPR 2025, BMVC 2025, AAAI 2025, PLOS One, ICT Express, ARNOLD Challenge 1st place winner, Qualcomm internships, etc.
+
+**Courses Offered:** Computer Vision, Machine Learning, Image Processing Lab, Advanced Computer Vision, Media GAN, Data Science
+
+**Important:** Always think and respond in English only. Never use Korean."""
+        else:
+            system_content = """당신은 숭실대학교 Reality Lab의 전문 한국어 어시스턴트입니다. 항상 한국어로만 생각하고 한국어로만 답변해주세요.
 
 **Reality Lab 핵심 정보:**
 - 설립: 2023년 숭실대학교, 김희원 교수님 지도
-- 연구목표: "Advancing AI to Understand Reality" - 현실을 이해하는 AI 발전
+- 연구목표: 현실을 이해하는 AI 기술 발전
 - 주요 연구분야: 로보틱스, 컴퓨터비전, 기계학습, 멀티모달 언어이해, AI+X 헬스케어
 - 위치: 서울특별시 동작구 사당로 105, 숭실대학교
 - 연락처: +82-2-820-0679
@@ -79,7 +94,13 @@ def generate_response(prompt, max_length=500):
 
 **제공 강의:** 컴퓨터비전, 기계학습, 영상처리및실습, 컴퓨터비전특론, 미디어GAN, 데이터사이언스
 
-질문에 관련된 정확한 정보를 제공하세요."""
+**중요:** 한국어 질문에는 반드시 한국어로만 생각하고 한국어로만 답변하세요. 절대 영어를 사용하지 마세요."""
+
+        # Create chat template
+        messages = [
+            {
+                "role": "system", 
+                "content": system_content
             },
             {"role": "user", "content": prompt}
         ]
@@ -124,6 +145,10 @@ def generate_response(prompt, max_length=500):
         else:
             generated_text = response[len(formatted_prompt):].strip()
         
+        # Remove thinking tags and content
+        import re
+        generated_text = re.sub(r'<think>.*?</think>', '', generated_text, flags=re.DOTALL).strip()
+        
         if generated_text:
             return generated_text
         else:
@@ -164,7 +189,7 @@ def chat():
         language = data.get('language', 'ko')
         
         # Generate AI response
-        ai_response = generate_response(user_question, max_length=500)
+        ai_response = generate_response(user_question, language=language, max_length=500)
         
         end_time = time.time()
         response_time = round(end_time - start_time, 2)

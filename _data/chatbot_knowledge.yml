@@ -101,17 +101,39 @@ team_members:
 
 # Custom Q&A pairs that you can configure
 custom_qa:
-  - question: "연구실에 어떻게 지원할 수 있나요?"
-    answer: "Reality Lab에 관심을 가져주셔서 감사합니다! 학부생이나 대학원생 모두 환영합니다. 자세한 지원 방법은 김희원 교수님께 이메일(heewon@ssu.ac.kr)로 문의해주시거나 전화(+82-2-820-0679)로 연락해주세요."
-    
-  - question: "어떤 프로젝트를 진행하고 있나요?"
-    answer: "현재 로보틱스, 컴퓨터 비전, 머신러닝, 다중모달 언어 이해, AI+X 응용 분야에서 다양한 연구 프로젝트를 진행하고 있습니다. 구체적인 프로젝트 내용은 김희원 교수님께 문의해주세요."
-    
-  - question: "연구실 위치가 어디인가요?"
-    answer: "Reality Lab은 숭실대학교에 위치하고 있습니다. 정확한 건물과 호실 정보는 이메일(heewon@ssu.ac.kr) 또는 전화(+82-2-820-0679)로 문의해주세요."
-    
-  - question: "어떤 기술 스택을 사용하나요?"
-    answer: "AI/ML 연구에 필요한 다양한 기술을 사용합니다. Python, PyTorch, TensorFlow 등의 머신러닝 프레임워크부터 로보틱스용 ROS, 컴퓨터 비전용 OpenCV 등을 활용합니다."
+  ko:
+    - question: "연구실에 어떻게 지원할 수 있나요?"
+      answer: "Reality Lab에 관심을 가져주셔서 감사합니다! 학부생이나 대학원생 모두 환영합니다. 자세한 지원 방법은 김희원 교수님께 이메일(heewon@ssu.ac.kr)로 문의해주시거나 전화(+82-2-820-0679)로 연락해주세요."
+      keywords: ["지원", "지원방법", "참여", "입학"]
+  
+    - question: "어떤 프로젝트를 진행하고 있나요?"
+      answer: "현재 로보틱스, 컴퓨터 비전, 머신러닝, 다중모달 언어 이해, AI+X 응용 분야에서 다양한 연구 프로젝트를 진행하고 있습니다. 구체적인 프로젝트 내용은 김희원 교수님께 문의해주세요."
+      keywords: ["프로젝트", "연구", "진행"]
+      
+    - question: "연구실 위치가 어디인가요?"
+      answer: "Reality Lab은 숭실대학교에 위치하고 있습니다. 정확한 건물과 호실 정보는 이메일(heewon@ssu.ac.kr) 또는 전화(+82-2-820-0679)로 문의해주세요."
+      keywords: ["위치", "어디", "장소"]
+      
+    - question: "어떤 기술 스택을 사용하나요?"
+      answer: "AI/ML 연구에 필요한 다양한 기술을 사용합니다. Python, PyTorch, TensorFlow 등의 머신러닝 프레임워크부터 로보틱스용 ROS, 컴퓨터 비전용 OpenCV 등을 활용합니다."
+      keywords: ["기술", "스택", "도구", "프레임워크"]
+
+  en:
+    - question: "How can I apply to the lab?"
+      answer: "Thank you for your interest in Reality Lab! Both undergraduate and graduate students are welcome. For detailed application procedures, please contact Professor Heewon Kim via email (heewon@ssu.ac.kr) or phone (+82-2-820-0679)."
+      keywords: ["apply", "application", "join", "admission"]
+      
+    - question: "What projects are you working on?"
+      answer: "We are currently conducting various research projects in robotics, computer vision, machine learning, multimodal language understanding, and AI+X applications. Please contact Professor Heewon Kim for specific project details."
+      keywords: ["projects", "research", "work"]
+      
+    - question: "Where is the lab located?"
+      answer: "Reality Lab is located at Soongsil University. For specific building and room information, please contact us via email (heewon@ssu.ac.kr) or phone (+82-2-820-0679)."
+      keywords: ["location", "where", "address"]
+      
+    - question: "What technology stack do you use?"
+      answer: "We use various technologies needed for AI/ML research, from machine learning frameworks like Python, PyTorch, TensorFlow to ROS for robotics and OpenCV for computer vision."
+      keywords: ["technology", "stack", "tools", "framework"]
 
 # Fallback responses
 fallback_responses:

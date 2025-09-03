@@ -63,6 +63,50 @@
       <div class="language-buttons">
         <button class="lang-btn active" data-lang="ko">KOR</button>
         <button class="lang-btn" data-lang="en">ENG</button>
+        
+        <!-- AI Info tooltip -->
+        <div class="ai-info-wrapper">
+          <div class="ai-info-trigger" id="ai-info-trigger">
+            <div class="ai-info-icon">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <span class="ai-info-text" id="ai-info-text">이 AI는 어떻게 동작하나요?</span>
+          </div>
+          <div class="ai-info-tooltip" id="ai-info-tooltip">
+            <div class="tooltip-content">
+              <div class="tooltip-ko">
+                <h4>🤖 Reality Lab AI Assistant</h4>
+                <p><strong>모델:</strong> Qwen3-4B Fine-tuned 모델</p>
+                <p><strong>하드웨어:</strong> NVIDIA RTX 4090 GPU</p>
+                <p><strong>개발:</strong> 김희원 교수님과 연구실 학생들이 직접 참여</p>
+                <p><strong>업데이트:</strong> 연구실 구성원들의 참여로 비정기적 업데이트</p>
+                <br>
+                <p><strong>동작 방식:</strong></p>
+                <p>• <em>검색 모드:</em> 사전 구축된 Knowledge Base에서 정보 검색</p>
+                <p>• <em>AI 서버 모드:</em> Fine-tuned Qwen3-4B가 자연어로 실시간 답변 생성</p>
+                <br>
+                <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+              </div>
+              <div class="tooltip-en" style="display: none;">
+                <h4>🤖 Reality Lab AI Assistant</h4>
+                <p><strong>Model:</strong> Fine-tuned Qwen3-4B</p>
+                <p><strong>Hardware:</strong> NVIDIA RTX 4090 GPU</p>
+                <p><strong>Development:</strong> Prof. Heewon Kim and lab students directly involved</p>
+                <p><strong>Updates:</strong> Irregular updates with lab members' participation</p>
+                <br>
+                <p><strong>How it works:</strong></p>
+                <p>• <em>Search Mode:</em> Searches pre-built Knowledge Base</p>
+                <p>• <em>AI Server Mode:</em> Fine-tuned Qwen3-4B generates real-time natural language responses</p>
+                <br>
+                <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -404,6 +448,124 @@
   border: 1px solid rgba(51, 102, 204, 0.3);
   color: #3366cc;
   box-shadow: 0 2px 8px rgba(51, 102, 204, 0.2);
+}
+
+/* AI Info tooltip styles */
+.ai-info-wrapper {
+  position: relative;
+  display: inline-block;
+  margin-left: 8px;
+}
+
+.ai-info-trigger {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 4px 6px;
+  border-radius: 12px;
+  background: rgba(128, 128, 128, 0.05);
+}
+
+.ai-info-trigger:hover {
+  background: rgba(128, 128, 128, 0.1);
+}
+
+.ai-info-icon {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  margin-right: 4px;
+}
+
+.ai-info-text {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  font-weight: 400;
+}
+
+.ai-info-trigger:hover .ai-info-icon,
+.ai-info-trigger:hover .ai-info-text {
+  color: #333;
+}
+
+.ai-info-tooltip {
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  margin-bottom: 8px;
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+  padding: 16px 20px;
+  border-radius: 12px;
+  min-width: 350px;
+  max-width: 400px;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+  pointer-events: none;
+  backdrop-filter: blur(10px);
+}
+
+.ai-info-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(0, 0, 0, 0.95);
+}
+
+.ai-info-tooltip.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.ai-info-tooltip h4 {
+  margin: 0 0 12px 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #4fc3f7;
+}
+
+.ai-info-tooltip p {
+  margin: 8px 0;
+  font-size: 12px;
+}
+
+.ai-info-tooltip strong {
+  color: #e3f2fd;
+  font-weight: 600;
+}
+
+.ai-info-tooltip em {
+  color: #81c784;
+  font-style: normal;
+  font-weight: 500;
+}
+
+.ai-info-tooltip a {
+  color: #4fc3f7;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ai-info-tooltip a:hover {
+  text-decoration: underline;
 }
 
 /* Mobile responsive */
@@ -903,11 +1065,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Check custom Q&A after language-specific responses
-    for (const qa of knowledgeBase.custom_qa) {
+    const customQAs = isEnglish ? knowledgeBase.custom_qa.en : knowledgeBase.custom_qa.ko;
+    for (const qa of customQAs) {
+      // Check question match
       if (q.includes(qa.question.toLowerCase()) || 
           qa.question.toLowerCase().includes(q) ||
           checkSimilarity(q, qa.question.toLowerCase())) {
         return qa.answer;
+      }
+      
+      // Check keywords match
+      if (qa.keywords) {
+        for (const keyword of qa.keywords) {
+          if (q.includes(keyword.toLowerCase())) {
+            return qa.answer;
+          }
+        }
       }
     }
     
@@ -1050,6 +1223,100 @@ document.addEventListener('DOMContentLoaded', function() {
     initialY = currentY;
     isDragging = false;
     chatbotWindow.style.transition = '';
+  }
+
+  // AI Info tooltip functionality
+  const aiInfoTrigger = document.getElementById('ai-info-trigger');
+  const aiInfoTooltip = document.getElementById('ai-info-tooltip');
+  const aiInfoText = document.getElementById('ai-info-text');
+  const tooltipKo = aiInfoTooltip.querySelector('.tooltip-ko');
+  const tooltipEn = aiInfoTooltip.querySelector('.tooltip-en');
+  
+  let tooltipTimeout;
+
+  function updateAIInfoText() {
+    if (isEnglish) {
+      aiInfoText.textContent = 'How does this AI work?';
+    } else {
+      aiInfoText.textContent = '이 AI는 어떻게 동작하나요?';
+    }
+  }
+
+  function showAIInfoTooltip() {
+    clearTimeout(tooltipTimeout);
+    
+    // Show correct language tooltip
+    if (isEnglish) {
+      tooltipKo.style.display = 'none';
+      tooltipEn.style.display = 'block';
+    } else {
+      tooltipKo.style.display = 'block';
+      tooltipEn.style.display = 'none';
+    }
+    
+    aiInfoTooltip.classList.add('show');
+  }
+
+  function hideAIInfoTooltip() {
+    tooltipTimeout = setTimeout(() => {
+      aiInfoTooltip.classList.remove('show');
+    }, 300);
+  }
+
+  if (aiInfoTrigger && aiInfoTooltip) {
+    aiInfoTrigger.addEventListener('mouseenter', showAIInfoTooltip);
+    aiInfoTrigger.addEventListener('mouseleave', hideAIInfoTooltip);
+    aiInfoTrigger.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
+      if (aiInfoTooltip.classList.contains('show')) {
+        aiInfoTooltip.classList.remove('show');
+      } else {
+        showAIInfoTooltip();
+        // Auto-hide after 5 seconds on click
+        setTimeout(() => {
+          aiInfoTooltip.classList.remove('show');
+        }, 5000);
+      }
+    });
+
+    // Keep tooltip visible when hovering over it
+    aiInfoTooltip.addEventListener('mouseenter', () => {
+      clearTimeout(tooltipTimeout);
+    });
+    
+    aiInfoTooltip.addEventListener('mouseleave', hideAIInfoTooltip);
+    
+    // Update tooltip and text language when language buttons are clicked
+    const langBtns = document.querySelectorAll('.lang-btn');
+    langBtns.forEach(btn => {
+      const originalClickHandler = btn.onclick;
+      btn.onclick = function(e) {
+        if (originalClickHandler) {
+          originalClickHandler.call(this, e);
+        }
+        
+        // Update AI info text
+        setTimeout(() => {
+          updateAIInfoText();
+          
+          // Update tooltip if it's currently shown
+          if (aiInfoTooltip.classList.contains('show')) {
+            if (isEnglish) {
+              tooltipKo.style.display = 'none';
+              tooltipEn.style.display = 'block';
+            } else {
+              tooltipKo.style.display = 'block';
+              tooltipEn.style.display = 'none';
+            }
+          }
+        }, 50);
+      };
+    });
+    
+    // Initialize text on page load
+    updateAIInfoText();
   }
 });
 </script>
