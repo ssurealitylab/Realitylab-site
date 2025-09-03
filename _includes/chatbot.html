@@ -10,17 +10,17 @@
       <div class="chatbot-controls">
         <div class="mode-toggle">
           <div class="toggle-labels">
-            <span class="toggle-label search-label active">검색</span>
-            <span class="toggle-label ai-label">AI 서버</span>
+            <span class="toggle-label search-label">검색</span>
+            <span class="toggle-label ai-label active">AI 서버</span>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="mode-toggle" class="toggle-input">
+            <input type="checkbox" id="mode-toggle" class="toggle-input" checked>
             <label for="mode-toggle" class="toggle-slider"></label>
           </div>
         </div>
         
         <!-- Model Selection Dropdown -->
-        <div id="model-selection" class="model-selection" style="display: none;">
+        <div id="model-selection" class="model-selection" style="display: block;">
           <label for="model-dropdown" class="model-label">AI Model:</label>
           <select id="model-dropdown" class="model-dropdown">
             <option value="qwen3-4b" selected>Qwen3-4B</option>
@@ -61,10 +61,7 @@
       </div>
       
       <div class="language-buttons">
-        <button class="lang-btn active" data-lang="ko">KOR</button>
-        <button class="lang-btn" data-lang="en">ENG</button>
-        
-        <!-- AI Info tooltip -->
+        <!-- AI Info tooltip moved to left -->
         <div class="ai-info-wrapper">
           <div class="ai-info-trigger" id="ai-info-trigger">
             <div class="ai-info-icon">
@@ -112,6 +109,9 @@
             </div>
           </div>
         </div>
+        
+        <button class="lang-btn active" data-lang="ko">KOR</button>
+        <button class="lang-btn" data-lang="en">ENG</button>
       </div>
     </div>
   </div>
@@ -459,7 +459,7 @@
 .ai-info-wrapper {
   position: relative;
   display: inline-block;
-  margin-left: 8px;
+  margin-right: 8px;
 }
 
 .ai-info-trigger {
@@ -487,7 +487,7 @@
 }
 
 .ai-info-text {
-  font-size: 11px;
+  font-size: 9px;
   color: #666;
   white-space: nowrap;
   font-weight: 400;
@@ -501,7 +501,7 @@
 .ai-info-tooltip {
   position: absolute;
   bottom: 100%;
-  right: 0;
+  left: 0;
   margin-bottom: 8px;
   background: rgba(0, 0, 0, 0.95);
   color: white;
@@ -525,7 +525,7 @@
   content: '';
   position: absolute;
   top: 100%;
-  right: 20px;
+  left: 20px;
   width: 0;
   height: 0;
   border-left: 8px solid transparent;
