@@ -7,7 +7,7 @@ header.masthead {
     radial-gradient(ellipse 110% 80% at 75% 35%, rgba(37, 99, 235, 0.18) 0%, transparent 70%),
     radial-gradient(ellipse 120% 85% at 25% 65%, rgba(29, 78, 216, 0.15) 0%, transparent 68%),
     radial-gradient(ellipse 100% 70% at 60% 80%, rgba(59, 130, 246, 0.12) 0%, transparent 65%),
-    linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.98) 50%, rgba(255, 255, 255, 0.96) 100%);
+    #ffffff;
   background-repeat: no-repeat;
   background-attachment: fixed; // Enable parallax effect
   background-position: center center;
@@ -18,7 +18,7 @@ header.masthead {
   position: relative;
   overflow: hidden;
   
-  // Liquid glass effect overlay
+  // Liquid glass effect overlay with glow
   &::before {
     content: '';
     position: absolute;
@@ -27,16 +27,19 @@ header.masthead {
     right: 0;
     bottom: 0;
     background: 
-      radial-gradient(ellipse 80% 60% at 30% 40%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse 70% 50% at 70% 60%, rgba(37, 99, 235, 0.06) 0%, transparent 45%),
-      radial-gradient(ellipse 90% 70% at 50% 80%, rgba(29, 78, 216, 0.05) 0%, transparent 55%);
+      radial-gradient(ellipse 80% 60% at 30% 40%, rgba(59, 130, 246, 0.12) 0%, rgba(59, 130, 246, 0.02) 40%, transparent 50%),
+      radial-gradient(ellipse 70% 50% at 70% 60%, rgba(37, 99, 235, 0.10) 0%, rgba(37, 99, 235, 0.02) 35%, transparent 45%),
+      radial-gradient(ellipse 90% 70% at 50% 80%, rgba(29, 78, 216, 0.08) 0%, rgba(29, 78, 216, 0.01) 45%, transparent 55%);
     backdrop-filter: blur(0.5px);
     -webkit-backdrop-filter: blur(0.5px);
+    box-shadow: 
+      inset 0 0 60px rgba(59, 130, 246, 0.05),
+      inset 0 0 120px rgba(37, 99, 235, 0.03);
     pointer-events: none;
     z-index: 0;
   }
   
-  // Additional liquid glass layer
+  // Additional liquid glass layer with enhanced glow
   &::after {
     content: '';
     position: absolute;
@@ -45,11 +48,15 @@ header.masthead {
     right: 20%;
     bottom: 15%;
     background: 
-      radial-gradient(ellipse 60% 40% at 25% 30%, rgba(30, 64, 175, 0.04) 0%, transparent 40%),
-      radial-gradient(ellipse 50% 35% at 75% 70%, rgba(37, 99, 235, 0.03) 0%, transparent 35%);
+      radial-gradient(ellipse 60% 40% at 25% 30%, rgba(30, 64, 175, 0.06) 0%, rgba(30, 64, 175, 0.01) 30%, transparent 40%),
+      radial-gradient(ellipse 50% 35% at 75% 70%, rgba(37, 99, 235, 0.05) 0%, rgba(37, 99, 235, 0.01) 25%, transparent 35%);
     border-radius: 50% 40% 60% 30%;
     backdrop-filter: blur(1px);
     -webkit-backdrop-filter: blur(1px);
+    box-shadow: 
+      0 0 40px rgba(59, 130, 246, 0.08),
+      0 0 80px rgba(37, 99, 235, 0.04),
+      inset 0 0 30px rgba(255, 255, 255, 0.1);
     pointer-events: none;
     z-index: 0;
   }
