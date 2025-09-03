@@ -878,7 +878,9 @@ document.addEventListener('DOMContentLoaded', function() {
   // Detect language (Korean vs English)
   function detectLanguage(text) {
     const koreanRegex = /[\u3131-\u3163\uac00-\ud7a3]/;
-    return koreanRegex.test(text) ? 'ko' : 'en';
+    const result = koreanRegex.test(text) ? 'ko' : 'en';
+    console.log('Language detection:', text, '->', result);
+    return result;
   }
 
   // Clear thinking timer
@@ -956,7 +958,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (q.includes('연락') || q.includes('이메일') || q.includes('전화') || q.includes('연락처') || 
         q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('number')) {
       
+      console.log('Contact query detected:', q);
       const language = detectLanguage(query);
+      console.log('Language for contact:', language);
       
       if (language === 'en') {
         return `Contact Information:\n• Email: ${knowledgeBase.lab_info.email}\n• Phone: ${knowledgeBase.lab_info.phone}\n• Location: ${knowledgeBase.lab_info.location}`;
