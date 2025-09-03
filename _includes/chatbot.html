@@ -878,9 +878,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // Detect language (Korean vs English)
   function detectLanguage(text) {
     const koreanRegex = /[\u3131-\u3163\uac00-\ud7a3]/;
-    const result = koreanRegex.test(text) ? 'ko' : 'en';
-    console.log('Language detection:', text, '->', result);
-    return result;
+    return koreanRegex.test(text) ? 'ko' : 'en';
   }
 
   // Clear thinking timer
@@ -896,7 +894,20 @@ document.addEventListener('DOMContentLoaded', function() {
   function generateAnswer(question) {
     const q = question.toLowerCase();
     
-    // Check custom Q&A first
+    // Contact info (with language detection) - Check this FIRST
+    if (q.includes('연락') || q.includes('이메일') || q.includes('전화') || q.includes('연락처') || 
+        q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('number')) {
+      
+      const language = detectLanguage(question);
+      
+      if (language === 'en') {
+        return `Contact Information:\n• Email: ${knowledgeBase.lab_info.email}\n• Phone: ${knowledgeBase.lab_info.phone}\n• Location: ${knowledgeBase.lab_info.location}`;
+      } else {
+        return `연락처 정보입니다:\n• 이메일: ${knowledgeBase.lab_info.email}\n• 전화: ${knowledgeBase.lab_info.phone}\n• 위치: ${knowledgeBase.lab_info.location}`;
+      }
+    }
+    
+    // Check custom Q&A after language-specific responses
     for (const qa of knowledgeBase.custom_qa) {
       if (q.includes(qa.question.toLowerCase()) || 
           qa.question.toLowerCase().includes(q) ||
@@ -953,22 +964,6 @@ document.addEventListener('DOMContentLoaded', function() {
         return `${knowledgeBase.lab_info.full_name}은 ${knowledgeBase.lab_info.established}년에 설립되었습니다. ${knowledgeBase.lab_info.director}님이 이끄시며, ${knowledgeBase.lab_info.mission}`;
       }
     }
-    
-    // Contact info (with language detection)
-    if (q.includes('연락') || q.includes('이메일') || q.includes('전화') || q.includes('연락처') || 
-        q.includes('contact') || q.includes('email') || q.includes('phone') || q.includes('number')) {
-      
-      console.log('Contact query detected:', q);
-      const language = detectLanguage(query);
-      console.log('Language for contact:', language);
-      
-      if (language === 'en') {
-        return `Contact Information:\n• Email: ${knowledgeBase.lab_info.email}\n• Phone: ${knowledgeBase.lab_info.phone}\n• Location: ${knowledgeBase.lab_info.location}`;
-      } else {
-        return `연락처 정보입니다:\n• 이메일: ${knowledgeBase.lab_info.email}\n• 전화: ${knowledgeBase.lab_info.phone}\n• 위치: ${knowledgeBase.lab_info.location}`;
-      }
-    }
-    
     // Location (with language detection)
     if (q.includes('위치') || q.includes('어디') || q.includes('location') || q.includes('where') || q.includes('address')) {
       const language = detectLanguage(query);
