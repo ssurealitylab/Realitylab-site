@@ -10,11 +10,11 @@
       <div class="chatbot-controls">
         <div class="mode-toggle">
           <div class="toggle-labels">
-            <span class="toggle-label ai-label active">AI</span>
+            <span class="toggle-label ai-label active">AI CHAT</span>
             <span class="toggle-label search-label">검색</span>
           </div>
           <div class="toggle-switch">
-            <input type="checkbox" id="mode-toggle" class="toggle-input" checked>
+            <input type="checkbox" id="mode-toggle" class="toggle-input">
             <label for="mode-toggle" class="toggle-slider"></label>
           </div>
         </div>
@@ -63,7 +63,6 @@
                 <path d="M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </div>
-            <span class="ai-info-text" id="ai-info-text">이 AI는 어떻게 동작하나요?</span>
           </div>
           <div class="ai-info-tooltip" id="ai-info-tooltip">
             <button class="tooltip-close" id="tooltip-close">
@@ -396,7 +395,7 @@
 .ai-info-wrapper {
   position: relative;
   display: inline-block;
-  margin-right: 8px;
+  margin-right: 12px;
 }
 
 .ai-info-trigger {
@@ -404,8 +403,8 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  padding: 4px 6px;
-  border-radius: 12px;
+  padding: 4px;
+  border-radius: 50%;
   background: rgba(128, 128, 128, 0.05);
 }
 
@@ -420,18 +419,9 @@
   align-items: center;
   justify-content: center;
   color: #666;
-  margin-right: 4px;
 }
 
-.ai-info-text {
-  font-size: 9px;
-  color: #666;
-  white-space: nowrap;
-  font-weight: 400;
-}
-
-.ai-info-trigger:hover .ai-info-icon,
-.ai-info-trigger:hover .ai-info-text {
+.ai-info-trigger:hover .ai-info-icon {
   color: #333;
 }
 
@@ -1176,21 +1166,12 @@ document.addEventListener('DOMContentLoaded', function() {
   // AI Info tooltip functionality
   const aiInfoTrigger = document.getElementById('ai-info-trigger');
   const aiInfoTooltip = document.getElementById('ai-info-tooltip');
-  const aiInfoText = document.getElementById('ai-info-text');
   const tooltipClose = document.getElementById('tooltip-close');
   const tooltipKo = aiInfoTooltip.querySelector('.tooltip-ko');
   const tooltipEn = aiInfoTooltip.querySelector('.tooltip-en');
   
   let tooltipTimeout;
   let isTooltipPinned = false; // Track if tooltip is pinned (clicked)
-
-  function updateAIInfoText() {
-    if (isEnglish) {
-      aiInfoText.textContent = 'How does this AI work?';
-    } else {
-      aiInfoText.textContent = '이 AI는 어떻게 동작하나요?';
-    }
-  }
 
   function showAIInfoTooltip() {
     clearTimeout(tooltipTimeout);
@@ -1271,11 +1252,8 @@ document.addEventListener('DOMContentLoaded', function() {
           originalClickHandler.call(this, e);
         }
         
-        // Update AI info text
+        // Update tooltip if it's currently shown
         setTimeout(() => {
-          updateAIInfoText();
-          
-          // Update tooltip if it's currently shown
           if (aiInfoTooltip.classList.contains('show')) {
             if (isEnglish) {
               tooltipKo.style.display = 'none';
@@ -1289,8 +1267,6 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     });
     
-    // Initialize text on page load
-    updateAIInfoText();
   }
 });
 </script>
