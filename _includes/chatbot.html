@@ -77,6 +77,11 @@
             <span class="ai-info-text" id="ai-info-text">이 AI는 어떻게 동작하나요?</span>
           </div>
           <div class="ai-info-tooltip" id="ai-info-tooltip">
+            <button class="tooltip-close" id="tooltip-close">
+              <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
             <div class="tooltip-content">
               <div class="tooltip-ko">
                 <h4>🤖 Reality Lab AI Assistant</h4>
@@ -89,7 +94,7 @@
                 <p>• <em>검색 모드:</em> 사전 구축된 Knowledge Base에서 정보 검색</p>
                 <p>• <em>AI 서버 모드:</em> Fine-tuned Qwen3-4B가 자연어로 실시간 답변 생성</p>
                 <br>
-                <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7; text-decoration: underline;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
               </div>
               <div class="tooltip-en" style="display: none;">
                 <h4>🤖 Reality Lab AI Assistant</h4>
@@ -102,7 +107,7 @@
                 <p>• <em>Search Mode:</em> Searches pre-built Knowledge Base</p>
                 <p>• <em>AI Server Mode:</em> Fine-tuned Qwen3-4B generates real-time natural language responses</p>
                 <br>
-                <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+                <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7; text-decoration: underline;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
               </div>
             </div>
           </div>
@@ -533,6 +538,29 @@
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+}
+
+.tooltip-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.2s ease;
+  z-index: 1001;
+}
+
+.tooltip-close:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.1);
 }
 
 .ai-info-tooltip h4 {
@@ -1229,10 +1257,12 @@ document.addEventListener('DOMContentLoaded', function() {
   const aiInfoTrigger = document.getElementById('ai-info-trigger');
   const aiInfoTooltip = document.getElementById('ai-info-tooltip');
   const aiInfoText = document.getElementById('ai-info-text');
+  const tooltipClose = document.getElementById('tooltip-close');
   const tooltipKo = aiInfoTooltip.querySelector('.tooltip-ko');
   const tooltipEn = aiInfoTooltip.querySelector('.tooltip-en');
   
   let tooltipTimeout;
+  let isTooltipPinned = false; // Track if tooltip is pinned (clicked)
 
   function updateAIInfoText() {
     if (isEnglish) {
@@ -1258,26 +1288,34 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   function hideAIInfoTooltip() {
-    tooltipTimeout = setTimeout(() => {
-      aiInfoTooltip.classList.remove('show');
-    }, 300);
+    if (!isTooltipPinned) {
+      tooltipTimeout = setTimeout(() => {
+        aiInfoTooltip.classList.remove('show');
+      }, 300);
+    }
+  }
+
+  function forceHideTooltip() {
+    isTooltipPinned = false;
+    clearTimeout(tooltipTimeout);
+    aiInfoTooltip.classList.remove('show');
   }
 
   if (aiInfoTrigger && aiInfoTooltip) {
+    // Show on hover
     aiInfoTrigger.addEventListener('mouseenter', showAIInfoTooltip);
     aiInfoTrigger.addEventListener('mouseleave', hideAIInfoTooltip);
+    
+    // Pin on click
     aiInfoTrigger.addEventListener('click', function(e) {
       e.preventDefault();
       e.stopPropagation();
       
-      if (aiInfoTooltip.classList.contains('show')) {
-        aiInfoTooltip.classList.remove('show');
+      if (aiInfoTooltip.classList.contains('show') && isTooltipPinned) {
+        forceHideTooltip();
       } else {
         showAIInfoTooltip();
-        // Auto-hide after 5 seconds on click
-        setTimeout(() => {
-          aiInfoTooltip.classList.remove('show');
-        }, 5000);
+        isTooltipPinned = true;
       }
     });
 
@@ -1287,6 +1325,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     aiInfoTooltip.addEventListener('mouseleave', hideAIInfoTooltip);
+    
+    // Close button functionality
+    if (tooltipClose) {
+      tooltipClose.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        forceHideTooltip();
+      });
+    }
+    
+    // Close when clicking outside
+    document.addEventListener('click', function(e) {
+      if (!aiInfoTrigger.contains(e.target) && !aiInfoTooltip.contains(e.target)) {
+        forceHideTooltip();
+      }
+    });
     
     // Update tooltip and text language when language buttons are clicked
     const langBtns = document.querySelectorAll('.lang-btn');
