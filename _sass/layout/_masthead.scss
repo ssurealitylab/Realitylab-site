@@ -3,9 +3,9 @@ header.masthead {
   text-align: center;
   color: #1a1a1a;
   background: 
-    radial-gradient(ellipse 80% 50% at 50% 60%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 80% 40%, rgba(37, 99, 235, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 40% at 20% 70%, rgba(29, 78, 216, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 120% 80% at 50% 60%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 70% at 80% 40%, rgba(37, 99, 235, 0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 100% 70% at 20% 70%, rgba(29, 78, 216, 0.08) 0%, transparent 60%),
     linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
   background-repeat: no-repeat;
   background-attachment: fixed; // Enable parallax effect
