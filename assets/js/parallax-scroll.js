@@ -49,19 +49,24 @@
         var mastheadTop = mastheadRect.top + scrollY;
         var mastheadHeight = mastheadRect.height;
         
-        // Find the image slider container position more accurately
-        var imageSliderContainer = masthead.querySelector('.image-slider-container') || masthead.querySelector('.image-slider');
+        // Find the actual image element position, not the container
+        var imageSlider = masthead.querySelector('.image-slider');
+        var introText = masthead.querySelector('.intro-text');
         var absoluteImageTop = mastheadTop + mastheadHeight * 0.5; // Default fallback
         
-        if (imageSliderContainer) {
-            var containerRect = imageSliderContainer.getBoundingClientRect();
-            // Get the ACTUAL top position of the image container
-            absoluteImageTop = containerRect.top + scrollY;
+        // Get the position where we want the fade to start - after the intro text
+        if (introText) {
+            var introRect = introText.getBoundingClientRect();
+            // Use the bottom of intro text as the key reference point
+            absoluteImageTop = introRect.bottom + scrollY;
+        } else if (imageSlider) {
+            var sliderRect = imageSlider.getBoundingClientRect();
+            absoluteImageTop = sliderRect.top + scrollY;
         }
         
-        // Calculate when to start fading - only start when scrolling down significantly
-        var fadeStartPoint = absoluteImageTop - windowHeight * 0.2; // Start fade closer to when image comes into view
-        var fadeDistance = windowHeight * 1.0; // Longer fade distance for smoother transition
+        // Calculate when to start fading - trigger much earlier, above the images
+        var fadeStartPoint = absoluteImageTop - windowHeight * 0.8; // Start fade well before image appears
+        var fadeDistance = windowHeight * 0.6; // Shorter distance for quicker fade
         
         // Calculate smooth scroll progress - ensure initial state shows content clearly
         var scrollProgress = 0;
@@ -96,8 +101,8 @@
         }
         
         // Debug log for troubleshooting
-        if (easedProgress > 0) {
-            console.log(`ScrollY: ${scrollY}, ImageTop: ${absoluteImageTop}, FadeStart: ${fadeStartPoint}, Progress: ${easedProgress.toFixed(2)}`);
+        if (scrollY > 50) { // Log more frequently for debugging
+            console.log(`ScrollY: ${scrollY}, ImageTop: ${absoluteImageTop}, FadeStart: ${fadeStartPoint.toFixed(0)}, Progress: ${easedProgress.toFixed(2)}, WindowHeight: ${windowHeight}`);
         }
     }
     
