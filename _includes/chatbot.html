@@ -444,13 +444,16 @@
 }
 
 .ai-info-trigger {
-  display: flex;
+  display: flex !important;
   align-items: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  padding: 4px;
+  padding: 8px;
   border-radius: 50%;
-  background: rgba(128, 128, 128, 0.05);
+  background: rgba(128, 128, 128, 0.15);
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .ai-info-trigger:hover {
@@ -458,12 +461,14 @@
 }
 
 .ai-info-icon {
-  width: 18px;
-  height: 18px;
-  display: flex;
+  width: 20px;
+  height: 20px;
+  display: flex !important;
   align-items: center;
   justify-content: center;
   color: #666;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .ai-info-trigger:hover .ai-info-icon {
@@ -598,10 +603,13 @@
 /* Bottom-left positioned help icon */
 .ai-info-bottom-left {
   position: absolute !important;
-  bottom: 10px !important;
-  left: 10px !important;
+  bottom: 15px !important;
+  left: 15px !important;
   margin-right: 0 !important;
   z-index: 1005 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
 
 .ai-info-bottom-left .ai-info-tooltip {
