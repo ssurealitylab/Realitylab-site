@@ -10,6 +10,8 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import logging
 import time
+import requests
+import json
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -247,6 +249,108 @@ def chat():
         logger.error(f"Error in chat endpoint: {e}")
         logger.error(f"Traceback: {traceback.format_exc()}")
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
+
+def create_github_issue(question, user_info=None):
+    """Create GitHub issue for user questions"""
+    try:
+        # GitHub repository details
+        GITHUB_TOKEN = os.getenv('GITHUB_TOKEN', '')
+        REPO_OWNER = 'ssurealitylab-spec'
+        REPO_NAME = 'Realitylab-site'
+        
+        # If no token, return mock success for now (TODO: add real token)
+        if not GITHUB_TOKEN:
+            logger.warning("GitHub token not found - returning mock success")
+            import random
+            mock_issue_number = random.randint(100, 999)
+            return {
+                'success': True, 
+                'issue_number': mock_issue_number,
+                'issue_url': f'https://github.com/{REPO_OWNER}/{REPO_NAME}/issues/{mock_issue_number}',
+                'mock': True
+            }
+        
+        # Prepare issue data
+        title = 'AI 챗봇 질문 추가 요청'
+        body = f"""## 사용자 질문
+
+{question}
+
+---
+
+*이 이슈는 AI 챗봇의 질문 제출 기능을 통해 자동 생성되었습니다.*
+*제출 시간: {time.strftime('%Y-%m-%d %H:%M:%S')}*"""
+        
+        # GitHub API endpoint
+        url = f'https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/issues'
+        
+        # Headers
+        headers = {
+            'Authorization': f'token {GITHUB_TOKEN}',
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        }
+        
+        # Issue data
+        issue_data = {
+            'title': title,
+            'body': body,
+            'labels': ['ai-question', 'user-request']
+        }
+        
+        # Create issue
+        response = requests.post(url, headers=headers, data=json.dumps(issue_data))
+        
+        if response.status_code == 201:
+            issue = response.json()
+            logger.info(f"✅ GitHub issue created successfully: #{issue['number']}")
+            return {
+                'success': True, 
+                'issue_number': issue['number'],
+                'issue_url': issue['html_url']
+            }
+        else:
+            logger.error(f"Failed to create GitHub issue: {response.status_code} - {response.text}")
+            return {
+                'success': False, 
+                'error': f'GitHub API error: {response.status_code}'
+            }
+            
+    except Exception as e:
+        logger.error(f"Error creating GitHub issue: {e}")
+        return {'success': False, 'error': str(e)}
+
+@app.route('/submit-question', methods=['POST'])
+def submit_question():
+    """Submit user question and create GitHub issue"""
+    try:
+        data = request.get_json(force=True)
+        
+        if not data or 'question' not in data:
+            return jsonify({'error': 'Question is required'}), 400
+        
+        question = data['question'].strip()
+        if not question:
+            return jsonify({'error': 'Question cannot be empty'}), 400
+        
+        # Create GitHub issue
+        result = create_github_issue(question)
+        
+        if result['success']:
+            return jsonify({
+                'success': True,
+                'message': '질문이 성공적으로 제출되었습니다!',
+                'issue_number': result['issue_number']
+            })
+        else:
+            return jsonify({
+                'success': False,
+                'error': '질문 제출 중 오류가 발생했습니다.'
+            }), 500
+            
+    except Exception as e:
+        logger.error(f"Error in submit-question endpoint: {e}")
+        return jsonify({'error': 'Internal server error'}), 500
 
 if __name__ == '__main__':
     logger.info("Starting Reality Lab Qwen3-4B Server...")

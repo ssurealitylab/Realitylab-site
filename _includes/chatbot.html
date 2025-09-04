@@ -1605,15 +1605,38 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 
-  // GitHub Issue Creation via URL (Simplified approach)
-  function createGitHubIssueURL(question) {
-    const title = encodeURIComponent('AI 챗봇 질문 추가 요청');
-    const body = encodeURIComponent(
-      `## 사용자 질문\n\n${question}\n\n---\n\n*이 이슈는 AI 챗봇의 질문 제출 기능을 통해 생성되었습니다.*`
-    );
-    const labels = encodeURIComponent('ai-question,user-request');
-    
-    return `https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?title=${title}&body=${body}&labels=${labels}`;
+  // Server-side GitHub Issue Creation
+  async function submitQuestionToServer(question) {
+    try {
+      const endpoints = getModelEndpoints(selectedModel);
+      const response = await fetch(endpoints.chat.replace('/chat', '/submit-question'), {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          question: question
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (result.success) {
+        return {
+          success: true,
+          message: result.message,
+          issueNumber: result.issue_number
+        };
+      } else {
+        throw new Error(result.error || '알 수 없는 오류가 발생했습니다.');
+      }
+    } catch (error) {
+      console.error('Error submitting question:', error);
+      return {
+        success: false,
+        error: error.message || '질문 제출 중 오류가 발생했습니다.'
+      };
+    }
   }
 
   // Send question functionality
@@ -1633,22 +1656,14 @@ document.addEventListener('DOMContentLoaded', function() {
       modalSend.textContent = '제출 중...';
       
       try {
-        // Create GitHub issue URL and redirect
-        const issueURL = createGitHubIssueURL(question);
+        // Submit question directly to server
+        const result = await submitQuestionToServer(question);
         
-        // Show confirmation dialog
-        const confirmed = confirm(
-          'GitHub 이슈 생성 페이지로 이동합니다.\n\n⚠️ 중요: 이 기능은 Reality Lab 관계자만 사용 가능합니다.\n- 리포지토리 Collaborator 권한이 필요합니다\n- 권한이 없으시면 heewon@ssu.ac.kr로 연락해주세요\n\n계속하시겠습니까?'
-        );
-        
-        if (confirmed) {
-          // Open GitHub issue creation page in new tab
-          window.open(issueURL, '_blank');
-          
-          // Show success message
-          alert('GitHub 이슈 페이지가 새 탭에서 열렸습니다. 거기에서 제출을 완료해주세요.');
-          
+        if (result.success) {
+          alert(`성공! 질문이 제출되었습니다. (GitHub 이슈 #${result.issueNumber})\n\n연구실 관계자가 검토 후 답변을 추가하겠습니다.`);
           closeModal();
+        } else {
+          alert(`오류: ${result.error}\n\n다시 시도하거나 heewon@ssu.ac.kr로 연락해주세요.`);
         }
       } catch (error) {
         console.error('Error creating issue URL:', error);
