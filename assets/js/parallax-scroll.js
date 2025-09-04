@@ -5,6 +5,7 @@
     var masthead = null;
     var parallaxContainer = null;
     var isInitialized = false;
+    var parallaxEnabled = false; // Start with parallax disabled
     
     function log(message) {
         console.log('[Parallax Scroll]', new Date().toISOString(), message);
@@ -42,6 +43,20 @@
         if (!parallaxContainer || !masthead) return;
         
         var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        
+        // Enable parallax only after significant scroll or time delay
+        if (!parallaxEnabled) {
+            if (scrollY > 100) { // Enable after 100px scroll
+                parallaxEnabled = true;
+                log('Parallax enabled after scroll');
+            } else {
+                // Keep content fully visible while parallax is disabled
+                parallaxContainer.style.transform = 'translate3d(0, 0, 0) scale(1)';
+                parallaxContainer.style.filter = 'blur(0px)';
+                parallaxContainer.style.opacity = '1';
+                return; // Exit early, no parallax effects
+            }
+        }
         var windowHeight = window.innerHeight;
         
         // Get masthead position relative to document
@@ -129,11 +144,26 @@
         window.addEventListener('scroll', requestTick, { passive: true });
         window.addEventListener('resize', requestTick, { passive: true });
         
+        // Ensure intro text is visible on initial load
+        if (parallaxContainer) {
+            parallaxContainer.style.transform = 'translate3d(0, 0, 0) scale(1)';
+            parallaxContainer.style.filter = 'blur(0px)';
+            parallaxContainer.style.opacity = '1';
+        }
+        
+        // Enable parallax after 2 seconds as backup
+        setTimeout(function() {
+            if (!parallaxEnabled) {
+                parallaxEnabled = true;
+                log('Parallax enabled after time delay');
+            }
+        }, 2000);
+        
         // Initial call
         handleScroll();
         
         isInitialized = true;
-        log('Parallax scroll initialized');
+        log('Parallax scroll initialized - intro text should be visible');
     }
     
     // Initialize when DOM is ready
