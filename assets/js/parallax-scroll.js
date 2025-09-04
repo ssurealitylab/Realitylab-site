@@ -49,24 +49,20 @@
         var mastheadTop = mastheadRect.top + scrollY;
         var mastheadHeight = mastheadRect.height;
         
-        // Find the actual image element position, not the container
-        var imageSlider = masthead.querySelector('.image-slider');
-        var introText = masthead.querySelector('.intro-text');
+        // Find the image slider container position - this is where we want fade to start
+        var imageSliderContainer = masthead.querySelector('.image-slider-container');
         var absoluteImageTop = mastheadTop + mastheadHeight * 0.5; // Default fallback
         
-        // Get the position where we want the fade to start - after the intro text
-        if (introText) {
-            var introRect = introText.getBoundingClientRect();
-            // Use the bottom of intro text as the key reference point
-            absoluteImageTop = introRect.bottom + scrollY;
-        } else if (imageSlider) {
-            var sliderRect = imageSlider.getBoundingClientRect();
-            absoluteImageTop = sliderRect.top + scrollY;
+        // Get the EXACT top position of the image container (not intro text bottom)
+        if (imageSliderContainer) {
+            var containerRect = imageSliderContainer.getBoundingClientRect();
+            absoluteImageTop = containerRect.top + scrollY; // Use TOP of image container
+            console.log('Image container top:', absoluteImageTop, 'ScrollY:', scrollY, 'Container top from viewport:', containerRect.top);
         }
         
-        // Calculate when to start fading - trigger much earlier, above the images
-        var fadeStartPoint = absoluteImageTop - windowHeight * 0.8; // Start fade well before image appears
-        var fadeDistance = windowHeight * 0.6; // Shorter distance for quicker fade
+        // Start fade when image container top reaches viewport center (50% from top)
+        var fadeStartPoint = absoluteImageTop - windowHeight * 0.5; // Trigger when images reach middle of screen
+        var fadeDistance = windowHeight * 0.3; // Quick fade over 30% of screen height
         
         // Calculate smooth scroll progress - ensure initial state shows content clearly
         var scrollProgress = 0;
@@ -101,8 +97,8 @@
         }
         
         // Debug log for troubleshooting
-        if (scrollY > 50) { // Log more frequently for debugging
-            console.log(`ScrollY: ${scrollY}, ImageTop: ${absoluteImageTop}, FadeStart: ${fadeStartPoint.toFixed(0)}, Progress: ${easedProgress.toFixed(2)}, WindowHeight: ${windowHeight}`);
+        if (scrollY > 50 && scrollY % 50 < 10) { // Log every 50px of scroll
+            console.log(`📊 ScrollY: ${scrollY}, ImageContainerTop: ${absoluteImageTop}, FadeStart: ${fadeStartPoint.toFixed(0)}, Progress: ${(easedProgress * 100).toFixed(1)}%, Opacity: ${opacity.toFixed(2)}`);
         }
     }
     
