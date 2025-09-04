@@ -56,56 +56,54 @@
         <button class="lang-btn active" data-lang="ko">KOR</button>
         <button class="lang-btn" data-lang="en">ENG</button>
       </div>
-    </div>
-  </div>
-  
-  <!-- AI Info tooltip moved to bottom left corner -->
-  <div class="ai-info-wrapper ai-info-bottom-left">
-    <div class="ai-info-trigger" id="ai-info-trigger">
-      <div class="ai-info-icon">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
-          <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
-    </div>
-    <div class="ai-info-tooltip" id="ai-info-tooltip">
-      <button class="tooltip-close" id="tooltip-close">
-        <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="tooltip-content">
-        <div class="tooltip-ko">
-          <h4>🤖 Reality Lab AI Assistant</h4>
-          <p><strong>모델:</strong> Qwen3-4B Fine-tuned 모델</p>
-          <p><strong>하드웨어:</strong> NVIDIA RTX 4090 GPU</p>
-          <p><strong>개발:</strong> 김희원 교수님과 연구실 학생들이 직접 참여</p>
-          <p><strong>업데이트:</strong> 연구실 구성원들의 참여로 비정기적 업데이트</p>
-          <br>
-          <p><strong>동작 방식:</strong></p>
-          <p>• <em>검색 모드:</em> 사전 구축된 Knowledge Base에서 정보 검색</p>
-          <p>• <em>AI 서버 모드:</em> Fine-tuned Qwen3-4B가 자연어로 실시간 답변 생성</p>
-          <br>
-          <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7; text-decoration: underline;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+      
+      <!-- AI Info tooltip moved inside chatbot window -->
+      <div class="ai-info-wrapper ai-info-bottom-left">
+        <div class="ai-info-trigger" id="ai-info-trigger">
+          <div class="ai-info-icon">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M12 17h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
         </div>
-        <div class="tooltip-en" style="display: none;">
-          <h4>🤖 Reality Lab AI Assistant</h4>
-          <p><strong>Model:</strong> Fine-tuned Qwen3-4B</p>
-          <p><strong>Hardware:</strong> NVIDIA RTX 4090 GPU</p>
-          <p><strong>Development:</strong> Prof. Heewon Kim and lab students directly involved</p>
-          <p><strong>Updates:</strong> Irregular updates with lab members' participation</p>
-          <br>
-          <p><strong>How it works:</strong></p>
-          <p>• <em>Search Mode:</em> Searches pre-built Knowledge Base</p>
-          <p>• <em>AI Server Mode:</em> Fine-tuned Qwen3-4B generates real-time natural language responses</p>
-          <br>
-          <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7; text-decoration: underline;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+        <div class="ai-info-tooltip" id="ai-info-tooltip">
+          <button class="tooltip-close" id="tooltip-close">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M15 5L5 15M5 5L15 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+          <div class="tooltip-content">
+            <div class="tooltip-ko">
+              <h4>🤖 Reality Lab AI Assistant</h4>
+              <p><strong>모델:</strong> Qwen3-4B Fine-tuned 모델</p>
+              <p><strong>하드웨어:</strong> NVIDIA RTX 4090 GPU</p>
+              <p><strong>개발:</strong> 김희원 교수님과 연구실 학생들이 직접 참여</p>
+              <p><strong>업데이트:</strong> 연구실 구성원들의 참여로 비정기적 업데이트</p>
+              <br>
+              <p><strong>동작 방식:</strong></p>
+              <p>• <em>검색 모드:</em> 사전 구축된 Knowledge Base에서 정보 검색</p>
+              <p>• <em>AI 서버 모드:</em> Fine-tuned Qwen3-4B가 자연어로 실시간 답변 생성</p>
+              <br>
+              <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7; text-decoration: underline;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+            </div>
+            <div class="tooltip-en" style="display: none;">
+              <h4>🤖 Reality Lab AI Assistant</h4>
+              <p><strong>Model:</strong> Fine-tuned Qwen3-4B</p>
+              <p><strong>Hardware:</strong> NVIDIA RTX 4090 GPU</p>
+              <p><strong>Development:</strong> Prof. Heewon Kim and lab students directly involved</p>
+              <p><strong>Updates:</strong> Irregular updates with lab members' participation</p>
+              <br>
+              <p><strong>How it works:</strong></p>
+              <p>• <em>Search Mode:</em> Searches pre-built Knowledge Base</p>
+              <p>• <em>AI Server Mode:</em> Fine-tuned Qwen3-4B generates real-time natural language responses</p>
+              <br>
+              <p><strong>GitHub:</strong> <a href="https://github.com/ssurealitylab-spec/Realitylab-site" target="_blank" style="color: #4fc3f7; text-decoration: underline;">github.com/ssurealitylab-spec/Realitylab-site</a></p>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
     </div>
   </div>
 </div>
@@ -448,32 +446,32 @@
   align-items: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  padding: 8px;
+  padding: 6px;
   border-radius: 50%;
-  background: rgba(59, 130, 246, 0.1);
-  border: 1px solid rgba(59, 130, 246, 0.3);
+  background: rgba(128, 128, 128, 0.1);
+  border: 1px solid rgba(128, 128, 128, 0.2);
   visibility: visible !important;
   opacity: 1 !important;
 }
 
 .ai-info-trigger:hover {
-  background: rgba(59, 130, 246, 0.2);
-  border: 1px solid rgba(59, 130, 246, 0.4);
+  background: rgba(128, 128, 128, 0.2);
+  border: 1px solid rgba(128, 128, 128, 0.3);
 }
 
 .ai-info-icon {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   display: flex !important;
   align-items: center;
   justify-content: center;
-  color: #3366cc !important;
+  color: #888 !important;
   visibility: visible !important;
   opacity: 1 !important;
 }
 
 .ai-info-trigger:hover .ai-info-icon {
-  color: #2954b3 !important;
+  color: #555 !important;
 }
 
 .ai-info-tooltip {
