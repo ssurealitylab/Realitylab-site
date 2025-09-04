@@ -166,10 +166,24 @@
         log('Parallax scroll initialized - intro text should be visible');
     }
     
+    // Delay initialization to ensure content is visible first
+    function delayedInit() {
+        // Ensure all content is visible before parallax initialization
+        var introText = document.querySelector('.intro-text');
+        if (introText) {
+            introText.style.opacity = '1';
+            introText.style.transform = 'none';
+            introText.style.filter = 'none';
+        }
+        
+        // Initialize parallax after ensuring visibility
+        setTimeout(init, 100);
+    }
+    
     // Initialize when DOM is ready
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', delayedInit);
     } else {
-        init();
+        delayedInit();
     }
 })();
