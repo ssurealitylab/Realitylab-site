@@ -821,60 +821,90 @@ document.addEventListener('DOMContentLoaded', function() {
   let isEnglish = false;
   let selectedModel = 'qwen3-4b';
 
-  // AI Server availability check
-  let isServerAvailable = null;
+  // GPU allocation system
+  let currentSession = null;
+  let currentEndpoint = null;
+  let isConnecting = false;
   
-  // Get API endpoints based on selected model
-  function getModelEndpoints(model) {
-    const endpoints = {
-      'qwen3-4b': {
-        health: 'https://bw-remembered-videos-calvin.trycloudflare.com/health',
-        chat: 'https://bw-remembered-videos-calvin.trycloudflare.com/chat',
-        submitQuestion: 'https://bw-remembered-videos-calvin.trycloudflare.com/submit-question'
-      },
-    };
-    return endpoints[model] || endpoints['qwen3-4b'];
+  // GPU Manager endpoint
+  const GPU_MANAGER_URL = 'https://cet-messenger-production-brooklyn.trycloudflare.com';
+  
+  // Get current session endpoints
+  function getCurrentEndpoints() {
+    if (currentEndpoint) {
+      return {
+        health: `${currentEndpoint}/health`,
+        chat: `${currentEndpoint}/chat`,
+        submitQuestion: `${currentEndpoint}/submit-question`
+      };
+    }
+    return null;
   }
 
-  // Check if AI server is available
-  async function checkAIServer() {
-    // Reset availability status when checking different models
-    isServerAvailable = null;
-    
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 15000);
-      const endpoints = getModelEndpoints(selectedModel);
-      
-      const response = await fetch(endpoints.health, {
-        method: 'GET',
-        signal: controller.signal
-      });
-      
-      clearTimeout(timeoutId);
-      isServerAvailable = response.ok;
-      
-      if (isServerAvailable) {
-        console.log('✅ AI 서버 연결 성공!');
-      }
-    } catch (error) {
-      console.log('❌ AI server not available:', error.message);
-      
-      // Show specific error message for certificate issues
-      if (error.message.includes('certificate') || error.message.includes('SSL')) {
-        console.warn('🌐 AI 서버 연결에 문제가 발생했습니다. 잠시 후 다시 시도해주세요.');
-      }
-      
-      isServerAvailable = false;
+  // Allocate GPU for AI session
+  async function allocateGPU() {
+    if (isConnecting || currentSession) {
+      return currentSession;
     }
     
-    return isServerAvailable;
+    isConnecting = true;
+    
+    try {
+      const response = await fetch(`${GPU_MANAGER_URL}/allocate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({})
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        currentSession = data;
+        currentEndpoint = data.endpoint;
+        console.log(`✅ GPU ${data.gpu_id} 할당됨: ${data.endpoint}`);
+        return currentSession;
+      } else {
+        console.error('❌ GPU 할당 실패:', data.error);
+        return null;
+      }
+    } catch (error) {
+      console.error('❌ GPU 매니저 연결 실패:', error);
+      return null;
+    } finally {
+      isConnecting = false;
+    }
+  }
+  
+  // Release current GPU session
+  async function releaseGPU() {
+    if (!currentSession) return;
+    
+    try {
+      await fetch(`${GPU_MANAGER_URL}/release`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          session_id: currentSession.session_id
+        })
+      });
+      
+      console.log(`🔄 GPU ${currentSession.gpu_id} 해제됨`);
+    } catch (error) {
+      console.error('GPU 해제 실패:', error);
+    } finally {
+      currentSession = null;
+      currentEndpoint = null;
+    }
   }
 
   // Global variable for request cancellation
   let currentAIRequest = null;
 
-  // Generate AI response using public AI server with auto-save
+  // Generate AI response using dynamic GPU allocation
   async function generateAIResponse(question) {
     try {
       // Cancel previous request if exists
@@ -883,7 +913,26 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Previous AI request cancelled');
       }
       
-      const endpoints = getModelEndpoints(selectedModel);
+      // Allocate GPU if not already allocated
+      const session = await allocateGPU();
+      if (!session) {
+        return {
+          response: isEnglish ? 
+            "🚫 All GPUs are currently in use. Please try again later." :
+            "🚫 현재 모든 GPU가 사용 중입니다. 잠시 후 다시 시도해주세요.",
+          response_time: null
+        };
+      }
+      
+      const endpoints = getCurrentEndpoints();
+      if (!endpoints) {
+        return {
+          response: isEnglish ? 
+            "❌ GPU connection error. Please try again." :
+            "❌ GPU 연결 오류입니다. 다시 시도해주세요.",
+          response_time: null
+        };
+      }
       
       // Call chat endpoint with auto-save functionality
       const controller = new AbortController();
@@ -926,40 +975,14 @@ document.addEventListener('DOMContentLoaded', function() {
       
     } catch (error) {
       console.error('Error calling AI server:', error);
+      currentAIRequest = null;
       
-      // Fallback to basic generate endpoint
-      try {
-        const endpoints = getModelEndpoints(selectedModel);
-        const fallbackResponse = await fetch(endpoints.generate, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            prompt: question,
-            language: isEnglish ? 'en' : 'ko'
-          })
-        });
-        
-        if (fallbackResponse.ok) {
-          const fallbackData = await fallbackResponse.json();
-          return fallbackData.response || (isEnglish ? "Sorry, no response generated." : "응답을 생성할 수 없습니다.");
-        }
-      } catch (fallbackError) {
-        console.error('Fallback also failed:', fallbackError);
-      }
-      
-      // Check if server is not running or blocked by network
-      if (error.message.includes('Failed to fetch') || error.message.includes('NetworkError')) {
-        const modelName = 'Qwen3-4B';
-        return isEnglish ? 
-          "🌐 AI server is not accessible from external networks. Please use GitHub Issues for AI questions: https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?labels=ai-question&template=ai-question.md" :
-          `🤖 ${modelName} AI 서버가 일시적으로 사용할 수 없습니다. 잠시 후 다시 시도하거나 GitHub Issue를 이용해주세요.`;
-      }
-      
-      return isEnglish ? 
-        "Sorry, I encountered an error. Please try again." :
-        "죄송합니다. 오류가 발생했습니다. 다시 시도해주세요.";
+      return {
+        response: isEnglish ? 
+          "❌ AI server error. Please try again." :
+          "❌ AI 서버 오류입니다. 다시 시도해주세요.",
+        response_time: null
+      };
     }
   }
 
@@ -1041,8 +1064,22 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   updateAllUI();
   
-  // Check AI server on initialization since we start in AI mode
-  checkAIServer();
+  // Clean up GPU session when page is closed or user leaves
+  window.addEventListener('beforeunload', () => {
+    if (currentSession) {
+      // Use sendBeacon for reliable cleanup
+      navigator.sendBeacon(`${GPU_MANAGER_URL}/release`, JSON.stringify({
+        session_id: currentSession.session_id
+      }));
+    }
+  });
+  
+  // Also release GPU when visibility changes (tab switch, etc)
+  document.addEventListener('visibilitychange', () => {
+    if (document.visibilityState === 'hidden' && currentSession) {
+      releaseGPU();
+    }
+  });
 
   function updateModeUI() {
     updateAllUI();
@@ -1127,20 +1164,35 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Generate and add bot response
     if (isAIMode) {
-      // AI mode - use Tiny Llama
+      // AI mode - use dynamic GPU allocation
       try {
-        addMessage(isEnglish ? 'Thinking...' : '생각 중...', 'bot', true); // temporary loading message
+        // Show connection message if no GPU is allocated
+        if (!currentSession && !isConnecting) {
+          addMessage(isEnglish ? 'Connecting to GPU...' : 'GPU에 연결 중입니다...', 'bot');
+        } else {
+          addMessage(isEnglish ? 'Thinking...' : '생각 중...', 'bot');
+        }
+        
         const aiResult = await generateAIResponse(question);
+        
         // Clear thinking timer
         clearThinkingTimer();
+        
         // Remove the loading message and add the real response
         const messages = chatbotMessages.querySelectorAll('.message');
         const lastMessage = messages[messages.length - 1];
         if (lastMessage && lastMessage.classList.contains('bot-message')) {
+          // Remove thinking timer if it exists
+          const thinkingTimer = lastMessage.querySelector('.thinking-timer');
+          if (thinkingTimer) {
+            thinkingTimer.remove();
+          }
           lastMessage.remove();
         }
+        
         const response = aiResult?.response || aiResult || 'No response';
-        const responseTime = aiResult?.response_time || null;
+        const responseTime = (aiResult?.response_time && typeof aiResult.response_time === 'number') ? aiResult.response_time : null;
+        
         // Check if response seems uncertain or generic for AI fallback
         let finalResponse = response;
         if (isResponseUncertain(response)) {
@@ -1155,6 +1207,7 @@ document.addEventListener('DOMContentLoaded', function() {
           
           finalResponse += "\n\n" + uncertaintyMessage + `<span class="envelope-emoji" onclick="showQuestionModal()">${envelopeEmoji}</span>` + fallbackSuffix;
         }
+        
         addMessage(finalResponse, 'bot', responseTime);
       } catch (error) {
         console.error('Error in AI response:', error);
@@ -1163,7 +1216,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Remove the loading message on error
         const messages = chatbotMessages.querySelectorAll('.message');
         const lastMessage = messages[messages.length - 1];
-        if (lastMessage && lastMessage.classList.contains('bot-message') && (lastMessage.textContent.includes('생각 중') || lastMessage.textContent.includes('Thinking'))) {
+        if (lastMessage && lastMessage.classList.contains('bot-message')) {
+          const thinkingTimer = lastMessage.querySelector('.thinking-timer');
+          if (thinkingTimer) {
+            thinkingTimer.remove();
+          }
           lastMessage.remove();
         }
         addMessage(
@@ -1211,8 +1268,8 @@ document.addEventListener('DOMContentLoaded', function() {
     
     messageDiv.appendChild(contentDiv);
     
-    // Add response time for bot messages
-    if (type === 'bot' && responseTime !== null) {
+    // Add response time for bot messages - only if it's a valid number
+    if (type === 'bot' && responseTime !== null && typeof responseTime === 'number' && responseTime > 0) {
       const timeDiv = document.createElement('div');
       timeDiv.className = 'response-time';
       timeDiv.innerHTML = `<small style="color: #888; font-size: 11px;">응답 시간: ${responseTime}초</small>`;
@@ -1624,8 +1681,26 @@ document.addEventListener('DOMContentLoaded', function() {
   // Server-side GitHub Issue Creation
   async function submitQuestionToServer(question) {
     try {
-      const endpoints = getModelEndpoints(selectedModel);
-      const response = await fetch(endpoints.chat.replace('/chat', '/submit-question'), {
+      // Try to get current session endpoints first
+      const endpoints = getCurrentEndpoints();
+      let submitEndpoint;
+      
+      if (endpoints) {
+        submitEndpoint = endpoints.submitQuestion;
+      } else {
+        // Fallback to allocate a GPU temporarily for question submission
+        const session = await allocateGPU();
+        if (session) {
+          const newEndpoints = getCurrentEndpoints();
+          submitEndpoint = newEndpoints?.submitQuestion;
+        }
+      }
+      
+      if (!submitEndpoint) {
+        throw new Error('GPU 연결을 할 수 없습니다.');
+      }
+      
+      const response = await fetch(submitEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
