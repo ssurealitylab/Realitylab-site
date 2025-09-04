@@ -7,10 +7,10 @@
         var originalBehavior = document.documentElement.style.scrollBehavior;
         document.documentElement.style.scrollBehavior = 'auto';
         
-        // Force scroll to top using multiple methods
-        window.scrollTo(0, 0);
-        document.documentElement.scrollTop = 0;
-        document.body.scrollTop = 0;
+        // Force scroll to 0.1px to avoid fade-out state while keeping content visible
+        window.scrollTo(0, 0.1);
+        document.documentElement.scrollTop = 0.1;
+        document.body.scrollTop = 0.1;
         
         // Also reset any CSS scroll-margin or scroll-padding
         document.body.style.scrollMarginTop = '0';

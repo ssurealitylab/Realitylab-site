@@ -47,7 +47,7 @@ header.masthead {
     }
   }
   .intro-text {
-    padding-top: 80px;
+    padding-top: 130px; // 80px + 50px
     padding-bottom: 40px;
     text-align: center;
     max-width: 800px;
@@ -126,7 +126,7 @@ header.masthead {
 @media (min-width: 768px) {
   header.masthead {
     .intro-text {
-      padding-top: 120px;
+      padding-top: 170px; // 120px + 50px
       padding-bottom: 120px;
       .intro-lead-in {
         font-size: 24px;
@@ -304,14 +304,14 @@ header.masthead {
   .image-slider-container {
     display: flex;
     justify-content: center;
-    padding: 0 20px 20px; // Reduced bottom padding since tabs are now below
+    padding: 50px 20px 20px; // Added 50px top padding
   }
   
   // Research Tabs Container (now below slider)
   .research-tabs-container {
     display: flex;
     justify-content: center;
-    padding: 20px 20px 40px; // Added top padding, kept bottom padding
+    padding: 70px 20px 90px; // Added 50px to both top (20+50=70) and bottom (40+50=90) padding
   }
   
   // Image Slider Styles with Liquid Glass effect - Perfect border wrapping
@@ -396,7 +396,7 @@ header.masthead {
 @media (max-width: 767px) {
   header.masthead {
     .intro-text {
-      padding-top: 40px;
+      padding-top: 90px; // 40px + 50px
       padding-bottom: 20px;
     }
     
@@ -441,11 +441,11 @@ header.masthead {
     }
     
     .image-slider-container {
-      padding: 0 10px 20px; // Reduced bottom padding since tabs are now below
+      padding: 50px 10px 20px; // Added 50px top padding for mobile
     }
     
     .research-tabs-container {
-      padding: 20px 10px 40px; // Added top padding, kept bottom padding
+      padding: 70px 10px 90px; // Added 50px to both top (20+50=70) and bottom (40+50=90) for mobile
     }
     
     .image-slider {
