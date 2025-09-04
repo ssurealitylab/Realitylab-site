@@ -1,8 +1,9 @@
 // Styling for the navbar - Apidog style
 #mainNav {
-  background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  backdrop-filter: none;
   border: none;
+  transition: all 0.3s ease;
   
   .navbar-toggler {
     font-size: 12px;
@@ -193,6 +194,15 @@
 // Mobile dropdown styles
 @media (max-width: 991px) {
   #mainNav {
+    background: transparent;
+    backdrop-filter: none;
+    
+    &.navbar-shrink {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
     .navbar-nav {
       .nav-item {
         &.dropdown {
@@ -234,8 +244,8 @@
     -moz-transition: all 0.3s ease;
     transition: all 0.3s ease;
     border: none;
-    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
-    backdrop-filter: blur(10px);
+    background: transparent;
+    backdrop-filter: none;
     
     .navbar-brand {
       font-size: 1.5rem;
@@ -269,6 +279,7 @@
       padding-top: 12px;
       padding-bottom: 12px;
       background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+      backdrop-filter: blur(10px);
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       
       .navbar-brand {

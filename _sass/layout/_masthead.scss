@@ -324,52 +324,6 @@ header.masthead {
       -webkit-backdrop-filter: blur(8px) saturate(1.1) brightness(1.01);
     }
     
-    // Liquid glass border - 12px thickness (doubled)
-    &::before {
-      content: '';
-      position: absolute;
-      top: -12px; // 12px thick border (doubled)
-      left: -12px;
-      right: -12px;
-      bottom: -12px;
-      border-radius: 42px; // 30px (image radius) + 12px (border thickness) = 42px
-      background: 
-        linear-gradient(45deg,
-          rgba(255, 255, 255, 0.4) 0%,
-          rgba(59, 130, 246, 0.25) 25%,
-          rgba(168, 85, 247, 0.2) 50%,
-          rgba(255, 255, 255, 0.35) 75%,
-          rgba(59, 130, 246, 0.22) 100%
-        ),
-        radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.5) 0%, transparent 60%),
-        radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.3) 0%, transparent 60%),
-        radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.25) 0%, transparent 60%),
-        radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 60%);
-      background-size: 100% 100%, 80% 80%, 80% 80%, 80% 80%, 80% 80%;
-      z-index: 1; // Changed from -1 to 1 to make it visible above background
-      filter: blur(1px); // Reduced blur
-      backdrop-filter: blur(20px) saturate(1.5) brightness(1.1);
-      -webkit-backdrop-filter: blur(20px) saturate(1.5) brightness(1.1);
-    }
-    
-    // Subtle inner border highlight
-    &::after {
-      content: '';
-      position: absolute;
-      inset: -1px; // Slight negative inset for inner glow (reduced)
-      border-radius: 31px; // Slightly larger than image radius (reduced)
-      background: 
-        linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.05) 50%, transparent 100%),
-        linear-gradient(45deg, transparent 0%, rgba(59, 130, 246, 0.02) 50%, transparent 100%);
-      pointer-events: none;
-      z-index: 1;
-      mask: 
-        radial-gradient(ellipse at center, transparent 60%, black 90%),
-        linear-gradient(45deg, transparent 45%, black 55%);
-      -webkit-mask: 
-        radial-gradient(ellipse at center, transparent 60%, black 90%),
-        linear-gradient(45deg, transparent 45%, black 55%);
-    }
     
     .slider-image {
       position: absolute;
@@ -465,45 +419,6 @@ header.masthead {
         -webkit-backdrop-filter: blur(6px) saturate(1.05) brightness(1.005);
       }
       
-      &::before {
-        top: -12px; // 12px thick border for mobile (doubled)
-        left: -12px;
-        right: -12px;
-        bottom: -12px;
-        border-radius: 32px; // 20px (image radius) + 12px (border thickness) = 32px
-        filter: blur(1px);
-        background: 
-          linear-gradient(45deg,
-            rgba(255, 255, 255, 0.35) 0%,
-            rgba(59, 130, 246, 0.2) 25%,
-            rgba(168, 85, 247, 0.15) 50%,
-            rgba(255, 255, 255, 0.3) 75%,
-            rgba(59, 130, 246, 0.18) 100%
-          ),
-          radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.4) 0%, transparent 60%),
-          radial-gradient(circle at 75% 75%, rgba(59, 130, 246, 0.25) 0%, transparent 60%),
-          radial-gradient(circle at 25% 75%, rgba(168, 85, 247, 0.2) 0%, transparent 60%),
-          radial-gradient(circle at 75% 25%, rgba(255, 255, 255, 0.35) 0%, transparent 60%);
-        background-size: 100% 100%, 70% 70%, 70% 70%, 70% 70%, 70% 70%;
-        z-index: 1; // Make border visible
-        filter: blur(1px); // Reduced blur
-        backdrop-filter: blur(18px) saturate(1.4) brightness(1.08);
-        -webkit-backdrop-filter: blur(18px) saturate(1.4) brightness(1.08);
-      }
-      
-      &::after {
-        inset: -0.5px; // Slight negative inset for mobile inner glow (reduced)
-        border-radius: 21px; // Slightly larger than mobile image radius (reduced)
-        background: 
-          linear-gradient(135deg, transparent 0%, rgba(255, 255, 255, 0.03) 50%, transparent 100%),
-          linear-gradient(45deg, transparent 0%, rgba(59, 130, 246, 0.015) 50%, transparent 100%);
-        mask: 
-          radial-gradient(ellipse at center, transparent 65%, black 85%),
-          linear-gradient(45deg, transparent 40%, black 60%);
-        -webkit-mask: 
-          radial-gradient(ellipse at center, transparent 65%, black 85%),
-          linear-gradient(45deg, transparent 40%, black 60%);
-      }
     }
     
     .slider-content {
