@@ -829,6 +829,14 @@ document.addEventListener('DOMContentLoaded', function() {
   // GPU Manager endpoint
   const GPU_MANAGER_URL = 'https://cet-messenger-production-brooklyn.trycloudflare.com';
   
+  // Page visitor management
+  let visitorSessionTimer = null;
+  let lastActivityTime = Date.now();
+  const VISITOR_SESSION_TIMEOUT = 5 * 60 * 1000; // 5 minutes
+  
+  // Automatically allocate GPU when page loads
+  initializeVisitorSession();
+  
   // Get current session endpoints
   function getCurrentEndpoints() {
     if (currentEndpoint) {
@@ -839,6 +847,106 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     }
     return null;
+  }
+
+  // Initialize visitor session - allocate GPU when user visits page
+  async function initializeVisitorSession() {
+    console.log('🏠 Visitor detected - initializing GPU session...');
+    
+    // Allocate GPU immediately when user visits page
+    const session = await allocateGPU();
+    if (session) {
+      console.log('✅ GPU allocated for visitor session');
+      startVisitorSessionTimer();
+      setupActivityListeners();
+    } else {
+      console.log('❌ Failed to allocate GPU for visitor - retrying in 10 seconds');
+      setTimeout(initializeVisitorSession, 10000);
+    }
+  }
+  
+  // Setup activity listeners to detect user interaction
+  function setupActivityListeners() {
+    const activities = ['mousedown', 'mousemove', 'keypress', 'scroll', 'touchstart', 'click'];
+    
+    activities.forEach(activity => {
+      document.addEventListener(activity, updateLastActivity, { passive: true });
+    });
+    
+    // Also listen for visibility changes
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+  }
+  
+  // Update last activity time
+  function updateLastActivity() {
+    lastActivityTime = Date.now();
+    // Reset visitor session timer
+    startVisitorSessionTimer();
+  }
+  
+  // Handle page visibility changes
+  function handleVisibilityChange() {
+    if (document.visibilityState === 'visible') {
+      // User came back to page
+      updateLastActivity();
+      console.log('👁️ User returned to page');
+    } else {
+      // User switched away from page - start 5-minute countdown
+      console.log('😴 User left page - 5 minute countdown started');
+      startVisitorSessionTimer();
+    }
+  }
+  
+  // Start or restart visitor session timer (5 minutes)
+  function startVisitorSessionTimer() {
+    if (visitorSessionTimer) {
+      clearTimeout(visitorSessionTimer);
+    }
+    
+    visitorSessionTimer = setTimeout(() => {
+      const timeSinceLastActivity = Date.now() - lastActivityTime;
+      
+      if (timeSinceLastActivity >= VISITOR_SESSION_TIMEOUT) {
+        console.log('⏰ 5 minutes of inactivity - releasing GPU session');
+        releaseGPUSession();
+      } else {
+        // Still active, restart timer
+        const remainingTime = VISITOR_SESSION_TIMEOUT - timeSinceLastActivity;
+        console.log(`🔄 User still active - restarting timer for ${Math.round(remainingTime/1000)} seconds`);
+        setTimeout(startVisitorSessionTimer, remainingTime);
+      }
+    }, VISITOR_SESSION_TIMEOUT);
+  }
+  
+  // Release GPU session
+  async function releaseGPUSession() {
+    if (!currentSession) {
+      return;
+    }
+    
+    try {
+      console.log('🔄 Releasing GPU session...');
+      const response = await fetch(`${GPU_MANAGER_URL}/release`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ session_id: currentSession.session_id })
+      });
+      
+      if (response.ok) {
+        console.log('✅ GPU session released successfully');
+      } else {
+        console.log('⚠️ Failed to release GPU session');
+      }
+    } catch (error) {
+      console.error('❌ Error releasing GPU session:', error);
+    } finally {
+      currentSession = null;
+      currentEndpoint = null;
+      if (visitorSessionTimer) {
+        clearTimeout(visitorSessionTimer);
+        visitorSessionTimer = null;
+      }
+    }
   }
 
   // Allocate GPU for AI session
@@ -913,26 +1021,33 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Previous AI request cancelled');
       }
       
-      // Allocate GPU if not already allocated
-      const session = await allocateGPU();
-      if (!session) {
-        return {
-          response: isEnglish ? 
-            "🚫 All GPUs are currently in use. Please try again later." :
-            "🚫 현재 모든 GPU가 사용 중입니다. 잠시 후 다시 시도해주세요.",
-          response_time: null
-        };
+      // Check if GPU session is available (should already be allocated on page load)
+      if (!currentSession) {
+        // Try to allocate if somehow not available
+        console.log('⚠️ No GPU session found, attempting to allocate...');
+        const session = await allocateGPU();
+        if (!session) {
+          return {
+            response: isEnglish ? 
+              "🚫 GPU connection not available. Please reload the page." :
+              "🚫 GPU 연결이 없습니다. 페이지를 새로고침 해주세요.",
+            response_time: null
+          };
+        }
       }
       
       const endpoints = getCurrentEndpoints();
       if (!endpoints) {
         return {
           response: isEnglish ? 
-            "❌ GPU connection error. Please try again." :
-            "❌ GPU 연결 오류입니다. 다시 시도해주세요.",
+            "❌ GPU connection error. Please reload the page." :
+            "❌ GPU 연결 오류입니다. 페이지를 새로고침 해주세요.",
           response_time: null
         };
       }
+      
+      // Update user activity since they're using AI chat
+      updateLastActivity();
       
       // Call chat endpoint with auto-save functionality
       const controller = new AbortController();
