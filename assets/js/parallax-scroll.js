@@ -66,7 +66,7 @@
         
         // Calculate smooth scroll progress - ensure initial state shows content clearly
         var scrollProgress = 0;
-        if (scrollY >= fadeStartPoint && scrollY > 100) { // Add minimum scroll threshold
+        if (scrollY >= fadeStartPoint && scrollY > 200) { // Higher minimum scroll threshold to prevent initial fade
             scrollProgress = Math.min((scrollY - fadeStartPoint) / fadeDistance, 1);
         }
         
@@ -76,7 +76,13 @@
         // Calculate parallax effects with smoother curves and safer initial values
         var translateY = scrollY * 0.3; // Slower parallax for stability
         var blur = easedProgress * 8; // Reduced blur for better visibility
-        var opacity = Math.max(1 - easedProgress * 0.9, 0.1); // Keep minimum opacity for visibility
+        
+        // Ensure full visibility at page load - no fade until significant scroll
+        var opacity = 1; // Default to full opacity
+        if (scrollY > 150) { // Only start fading after 150px scroll
+            opacity = Math.max(1 - easedProgress * 0.9, 0.1); // Keep minimum opacity for visibility
+        }
+        
         var scale = Math.max(1 - easedProgress * 0.05, 0.95); // Less aggressive scaling
         
         // Apply transforms with hardware acceleration
