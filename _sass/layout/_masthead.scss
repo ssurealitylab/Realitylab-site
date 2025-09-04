@@ -241,7 +241,7 @@ header.masthead {
       background: rgba(255, 255, 255, 0.12);
       border: 1px solid rgba(255, 255, 255, 0.3);
       border-radius: 20px; // 25px * 0.8 = 20px (20% reduction)
-      padding: 8px 13px; // 10px * 0.8 = 8px, 16px * 0.8 = 13px (20% reduction)
+      padding: 8px 16px; // Fixed padding for uniform height
       text-align: center;
       opacity: 0.6;
       transition: all 0.5s ease;
@@ -252,14 +252,20 @@ header.masthead {
         0 4px 16px rgba(0, 0, 0, 0.08),
         0 1px 0 rgba(255, 255, 255, 0.2) inset;
       flex: 0 0 auto; // Don't grow or shrink
-      min-width: 112px; // 140px * 0.8 = 112px (20% reduction)
+      width: 120px; // Fixed width for uniformity
+      height: 60px; // Fixed height for uniformity
       margin: 3px; // 4px * 0.8 = 3px (20% reduction)
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       
       &.active {
         opacity: 1;
         background: rgba(59, 130, 246, 0.2);
         border: 1px solid rgba(59, 130, 246, 0.4);
-        transform: scale(1.08); // Increased scale for more visibility
+        transform: scaleX(1.15); // Horizontal stretch only
+        width: 140px; // Expanded width when active
         backdrop-filter: blur(15px) saturate(2);
         -webkit-backdrop-filter: blur(15px) saturate(2);
         box-shadow: 
@@ -269,20 +275,27 @@ header.masthead {
       }
       
       .tab-title {
-        font-size: 0.72rem; // 0.9rem * 0.8 = 0.72rem (20% reduction)
+        font-size: 0.7rem; // Slightly smaller to fit better
         font-weight: 600;
         color: #3366cc; // Same blue-purple mix as title
         margin-bottom: 2px; // 3px * 0.8 = 2px (20% reduction)
         @include heading-font;
         white-space: nowrap; // Prevent text wrapping
+        text-overflow: ellipsis; // Handle overflow gracefully
+        overflow: hidden;
+        max-width: 100%;
       }
       
       .tab-description {
-        font-size: 0.6rem; // 0.75rem * 0.8 = 0.6rem (20% reduction)
+        font-size: 0.58rem; // Slightly smaller to fit better
         color: #3366cc; // Same blue-purple mix as title
         margin-bottom: 0;
         @include body-font;
-        line-height: 1.3;
+        line-height: 1.2;
+        white-space: nowrap; // Prevent text wrapping
+        text-overflow: ellipsis; // Handle overflow gracefully
+        overflow: hidden;
+        max-width: 100%;
       }
     }
   }
@@ -404,12 +417,18 @@ header.masthead {
       }
       
       .research-tab {
-        min-width: 110px;
-        padding: 8px 12px;
+        width: 110px; // Fixed width for mobile uniformity
+        height: 55px; // Fixed height for mobile uniformity
+        padding: 6px 12px; // Fixed padding for mobile
         margin: 2px; // Smaller margin for mobile
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         
         &.active {
-          transform: scale(1.06); // Increased scale for mobile
+          transform: scaleX(1.12); // Horizontal stretch for mobile
+          width: 125px; // Expanded width when active on mobile
         }
         
         .tab-title {
