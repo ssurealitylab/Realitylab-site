@@ -252,7 +252,7 @@ header.masthead {
         0 4px 16px rgba(0, 0, 0, 0.08),
         0 1px 0 rgba(255, 255, 255, 0.2) inset;
       flex: 0 0 auto; // Don't grow or shrink
-      width: 156px; // 120px * 1.3 = 156px (30% increase)
+      width: 187px; // 156px * 1.2 = 187px (additional 20% increase)
       height: 60px; // Fixed height for uniformity
       margin: 3px; // 4px * 0.8 = 3px (20% reduction)
       display: flex;
@@ -265,7 +265,7 @@ header.masthead {
         background: rgba(59, 130, 246, 0.2);
         border: 1px solid rgba(59, 130, 246, 0.4);
         transform: scaleX(1.15); // Horizontal stretch only
-        width: 182px; // 140px * 1.3 = 182px (30% increase)
+        width: 218px; // 182px * 1.2 = 218px (additional 20% increase)
         backdrop-filter: blur(15px) saturate(2);
         -webkit-backdrop-filter: blur(15px) saturate(2);
         box-shadow: 
@@ -417,7 +417,7 @@ header.masthead {
       }
       
       .research-tab {
-        width: 143px; // 110px * 1.3 = 143px (30% increase)
+        width: 172px; // 143px * 1.2 = 172px (additional 20% increase)
         height: 55px; // Fixed height for mobile uniformity
         padding: 6px 12px; // Fixed padding for mobile
         margin: 2px; // Smaller margin for mobile
@@ -428,7 +428,7 @@ header.masthead {
         
         &.active {
           transform: scaleX(1.12); // Horizontal stretch for mobile
-          width: 163px; // 125px * 1.3 = 163px (30% increase)
+          width: 196px; // 163px * 1.2 = 196px (additional 20% increase)
         }
         
         .tab-title {
