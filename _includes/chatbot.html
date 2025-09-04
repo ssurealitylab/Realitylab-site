@@ -828,9 +828,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function getModelEndpoints(model) {
     const endpoints = {
       'qwen3-4b': {
-        health: 'https://coordinated-boolean-using-population.trycloudflare.com/health',
-        chat: 'https://coordinated-boolean-using-population.trycloudflare.com/chat',
-        generate: 'https://coordinated-boolean-using-population.trycloudflare.com/generate'
+        health: 'https://bw-remembered-videos-calvin.trycloudflare.com/health',
+        chat: 'https://bw-remembered-videos-calvin.trycloudflare.com/chat',
+        submitQuestion: 'https://bw-remembered-videos-calvin.trycloudflare.com/submit-question'
       },
     };
     return endpoints[model] || endpoints['qwen3-4b'];
@@ -871,13 +871,24 @@ document.addEventListener('DOMContentLoaded', function() {
     return isServerAvailable;
   }
 
+  // Global variable for request cancellation
+  let currentAIRequest = null;
+
   // Generate AI response using public AI server with auto-save
   async function generateAIResponse(question) {
     try {
+      // Cancel previous request if exists
+      if (currentAIRequest) {
+        currentAIRequest.abort();
+        console.log('Previous AI request cancelled');
+      }
+      
       const endpoints = getModelEndpoints(selectedModel);
       
       // Call chat endpoint with auto-save functionality
       const controller = new AbortController();
+      currentAIRequest = controller; // Store for cancellation
+      
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
       
       const response = await fetch(endpoints.chat, {
@@ -887,12 +898,14 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         body: JSON.stringify({
           question: question,
-          language: isEnglish ? 'en' : 'ko'
+          language: isEnglish ? 'en' : 'ko',
+          max_length: 1200
         }),
         signal: controller.signal
       });
       
       clearTimeout(timeoutId);
+      currentAIRequest = null; // Clear after completion
 
       if (!response.ok) {
         throw new Error(`Server error: ${response.status}`);
@@ -1212,7 +1225,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (type === 'bot' && (content.includes('생각 중') || content.includes('Thinking'))) {
       const timeDiv = document.createElement('div');
       timeDiv.className = 'thinking-timer';
-      timeDiv.innerHTML = `<small style="color: #888; font-size: 11px;">⏱️ 0초</small>`;
+      timeDiv.innerHTML = `<small style="color: #888; font-size: 11px;">응답 시간: 0초</small>`;
       messageDiv.appendChild(timeDiv);
       
       // Start timer
@@ -1221,7 +1234,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const elapsed = Math.floor((Date.now() - thinkingStartTime) / 1000);
         const timerElement = messageDiv.querySelector('.thinking-timer small');
         if (timerElement) {
-          timerElement.innerHTML = `⏱️ ${elapsed}초`;
+          timerElement.innerHTML = `응답 시간: ${elapsed}초`;
         } else {
           clearInterval(thinkingTimer);
         }
@@ -1371,53 +1384,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Check if AI response seems uncertain
   function isResponseUncertain(response) {
-    const uncertaintyKeywords = [
-      // Basic uncertainty expressions
-      '확실하지', '정확하지', '모르겠', '아마도', '것 같습니다', '추측', '생각합니다',
-      // Lack of information expressions
-      '제공된 정보에 따르면', '구체적인 내용은 없습니다', '구체적인 설명은 없습니다', 
-      '직접적인 묘사는 없습니다', '직접적인 내용은 없습니다', '자료에 없습니다',
-      // New patterns for meeting/schedule uncertainty
-      '공식적으로 제공된 정보에 명시되어 있지 않습니다', '명시되어 있지 않습니다', '명시되어 있지 않',
-      '일반적인', '따라 달라질 수 있습니다', '달라질 수 있습니다', '달라질 수 있으므로',
-      '직접 문의하는 것이', '직접 문의', '직접 연락', '직접 확인', '직접 문의하는 것',
-      '신룰할 수 있습니다', '가장 신룰할 수 있는', '확인하려면',
-      '전하지 않', '다만', '그러나', '없습니다',
+    // Only trigger for very specific uncertainty patterns
+    const strongUncertaintyKeywords = [
+      // Very specific uncertainty expressions
+      '확실하지 않습니다', '정확하지 않습니다', '모르겠습니다', '잘 모르겠습니다',
+      // Missing information expressions
+      '제공된 정보에 따르면.*없습니다', '구체적인 정보가 없습니다', '구체적인 내용은 없습니다',
+      '공식적으로 제공된 정보에 명시되어 있지 않습니다', '명시되어 있지 않습니다',
+      // Direct contact recommendations (what we want to avoid)
+      '직접 문의하는 것이 가장', '직접 연락하는 것이 좋습니다', '직접 확인해보세요',
       // English uncertainty
-      'not sure', 'uncertain', 'maybe', 'perhaps', 'i think', 'probably', 'might be',
-      'according to the information', 'no specific', 'no direct', 'not available',
-      'not officially provided', 'not specified', 'generally', 'typically', 'usually'
+      'not sure about', 'uncertain about', 'no specific information', 'not available in',
+      'not officially provided', 'contact directly', 'please contact'
     ];
     
-    // Check for uncertainty patterns
+    // Check for strong uncertainty patterns only
     const lowerResponse = response.toLowerCase();
-    const hasUncertainty = uncertaintyKeywords.some(keyword => 
+    const hasStrongUncertainty = strongUncertaintyKeywords.some(keyword => 
       lowerResponse.includes(keyword.toLowerCase())
     );
     
-    // Check for vague response patterns
-    const vaguePatterns = [
-      /제공된.*?정보.*?따르면.*?없습니다/,
-      /구체적인.*?설명.*?없습니다/,
-      /직접적인.*?묘사.*?없습니다/,
-      /다만.*?보입니다/,
-      /그러나.*?없습니다/,
-      // New patterns for meeting/schedule questions
+    // Check for very specific uncertainty patterns that we definitely want to catch
+    const criticalUncertaintyPatterns = [
       /공식적으로.*?제공된.*?정보.*?명시되어.*?있지.*?않습니다/,
-      /일반적인.*?경우/,
-      /따라.*?달라질.*?수.*?있습니다/,
-      /직접.*?문의.*?가장.*?신룰/,
-      /정확한.*?정보.*?확인하려면/
+      /구체적인.*?정보.*?없습니다/,
+      /직접.*?문의.*?가장.*?신뢰할.*?수.*?있습니다/,
+      /정확한.*?정보.*?확인하려면.*?직접.*?문의/
     ];
     
-    const hasVaguePattern = vaguePatterns.some(pattern => pattern.test(response));
+    const hasCriticalUncertaintyPattern = criticalUncertaintyPatterns.some(pattern => pattern.test(response));
     
-    // Additional specific checks for common uncertain response structures
-    const containsGeneralizations = /일반적인|보통|대부분의|평균적으로/.test(response);
-    const containsRecommendations = /문의하는 것이|연락하는 것이|확인하는 것이/.test(response);
-    const containsConditionals = /수 있습니다.*?따라|따라.*?달라질/.test(response);
-    
-    return hasUncertainty || hasVaguePattern || containsGeneralizations || containsRecommendations || containsConditionals || response.length < 50;
+    // Only check for content reliability, not length
+    // Envelope should appear when AI is genuinely uncertain about information
+    return hasCriticalUncertaintyPattern || hasStrongUncertainty;
   }
 
   // Drag functionality
