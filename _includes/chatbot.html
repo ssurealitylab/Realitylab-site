@@ -632,6 +632,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  pointer-events: auto;
 }
 
 .modal-backdrop {
@@ -641,7 +642,8 @@
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
-  /* Remove backdrop-filter to prevent full-screen blur */
+  z-index: -1;
+  pointer-events: auto;
 }
 
 .modal-content {
@@ -656,6 +658,8 @@
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   overflow: hidden;
+  z-index: 10;
+  pointer-events: auto;
 }
 
 .modal-header {
@@ -1592,25 +1596,27 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Send question functionality
   if (modalSend) {
-    modalSend.addEventListener('click', async function() {
+    modalSend.addEventListener('click', async function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      
       const question = questionTextarea.value.trim();
       if (!question) {
-        alert(isEnglish ? 'Please enter your question.' : '질문을 입력해주세요.');
+        alert('질문을 입력해주세요.');
         return;
       }
       
       // Disable send button during processing
       modalSend.disabled = true;
-      modalSend.textContent = isEnglish ? 'Submitting...' : '제출 중...';
+      modalSend.textContent = '제출 중...';
       
       try {
         // Create GitHub issue URL and redirect
         const issueURL = createGitHubIssueURL(question);
         
         // Show confirmation dialog
-        const confirmed = confirm(isEnglish ?
-          'You will be redirected to GitHub to create an issue. Note: Only repository collaborators can create issues. Continue?' :
-          'GitHub 이슈 생성 페이지로 이동합니다. 참고: 리포지토리 공동작업자만 이슈를 생성할 수 있습니다. 계속하시겠습니까?'
+        const confirmed = confirm(
+          'GitHub 이슈 생성 페이지로 이동합니다.\n\n⚠️ 중요: 이 기능은 Reality Lab 관계자만 사용 가능합니다.\n- 리포지토리 Collaborator 권한이 필요합니다\n- 권한이 없으시면 heewon@ssu.ac.kr로 연락해주세요\n\n계속하시겠습니까?'
         );
         
         if (confirmed) {
@@ -1618,23 +1624,17 @@ document.addEventListener('DOMContentLoaded', function() {
           window.open(issueURL, '_blank');
           
           // Show success message
-          alert(isEnglish ? 
-            'GitHub issue page opened in new tab. Please complete the submission there.' :
-            'GitHub 이슈 페이지가 새 탭에서 열렸습니다. 거기에서 제출을 완료해주세요.'
-          );
+          alert('GitHub 이슈 페이지가 새 탭에서 열렸습니다. 거기에서 제출을 완료해주세요.');
           
           closeModal();
         }
       } catch (error) {
         console.error('Error creating issue URL:', error);
-        alert(isEnglish ? 
-          'Sorry, there was an error. Please try again or contact the lab directly.' :
-          '죄송합니다. 오류가 발생했습니다. 다시 시도하거나 연구실에 직접 연락해주세요.'
-        );
+        alert('죄송합니다. 오류가 발생했습니다. 다시 시도하거나 연구실에 직접 연락해주세요.');
       } finally {
         // Re-enable send button
         modalSend.disabled = false;
-        modalSend.textContent = isEnglish ? 'Send' : '보내기';
+        modalSend.textContent = '보내기';
       }
     });
   }
