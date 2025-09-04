@@ -1377,10 +1377,16 @@ document.addEventListener('DOMContentLoaded', function() {
       // Lack of information expressions
       '제공된 정보에 따르면', '구체적인 내용은 없습니다', '구체적인 설명은 없습니다', 
       '직접적인 묘사는 없습니다', '직접적인 내용은 없습니다', '자료에 없습니다',
-      '전하지 않', '다만', '그러나', '없습니다', '없습니다',
+      // New patterns for meeting/schedule uncertainty
+      '공식적으로 제공된 정보에 명시되어 있지 않습니다', '명시되어 있지 않습니다', '명시되어 있지 않',
+      '일반적인', '따라 달라질 수 있습니다', '달라질 수 있습니다', '달라질 수 있으므로',
+      '직접 문의하는 것이', '직접 문의', '직접 연락', '직접 확인', '직접 문의하는 것',
+      '신룰할 수 있습니다', '가장 신룰할 수 있는', '확인하려면',
+      '전하지 않', '다만', '그러나', '없습니다',
       // English uncertainty
       'not sure', 'uncertain', 'maybe', 'perhaps', 'i think', 'probably', 'might be',
-      'according to the information', 'no specific', 'no direct', 'not available'
+      'according to the information', 'no specific', 'no direct', 'not available',
+      'not officially provided', 'not specified', 'generally', 'typically', 'usually'
     ];
     
     // Check for uncertainty patterns
@@ -1395,12 +1401,23 @@ document.addEventListener('DOMContentLoaded', function() {
       /구체적인.*?설명.*?없습니다/,
       /직접적인.*?묘사.*?없습니다/,
       /다만.*?보입니다/,
-      /그러나.*?없습니다/
+      /그러나.*?없습니다/,
+      // New patterns for meeting/schedule questions
+      /공식적으로.*?제공된.*?정보.*?명시되어.*?있지.*?않습니다/,
+      /일반적인.*?경우/,
+      /따라.*?달라질.*?수.*?있습니다/,
+      /직접.*?문의.*?가장.*?신룰/,
+      /정확한.*?정보.*?확인하려면/
     ];
     
     const hasVaguePattern = vaguePatterns.some(pattern => pattern.test(response));
     
-    return hasUncertainty || hasVaguePattern || response.length < 50;
+    // Additional specific checks for common uncertain response structures
+    const containsGeneralizations = /일반적인|보통|대부분의|평균적으로/.test(response);
+    const containsRecommendations = /문의하는 것이|연락하는 것이|확인하는 것이/.test(response);
+    const containsConditionals = /수 있습니다.*?따라|따라.*?달라질/.test(response);
+    
+    return hasUncertainty || hasVaguePattern || containsGeneralizations || containsRecommendations || containsConditionals || response.length < 50;
   }
 
   // Drag functionality
