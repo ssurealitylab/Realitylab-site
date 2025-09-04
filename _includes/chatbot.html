@@ -110,6 +110,28 @@
   </div>
 </div>
 
+<!-- Question Submission Modal -->
+<div id="question-modal" class="question-modal" style="display: none;">
+  <div class="modal-backdrop"></div>
+  <div class="modal-content">
+    <div class="modal-header">
+      <h3>질문 추가 요청</h3>
+      <button class="modal-close" id="modal-close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p>궁금한 내용을 남겨주시면, 연구실 관계자가 검토 후 답변을 추가하겠습니다.</p>
+      <textarea id="question-textarea" placeholder="질문을 입력해주세요..." maxlength="500"></textarea>
+      <div class="char-count">
+        <span id="char-count">0</span> / 500
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn-secondary" id="modal-cancel">취소</button>
+      <button class="btn-primary" id="modal-send">보내기</button>
+    </div>
+  </div>
+</div>
+
 <style>
 /* Chatbot Styles */
 .chatbot-container {
@@ -570,6 +592,166 @@
 .ai-info-bottom-left .ai-info-tooltip::after {
   left: 20px !important;
 }
+
+/* Question Modal Styles */
+.question-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-backdrop {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 24px;
+  border-bottom: 1px solid #e5e7eb;
+  background: linear-gradient(135deg, rgba(51, 102, 204, 0.1) 0%, rgba(41, 84, 179, 0.15) 100%);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: #6b7280;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s ease;
+}
+
+.modal-close:hover {
+  background: rgba(0, 0, 0, 0.1);
+  color: #1a1a1a;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body p {
+  margin: 0 0 16px 0;
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+#question-textarea {
+  width: 100%;
+  min-height: 120px;
+  padding: 12px 16px;
+  border: 2px solid #e5e7eb;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+#question-textarea:focus {
+  border-color: #3366cc;
+}
+
+.char-count {
+  text-align: right;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.modal-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 20px 24px;
+  border-top: 1px solid #e5e7eb;
+  background: #f9fafb;
+}
+
+.btn-secondary, .btn-primary {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary {
+  background: #f3f4f6;
+  color: #374151;
+}
+
+.btn-secondary:hover {
+  background: #e5e7eb;
+}
+
+.btn-primary {
+  background: #3366cc;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #2954b3;
+}
+
+.btn-primary:disabled {
+  background: #9ca3af;
+  cursor: not-allowed;
+}
+
+/* Envelope emoji styling */
+.envelope-emoji {
+  cursor: pointer;
+  font-size: 16px;
+  margin: 0 4px;
+  transition: transform 0.2s ease;
+}
+
+.envelope-emoji:hover {
+  transform: scale(1.1);
+}
 </style>
 
 <script>
@@ -906,7 +1088,21 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         const response = aiResult?.response || aiResult || 'No response';
         const responseTime = aiResult?.response_time || null;
-        addMessage(response, 'bot', responseTime);
+        // Check if response seems uncertain or generic for AI fallback
+        let finalResponse = response;
+        if (isResponseUncertain(response)) {
+          const uncertaintyMessage = isEnglish ?
+            "I'm not completely certain about this answer. If you need more specific information, please click " :
+            "이 답변이 확실하지 않습니다. 더 구체적인 정보가 필요하시다면, ";
+          
+          const envelopeEmoji = '📩';
+          const fallbackSuffix = isEnglish ?
+            " to submit your question for review by our lab members." :
+            "를 클릭해 익명으로 답변 추가 요청이 가능합니다.";
+          
+          finalResponse += "\n\n" + uncertaintyMessage + `<span class="envelope-emoji" onclick="showQuestionModal()">${envelopeEmoji}</span>` + fallbackSuffix;
+        }
+        addMessage(finalResponse, 'bot', responseTime);
       } catch (error) {
         console.error('Error in AI response:', error);
         // Clear thinking timer on error
@@ -1105,9 +1301,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
     
-    // Fallback
-    const fallbacks = knowledgeBase.fallback_responses;
-    return fallbacks[Math.floor(Math.random() * fallbacks.length)];
+    // Fallback with envelope emoji
+    const baseMessage = isEnglish ? 
+      "I don't have specific information about that. If you have questions, please click " :
+      "궁금한 내용이 있다면, ";
+    
+    const envelopeEmoji = '📩';
+    const fallbackSuffix = isEnglish ?
+      " to submit your question for review by our lab members. Feel free to use it!" :
+      "를 클릭해 익명으로 답변 추가 요청이 가능합니다. 편하게 사용해주세요.";
+    
+    return baseMessage + `<span class="envelope-emoji" onclick="showQuestionModal()">${envelopeEmoji}</span>` + fallbackSuffix;
   }
 
   // Simple similarity check
@@ -1123,6 +1327,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     return matchCount >= Math.min(words1.length, words2.length) * 0.4;
+  }
+
+  // Check if AI response seems uncertain
+  function isResponseUncertain(response) {
+    const uncertaintyKeywords = [
+      '확실하지', '정확하지', '모르겠', '아마도', '것 같습니다', '추측', '생각합니다',
+      'not sure', 'uncertain', 'maybe', 'perhaps', 'i think', 'probably', 'might be'
+    ];
+    
+    const lowerResponse = response.toLowerCase();
+    return uncertaintyKeywords.some(keyword => lowerResponse.includes(keyword)) ||
+           response.length < 50; // Very short responses might be uncertain
   }
 
   // Drag functionality
@@ -1288,6 +1504,103 @@ document.addEventListener('DOMContentLoaded', function() {
       };
     });
     
+  }
+
+  // Global function to show question modal
+  window.showQuestionModal = function() {
+    const modal = document.getElementById('question-modal');
+    if (modal) {
+      modal.style.display = 'flex';
+      document.getElementById('question-textarea').focus();
+    }
+  };
+
+  // Modal functionality
+  const questionModal = document.getElementById('question-modal');
+  const modalClose = document.getElementById('modal-close');
+  const modalCancel = document.getElementById('modal-cancel');
+  const modalSend = document.getElementById('modal-send');
+  const questionTextarea = document.getElementById('question-textarea');
+  const charCount = document.getElementById('char-count');
+  const modalBackdrop = document.querySelector('.modal-backdrop');
+
+  function closeModal() {
+    if (questionModal) {
+      questionModal.style.display = 'none';
+      questionTextarea.value = '';
+      charCount.textContent = '0';
+    }
+  }
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  if (modalCancel) modalCancel.addEventListener('click', closeModal);
+  if (modalBackdrop) modalBackdrop.addEventListener('click', closeModal);
+
+  // Character counter
+  if (questionTextarea && charCount) {
+    questionTextarea.addEventListener('input', function() {
+      charCount.textContent = this.value.length;
+    });
+  }
+
+  // GitHub Issue Creation via URL (Simplified approach)
+  function createGitHubIssueURL(question) {
+    const title = encodeURIComponent('AI 챗봇 질문 추가 요청');
+    const body = encodeURIComponent(
+      `## 사용자 질문\n\n${question}\n\n---\n\n*이 이슈는 AI 챗봇의 질문 제출 기능을 통해 생성되었습니다.*`
+    );
+    const labels = encodeURIComponent('ai-question,user-request');
+    
+    return `https://github.com/ssurealitylab-spec/Realitylab-site/issues/new?title=${title}&body=${body}&labels=${labels}`;
+  }
+
+  // Send question functionality
+  if (modalSend) {
+    modalSend.addEventListener('click', async function() {
+      const question = questionTextarea.value.trim();
+      if (!question) {
+        alert(isEnglish ? 'Please enter your question.' : '질문을 입력해주세요.');
+        return;
+      }
+      
+      // Disable send button during processing
+      modalSend.disabled = true;
+      modalSend.textContent = isEnglish ? 'Submitting...' : '제출 중...';
+      
+      try {
+        // Create GitHub issue URL and redirect
+        const issueURL = createGitHubIssueURL(question);
+        
+        // Show confirmation dialog
+        const confirmed = confirm(isEnglish ?
+          'You will be redirected to GitHub to create an issue. Note: Only repository collaborators can create issues. Continue?' :
+          'GitHub 이슈 생성 페이지로 이동합니다. 참고: 리포지토리 공동작업자만 이슈를 생성할 수 있습니다. 계속하시겠습니까?'
+        );
+        
+        if (confirmed) {
+          // Open GitHub issue creation page in new tab
+          window.open(issueURL, '_blank');
+          
+          // Show success message
+          alert(isEnglish ? 
+            'GitHub issue page opened in new tab. Please complete the submission there.' :
+            'GitHub 이슈 페이지가 새 탭에서 열렸습니다. 거기에서 제출을 완료해주세요.'
+          );
+          
+          closeModal();
+        }
+      } catch (error) {
+        console.error('Error creating issue URL:', error);
+        alert(isEnglish ? 
+          'Sorry, there was an error. Please try again or contact the lab directly.' :
+          '죄송합니다. 오류가 발생했습니다. 다시 시도하거나 연구실에 직접 연락해주세요.'
+        );
+      } finally {
+        // Re-enable send button
+        modalSend.disabled = false;
+        modalSend.textContent = isEnglish ? 'Send' : '보내기';
+      }
+    });
   }
 });
 </script>
