@@ -151,13 +151,13 @@
             parallaxContainer.style.opacity = '1';
         }
         
-        // Enable parallax after 2 seconds as backup
+        // Enable parallax after 0.05 seconds as backup
         setTimeout(function() {
             if (!parallaxEnabled) {
                 parallaxEnabled = true;
                 log('Parallax enabled after time delay');
             }
-        }, 2000);
+        }, 50);
         
         // Initial call
         handleScroll();
