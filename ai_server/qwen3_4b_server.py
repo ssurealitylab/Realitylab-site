@@ -93,7 +93,7 @@ def ensure_sentence_completion(text, language='ko'):
     
     return text
 
-def generate_response(prompt, language='ko', max_length=800):
+def generate_response(prompt, language='ko', max_length=1200):
     """Generate AI response"""
     global model, tokenizer
     
@@ -118,24 +118,26 @@ def generate_response(prompt, language='ko', max_length=800):
 
 **Courses Offered:** Computer Vision, Machine Learning, Image Processing Lab, Advanced Computer Vision, Media GAN, Data Science
 
-**Important:** Always think and respond in English only. Never use Korean."""
-        else:
-            system_content = """당신은 숭실대학교 Reality Lab의 전문 한국어 어시스턴트입니다. 항상 한국어로만 생각하고 한국어로만 답변해주세요.
+**Important:** Always think and respond in English only. Never use Korean.
 
-**Reality Lab 핵심 정보:**
-- 설립: 2023년 숭실대학교, 김희원 교수님 지도
-- 연구목표: 현실을 이해하는 AI 기술 발전
-- 주요 연구분야: 로보틱스, 컴퓨터비전, 기계학습, 멀티모달 언어이해, AI+X 헬스케어
+**Response Guidelines:** 
+- Provide confident answers for confirmed Reality Lab information (contact, location, research areas, team, achievements).
+- Answer general graduate school/lab questions (application process, requirements) reasonably based on common academic practices.
+- Only use "this information is not officially provided" for specific internal details that truly require insider knowledge.
+- Avoid suggesting direct contact phrases like "please contact directly", "it would be best to inquire", or "please check"."""
+        else:
+            system_content = """당신은 숭실대학교 Reality Lab 어시스턴트입니다. 항상 한국어로 답변하세요.
+
+Reality Lab 정보:
+- 설립: 2023년, 김희원 교수님 지도
+- 연구분야: 로보틱스, 컴퓨터비전, 기계학습, 멀티모달 언어이해, AI+X 헬스케어
 - 위치: 서울특별시 동작구 사당로 105, 숭실대학교
 - 연락처: +82-2-820-0679
+- 주요 구성원: 김희원 교수님을 중심으로 박성용, 채병관, 최영재, 이상민, 고민주, 고현준, 고현서, 이주형, 서지우, 정호재, 김서영, 김예리, 최수영, 황지원, 송은우, 이세빈, 김도원, 김연지, 이재현, 이예빈, 임정하 등
+- 최근 성과: CVPR 2025, BMVC 2025, AAAI 2025, PLOS One, ICT Express 논문 발표, ARNOLD Challenge 1위 수상, Qualcomm 인턴십 등
+- 제공 강의: 컴퓨터비전, 기계학습, 영상처리및실습, 컴퓨터비전특론, 미디어GAN, 데이터사이언스
 
-**주요 구성원:** 김희원 교수님을 중심으로 박성용, 채병관, 최영재, 이상민, 고민주, 고현준, 고현서, 이주형, 서지우, 정호재, 김서영, 김예리, 최수영, 황지원, 송은우, 이세빈, 김도원, 김연지, 이재현, 이예빈, 임정하 등 다양한 연구진
-
-**최근 성과:** CVPR 2025, BMVC 2025, AAAI 2025, PLOS One, ICT Express 등 최고 수준 학술대회 및 저널 논문 발표, ARNOLD Challenge 1위 수상, Qualcomm 인턴십 등
-
-**제공 강의:** 컴퓨터비전, 기계학습, 영상처리및실습, 컴퓨터비전특론, 미디어GAN, 데이터사이언스
-
-**중요:** 한국어 질문에는 반드시 한국어로만 생각하고 한국어로만 답변하세요. 절대 영어를 사용하지 마세요."""
+위 정보에 있는 내용은 정확히 답변하세요. 일반적인 대학원 지원 방법 등은 상식적으로 답변하세요."""
 
         # Create chat template
         messages = [
@@ -161,17 +163,34 @@ def generate_response(prompt, language='ko', max_length=800):
             max_length=512
         ).to("cuda:0")
         
-        # Generate response
-        with torch.no_grad():
-            outputs = model.generate(
-                inputs.input_ids,
-                max_new_tokens=max_length,
-                temperature=0.7,
-                do_sample=True,
-                pad_token_id=tokenizer.eos_token_id,
-                eos_token_id=tokenizer.eos_token_id,
-                attention_mask=inputs.attention_mask
-            )
+        # Generate response with maximum stability - no sampling at all
+        try:
+            with torch.no_grad():
+                outputs = model.generate(
+                    inputs.input_ids,
+                    max_new_tokens=max_length,
+                    do_sample=False,  # Greedy decoding only
+                    pad_token_id=tokenizer.eos_token_id,
+                    eos_token_id=tokenizer.eos_token_id,
+                    attention_mask=inputs.attention_mask,
+                    use_cache=True,
+                    early_stopping=True
+                )
+        except Exception as gen_error:
+            logger.error(f"Generation failed with error: {gen_error}")
+            # Try even simpler generation as fallback
+            try:
+                with torch.no_grad():
+                    outputs = model.generate(
+                        inputs.input_ids,
+                        max_length=inputs.input_ids.shape[1] + min(max_length, 200),
+                        do_sample=False,
+                        pad_token_id=tokenizer.eos_token_id,
+                        eos_token_id=tokenizer.eos_token_id
+                    )
+            except Exception as fallback_error:
+                logger.error(f"Fallback generation also failed: {fallback_error}")
+                return "죄송합니다. 현재 AI 모델에 기술적인 문제가 있어 응답을 생성할 수 없습니다."
         
         # Decode response
         response = tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -230,9 +249,10 @@ def chat():
         
         user_question = data['question']
         language = data.get('language', 'ko')
+        max_length = data.get('max_length', 1200)
         
         # Generate AI response
-        ai_response = generate_response(user_question, language=language, max_length=800)
+        ai_response = generate_response(user_question, language=language, max_length=max_length)
         
         end_time = time.time()
         response_time = round(end_time - start_time, 2)
@@ -250,13 +270,69 @@ def chat():
         logger.error(f"Traceback: {traceback.format_exc()}")
         return jsonify({'error': f'Internal server error: {str(e)}'}), 500
 
+def detect_profanity(text):
+    """Detect and censor profanity in Korean and English, including romanized Korean"""
+    # Korean profanity patterns
+    korean_profanity = [
+        '시발', '씨발', '시팔', '씨팔', 'siba', 'sibal', 'shibal', 'ssibal',
+        '병신', '븅신', 'byeongsin', 'byungsin', 'bbyeongsin',
+        '개새끼', '개세끼', 'gaesekki', 'gaesaekki', 
+        '좆', '좇', 'jot', 'joj',
+        '니미', '느미', 'nimi', 'neumi',
+        '염병', 'yeombyeong',
+        '지랄', 'jiral', 'jirar',
+        '꺼져', 'kkeojyeo', 'kkeojeo',
+        '죽어', 'jugeo', 'jukeo',
+        '미친', 'michin', 'michyeo',
+        '개똥', 'gaettong',
+        '엿', 'yeot',
+        '빡침', 'ppakchim',
+        '새끼', 'saekki',
+        '개놈', 'gaenom',
+        '개년', 'gaenyeon'
+    ]
+    
+    # English profanity patterns  
+    english_profanity = [
+        'fuck', 'shit', 'bitch', 'asshole', 'damn', 'crap', 'piss',
+        'bastard', 'whore', 'slut', 'pussy', 'cock', 'dick', 'penis',
+        'vagina', 'tits', 'boobs', 'ass', 'butt', 'hell', 'stupid',
+        'idiot', 'moron', 'retard', 'gay', 'faggot', 'nigger', 'chink'
+    ]
+    
+    # Combine all profanity patterns
+    all_profanity = korean_profanity + english_profanity
+    
+    # Check for profanity (case insensitive)
+    text_lower = text.lower()
+    has_profanity = False
+    
+    for word in all_profanity:
+        if word.lower() in text_lower:
+            has_profanity = True
+            break
+    
+    # If profanity detected, replace with [욕설]
+    if has_profanity:
+        censored_text = text
+        for word in all_profanity:
+            import re
+            # Replace with case-insensitive pattern
+            pattern = re.compile(re.escape(word), re.IGNORECASE)
+            censored_text = pattern.sub('[욕설]', censored_text)
+        return censored_text, True
+    
+    return text, False
+
 def create_github_issue(question, user_info=None):
     """Create GitHub issue for user questions"""
     try:
-        # GitHub repository details
+        # Detect and censor profanity before creating issue
+        censored_question, has_profanity = detect_profanity(question)
+        # GitHub repository details - using private questions repository
         GITHUB_TOKEN = os.getenv('GITHUB_TOKEN', '')
         REPO_OWNER = 'ssurealitylab-spec'
-        REPO_NAME = 'Realitylab-site'
+        REPO_NAME = 'realitylab-questions'  # Private repository for anonymous questions
         
         # If no token, return mock success for now (TODO: add real token)
         if not GITHUB_TOKEN:
@@ -270,16 +346,17 @@ def create_github_issue(question, user_info=None):
                 'mock': True
             }
         
-        # Prepare issue data
+        # Prepare issue data with censored content
         title = 'AI 챗봇 질문 추가 요청'
         body = f"""## 사용자 질문
 
-{question}
+{censored_question}
 
 ---
 
 *이 이슈는 AI 챗봇의 질문 제출 기능을 통해 자동 생성되었습니다.*
-*제출 시간: {time.strftime('%Y-%m-%d %H:%M:%S')}*"""
+*제출 시간: {time.strftime('%Y-%m-%d %H:%M:%S')}*
+*검열 상태: {'욕설 감지됨' if has_profanity else '검열 통과'}*"""
         
         # GitHub API endpoint
         url = f'https://api.github.com/repos/{REPO_OWNER}/{REPO_NAME}/issues'
@@ -353,10 +430,17 @@ def submit_question():
         return jsonify({'error': 'Internal server error'}), 500
 
 if __name__ == '__main__':
-    logger.info("Starting Reality Lab Qwen3-4B Server...")
+    import argparse
+    
+    parser = argparse.ArgumentParser(description='Reality Lab Qwen3-4B Server')
+    parser.add_argument('--port', type=int, default=4005, help='Port to run the server on')
+    args = parser.parse_args()
+    
+    port = args.port
+    logger.info(f"Starting Reality Lab Qwen3-4B Server on port {port}...")
     
     if load_model():
-        logger.info("🚀 Qwen3-4B server ready on port 4004!")
-        app.run(host='0.0.0.0', port=4004, debug=False, threaded=True)
+        logger.info(f"🚀 Qwen3-4B server ready on port {port}!")
+        app.run(host='0.0.0.0', port=port, debug=False, threaded=True)
     else:
         logger.error("❌ Failed to load model. Server not started.")

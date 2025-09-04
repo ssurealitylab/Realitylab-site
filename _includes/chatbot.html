@@ -944,6 +944,7 @@ document.addEventListener('DOMContentLoaded', function() {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'X-Session-ID': currentSession ? currentSession.session_id : '',
         },
         body: JSON.stringify({
           question: question,
