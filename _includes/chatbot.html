@@ -277,6 +277,27 @@
   transform: translateX(25px);
 }
 
+/* Fix toggle direction - when checked should be search mode (right position) */
+.toggle-input:checked ~ .toggle-labels .search-label {
+  color: #10b981;
+  font-weight: 600;
+}
+
+.toggle-input:checked ~ .toggle-labels .ai-label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.toggle-input:not(:checked) ~ .toggle-labels .ai-label {
+  color: #3366cc;
+  font-weight: 600;
+}
+
+.toggle-input:not(:checked) ~ .toggle-labels .search-label {
+  color: #6b7280;
+  font-weight: 500;
+}
+
 
 
 .chatbot-messages {
@@ -781,8 +802,8 @@ document.addEventListener('DOMContentLoaded', function() {
   const langButtons = document.querySelectorAll('.lang-btn');
   const suggestionChipsElements = document.querySelectorAll('.suggestion-chip');
   
-  // Current modes
-  let isAIMode = false;
+  // Current modes - Start in AI mode as requested
+  let isAIMode = true;
   let isEnglish = false;
   let selectedModel = 'qwen3-4b';
 
@@ -793,9 +814,9 @@ document.addEventListener('DOMContentLoaded', function() {
   function getModelEndpoints(model) {
     const endpoints = {
       'qwen3-4b': {
-        health: 'https://susan-britney-disc-wright.trycloudflare.com/health',
-        chat: 'https://susan-britney-disc-wright.trycloudflare.com/chat',
-        generate: 'https://susan-britney-disc-wright.trycloudflare.com/generate'
+        health: 'https://coordinated-boolean-using-population.trycloudflare.com/health',
+        chat: 'https://coordinated-boolean-using-population.trycloudflare.com/chat',
+        generate: 'https://coordinated-boolean-using-population.trycloudflare.com/generate'
       },
     };
     return endpoints[model] || endpoints['qwen3-4b'];
@@ -972,13 +993,12 @@ document.addEventListener('DOMContentLoaded', function() {
     container.style.display = 'none';
   });
 
-  // Mode toggle functionality - Switch between Search and AI Server
+  // Mode toggle functionality - Switch between AI Server and Search
   if (modeToggle) {
     modeToggle.addEventListener('change', function() {
-      isAIMode = this.checked;
+      // Reverse logic: checked = search mode, unchecked = AI mode
+      isAIMode = !this.checked;
       updateModeUI();
-      
-      // Show/hide model selection dropdown
       
       // Check AI server when switching to AI mode
       if (isAIMode) {
@@ -988,8 +1008,14 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   
 
-  // Initialize in search mode by default
+  // Initialize in AI mode by default and set toggle accordingly
+  if (modeToggle) {
+    modeToggle.checked = false; // unchecked = AI mode
+  }
   updateAllUI();
+  
+  // Check AI server on initialization since we start in AI mode
+  checkAIServer();
 
   function updateModeUI() {
     updateAllUI();
@@ -1037,8 +1063,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Update mode labels and content based on current language
     if (isAIMode) {
-      searchLabel.classList.remove('active');
       aiLabel.classList.add('active');
+      searchLabel.classList.remove('active');
       if (isEnglish) {
         chatbotTitle.textContent = 'Reality Lab Assistant';
         chatbotSubtitle.textContent = 'AI will answer about our research lab!';
