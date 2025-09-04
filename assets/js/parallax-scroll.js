@@ -17,19 +17,19 @@
             return false;
         }
         
-        // Wrap masthead content in parallax container if not already wrapped
+        // Wrap ONLY the intro-text in parallax container, not the entire content
         if (!masthead.querySelector('.parallax-container')) {
-            var container = masthead.querySelector('.container');
-            if (container) {
+            var introText = masthead.querySelector('.intro-text');
+            if (introText) {
                 var parallaxDiv = document.createElement('div');
                 parallaxDiv.className = 'parallax-container';
                 
-                // Move container inside parallax div
-                masthead.insertBefore(parallaxDiv, container);
-                parallaxDiv.appendChild(container);
+                // Wrap only the intro-text, not the entire container
+                introText.parentNode.insertBefore(parallaxDiv, introText);
+                parallaxDiv.appendChild(introText);
                 
                 parallaxContainer = parallaxDiv;
-                log('Created parallax container');
+                log('Created parallax container around intro-text only');
             }
         } else {
             parallaxContainer = masthead.querySelector('.parallax-container');
@@ -60,9 +60,9 @@
             console.log('Image container top:', absoluteImageTop, 'ScrollY:', scrollY, 'Container top from viewport:', containerRect.top);
         }
         
-        // Start fade when image container top reaches viewport center (50% from top)
-        var fadeStartPoint = absoluteImageTop - windowHeight * 0.5; // Trigger when images reach middle of screen
-        var fadeDistance = windowHeight * 0.3; // Quick fade over 30% of screen height
+        // Start fade earlier - when images are about to come into view from bottom
+        var fadeStartPoint = absoluteImageTop - windowHeight * 0.7; // Trigger before images enter viewport
+        var fadeDistance = windowHeight * 0.4; // Smooth fade over 40% of screen height
         
         // Calculate smooth scroll progress - ensure initial state shows content clearly
         var scrollProgress = 0;
