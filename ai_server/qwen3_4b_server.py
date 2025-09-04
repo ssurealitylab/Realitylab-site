@@ -52,7 +52,46 @@ def load_model():
         logger.error(f"Failed to load model: {e}")
         return False
 
-def generate_response(prompt, language='ko', max_length=500):
+def ensure_sentence_completion(text, language='ko'):
+    """Ensure the response ends with complete sentences"""
+    import re
+    
+    # Korean sentence endings
+    korean_endings = ['다', '요', '니다', '습니다', '어요', '아요', '게요', '죠', '네요', '세요']
+    # English sentence endings
+    english_endings = ['.', '!', '?']
+    
+    if language == 'ko':
+        # Check if text ends with Korean sentence ending
+        for ending in korean_endings:
+            if text.endswith(ending):
+                return text
+        
+        # Find the last complete Korean sentence
+        sentences = re.split(r'[.!?]|(?<=[다요니습어아게죠네세])\s', text)
+        if len(sentences) > 1 and sentences[-2].strip():
+            # Return text up to the last complete sentence
+            last_complete = sentences[-2].strip()
+            # Find position of last complete sentence
+            pos = text.rfind(last_complete)
+            if pos != -1:
+                end_pos = pos + len(last_complete)
+                return text[:end_pos].strip()
+    else:
+        # English text
+        for ending in english_endings:
+            if text.endswith(ending):
+                return text
+        
+        # Find last complete English sentence
+        sentences = re.split(r'[.!?]\s+', text)
+        if len(sentences) > 1 and sentences[-2].strip():
+            # Return up to last complete sentence
+            return '.'.join(sentences[:-1]) + '.'
+    
+    return text
+
+def generate_response(prompt, language='ko', max_length=800):
     """Generate AI response"""
     global model, tokenizer
     
@@ -149,7 +188,9 @@ def generate_response(prompt, language='ko', max_length=500):
         import re
         generated_text = re.sub(r'<think>.*?</think>', '', generated_text, flags=re.DOTALL).strip()
         
+        # Ensure natural sentence completion
         if generated_text:
+            generated_text = ensure_sentence_completion(generated_text, language)
             return generated_text
         else:
             return "죄송합니다. 응답을 생성할 수 없습니다."
@@ -189,7 +230,7 @@ def chat():
         language = data.get('language', 'ko')
         
         # Generate AI response
-        ai_response = generate_response(user_question, language=language, max_length=500)
+        ai_response = generate_response(user_question, language=language, max_length=800)
         
         end_time = time.time()
         response_time = round(end_time - start_time, 2)
