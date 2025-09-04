@@ -1372,13 +1372,35 @@ document.addEventListener('DOMContentLoaded', function() {
   // Check if AI response seems uncertain
   function isResponseUncertain(response) {
     const uncertaintyKeywords = [
+      // Basic uncertainty expressions
       '확실하지', '정확하지', '모르겠', '아마도', '것 같습니다', '추측', '생각합니다',
-      'not sure', 'uncertain', 'maybe', 'perhaps', 'i think', 'probably', 'might be'
+      // Lack of information expressions
+      '제공된 정보에 따르면', '구체적인 내용은 없습니다', '구체적인 설명은 없습니다', 
+      '직접적인 묘사는 없습니다', '직접적인 내용은 없습니다', '자료에 없습니다',
+      '전하지 않', '다만', '그러나', '없습니다', '없습니다',
+      // English uncertainty
+      'not sure', 'uncertain', 'maybe', 'perhaps', 'i think', 'probably', 'might be',
+      'according to the information', 'no specific', 'no direct', 'not available'
     ];
     
+    // Check for uncertainty patterns
     const lowerResponse = response.toLowerCase();
-    return uncertaintyKeywords.some(keyword => lowerResponse.includes(keyword)) ||
-           response.length < 50; // Very short responses might be uncertain
+    const hasUncertainty = uncertaintyKeywords.some(keyword => 
+      lowerResponse.includes(keyword.toLowerCase())
+    );
+    
+    // Check for vague response patterns
+    const vaguePatterns = [
+      /제공된.*?정보.*?따르면.*?없습니다/,
+      /구체적인.*?설명.*?없습니다/,
+      /직접적인.*?묘사.*?없습니다/,
+      /다만.*?보입니다/,
+      /그러나.*?없습니다/
+    ];
+    
+    const hasVaguePattern = vaguePatterns.some(pattern => pattern.test(response));
+    
+    return hasUncertainty || hasVaguePattern || response.length < 50;
   }
 
   // Drag functionality
