@@ -54,28 +54,25 @@
         var tabsContainer = document.querySelector('.research-tabs');
         if (!tabsContainer || !activeTab) return;
         
-        var containerRect = tabsContainer.getBoundingClientRect();
-        var tabRect = activeTab.getBoundingClientRect();
-        var scrollLeft = tabsContainer.scrollLeft;
+        // Always center the active tab, regardless of visibility
+        var tabOffset = activeTab.offsetLeft;
+        var tabWidth = activeTab.offsetWidth;
+        var containerWidth = tabsContainer.offsetWidth;
         
-        // Calculate if tab is visible
-        var tabLeftVisible = tabRect.left >= containerRect.left;
-        var tabRightVisible = tabRect.right <= containerRect.right;
+        // Calculate exact center position
+        var scrollTo = tabOffset - (containerWidth / 2) + (tabWidth / 2);
         
-        if (!tabLeftVisible || !tabRightVisible) {
-            // Calculate scroll position to center the active tab
-            var tabOffset = activeTab.offsetLeft;
-            var tabWidth = activeTab.offsetWidth;
-            var containerWidth = tabsContainer.offsetWidth;
-            
-            var scrollTo = tabOffset - (containerWidth / 2) + (tabWidth / 2);
-            
-            // Smooth scroll to position
-            tabsContainer.scrollTo({
-                left: Math.max(0, scrollTo),
-                behavior: 'smooth'
-            });
-        }
+        // Ensure we don't scroll beyond bounds
+        var maxScroll = tabsContainer.scrollWidth - containerWidth;
+        scrollTo = Math.max(0, Math.min(scrollTo, maxScroll));
+        
+        // Smooth scroll to center position
+        tabsContainer.scrollTo({
+            left: scrollTo,
+            behavior: 'smooth'
+        });
+        
+        log('Centering tab at position: ' + scrollTo);
     }
     
     function nextSlide() {
