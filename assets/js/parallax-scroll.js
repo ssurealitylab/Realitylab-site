@@ -59,24 +59,24 @@
             absoluteImageTop = containerRect.top + scrollY;
         }
         
-        // Calculate when to start fading - trigger when image top reaches middle of viewport
-        var fadeStartPoint = absoluteImageTop - windowHeight * 0.5; // Start fade when image is in middle of viewport
-        var fadeDistance = windowHeight * 0.6; // Moderate fade distance for smooth transition
+        // Calculate when to start fading - only start when scrolling down significantly
+        var fadeStartPoint = absoluteImageTop - windowHeight * 0.2; // Start fade closer to when image comes into view
+        var fadeDistance = windowHeight * 1.0; // Longer fade distance for smoother transition
         
-        // Calculate smooth scroll progress
+        // Calculate smooth scroll progress - ensure initial state shows content clearly
         var scrollProgress = 0;
-        if (scrollY >= fadeStartPoint) {
+        if (scrollY >= fadeStartPoint && scrollY > 100) { // Add minimum scroll threshold
             scrollProgress = Math.min((scrollY - fadeStartPoint) / fadeDistance, 1);
         }
         
         // Apply easing function for smoother transitions
         var easedProgress = scrollProgress * scrollProgress * (3 - 2 * scrollProgress); // Smoothstep function
         
-        // Calculate parallax effects with smoother curves
-        var translateY = scrollY * 0.4; // Slightly slower parallax
-        var blur = easedProgress * 12; // More blur for better effect
-        var opacity = Math.max(1 - easedProgress * 1.1, 0); // Smoother fade out
-        var scale = Math.max(1 - easedProgress * 0.08, 0.92); // Slightly more scale
+        // Calculate parallax effects with smoother curves and safer initial values
+        var translateY = scrollY * 0.3; // Slower parallax for stability
+        var blur = easedProgress * 8; // Reduced blur for better visibility
+        var opacity = Math.max(1 - easedProgress * 0.9, 0.1); // Keep minimum opacity for visibility
+        var scale = Math.max(1 - easedProgress * 0.05, 0.95); // Less aggressive scaling
         
         // Apply transforms with hardware acceleration
         var transform = `translate3d(0, ${translateY}px, 0) scale(${scale})`;

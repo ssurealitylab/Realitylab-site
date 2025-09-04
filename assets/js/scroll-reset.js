@@ -22,11 +22,9 @@
         }, 200);
     }
     
-    // Execute immediately and repeatedly to ensure it takes effect
+    // Execute immediately but less aggressively
     forceScrollToTop();
-    setTimeout(forceScrollToTop, 10);
     setTimeout(forceScrollToTop, 50);
-    setTimeout(forceScrollToTop, 100);
     
     // Execute when DOM is ready
     if (document.readyState === 'loading') {
