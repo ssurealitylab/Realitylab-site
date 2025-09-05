@@ -82,24 +82,49 @@ class GPUManager:
                     'python3', 'ai_server/qwen3_4b_server.py', '--port', str(port)
                 ], env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 
-                # Give it a moment to start
-                time.sleep(2)
+                # Wait for AI server to fully load and start listening
+                logger.info(f"🔄 Starting AI server on GPU {gpu_id}, port {port}...")
                 
-                # Check if process started successfully
-                if process.poll() is None:
-                    session = {
-                        'session_id': session_id,
-                        'gpu_id': gpu_id,
-                        'process': process,
-                        'port': port,
-                        'started_at': time.time()
-                    }
-                    gpu_sessions[session_id] = session
-                    logger.info(f"✅ Allocated GPU {gpu_id} on port {port} for session {session_id}")
-                    return session
-                else:
-                    logger.error(f"Failed to start AI server on GPU {gpu_id}")
-                    return None
+                # Wait up to 30 seconds for server to start
+                for attempt in range(30):
+                    time.sleep(1)
+                    
+                    # Check if process is still running
+                    if process.poll() is not None:
+                        logger.error(f"❌ AI server process died during startup on GPU {gpu_id}")
+                        return None
+                    
+                    # Check if port is listening
+                    try:
+                        import socket
+                        sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                        sock.settimeout(1)
+                        result = sock.connect_ex(('localhost', port))
+                        sock.close()
+                        
+                        if result == 0:
+                            # Port is open, server is ready
+                            session = {
+                                'session_id': session_id,
+                                'gpu_id': gpu_id,
+                                'process': process,
+                                'port': port,
+                                'started_at': time.time()
+                            }
+                            gpu_sessions[session_id] = session
+                            logger.info(f"✅ Allocated GPU {gpu_id} on port {port} for session {session_id} (took {attempt+1}s)")
+                            return session
+                    except Exception as e:
+                        pass  # Port not ready yet, continue waiting
+                
+                # Timeout - kill the process and return None
+                logger.error(f"❌ Timeout waiting for AI server on GPU {gpu_id} port {port}")
+                try:
+                    process.terminate()
+                    process.wait(timeout=5)
+                except:
+                    process.kill()
+                return None
                     
             except Exception as e:
                 logger.error(f"Error starting AI server on GPU {gpu_id}: {e}")
@@ -160,7 +185,7 @@ def allocate_gpu():
                 'session_id': session['session_id'],
                 'gpu_id': session['gpu_id'],
                 'port': session['port'],
-                'endpoint': 'https://cet-messenger-production-brooklyn.trycloudflare.com'
+                'endpoint': 'https://serum-solid-woods-saying.trycloudflare.com'
             })
         else:
             return jsonify({
@@ -207,31 +232,52 @@ def get_status():
     
     return jsonify(status)
 
-@app.route('/chat', methods=['POST'])
+@app.route('/chat', methods=['POST', 'OPTIONS'])
 def proxy_chat():
     """Proxy chat requests to appropriate AI server"""
+    if request.method == 'OPTIONS':
+        return '', 200
+    
     try:
         # Get session_id from headers or body
         data = request.get_json() or {}
         session_id = request.headers.get('X-Session-ID') or data.get('session_id')
         
-        if session_id and session_id in gpu_sessions:
-            session = gpu_sessions[session_id]
-            port = session['port']
-            
-            # Forward request to AI server
-            import requests
-            response = requests.post(
-                f'http://localhost:{port}/chat',
-                json=data,
-                timeout=30
-            )
+        logger.info(f"🔍 Chat request - Session ID: {session_id}, Active sessions: {list(gpu_sessions.keys())}")
+        
+        if not session_id:
+            logger.error("❌ No session_id provided in headers or body")
+            return jsonify({'error': 'Session ID required'}), 400
+        
+        if session_id not in gpu_sessions:
+            logger.error(f"❌ Session {session_id} not found in active sessions")
+            return jsonify({'error': 'GPU session not found. Please reload the page.'}), 400
+        
+        session = gpu_sessions[session_id]
+        port = session['port']
+        
+        logger.info(f"📡 Forwarding request to localhost:{port}")
+        
+        # Forward request to AI server
+        import requests
+        response = requests.post(
+            f'http://localhost:{port}/chat',
+            json=data,
+            timeout=60  # Increased timeout to 60 seconds
+        )
+        
+        if response.status_code == 200:
+            logger.info(f"✅ Successfully got response from port {port}")
             return response.json()
         else:
-            return jsonify({'error': 'No valid GPU session found'}), 400
+            logger.error(f"❌ AI server returned status {response.status_code}")
+            return jsonify({'error': f'AI server error: {response.status_code}'}), 502
             
+    except requests.exceptions.ConnectionError as e:
+        logger.error(f"❌ Connection error to AI server: {e}")
+        return jsonify({'error': 'AI server connection failed. Please try again.'}), 503
     except Exception as e:
-        logger.error(f"Error in proxy_chat: {e}")
+        logger.error(f"❌ Error in proxy_chat: {e}")
         return jsonify({'error': str(e)}), 500
 
 def cleanup_on_exit():

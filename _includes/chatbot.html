@@ -827,7 +827,7 @@ document.addEventListener('DOMContentLoaded', function() {
   let isConnecting = false;
   
   // GPU Manager endpoint
-  const GPU_MANAGER_URL = 'https://cet-messenger-production-brooklyn.trycloudflare.com';
+  const GPU_MANAGER_URL = 'https://serum-solid-woods-saying.trycloudflare.com';
   
   // Page visitor management
   let visitorSessionTimer = null;
@@ -1284,7 +1284,7 @@ document.addEventListener('DOMContentLoaded', function() {
       try {
         // Show connection message if no GPU is allocated
         if (!currentSession && !isConnecting) {
-          addMessage(isEnglish ? 'Connecting to GPU...' : 'GPU에 연결 중입니다...', 'bot');
+          addMessage(isEnglish ? 'Connecting to AI server...' : 'AI서버에 연결중입니다...', 'bot');
         } else {
           addMessage(isEnglish ? 'Thinking...' : '생각 중...', 'bot');
         }
