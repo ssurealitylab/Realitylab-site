@@ -60240,3 +60240,21 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 [2026-04-30 08:02:17] Tunnel URL obtained: https://already-springs-hull-investigators.trycloudflare.com
 [2026-04-30 08:02:23] Tunnel health check PASSED!
 [2026-04-30 08:02:23] Updating URLs: https://lincoln-stanley-hundreds-panels.trycloudflare.com -> https://already-springs-hull-investigators.trycloudflare.com
+Version auto-updated to v1237
+[main 1fcded9] Auto-update Cloudflare Tunnel URL
+ 16 files changed, 477 insertions(+), 33 deletions(-)
+ delete mode 100644 ai_server/admin_tunnel_temp.log
+remote: This repository moved. Please use the new location:        
+remote:   https://github.com/ssurealitylab/ssurealitylab-site.git        
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+   7785dda..1fcded9  main -> main
+[2026-04-30 08:02:27] Successfully pushed to GitHub!
+[2026-04-30 08:02:27] Tunnel restart completed successfully!
+[2026-04-30 08:02:27] ========================================
+[2026-05-01 08:00:04] ========================================
+[2026-05-01 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-01 08:00:07] Attempt 1/10 - Creating tunnel...
+[2026-05-01 08:00:10] Another restart_tunnel.sh is already running (PID: 3057536). Exiting.
+[2026-05-01 08:00:11] Tunnel URL obtained: https://filing-manhattan-playing-issn.trycloudflare.com
+[2026-05-01 08:00:16] Tunnel health check PASSED!
+[2026-05-01 08:00:16] Updating URLs: https://already-springs-hull-investigators.trycloudflare.com -> https://filing-manhattan-playing-issn.trycloudflare.com

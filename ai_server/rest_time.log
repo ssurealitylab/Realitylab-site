@@ -4890,3 +4890,34 @@ index, memory.used [MiB]
 2026. 04. 30. (목) 08:00:09 KST: Starting admin tunnel...
 Admin URL: https://punch-gold-harris-mag.trycloudflare.com
 2026. 04. 30. (목) 08:00:22 KST: All services started
+2026. 05. 01. (금) 04:00:01 KST: === REST TIME START ===
+2026. 05. 01. (금) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 05. 01. (금) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 05. 01. (금) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 05. 01. (금) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 05. 01. (금) 04:00:05 KST: All services stopped
+2026. 05. 01. (금) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 14 MiB
+1, 14 MiB
+2, 20127 MiB
+3, 20052 MiB
+2026. 05. 01. (금) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 05. 01. (금) 08:00:01 KST: === REST TIME END ===
+2026. 05. 01. (금) 08:00:01 KST: llama-server already running, skipping start
+2026. 05. 01. (금) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 14 MiB
+1, 14 MiB
+2, 20127 MiB
+3, 20052 MiB
+2026. 05. 01. (금) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 05. 01. (금) 08:00:01 KST: ai_chatbot_server starting (PID: 3057360)
+2026. 05. 01. (금) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 05. 01. (금) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 05. 01. (금) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 05. 01. (금) 08:00:10 KST: ai_chatbot_server is ready!
+2026. 05. 01. (금) 08:00:10 KST: Starting chatbot tunnel...
+[2026-05-01 08:00:10] Another restart_tunnel.sh is already running (PID: 3057536). Exiting.
+2026. 05. 01. (금) 08:00:10 KST: admin_server already running, skipping
+2026. 05. 01. (금) 08:00:10 KST: Starting admin tunnel...
