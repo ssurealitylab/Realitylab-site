@@ -60258,3 +60258,30 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 [2026-05-01 08:00:11] Tunnel URL obtained: https://filing-manhattan-playing-issn.trycloudflare.com
 [2026-05-01 08:00:16] Tunnel health check PASSED!
 [2026-05-01 08:00:16] Updating URLs: https://already-springs-hull-investigators.trycloudflare.com -> https://filing-manhattan-playing-issn.trycloudflare.com
+Version auto-updated to v1240
+[main 4e25625] Auto-update Cloudflare Tunnel URL
+ 15 files changed, 415 insertions(+), 31 deletions(-)
+ create mode 100644 ai_server/admin_tunnel_temp.log
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-05-01 08:00:18] WARNING: Failed to push to GitHub
+[2026-05-01 08:00:18] Tunnel restart completed successfully!
+[2026-05-01 08:00:18] ========================================
+[2026-05-02 08:00:04] ========================================
+[2026-05-02 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-02 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-02 08:00:09] Another restart_tunnel.sh is already running (PID: 3337642). Exiting.
+[2026-05-02 08:00:12] Tunnel URL obtained: https://cemetery-prison-textiles-monitored.trycloudflare.com
+[2026-05-02 08:00:17] Health check FAILED, will retry...
+[2026-05-02 08:00:17] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-02 08:00:19] Another restart_tunnel.sh is already running (PID: 3337642). Exiting.
+[2026-05-02 08:02:17] Attempt 2/10 - Creating tunnel...
+[2026-05-02 08:02:20] Tunnel URL obtained: https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 08:02:26] Tunnel health check PASSED!
+[2026-05-02 08:02:26] Updating URLs: https://filing-manhattan-playing-issn.trycloudflare.com -> https://file-prefix-old-kennedy.trycloudflare.com
