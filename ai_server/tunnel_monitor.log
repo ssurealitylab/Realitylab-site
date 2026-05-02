@@ -70151,3 +70151,139 @@ b.send(JSON.stringify(a));c.classList.add("feedback-hidden");d.classList.remove(
 [2026-05-02 08:02:20] Tunnel URL obtained: https://file-prefix-old-kennedy.trycloudflare.com
 [2026-05-02 08:02:26] Tunnel health check PASSED!
 [2026-05-02 08:02:26] Updating URLs: https://filing-manhattan-playing-issn.trycloudflare.com -> https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 08:02:28] WARNING: Failed to push to GitHub
+[2026-05-02 08:02:28] Tunnel restart completed successfully!
+[2026-05-02 08:02:28] ========================================
+[2026-05-02 08:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 08:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 08:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 08:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 08:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 09:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 09:10:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 09:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 09:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 09:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 09:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 10:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 10:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 10:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 10:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 10:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 10:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 11:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 11:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 11:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 11:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 11:40:01] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 11:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 12:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 12:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 12:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 12:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 12:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 12:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 13:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 13:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 13:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 13:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 13:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 13:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 14:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 14:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 14:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 14:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 14:40:04] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 14:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 15:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 15:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 15:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 15:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 15:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 15:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 16:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 16:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 16:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 16:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 16:40:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 16:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 17:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 17:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 17:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 17:30:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 17:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 17:50:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 18:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 18:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 18:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 18:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 18:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 18:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 19:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 19:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 19:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 19:30:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 19:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 19:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 20:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 20:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 20:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 20:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 20:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 20:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 21:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 21:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 21:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 21:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 21:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 21:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 22:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 22:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 22:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 22:30:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 22:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 22:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 23:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 23:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 23:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 23:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 23:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-02 23:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 00:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 00:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 00:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 00:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 00:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 00:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 01:00:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 01:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 01:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 01:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 01:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 01:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 02:00:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 02:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 02:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 02:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 02:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 02:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 03:00:03] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 03:10:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 03:20:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 03:30:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 03:40:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 03:50:02] OK: Tunnel healthy - https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 08:00:01] ALERT: Tunnel not responding! URL: https://file-prefix-old-kennedy.trycloudflare.com
+[2026-05-03 08:00:01] Response: 
+[2026-05-03 08:00:01] Killing existing tunnel and restarting...
+[2026-05-03 08:00:04] restart_tunnel.sh started in background
+[2026-05-03 08:00:04] ========================================
+[2026-05-03 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-03 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-03 08:00:14] Tunnel URL obtained: https://follow-alien-mrs-apr.trycloudflare.com
+[2026-05-03 08:00:19] Health check FAILED, will retry...
+[2026-05-03 08:00:19] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-03 08:02:19] Attempt 2/10 - Creating tunnel...
+[2026-05-03 08:02:22] Tunnel URL obtained: https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 08:02:28] Tunnel health check PASSED!
+[2026-05-03 08:02:28] Updating URLs: https://file-prefix-old-kennedy.trycloudflare.com -> https://charity-dog-jungle-earlier.trycloudflare.com

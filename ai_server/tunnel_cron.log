@@ -60285,3 +60285,30 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-05-02 08:02:20] Tunnel URL obtained: https://file-prefix-old-kennedy.trycloudflare.com
 [2026-05-02 08:02:26] Tunnel health check PASSED!
 [2026-05-02 08:02:26] Updating URLs: https://filing-manhattan-playing-issn.trycloudflare.com -> https://file-prefix-old-kennedy.trycloudflare.com
+Version auto-updated to v1243
+[main e0ab7fe] Auto-update Cloudflare Tunnel URL
+ 16 files changed, 490 insertions(+), 52 deletions(-)
+ delete mode 100644 ai_server/admin_tunnel_temp.log
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-05-02 08:02:28] WARNING: Failed to push to GitHub
+[2026-05-02 08:02:28] Tunnel restart completed successfully!
+[2026-05-02 08:02:28] ========================================
+[2026-05-03 08:00:04] ========================================
+[2026-05-03 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-03 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-03 08:00:09] Another restart_tunnel.sh is already running (PID: 3786669). Exiting.
+[2026-05-03 08:00:14] Tunnel URL obtained: https://follow-alien-mrs-apr.trycloudflare.com
+[2026-05-03 08:00:19] Health check FAILED, will retry...
+[2026-05-03 08:00:19] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-03 08:00:24] Another restart_tunnel.sh is already running (PID: 3786669). Exiting.
+[2026-05-03 08:02:19] Attempt 2/10 - Creating tunnel...
+[2026-05-03 08:02:22] Tunnel URL obtained: https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 08:02:28] Tunnel health check PASSED!
+[2026-05-03 08:02:28] Updating URLs: https://file-prefix-old-kennedy.trycloudflare.com -> https://charity-dog-jungle-earlier.trycloudflare.com
