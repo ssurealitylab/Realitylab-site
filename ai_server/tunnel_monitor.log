@@ -70287,3 +70287,139 @@ b.send(JSON.stringify(a));c.classList.add("feedback-hidden");d.classList.remove(
 [2026-05-03 08:02:22] Tunnel URL obtained: https://charity-dog-jungle-earlier.trycloudflare.com
 [2026-05-03 08:02:28] Tunnel health check PASSED!
 [2026-05-03 08:02:28] Updating URLs: https://file-prefix-old-kennedy.trycloudflare.com -> https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 08:02:30] WARNING: Failed to push to GitHub
+[2026-05-03 08:02:30] Tunnel restart completed successfully!
+[2026-05-03 08:02:30] ========================================
+[2026-05-03 08:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 08:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 08:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 08:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 08:50:03] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 09:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 09:10:07] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 09:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 09:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 09:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 09:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 10:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 10:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 10:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 10:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 10:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 10:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 11:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 11:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 11:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 11:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 11:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 11:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 12:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 12:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 12:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 12:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 12:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 12:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 13:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 13:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 13:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 13:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 13:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 13:50:03] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 14:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 14:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 14:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 14:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 14:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 14:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 15:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 15:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 15:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 15:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 15:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 15:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 16:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 16:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 16:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 16:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 16:40:03] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 16:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 17:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 17:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 17:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 17:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 17:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 17:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 18:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 18:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 18:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 18:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 18:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 18:50:03] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 19:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 19:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 19:20:03] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 19:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 19:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 19:50:03] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 20:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 20:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 20:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 20:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 20:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 20:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 21:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 21:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 21:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 21:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 21:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 21:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 22:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 22:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 22:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 22:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 22:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 22:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 23:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 23:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 23:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 23:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 23:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-03 23:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 00:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 00:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 00:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 00:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 00:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 00:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 01:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 01:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 01:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 01:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 01:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 01:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 02:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 02:10:01] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 02:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 02:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 02:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 02:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 03:00:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 03:10:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 03:20:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 03:30:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 03:40:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 03:50:02] OK: Tunnel healthy - https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 08:00:01] ALERT: Tunnel not responding! URL: https://charity-dog-jungle-earlier.trycloudflare.com
+[2026-05-04 08:00:01] Response: 
+[2026-05-04 08:00:01] Killing existing tunnel and restarting...
+[2026-05-04 08:00:04] restart_tunnel.sh started in background
+[2026-05-04 08:00:04] ========================================
+[2026-05-04 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-04 08:00:07] Attempt 1/10 - Creating tunnel...
+[2026-05-04 08:00:11] Tunnel URL obtained: https://kind-elections-hosts-fishing.trycloudflare.com
+[2026-05-04 08:00:16] Health check FAILED, will retry...
+[2026-05-04 08:00:16] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-04 08:02:16] Attempt 2/10 - Creating tunnel...
+[2026-05-04 08:02:19] Tunnel URL obtained: https://widely-forestry-arnold-merely.trycloudflare.com
+[2026-05-04 08:02:25] Tunnel health check PASSED!
+[2026-05-04 08:02:25] Updating URLs: https://charity-dog-jungle-earlier.trycloudflare.com -> https://widely-forestry-arnold-merely.trycloudflare.com
