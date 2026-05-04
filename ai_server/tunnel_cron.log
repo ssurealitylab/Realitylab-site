@@ -60338,3 +60338,29 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-05-04 08:02:19] Tunnel URL obtained: https://widely-forestry-arnold-merely.trycloudflare.com
 [2026-05-04 08:02:25] Tunnel health check PASSED!
 [2026-05-04 08:02:25] Updating URLs: https://charity-dog-jungle-earlier.trycloudflare.com -> https://widely-forestry-arnold-merely.trycloudflare.com
+Version auto-updated to v1247
+[main 99d42bc] Auto-update Cloudflare Tunnel URL
+ 15 files changed, 445 insertions(+), 31 deletions(-)
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-05-04 08:02:27] WARNING: Failed to push to GitHub
+[2026-05-04 08:02:27] Tunnel restart completed successfully!
+[2026-05-04 08:02:27] ========================================
+[2026-05-05 08:00:04] ========================================
+[2026-05-05 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-05 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-05 08:00:11] Tunnel URL obtained: https://substitute-robots-hybrid-lounge.trycloudflare.com
+[2026-05-05 08:00:16] Health check FAILED, will retry...
+[2026-05-05 08:00:16] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-05 08:02:02] Another restart_tunnel.sh is already running (PID: 77519). Exiting.
+[2026-05-05 08:02:10] Another restart_tunnel.sh is already running (PID: 77519). Exiting.
+[2026-05-05 08:02:16] Attempt 2/10 - Creating tunnel...
+[2026-05-05 08:02:21] Tunnel URL obtained: https://reviewing-democratic-charles-bra.trycloudflare.com
+[2026-05-05 08:02:26] Tunnel health check PASSED!
+[2026-05-05 08:02:27] Updating URLs: https://widely-forestry-arnold-merely.trycloudflare.com -> https://reviewing-democratic-charles-bra.trycloudflare.com
