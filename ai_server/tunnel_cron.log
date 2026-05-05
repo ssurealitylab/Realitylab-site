@@ -60364,3 +60364,29 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-05-05 08:02:21] Tunnel URL obtained: https://reviewing-democratic-charles-bra.trycloudflare.com
 [2026-05-05 08:02:26] Tunnel health check PASSED!
 [2026-05-05 08:02:27] Updating URLs: https://widely-forestry-arnold-merely.trycloudflare.com -> https://reviewing-democratic-charles-bra.trycloudflare.com
+Version auto-updated to v1249
+[main e8895c8] Auto-update Cloudflare Tunnel URL
+ 16 files changed, 472 insertions(+), 31 deletions(-)
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-05-05 08:02:30] WARNING: Failed to push to GitHub
+[2026-05-05 08:02:30] Tunnel restart completed successfully!
+[2026-05-05 08:02:30] ========================================
+[2026-05-06 08:00:04] ========================================
+[2026-05-06 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-06 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-06 08:00:09] Another restart_tunnel.sh is already running (PID: 208661). Exiting.
+[2026-05-06 08:00:15] Tunnel URL obtained: https://certainly-planner-translation-patrol.trycloudflare.com
+[2026-05-06 08:00:20] Health check FAILED, will retry...
+[2026-05-06 08:00:20] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-06 08:00:35] Another restart_tunnel.sh is already running (PID: 208661). Exiting.
+[2026-05-06 08:02:20] Attempt 2/10 - Creating tunnel...
+[2026-05-06 08:02:23] Tunnel URL obtained: https://consisting-parenting-poet-sarah.trycloudflare.com
+[2026-05-06 08:02:29] Tunnel health check PASSED!
+[2026-05-06 08:02:29] Updating URLs: https://reviewing-democratic-charles-bra.trycloudflare.com -> https://consisting-parenting-poet-sarah.trycloudflare.com
