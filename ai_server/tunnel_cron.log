@@ -60390,3 +60390,29 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-05-06 08:02:23] Tunnel URL obtained: https://consisting-parenting-poet-sarah.trycloudflare.com
 [2026-05-06 08:02:29] Tunnel health check PASSED!
 [2026-05-06 08:02:29] Updating URLs: https://reviewing-democratic-charles-bra.trycloudflare.com -> https://consisting-parenting-poet-sarah.trycloudflare.com
+Version auto-updated to v1251
+[main 667a695] Auto-update Cloudflare Tunnel URL
+ 15 files changed, 446 insertions(+), 31 deletions(-)
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-05-06 08:02:31] WARNING: Failed to push to GitHub
+[2026-05-06 08:02:31] Tunnel restart completed successfully!
+[2026-05-06 08:02:31] ========================================
+[2026-05-07 08:00:04] ========================================
+[2026-05-07 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-07 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-07 08:00:11] Tunnel URL obtained: https://disc-timely-filename-swaziland.trycloudflare.com
+[2026-05-07 08:00:16] Health check FAILED, will retry...
+[2026-05-07 08:00:16] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-07 08:00:36] Another restart_tunnel.sh is already running (PID: 403546). Exiting.
+[2026-05-07 08:00:44] Another restart_tunnel.sh is already running (PID: 403546). Exiting.
+[2026-05-07 08:02:16] Attempt 2/10 - Creating tunnel...
+[2026-05-07 08:02:20] Tunnel URL obtained: https://license-none-amazing-semi.trycloudflare.com
+[2026-05-07 08:02:26] Tunnel health check PASSED!
+[2026-05-07 08:02:26] Updating URLs: https://consisting-parenting-poet-sarah.trycloudflare.com -> https://license-none-amazing-semi.trycloudflare.com
