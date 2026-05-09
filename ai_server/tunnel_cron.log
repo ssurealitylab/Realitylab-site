@@ -60467,3 +60467,32 @@ hint: See the 'Note about fast-forwards' in 'git push --help' for details.
 [2026-05-09 08:02:20] Tunnel URL obtained: https://strong-limitation-tear-debian.trycloudflare.com
 [2026-05-09 08:02:25] Tunnel health check PASSED!
 [2026-05-09 08:02:25] Updating URLs: https://spoke-liable-screensavers-miss.trycloudflare.com -> https://strong-limitation-tear-debian.trycloudflare.com
+Version auto-updated to v1257
+[main 8a7ebbc] Auto-update Cloudflare Tunnel URL
+ 15 files changed, 443 insertions(+), 31 deletions(-)
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [rejected]        main -> main (fetch first)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first integrate the remote changes
+hint: (e.g., 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+[2026-05-09 08:02:27] WARNING: Failed to push to GitHub
+[2026-05-09 08:02:27] Tunnel restart completed successfully!
+[2026-05-09 08:02:27] ========================================
+[2026-05-10 08:00:04] ========================================
+[2026-05-10 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-10 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-10 08:00:07] Cloudflare API error detected
+[2026-05-10 08:00:07] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-10 08:00:09] Another restart_tunnel.sh is already running (PID: 611185). Exiting.
+[2026-05-10 08:00:11] Another restart_tunnel.sh is already running (PID: 611185). Exiting.
+[2026-05-10 08:02:07] Attempt 2/10 - Creating tunnel...
+[2026-05-10 08:02:11] Tunnel URL obtained: https://bracket-jar-law-pittsburgh.trycloudflare.com
+[2026-05-10 08:02:17] Health check FAILED, will retry...
+[2026-05-10 08:02:17] Waiting 240s before next attempt (exponential backoff)...
+[2026-05-10 08:06:17] Attempt 3/10 - Creating tunnel...
+[2026-05-10 08:06:23] Tunnel URL obtained: https://organizational-shadow-dairy-dryer.trycloudflare.com
+[2026-05-10 08:06:29] Tunnel health check PASSED!
+[2026-05-10 08:06:29] Updating URLs: https://strong-limitation-tear-debian.trycloudflare.com -> https://organizational-shadow-dairy-dryer.trycloudflare.com
