@@ -19,6 +19,9 @@ log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1" >> "$LOG_FILE"
 }
 
+# shellcheck source=/home/i0179/Realitylab-site/ai_server/git_push_helper.sh
+source "$WORK_DIR/ai_server/git_push_helper.sh"
+
 # Kill existing admin tunnel
 if [ -f "$PID_FILE" ]; then
     OLD_PID=$(cat "$PID_FILE" 2>/dev/null)
@@ -72,14 +75,14 @@ if [ -f "$ADMIN_HTML" ]; then
         # Use # as sed delimiter to avoid escaping URL slashes
         sed -i "s#const ADMIN_URL = '[^']*'#const ADMIN_URL = '$TUNNEL_URL'#" "$ADMIN_HTML"
 
-        # Git push
+        # Git push (with auto pull --rebase + retry on conflict)
         cd "$SITE_WORK_DIR"
         git add admin.html
         git commit -m "Auto-update admin tunnel URL" >> "$LOG_FILE" 2>&1
-        if git push origin main >> "$LOG_FILE" 2>&1; then
+        if safe_git_push main "$LOG_FILE"; then
             log "Successfully pushed admin URL to GitHub"
         else
-            log "WARNING: Failed to push to GitHub"
+            log "WARNING: Failed to push to GitHub after retries"
         fi
     else
         log "URL unchanged, skipping git push"

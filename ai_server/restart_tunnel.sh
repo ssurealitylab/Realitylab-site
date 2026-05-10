@@ -34,6 +34,9 @@ log() {
     echo "[$(date '+%Y-%m-%d %H:%M:%S')] $1"
 }
 
+# shellcheck source=/home/i0179/Realitylab-site/ai_server/git_push_helper.sh
+source "$WORK_DIR/ai_server/git_push_helper.sh"
+
 cleanup_lock() {
     rm -f "$LOCK_FILE"
 }
@@ -196,15 +199,13 @@ while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
                     sed -i "s|DIRECT_AI_SERVER_URL = '$OLD_URL'|DIRECT_AI_SERVER_URL = '$NEW_URL'|g" "$BUGREPORT_FILE"
                 fi
 
-                # Git commit and push
+                # Git commit and push (with auto pull --rebase + retry on conflict)
                 git add -A
                 git commit -m "Auto-update Cloudflare Tunnel URL" >> "$LOG_FILE" 2>&1
-                git push origin main >> "$LOG_FILE" 2>&1
-
-                if [ $? -eq 0 ]; then
+                if safe_git_push main "$LOG_FILE"; then
                     log "Successfully pushed to GitHub!"
                 else
-                    log "WARNING: Failed to push to GitHub"
+                    log "WARNING: Failed to push to GitHub after retries"
                 fi
             fi
 
