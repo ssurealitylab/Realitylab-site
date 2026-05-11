@@ -6811,3 +6811,117 @@ Admin URL: https://giving-similarly-lyrics-corner.trycloudflare.com
 [2026-05-11 08:02:11] Admin tunnel not running. Starting restart_admin_tunnel.sh...
 cat: /home/i0179/Realitylab-site/ai_server/admin_tunnel_temp.log: No such file or directory
 Admin URL: https://draw-registration-boulder-buses.trycloudflare.com
+[2026-05-11 08:30:01] OK: llama-server healthy
+[2026-05-11 08:30:01] OK: ai_chatbot_server running
+[2026-05-11 09:00:01] OK: llama-server healthy
+[2026-05-11 09:00:01] OK: ai_chatbot_server running
+[2026-05-11 09:30:01] OK: llama-server healthy
+[2026-05-11 09:30:01] OK: ai_chatbot_server running
+[2026-05-11 10:00:01] OK: llama-server healthy
+[2026-05-11 10:00:01] OK: llama-server healthy
+[2026-05-11 10:00:01] OK: ai_chatbot_server running
+[2026-05-11 10:00:01] OK: ai_chatbot_server running
+[2026-05-11 10:30:01] OK: llama-server healthy
+[2026-05-11 10:30:01] OK: ai_chatbot_server running
+[2026-05-11 11:00:01] OK: llama-server healthy
+[2026-05-11 11:00:01] OK: ai_chatbot_server running
+[2026-05-11 11:30:01] OK: llama-server healthy
+[2026-05-11 11:30:01] OK: ai_chatbot_server running
+[2026-05-11 12:00:01] OK: llama-server healthy
+[2026-05-11 12:00:01] OK: ai_chatbot_server running
+[2026-05-11 12:30:01] OK: llama-server healthy
+[2026-05-11 12:30:01] OK: ai_chatbot_server running
+[2026-05-11 13:00:01] OK: llama-server healthy
+[2026-05-11 13:00:01] OK: ai_chatbot_server running
+[2026-05-11 13:30:01] OK: llama-server healthy
+[2026-05-11 13:30:01] OK: ai_chatbot_server running
+[2026-05-11 14:00:01] OK: llama-server healthy
+[2026-05-11 14:00:01] OK: ai_chatbot_server running
+[2026-05-11 14:30:01] OK: llama-server healthy
+[2026-05-11 14:30:01] OK: ai_chatbot_server running
+[2026-05-11 15:00:01] OK: llama-server healthy
+[2026-05-11 15:00:01] OK: ai_chatbot_server running
+[2026-05-11 15:30:01] OK: llama-server healthy
+[2026-05-11 15:30:01] OK: ai_chatbot_server running
+[2026-05-11 16:00:01] OK: llama-server healthy
+[2026-05-11 16:00:01] OK: ai_chatbot_server running
+[2026-05-11 16:30:01] OK: llama-server healthy
+[2026-05-11 16:30:02] OK: ai_chatbot_server running
+[2026-05-11 17:00:01] OK: llama-server healthy
+[2026-05-11 17:00:01] OK: ai_chatbot_server running
+[2026-05-11 17:30:01] OK: llama-server healthy
+[2026-05-11 17:30:01] OK: ai_chatbot_server running
+[2026-05-11 18:00:02] OK: llama-server healthy
+[2026-05-11 18:00:02] OK: ai_chatbot_server running
+[2026-05-11 18:30:01] OK: llama-server healthy
+[2026-05-11 18:30:01] OK: ai_chatbot_server running
+[2026-05-11 19:00:01] OK: llama-server healthy
+[2026-05-11 19:00:01] OK: ai_chatbot_server running
+[2026-05-11 19:30:01] OK: llama-server healthy
+[2026-05-11 19:30:01] OK: ai_chatbot_server running
+[2026-05-11 20:00:01] OK: llama-server healthy
+[2026-05-11 20:00:02] OK: ai_chatbot_server running
+[2026-05-11 20:30:01] OK: llama-server healthy
+[2026-05-11 20:30:01] OK: ai_chatbot_server running
+[2026-05-11 21:00:01] OK: llama-server healthy
+[2026-05-11 21:00:01] OK: ai_chatbot_server running
+[2026-05-11 21:30:01] OK: llama-server healthy
+[2026-05-11 21:30:01] OK: ai_chatbot_server running
+[2026-05-11 22:00:01] OK: llama-server healthy
+[2026-05-11 22:00:01] OK: llama-server healthy
+[2026-05-11 22:00:01] OK: ai_chatbot_server running
+[2026-05-11 22:00:02] OK: ai_chatbot_server running
+[2026-05-11 22:30:01] OK: llama-server healthy
+[2026-05-11 22:30:01] OK: ai_chatbot_server running
+[2026-05-11 23:00:01] OK: llama-server healthy
+[2026-05-11 23:00:01] OK: ai_chatbot_server running
+[2026-05-11 23:30:01] OK: llama-server healthy
+[2026-05-11 23:30:01] OK: ai_chatbot_server running
+[2026-05-12 00:00:02] OK: llama-server healthy
+[2026-05-12 00:00:02] OK: ai_chatbot_server running
+[2026-05-12 00:30:01] OK: llama-server healthy
+[2026-05-12 00:30:02] OK: ai_chatbot_server running
+[2026-05-12 01:00:01] OK: llama-server healthy
+[2026-05-12 01:00:01] OK: ai_chatbot_server running
+[2026-05-12 01:30:01] OK: llama-server healthy
+[2026-05-12 01:30:01] OK: ai_chatbot_server running
+[2026-05-12 02:00:01] OK: llama-server healthy
+[2026-05-12 02:00:01] OK: ai_chatbot_server running
+[2026-05-12 02:30:01] OK: llama-server healthy
+[2026-05-12 02:30:01] OK: ai_chatbot_server running
+[2026-05-12 03:00:01] OK: llama-server healthy
+[2026-05-12 03:00:01] OK: ai_chatbot_server running
+[2026-05-12 03:30:02] OK: llama-server healthy
+[2026-05-12 03:30:02] OK: ai_chatbot_server running
+[2026-05-12 08:00:01] llama-server not running. Checking GPU availability...
+[2026-05-12 08:00:01]   GPU 0: occupied by user 'user0005' (pid 923079, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:01]   GPU 0: occupied by user 'user0005' (pid 923086, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:01]   GPU 1: occupied by user 'user0005' (pid 942445, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:01]   GPU 1: occupied by user 'user0005' (pid 942459, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:02]   GPU 1: occupied by user 'user0005' (pid 952125, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:02]   GPU 1: occupied by user 'user0005' (pid 952142, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:02]   GPU 2: occupied by user 'user0005' (pid 909474, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:02]   GPU 2: occupied by user 'user0005' (pid 909477, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:02]   GPU 2: occupied by user 'user0005' (pid 910992, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:02]   GPU 2: occupied by user 'user0005' (pid 910981, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:02]   GPU 3: occupied by user 'user0005' (pid 966694, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:03]   GPU 3: occupied by user 'user0005' (pid 966688, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:03]   GPU 3: occupied by user 'user0005' (pid 981146, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:03]   GPU 3: occupied by user 'user0005' (pid 981152, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:03]   GPU 3: occupied by user 'user0005' (pid 983974, ray::Trainer)
+[2026-05-12 08:00:03]   GPU 3: occupied by user 'user0005' (pid 983976, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:03]   GPU 3: occupied by user 'user0005' (pid 987149, ray::SelfPlay.continuous_self_play)
+[2026-05-12 08:00:03]   GPU 3: occupied by user 'user0005' (pid 987163, ray::Trainer.continuous_update_weights)
+[2026-05-12 08:00:03]   GPU 0: 22238MiB free but OTHER USER is using it - SKIP
+[2026-05-12 08:00:03]   GPU 1: 18274MiB free but OTHER USER is using it - SKIP
+[2026-05-12 08:00:03]   GPU 2: 2258MiB free but OTHER USER is using it - SKIP
+[2026-05-12 08:00:03]   GPU 3: 9300MiB free but OTHER USER is using it - SKIP
+[2026-05-12 08:00:03] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-12 08:00:03] OK: ai_chatbot_server running
+[2026-05-12 08:00:04] Chatbot tunnel not running. Starting restart_tunnel.sh...
+[2026-05-12 08:00:04] ========================================
+[2026-05-12 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-12 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-12 08:00:11] Tunnel URL obtained: https://geology-crest-governments-achieved.trycloudflare.com
+[2026-05-12 08:00:17] Tunnel health check PASSED!
+[2026-05-12 08:00:17] Updating URLs: https://object-elder-developers-acid.trycloudflare.com -> https://geology-crest-governments-achieved.trycloudflare.com

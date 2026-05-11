@@ -5325,3 +5325,56 @@ index, memory.used [MiB]
 2026. 05. 11. (월) 08:02:03 KST: Starting admin tunnel...
 Admin URL: https://draw-registration-boulder-buses.trycloudflare.com
 2026. 05. 11. (월) 08:02:19 KST: All services started
+2026. 05. 12. (화) 04:00:01 KST: === REST TIME START ===
+2026. 05. 12. (화) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 05. 12. (화) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 05. 12. (화) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 05. 12. (화) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 05. 12. (화) 04:00:06 KST: All services stopped
+2026. 05. 12. (화) 04:00:06 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 2462 MiB
+1, 6919 MiB
+2, 22973 MiB
+3, 16855 MiB
+2026. 05. 12. (화) 04:00:06 KST: Rest time active until 8 AM KST
+2026. 05. 12. (화) 08:00:01 KST: === REST TIME END ===
+2026. 05. 12. (화) 08:00:01 KST: Starting llama-server (GPT-OSS 120B) - finding free GPUs...
+2026. 05. 12. (화) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:01 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:01 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:02 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 0: 22238MiB free but other user present - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 1: 18274MiB free but other user present - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 2: 2258MiB free but other user present - SKIP
+2026. 05. 12. (화) 08:00:03 KST: GPU 3: 9300MiB free but other user present - SKIP
+2026. 05. 12. (화) 08:00:03 KST: Not enough free GPUs (need 2, found 0). Skipping llama-server.
+2026. 05. 12. (화) 08:00:03 KST: smart_gpu_monitor will retry later when GPUs become available.
+2026. 05. 12. (화) 08:00:03 KST: GPU status after start:
+index, memory.used [MiB]
+0, 1979 MiB
+1, 5942 MiB
+2, 21958 MiB
+3, 14909 MiB
+2026. 05. 12. (화) 08:00:03 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 05. 12. (화) 08:00:03 KST: ai_chatbot_server starting (PID: 1039099)
+2026. 05. 12. (화) 08:00:05 KST: Waiting for chatbot server... (1/10)
+2026. 05. 12. (화) 08:00:07 KST: Waiting for chatbot server... (2/10)
+2026. 05. 12. (화) 08:00:09 KST: Waiting for chatbot server... (3/10)
+2026. 05. 12. (화) 08:00:11 KST: Waiting for chatbot server... (4/10)
+2026. 05. 12. (화) 08:00:13 KST: Waiting for chatbot server... (5/10)
+2026. 05. 12. (화) 08:00:15 KST: Waiting for chatbot server... (6/10)
