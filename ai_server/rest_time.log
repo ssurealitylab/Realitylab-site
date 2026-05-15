@@ -5552,3 +5552,61 @@ index, memory.used [MiB]
 2026. 05. 15. (금) 08:00:19 KST: Starting admin tunnel...
 Admin URL: https://commerce-flooring-polyphonic-alloy.trycloudflare.com
 2026. 05. 15. (금) 08:00:35 KST: All services started
+2026. 05. 16. (토) 04:00:01 KST: === REST TIME START ===
+2026. 05. 16. (토) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 05. 16. (토) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 05. 16. (토) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 05. 16. (토) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 05. 16. (토) 04:00:05 KST: All services stopped
+2026. 05. 16. (토) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 1624 MiB
+1, 23107 MiB
+2, 1618 MiB
+3, 18985 MiB
+2026. 05. 16. (토) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 05. 16. (토) 08:00:01 KST: === REST TIME END ===
+2026. 05. 16. (토) 08:00:01 KST: Starting llama-server (GPT-OSS 120B) - finding free GPUs...
+2026. 05. 16. (토) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:01 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:01 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:01 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:02 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:04 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 16. (토) 08:00:04 KST: GPU 0: 22592MiB free but other user present - SKIP
+2026. 05. 16. (토) 08:00:04 KST: GPU 1: 1109MiB free but other user present - SKIP
+2026. 05. 16. (토) 08:00:04 KST: GPU 2: 22598MiB free but other user present - SKIP
+2026. 05. 16. (토) 08:00:04 KST: GPU 3: 5223MiB free but other user present - SKIP
+2026. 05. 16. (토) 08:00:04 KST: Not enough free GPUs (need 2, found 0). Skipping llama-server.
+2026. 05. 16. (토) 08:00:04 KST: smart_gpu_monitor will retry later when GPUs become available.
+2026. 05. 16. (토) 08:00:04 KST: GPU status after start:
+index, memory.used [MiB]
+0, 1624 MiB
+1, 23107 MiB
+2, 1618 MiB
+3, 18985 MiB
+2026. 05. 16. (토) 08:00:04 KST: ai_chatbot_server already running, skipping
+2026. 05. 16. (토) 08:00:04 KST: Starting chatbot tunnel...
+[2026-05-16 08:00:04] Another restart_tunnel.sh is already running (PID: 1307690). Exiting.
+2026. 05. 16. (토) 08:00:04 KST: admin_server already running, skipping
+2026. 05. 16. (토) 08:00:04 KST: Starting admin tunnel...
+Admin URL: https://understand-five-pierre-summaries.trycloudflare.com
+2026. 05. 16. (토) 08:00:21 KST: All services started
