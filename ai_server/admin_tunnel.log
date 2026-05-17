@@ -796,3 +796,42 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 [2026-05-17 08:00:16] Killed old admin tunnel PID: 1307812
 [2026-05-17 08:00:19] Starting new admin tunnel...
 [2026-05-17 08:00:19] Started cloudflared PID: 1380234
+[2026-05-17 08:00:23] Admin tunnel URL: https://conf-maple-brain-loc.trycloudflare.com
+[2026-05-17 08:00:26] WARN: Admin tunnel returned 000
+[2026-05-17 08:00:26] Updating admin.html: https://understand-five-pierre-summaries.trycloudflare.com -> https://conf-maple-brain-loc.trycloudflare.com
+Version auto-updated to v1276
+[main 9518810] Auto-update admin tunnel URL
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 186da40c5341476e92a3e7ba1adbc843d2278e29 but expected 57dd6c62d3ef3cacec3b37fa454e02e0f2386e54)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+[2026-05-17 08:00:32] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-05-17 08:00:33] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-05-17 08:00:33] WARNING: Failed to push to GitHub after retries
+2026-05-16T23:00:19Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-05-16T23:00:19Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-05-16T23:00:23Z INF +--------------------------------------------------------------------------------------------+
+2026-05-16T23:00:23Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-05-16T23:00:23Z INF |  https://conf-maple-brain-loc.trycloudflare.com                                            |
+2026-05-16T23:00:23Z INF +--------------------------------------------------------------------------------------------+
+2026-05-16T23:00:23Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-05-16T23:00:23Z INF Version 2026.3.0 (Checksum 4a9e50e6d6d798e90fcd01933151a90bf7edd99a0a55c28ad18f2e16263a5c30)
+2026-05-16T23:00:23Z INF GOOS: linux, GOVersion: go1.24.13, GoArch: amd64
+2026-05-16T23:00:23Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-05-16T23:00:23Z INF Generated Connector ID: bd313dfd-8996-45ee-bf61-eff0f7587d44
+2026-05-16T23:00:23Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-05-16T23:00:23Z INF Initial protocol quic
+2026-05-16T23:00:23Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-05-16T23:00:23Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-05-16T23:00:23Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-05-16T23:00:23Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-05-16T23:00:23Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2026-05-16T23:00:23Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.192.77
+2026/05/17 08:00:23 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-05-16T23:00:23Z INF Registered tunnel connection connIndex=0 connection=4625585c-273b-4a8a-8bed-5060d8ecc489 event=0 ip=198.41.192.77 location=icn06 protocol=quic
+[2026-05-18 08:00:14] Killed old admin tunnel PID: 1380234
+[2026-05-18 08:00:17] Starting new admin tunnel...
+[2026-05-18 08:00:17] Started cloudflared PID: 1450634
