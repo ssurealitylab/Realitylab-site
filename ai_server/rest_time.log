@@ -5709,3 +5709,70 @@ index, memory.used [MiB]
 [2026-05-18 08:00:14] Another restart_tunnel.sh is already running (PID: 1450440). Exiting.
 2026. 05. 18. (월) 08:00:14 KST: admin_server already running, skipping
 2026. 05. 18. (월) 08:00:14 KST: Starting admin tunnel...
+Admin URL: https://possibly-easy-partner-tyler.trycloudflare.com
+2026. 05. 18. (월) 08:00:29 KST: All services started
+2026. 05. 19. (화) 04:00:01 KST: === REST TIME START ===
+2026. 05. 19. (화) 04:00:02 KST: Stopping ai_chatbot_server...
+2026. 05. 19. (화) 04:00:03 KST: Stopping llama-server to free GPU memory...
+2026. 05. 19. (화) 04:00:05 KST: llama-server stopped, GPU 0,2 freed
+2026. 05. 19. (화) 04:00:05 KST: Stopping chatbot cloudflared tunnel...
+2026. 05. 19. (화) 04:00:06 KST: All services stopped
+2026. 05. 19. (화) 04:00:06 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 13629 MiB
+1, 2542 MiB
+2, 17732 MiB
+3, 1955 MiB
+2026. 05. 19. (화) 04:00:06 KST: Rest time active until 8 AM KST
+2026. 05. 19. (화) 08:00:01 KST: === REST TIME END ===
+2026. 05. 19. (화) 08:00:01 KST: Starting llama-server (GPT-OSS 120B) - finding free GPUs...
+2026. 05. 19. (화) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 0: 1111MiB free but other user present - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 1: 21674MiB free but other user present - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 2: 6484MiB free but other user present - SKIP
+2026. 05. 19. (화) 08:00:04 KST: GPU 3: 22253MiB free but other user present - SKIP
+2026. 05. 19. (화) 08:00:04 KST: Not enough free GPUs (need 2, found 0). Skipping llama-server.
+2026. 05. 19. (화) 08:00:04 KST: smart_gpu_monitor will retry later when GPUs become available.
+2026. 05. 19. (화) 08:00:04 KST: GPU status after start:
+index, memory.used [MiB]
+0, 23105 MiB
+1, 2542 MiB
+2, 17732 MiB
+3, 1955 MiB
+2026. 05. 19. (화) 08:00:04 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 05. 19. (화) 08:00:04 KST: ai_chatbot_server starting (PID: 1568024)
+2026. 05. 19. (화) 08:00:06 KST: Waiting for chatbot server... (1/10)
+2026. 05. 19. (화) 08:00:08 KST: Waiting for chatbot server... (2/10)
+2026. 05. 19. (화) 08:00:10 KST: Waiting for chatbot server... (3/10)
+2026. 05. 19. (화) 08:00:12 KST: Waiting for chatbot server... (4/10)
+2026. 05. 19. (화) 08:00:14 KST: Waiting for chatbot server... (5/10)
+2026. 05. 19. (화) 08:00:16 KST: ai_chatbot_server is ready!
+2026. 05. 19. (화) 08:00:16 KST: Starting chatbot tunnel...
+[2026-05-19 08:00:16] Another restart_tunnel.sh is already running (PID: 1568030). Exiting.
+2026. 05. 19. (화) 08:00:16 KST: admin_server already running, skipping
+2026. 05. 19. (화) 08:00:16 KST: Starting admin tunnel...
+Admin URL: https://cottage-wells-bond-baths.trycloudflare.com
+2026. 05. 19. (화) 08:00:30 KST: All services started
