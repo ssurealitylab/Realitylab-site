@@ -16,6 +16,9 @@ en: &DEFAULT_EN
     button: Learn About Our Research
     buttonlink: "#services"
     slider:
+    - description: With deepest respect.
+      image: 참고 이미지/homepage_slider_images/img_2934.jpg
+      title: Teacher's Day(05/19/26)
     - description: 2025 Lab Celebration
       image: 참고 이미지/homepage_slider_images/slider_yearend_party.jpg
       title: Year-End Party
@@ -28,9 +31,6 @@ en: &DEFAULT_EN
     - description: Custom Built Research Platform
       image: 참고 이미지/homepage_slider_images/slider_rrr_robot.jpg
       title: GARO Robot
-    - description: With deepest respect.
-      image: 참고 이미지/homepage_slider_images/img_2934.jpg
-      title: Teacher's Day(05/19/26)
     - description: Governor's Award - Toddlerbot Project
       image: 참고 이미지/homepage_slider_images/slider_gyeonggi2025.png
       title: Gyeonggi Youth Gap Year
