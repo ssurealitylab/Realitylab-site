@@ -53,6 +53,9 @@ en: &DEFAULT_EN
       title: "Teacher's Day"
       description: "Lab Celebration and Appreciation"
 
+    - image: 참고 이미지/homepage_slider_images/img_2934.jpg
+      title: Teacher's Day(05/19/26)
+      description: With deepest respect.
   services:
     title: "Research Areas"
     text: "We develop intelligent systems that learn from real-world perception and interaction—just like humans."
