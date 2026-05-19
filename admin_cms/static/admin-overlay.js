@@ -1039,57 +1039,95 @@ window._adminDeleteDomesticPub = async function(idx){
 };
 
 // ═══════════════════════════════════════
-// SLIDER EDITING
+// SLIDER EDITING (Home slider + Archive)
 // ═══════════════════════════════════════
+//
+// Two parallel lists live under en.header:
+//   - slider           : items shown in the home hero rotation
+//   - slider_archive   : items shown ONLY inside the "More Images" modal
+// Admins can move slides between them to retire/restore without deleting.
+// API path conventions follow the dotted-path scheme used elsewhere.
 
-let _sliderData = null; // cached slider data for reorder
+const _SLIDER_KEYS = {
+  slider:         { label: '🏠 Home',    path: 'en.header.slider'         },
+  slider_archive: { label: '📦 Archive', path: 'en.header.slider_archive' },
+};
+
+function _renderSliderSection(sectionKey, slides){
+  const meta = _SLIDER_KEYS[sectionKey];
+  const otherKey = (sectionKey === 'slider') ? 'slider_archive' : 'slider';
+  const otherLabel = _SLIDER_KEYS[otherKey].label;
+  const sectionHint = (sectionKey === 'slider')
+    ? 'Shown on the home page hero. Drag to reorder.'
+    : 'Hidden from the hero — visible only inside the More Images modal.';
+
+  let html = `<div style="margin-top:18px;margin-bottom:8px">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <h4 style="margin:0;font-size:14px;color:#e2e8f0">${meta.label} <span style="color:#94a3b8;font-weight:400">(${slides.length})</span></h4>
+      </div>
+      <div style="color:#64748b;font-size:11px;margin-top:2px">${sectionHint}</div>
+    </div>`;
+  html += `<div id="admin-slider-list-${sectionKey}" data-section="${sectionKey}">`;
+
+  if (slides.length === 0) {
+    html += `<div style="padding:14px;background:#0f172a;border:1px dashed #334155;border-radius:8px;color:#64748b;font-size:12px;text-align:center">No items.</div>`;
+  } else {
+    slides.forEach((s, i) => {
+      html += `<div class="admin-slider-item" draggable="true" data-idx="${i}" data-section="${sectionKey}"
+        style="display:flex;align-items:center;gap:10px;padding:10px;margin-bottom:6px;background:#0f172a;
+        border-radius:8px;border:1px solid #334155;cursor:grab;transition:transform .15s,opacity .15s">
+        <span style="color:#94a3b8;font-size:16px;cursor:grab;padding:0 2px;flex-shrink:0">&#9776;</span>
+        <img src="/${esc(s.image)}" style="width:60px;height:40px;object-fit:cover;border-radius:4px;flex-shrink:0"
+             onerror="this.style.display='none'">
+        <div style="flex:1;min-width:0">
+          <div style="font-size:13px;font-weight:600;color:#e2e8f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.title)}</div>
+          <div style="font-size:11px;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.description)}</div>
+        </div>
+        <div style="display:flex;gap:4px;flex-shrink:0">
+          <button title="Move to ${otherLabel}" onclick="event.stopPropagation();window._adminMoveSlide('${sectionKey}',${i})"
+            style="background:#1e293b;border:1px solid #334155;color:#93c5fd;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:11px">
+            ${sectionKey === 'slider' ? '→ 📦' : '→ 🏠'}
+          </button>
+          <button onclick="event.stopPropagation();window._adminEditSlide('${sectionKey}',${i})"
+            style="background:#334155;border:none;color:#cbd5e1;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px">Edit</button>
+          <button onclick="event.stopPropagation();window._adminDeleteSlide('${sectionKey}',${i})"
+            style="background:none;border:none;color:#f87171;padding:4px 6px;cursor:pointer;font-size:16px">&times;</button>
+        </div>
+      </div>`;
+    });
+  }
+  html += '</div>';
+  html += `<button class="admin-btn admin-btn-primary" onclick="window._adminAddSlide('${sectionKey}')"
+            style="width:100%;margin-top:8px">+ Add to ${meta.label}</button>`;
+  return html;
+}
 
 window.editSlider = async function(){
   const data = await apiGet('/data/sitetext');
-  _sliderData = data?.en?.header?.slider || [];
+  const mainSlides    = data?.en?.header?.slider          || [];
+  const archiveSlides = data?.en?.header?.slider_archive  || [];
 
-  let html = '<div style="margin-bottom:16px;color:#94a3b8;font-size:13px">Drag items to reorder. Changes save automatically.</div>';
-  html += '<div id="admin-slider-list">';
+  let html = '<div style="margin-bottom:8px;color:#94a3b8;font-size:13px">Drag to reorder within a section. Use → buttons to move between Home and Archive.</div>';
+  html += _renderSliderSection('slider',         mainSlides);
+  html += _renderSliderSection('slider_archive', archiveSlides);
 
-  _sliderData.forEach((s,i)=>{
-    html += `<div class="admin-slider-item" draggable="true" data-idx="${i}" style="display:flex;align-items:center;gap:12px;padding:10px;
-      margin-bottom:6px;background:#0f172a;border-radius:8px;border:1px solid #334155;cursor:grab;transition:transform .15s,opacity .15s">
-      <span style="color:#94a3b8;font-size:16px;cursor:grab;padding:0 4px;flex-shrink:0">&#9776;</span>
-      <img src="/${esc(s.image)}" style="width:60px;height:40px;object-fit:cover;border-radius:4px;flex-shrink:0"
-           onerror="this.style.display='none'">
-      <div style="flex:1;min-width:0">
-        <div style="font-size:13px;font-weight:600;color:#e2e8f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.title)}</div>
-        <div style="font-size:11px;color:#94a3b8">${esc(s.description)}</div>
-      </div>
-      <div style="display:flex;gap:4px;flex-shrink:0">
-        <button onclick="event.stopPropagation();window._adminEditSlide(${i})" style="background:#334155;border:none;color:#cbd5e1;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px">Edit</button>
-        <button onclick="event.stopPropagation();window._adminDeleteSlide(${i})" style="background:none;border:none;color:#f87171;padding:4px 6px;cursor:pointer;font-size:16px">&times;</button>
-      </div>
-    </div>`;
-  });
+  openPanel('Edit Slider (' + mainSlides.length + ' home + ' + archiveSlides.length + ' archive)', html);
 
-  html += '</div>';
-  html += `<button class="admin-btn admin-btn-primary" onclick="window._adminAddSlide()" style="width:100%;margin-top:12px">+ Add Slide</button>`;
+  setTimeout(() => {
+    initSliderDrag('slider');
+    initSliderDrag('slider_archive');
+  }, 100);
+};
 
-  openPanel('Edit Slider ('+_sliderData.length+' slides)', html);
-
-  // Setup drag & drop
-  setTimeout(initSliderDrag, 100);
-}
-
-function initSliderDrag(){
-  const list = document.getElementById('admin-slider-list');
+function initSliderDrag(sectionKey){
+  const list = document.getElementById('admin-slider-list-' + sectionKey);
   if(!list) return;
-  let dragEl = null;
-  let dragIdx = -1;
 
   list.querySelectorAll('.admin-slider-item').forEach(item=>{
     item.addEventListener('dragstart', (e)=>{
-      dragEl = item;
-      dragIdx = parseInt(item.dataset.idx);
       item.style.opacity = '0.4';
       e.dataTransfer.effectAllowed = 'move';
-      e.dataTransfer.setData('text/plain', dragIdx);
+      e.dataTransfer.setData('text/plain', item.dataset.idx);
     });
 
     item.addEventListener('dragend', ()=>{
@@ -1098,24 +1136,19 @@ function initSliderDrag(){
         el.style.borderTop = '1px solid #334155';
         el.style.borderBottom = 'none';
       });
-      dragEl = null;
     });
 
     item.addEventListener('dragover', (e)=>{
       e.preventDefault();
       e.dataTransfer.dropEffect = 'move';
-      // Show drop indicator
       const rect = item.getBoundingClientRect();
       const midY = rect.top + rect.height / 2;
       list.querySelectorAll('.admin-slider-item').forEach(el=>{
         el.style.borderTop = '1px solid #334155';
         el.style.borderBottom = 'none';
       });
-      if(e.clientY < midY){
-        item.style.borderTop = '2px solid #3b82f6';
-      } else {
-        item.style.borderBottom = '2px solid #3b82f6';
-      }
+      if(e.clientY < midY){ item.style.borderTop = '2px solid #3b82f6'; }
+      else { item.style.borderBottom = '2px solid #3b82f6'; }
     });
 
     item.addEventListener('drop', async (e)=>{
@@ -1126,40 +1159,39 @@ function initSliderDrag(){
       const rect = toEl.getBoundingClientRect();
       const midY = rect.top + rect.height / 2;
       if(e.clientY >= midY) toIdx += 1;
-
-      if(fromIdx === toIdx || fromIdx === toIdx - 1) return; // No change
-
-      // Reorder in data
-      await reorderSlide(fromIdx, toIdx > fromIdx ? toIdx - 1 : toIdx);
+      if(fromIdx === toIdx || fromIdx === toIdx - 1) return;
+      await reorderSlide(sectionKey, fromIdx, toIdx > fromIdx ? toIdx - 1 : toIdx);
     });
   });
 }
 
-async function reorderSlide(fromIdx, toIdx){
+async function reorderSlide(sectionKey, fromIdx, toIdx){
   adminShowLoading('Reordering...');
   try{
     const data = await apiGet('/data/sitetext');
-    const slides = data.en.header.slider;
+    const slides = data.en.header[sectionKey] || [];
     const [moved] = slides.splice(fromIdx, 1);
     slides.splice(toIdx, 0, moved);
 
-    const res = await apiCall('/deploy/sitetext/en.header.slider','PUT', slides);
+    const res = await apiCall('/deploy/sitetext/' + _SLIDER_KEYS[sectionKey].path, 'PUT', slides);
     adminHideLoading();
     if(res.status==='success'){
       adminToast('Reordered! Click "Apply" to publish.','success');
       checkUnpushed();
-      editSlider(); // Refresh list
+      editSlider();
     } else {
       adminToast(res.message||'Error','error');
     }
   }catch(e){ adminHideLoading(); adminToast(e.message,'error'); }
 }
 
-window._adminEditSlide = async function(idx){
+window._adminEditSlide = async function(sectionKey, idx){
   const data = await apiGet('/data/sitetext');
-  const slide = data.en.header.slider[idx];
+  const slide = (data.en.header[sectionKey] || [])[idx];
+  if (!slide) { adminToast('Slide not found','error'); return; }
+  const sectionLabel = _SLIDER_KEYS[sectionKey].label;
 
-  openPanel('Edit Slide: '+slide.title, `
+  openPanel('Edit Slide ['+sectionLabel+']: '+slide.title, `
     <div class="admin-fg"><label>Title</label><input id="af-slide-title" value="${esc(slide.title||'')}"></div>
     <div class="admin-fg"><label>Description</label><input id="af-slide-desc" value="${esc(slide.description||'')}"></div>
     <div class="admin-fg"><label>Image</label>
@@ -1168,29 +1200,31 @@ window._adminEditSlide = async function(idx){
       <div class="hint">Click to upload new image</div></div>
     <div class="admin-btn-row">
       <button class="admin-btn admin-btn-cancel" onclick="editSlider()">Back</button>
-      <button class="admin-btn admin-btn-primary" onclick="window._adminSaveSlide(${idx})">Save</button>
+      <button class="admin-btn admin-btn-primary" onclick="window._adminSaveSlide('${sectionKey}',${idx})">Save</button>
     </div>
   `);
 };
 
-window._adminSaveSlide = async function(idx){
+window._adminSaveSlide = async function(sectionKey, idx){
   const data = await apiGet('/data/sitetext');
-  const slide = data.en.header.slider[idx];
-  slide.title = document.getElementById('af-slide-title').value.trim();
+  const slide = (data.en.header[sectionKey] || [])[idx];
+  if (!slide) { adminToast('Slide not found','error'); return; }
+  slide.title       = document.getElementById('af-slide-title').value.trim();
   slide.description = document.getElementById('af-slide-desc').value.trim();
-  slide.image = document.getElementById('af-slide-image').value.trim();
+  slide.image       = document.getElementById('af-slide-image').value.trim();
 
   adminShowLoading('Saving slider...');
   try{
-    const res = await apiCall(`/deploy/sitetext/en.header.slider.${idx}`,'PUT', slide);
+    const res = await apiCall(`/deploy/sitetext/${_SLIDER_KEYS[sectionKey].path}.${idx}`,'PUT', slide);
     adminHideLoading();
     if(res.status==='success'){ adminToast('Saved! Click "Apply" to publish.','success'); checkUnpushed(); editSlider(); }
     else adminToast(res.message||'Error','error');
   }catch(e){ adminHideLoading(); adminToast(e.message,'error'); }
 };
 
-window._adminAddSlide = function(){
-  openPanel('Add New Slide', `
+window._adminAddSlide = function(sectionKey){
+  const sectionLabel = _SLIDER_KEYS[sectionKey].label;
+  openPanel('Add to ' + sectionLabel, `
     <div class="admin-fg"><label>Title</label><input id="af-slide-title" placeholder="Slide title"></div>
     <div class="admin-fg"><label>Description</label><input id="af-slide-desc" placeholder="Short description"></div>
     <div class="admin-fg"><label>Image</label>
@@ -1198,35 +1232,67 @@ window._adminAddSlide = function(){
       <div class="hint">Click to upload new image</div></div>
     <div class="admin-btn-row">
       <button class="admin-btn admin-btn-cancel" onclick="editSlider()">Back</button>
-      <button class="admin-btn admin-btn-primary" onclick="window._adminSaveNewSlide()">Add</button>
+      <button class="admin-btn admin-btn-primary" onclick="window._adminSaveNewSlide('${sectionKey}')">Add</button>
     </div>
   `);
 };
 
-window._adminSaveNewSlide = async function(){
+window._adminSaveNewSlide = async function(sectionKey){
   const slide = {
-    image: document.getElementById('af-slide-image').value.trim(),
-    title: document.getElementById('af-slide-title').value.trim(),
+    image:       document.getElementById('af-slide-image').value.trim(),
+    title:       document.getElementById('af-slide-title').value.trim(),
     description: document.getElementById('af-slide-desc').value.trim(),
   };
   if(!slide.image||!slide.title){ adminToast('Image and title are required','error'); return; }
   adminShowLoading('Adding slide...');
   try{
-    const res = await apiCall('/deploy/sitetext/en.header.slider','POST', slide);
+    // If slider_archive doesn't exist yet (older sitetext.yml without the field),
+    // POST against a missing list 404s. In that case, seed it via PUT.
+    let res = await apiCall('/deploy/sitetext/' + _SLIDER_KEYS[sectionKey].path, 'POST', slide);
+    if (res.status !== 'success' && sectionKey === 'slider_archive') {
+      res = await apiCall('/deploy/sitetext/' + _SLIDER_KEYS[sectionKey].path, 'PUT', [slide]);
+    }
     adminHideLoading();
     if(res.status==='success'){ adminToast('Saved! Click "Apply" to publish.','success'); checkUnpushed(); editSlider(); }
     else adminToast(res.message||'Error','error');
   }catch(e){ adminHideLoading(); adminToast(e.message,'error'); }
 };
 
-window._adminDeleteSlide = async function(idx){
-  if(!confirm('Delete this slide?')) return;
+window._adminDeleteSlide = async function(sectionKey, idx){
+  if(!confirm('Delete this slide? This is permanent — use the → button to archive instead if you want to keep it.')) return;
   adminShowLoading('Deleting...');
   try{
-    const res = await apiCall(`/deploy/sitetext/en.header.slider.${idx}`,'DELETE');
+    const res = await apiCall(`/deploy/sitetext/${_SLIDER_KEYS[sectionKey].path}.${idx}`,'DELETE');
     adminHideLoading();
     if(res.status==='success'){ adminToast('Deleted! Click "Apply" to publish.','success'); checkUnpushed(); editSlider(); }
     else adminToast(res.message,'error');
+  }catch(e){ adminHideLoading(); adminToast(e.message,'error'); }
+};
+
+window._adminMoveSlide = async function(fromSection, idx){
+  const toSection = (fromSection === 'slider') ? 'slider_archive' : 'slider';
+  adminShowLoading('Moving...');
+  try{
+    const data = await apiGet('/data/sitetext');
+    const src = data.en.header[fromSection] || [];
+    const dst = data.en.header[toSection]   || [];
+    if (idx < 0 || idx >= src.length) { adminHideLoading(); adminToast('Slide not found','error'); return; }
+    const [moved] = src.splice(idx, 1);
+    dst.push(moved);
+
+    // Two PUTs; if the destination list was missing/empty before this is also
+    // the moment it gets seeded as a real list rather than nil.
+    let res1 = await apiCall('/deploy/sitetext/' + _SLIDER_KEYS[fromSection].path, 'PUT', src);
+    if (res1.status !== 'success') { adminHideLoading(); adminToast(res1.message||'Error','error'); return; }
+    let res2 = await apiCall('/deploy/sitetext/' + _SLIDER_KEYS[toSection].path,   'PUT', dst);
+    adminHideLoading();
+    if (res2.status === 'success') {
+      adminToast(fromSection === 'slider' ? 'Moved to Archive — hidden from home.' : 'Moved to Home — now in hero rotation.','success');
+      checkUnpushed();
+      editSlider();
+    } else {
+      adminToast(res2.message||'Error','error');
+    }
   }catch(e){ adminHideLoading(); adminToast(e.message,'error'); }
 };
 

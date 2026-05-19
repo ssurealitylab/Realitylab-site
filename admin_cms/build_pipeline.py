@@ -147,8 +147,19 @@ def _get_pending_site_files() -> list:
             site_prefixes = (
                 '_data/', '_includes/', '_layouts/', '_portfolio/',
                 'assets/', 'img/', '_config.yml',
+                # Korean folder referenced by sitetext.yml slider entries.
+                # Without this prefix the CMS auto-commit missed newly uploaded
+                # slider images (e.g. img_2934.jpg → site 404 while local dev
+                # served the on-disk file).
+                '참고 이미지/',
             )
-            site_extensions = ('.md', '.html', '.yml', '.yaml')
+            site_extensions = (
+                '.md', '.html', '.yml', '.yaml',
+                # Image formats accepted by image_manager.save_image —
+                # required so uploads under arbitrary site folders also get
+                # auto-staged for push.
+                '.jpg', '.jpeg', '.png', '.gif', '.webp', '.svg',
+            )
 
             is_site_file = (
                 path.startswith(site_prefixes) or

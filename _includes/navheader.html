@@ -126,7 +126,10 @@
           {%- endif -%}
         </div>
       </div>
-      
+
+      <button type="button" class="more-images-btn" onclick="openMoreImages()" aria-label="More Images">
+        <span aria-hidden="true">📷</span>&nbsp;More Images
+      </button>
     </div>
   </header>
   {% else %}
@@ -167,10 +170,106 @@
           {%- endif -%}
         </div>
       </div>
+
+      <button type="button" class="more-images-btn" onclick="openMoreImages()" aria-label="More Images">
+        <span aria-hidden="true">📷</span>&nbsp;More Images
+      </button>
     </div>
   </header>
   {% endif %}
   <!-- End Header -->
+
+  {% comment %}
+  More Images modal — combined gallery of slider + slider_archive items.
+  CMS admin can move slides between the two lists to retire/restore items
+  without deleting them.
+  {% endcomment %}
+  {% if site.locale and site.locale != "" and site.locale != nil %}
+    {% assign _slider_main = site.data.sitetext[site.locale].header.slider %}
+    {% assign _slider_arch = site.data.sitetext[site.locale].header.slider_archive %}
+  {% else %}
+    {% assign _slider_main = site.data.sitetext.header.slider %}
+    {% assign _slider_arch = site.data.sitetext.header.slider_archive %}
+  {% endif %}
+  {% if _slider_main == nil %}{% assign _slider_main = "" | split: "" %}{% endif %}
+  {% if _slider_arch == nil %}{% assign _slider_arch = "" | split: "" %}{% endif %}
+  {% assign _all_images = _slider_main | concat: _slider_arch %}
+
+  <div id="moreImagesModal" class="more-images-modal" role="dialog" aria-modal="true" aria-labelledby="moreImagesTitle">
+    <div class="more-images-backdrop" onclick="closeMoreImages()"></div>
+    <div class="more-images-dialog" role="document">
+      <button class="more-images-close" type="button" onclick="closeMoreImages()" aria-label="Close">&times;</button>
+      <h2 id="moreImagesTitle">Lab Photos</h2>
+      <p class="more-images-subtitle">{{ _all_images.size }} photos</p>
+      <div class="more-images-grid">
+        {% for slide in _all_images %}
+        <figure class="more-images-cell"
+                tabindex="0" role="button"
+                aria-label="{{ slide.title | escape }}"
+                data-img="/{{ slide.image }}"
+                data-title="{{ slide.title | escape }}"
+                data-desc="{{ slide.description | escape }}"
+                onclick="openLightbox(this)"
+                onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openLightbox(this);}">
+          <img src="/{{ slide.image }}" alt="{{ slide.title | escape }}" loading="lazy">
+          <figcaption>
+            <strong>{{ slide.title }}</strong>
+            <span>{{ slide.description }}</span>
+          </figcaption>
+        </figure>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+  <div id="moreImagesLightbox" class="more-images-lightbox" onclick="closeLightbox()" role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <img id="moreImagesLightboxImg" alt="">
+    <div id="moreImagesLightboxCaption"></div>
+  </div>
+
+  <script>
+    (function(){
+      function openMoreImages() {
+        var m = document.getElementById('moreImagesModal');
+        if (!m) return;
+        m.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function closeMoreImages() {
+        var m = document.getElementById('moreImagesModal');
+        if (m) m.classList.remove('open');
+        closeLightbox();
+        document.body.style.overflow = '';
+      }
+      function openLightbox(el) {
+        var lb  = document.getElementById('moreImagesLightbox');
+        var img = document.getElementById('moreImagesLightboxImg');
+        var cap = document.getElementById('moreImagesLightboxCaption');
+        if (!lb) return;
+        var src   = el.getAttribute('data-img');
+        var title = el.getAttribute('data-title') || '';
+        var desc  = el.getAttribute('data-desc') || '';
+        img.src = src; img.alt = title;
+        cap.textContent = title + (desc ? ' — ' + desc : '');
+        lb.classList.add('open');
+      }
+      function closeLightbox() {
+        var lb = document.getElementById('moreImagesLightbox');
+        if (lb) lb.classList.remove('open');
+      }
+      document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape') {
+          var lb = document.getElementById('moreImagesLightbox');
+          if (lb && lb.classList.contains('open')) closeLightbox();
+          else closeMoreImages();
+        }
+      });
+      window.openMoreImages = openMoreImages;
+      window.closeMoreImages = closeMoreImages;
+      window.openLightbox = openLightbox;
+      window.closeLightbox = closeLightbox;
+    })();
+  </script>
 
 <style>
 .intro-lead-in {
@@ -195,6 +294,174 @@
 
 #mainNav .navbar-brand {
   color: #1a1a1a !important;
+}
+
+/* ─── More Images button (lives in the masthead bottom-right) ─── */
+.masthead { position: relative; }
+.more-images-btn {
+  position: absolute;
+  bottom: 18px;
+  right: 28px;
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  color: #1e3a8a;
+  border: 1px solid rgba(30, 58, 138, 0.25);
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.12);
+  z-index: 5;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+  font-family: inherit;
+}
+.more-images-btn:hover {
+  background: #fff;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(15, 23, 42, 0.18);
+}
+.more-images-btn:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+@media (max-width: 640px) {
+  .more-images-btn { bottom: 12px; right: 14px; padding: 6px 12px; font-size: 12px; }
+}
+
+/* ─── More Images modal (popup gallery) ─── */
+.more-images-modal {
+  display: none;
+  position: fixed; inset: 0;
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+}
+.more-images-modal.open { display: flex; }
+.more-images-backdrop {
+  position: absolute; inset: 0;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.more-images-dialog {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  max-width: 1280px;
+  width: 92vw;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 32px 32px 28px;
+  box-shadow: 0 24px 72px rgba(0, 0, 0, 0.35);
+  color: #1f2937;
+}
+.more-images-dialog h2 {
+  margin: 0 0 4px;
+  font-size: 22px;
+  font-weight: 700;
+  color: #0f172a;
+}
+.more-images-subtitle {
+  margin: 0 0 20px;
+  color: #64748b;
+  font-size: 13px;
+}
+.more-images-close {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: none;
+  border: none;
+  font-size: 32px;
+  line-height: 1;
+  color: #475569;
+  cursor: pointer;
+  padding: 4px 10px;
+  border-radius: 8px;
+  transition: background .15s;
+}
+.more-images-close:hover { background: #f1f5f9; color: #0f172a; }
+.more-images-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.more-images-cell {
+  margin: 0;
+  cursor: zoom-in;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #f1f5f9;
+  transition: transform .15s ease, box-shadow .15s ease;
+  display: flex;
+  flex-direction: column;
+}
+.more-images-cell:hover,
+.more-images-cell:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.14);
+  outline: none;
+}
+.more-images-cell img {
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+}
+.more-images-cell figcaption {
+  padding: 10px 12px;
+  font-size: 13px;
+  color: #1f2937;
+  line-height: 1.35;
+}
+.more-images-cell figcaption strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 2px;
+  color: #0f172a;
+}
+.more-images-cell figcaption span {
+  color: #64748b;
+  font-size: 12px;
+}
+@media (max-width: 1100px) {
+  .more-images-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 760px) {
+  .more-images-grid { grid-template-columns: repeat(2, 1fr); }
+  .more-images-dialog { padding: 24px 20px 20px; width: 96vw; max-height: 92vh; }
+  .more-images-cell img { height: 130px; }
+}
+
+/* ─── Lightbox (click thumbnail → full-screen view) ─── */
+.more-images-lightbox {
+  display: none;
+  position: fixed; inset: 0;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.92);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px;
+  cursor: zoom-out;
+}
+.more-images-lightbox.open { display: flex; }
+.more-images-lightbox img {
+  max-width: 95vw;
+  max-height: 78vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 16px 60px rgba(0, 0, 0, 0.5);
+}
+.more-images-lightbox #moreImagesLightboxCaption {
+  color: #f8fafc;
+  margin-top: 16px;
+  font-size: 15px;
+  text-align: center;
+  max-width: 80vw;
 }
 </style>
 
