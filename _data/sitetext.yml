@@ -49,9 +49,6 @@ en: &DEFAULT_EN
     - description: Industry Collaboration and Research
       image: 참고 이미지/homepage_slider_images/slider_10.jpg
       title: Qualcomm Visit
-    - description: Lab Celebration and Appreciation
-      image: 참고 이미지/homepage_slider_images/slider_12.jpg
-      title: Teacher's Day
     slider_archive:
     - description: Lab Activities and Team Bonding
       image: 참고 이미지/homepage_slider_images/slider_08.jpg
