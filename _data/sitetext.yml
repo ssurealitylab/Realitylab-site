@@ -16,46 +16,45 @@ en: &DEFAULT_EN
     button: Learn About Our Research
     buttonlink: "#services"
     slider:
-    - image: "참고 이미지/homepage_slider_images/slider_yearend_party.jpg"
-      title: "Year-End Party"
-      description: "2025 Lab Celebration"
-    - image: "참고 이미지/homepage_slider_images/slider_arnold_award.jpg"
-      title: "ARNOLD Challenge"
-      description: "CVPR 2025 - 1st Place Award Ceremony"
-    - image: "참고 이미지/homepage_slider_images/slider_kist_seminar.jpg"
-      title: "Media Seminar"
-      description: "Kanggeon Kim, KIST"
+    - description: 2025 Lab Celebration
+      image: 참고 이미지/homepage_slider_images/slider_yearend_party.jpg
+      title: Year-End Party
+    - description: CVPR 2025 - 1st Place Award Ceremony
+      image: 참고 이미지/homepage_slider_images/slider_arnold_award.jpg
+      title: ARNOLD Challenge
+    - description: Kanggeon Kim, KIST
+      image: 참고 이미지/homepage_slider_images/slider_kist_seminar.jpg
+      title: Media Seminar
     - description: Custom Built Research Platform
       image: 참고 이미지/homepage_slider_images/slider_rrr_robot.jpg
       title: GARO Robot
-    - image: "참고 이미지/homepage_slider_images/slider_gyeonggi2025.png"
-      title: "Gyeonggi Youth Gap Year"
-      description: "Governor's Award - Toddlerbot Project"
-    - image: "참고 이미지/homepage_slider_images/slider_toddlerbot.png"
-      title: "ToddlerBot Development"
-      description: "Built with Gyeonggi Youth Gap Year Grant"
-    - image: "참고 이미지/homepage_slider_images/slider_unithon2024.jpg"
-      title: "UNITHON Hackathon"
-      description: "Grand Prize - Spartan SW Camp"
-    - image: "참고 이미지/homepage_slider_images/slider_09.jpg"
-      title: "AAAI 2025"
-      description: "Association for the Advancement of AI"
-    - image: "참고 이미지/homepage_slider_images/slider_14.jpg"
-      title: "CVPR 2025"
-      description: "Poster Session Participation"
-    - image: "참고 이미지/homepage_slider_images/slider_10.jpg"
-      title: "Qualcomm Visit"
-      description: "Industry Collaboration and Research"
-    - image: "참고 이미지/homepage_slider_images/slider_08.jpg"
-      title: "Team Building"
-      description: "Lab Activities and Team Bonding"
-    - image: "참고 이미지/homepage_slider_images/slider_12.jpg"
-      title: "Teacher's Day"
-      description: "Lab Celebration and Appreciation"
-
-    - image: 참고 이미지/homepage_slider_images/img_2934.jpg
+    - description: With deepest respect.
+      image: 참고 이미지/homepage_slider_images/img_2934.jpg
       title: Teacher's Day(05/19/26)
-      description: With deepest respect.
+    - description: Governor's Award - Toddlerbot Project
+      image: 참고 이미지/homepage_slider_images/slider_gyeonggi2025.png
+      title: Gyeonggi Youth Gap Year
+    - description: Built with Gyeonggi Youth Gap Year Grant
+      image: 참고 이미지/homepage_slider_images/slider_toddlerbot.png
+      title: ToddlerBot Development
+    - description: Grand Prize - Spartan SW Camp
+      image: 참고 이미지/homepage_slider_images/slider_unithon2024.jpg
+      title: UNITHON Hackathon
+    - description: Association for the Advancement of AI
+      image: 참고 이미지/homepage_slider_images/slider_09.jpg
+      title: AAAI 2025
+    - description: Poster Session Participation
+      image: 참고 이미지/homepage_slider_images/slider_14.jpg
+      title: CVPR 2025
+    - description: Industry Collaboration and Research
+      image: 참고 이미지/homepage_slider_images/slider_10.jpg
+      title: Qualcomm Visit
+    - description: Lab Activities and Team Bonding
+      image: 참고 이미지/homepage_slider_images/slider_08.jpg
+      title: Team Building
+    - description: Lab Celebration and Appreciation
+      image: 참고 이미지/homepage_slider_images/slider_12.jpg
+      title: Teacher's Day
   services:
     title: "Research Areas"
     text: "We develop intelligent systems that learn from real-world perception and interaction—just like humans."
