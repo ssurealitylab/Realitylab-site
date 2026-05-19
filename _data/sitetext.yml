@@ -49,15 +49,9 @@ en: &DEFAULT_EN
     - description: Industry Collaboration and Research
       image: 참고 이미지/homepage_slider_images/slider_10.jpg
       title: Qualcomm Visit
-    - description: Lab Activities and Team Bonding
-      image: 참고 이미지/homepage_slider_images/slider_08.jpg
-      title: Team Building
     - description: Lab Celebration and Appreciation
       image: 참고 이미지/homepage_slider_images/slider_12.jpg
       title: Teacher's Day
-    # Archive: shown only inside the "More Images" modal on the home page,
-    # not in the hero rotation. CMS admin can move items between slider and
-    # slider_archive to retire/restore slides without deleting them.
     slider_archive: []
   services:
     title: "Research Areas"
