@@ -46,9 +46,6 @@ en: &DEFAULT_EN
     - description: Poster Session Participation
       image: 참고 이미지/homepage_slider_images/slider_14.jpg
       title: CVPR 2025
-    - description: Industry Collaboration and Research
-      image: 참고 이미지/homepage_slider_images/slider_10.jpg
-      title: Qualcomm Visit
     slider_archive:
     - 
     - 
