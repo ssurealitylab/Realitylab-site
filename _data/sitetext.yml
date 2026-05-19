@@ -18,7 +18,7 @@ en: &DEFAULT_EN
     slider:
     - description: With deepest respect.
       image: 참고 이미지/homepage_slider_images/img_2934.jpg
-      title: Teacher's Day(05/19/26)
+      title: Teacher's Day
     - description: 2025 Lab Celebration
       image: 참고 이미지/homepage_slider_images/slider_yearend_party.jpg
       title: Year-End Party
