@@ -1083,15 +1083,13 @@ function _renderSliderSection(sectionKey, slides){
           <div style="font-size:13px;font-weight:600;color:#e2e8f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.title)}</div>
           <div style="font-size:11px;color:#94a3b8;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${esc(s.description)}</div>
         </div>
-        <div style="display:flex;gap:4px;flex-shrink:0">
-          <button title="Move to ${otherLabel}" onclick="event.stopPropagation();window._adminMoveSlide('${sectionKey}',${i})"
-            style="background:#1e293b;border:1px solid #334155;color:#93c5fd;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:11px">
-            ${sectionKey === 'slider' ? '→ 📦' : '→ 🏠'}
-          </button>
-          <button onclick="event.stopPropagation();window._adminEditSlide('${sectionKey}',${i})"
-            style="background:#334155;border:none;color:#cbd5e1;padding:4px 8px;border-radius:4px;cursor:pointer;font-size:12px">Edit</button>
-          <button onclick="event.stopPropagation();window._adminDeleteSlide('${sectionKey}',${i})"
-            style="background:none;border:none;color:#f87171;padding:4px 6px;cursor:pointer;font-size:16px">&times;</button>
+        <div style="display:flex;gap:6px;flex-shrink:0;align-items:center">
+          <button class="admin-row-btn row-move"   title="Move to ${otherLabel}"
+            onclick="event.stopPropagation();window._adminMoveSlide('${sectionKey}',${i})">${sectionKey === 'slider' ? '→ 📦' : '→ 🏠'}</button>
+          <button class="admin-row-btn row-edit"
+            onclick="event.stopPropagation();window._adminEditSlide('${sectionKey}',${i})">Edit</button>
+          <button class="admin-row-btn row-delete" title="Delete"
+            onclick="event.stopPropagation();window._adminDeleteSlide('${sectionKey}',${i})">&times;</button>
         </div>
       </div>`;
     });

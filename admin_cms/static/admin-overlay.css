@@ -107,3 +107,29 @@ body{margin-top:32px !important}
 .admin-slider-item[draggable="true"]:active{cursor:grabbing}
 .admin-slider-item.drag-over-top{border-top:2px solid #3b82f6 !important}
 .admin-slider-item.drag-over-bottom{border-bottom:2px solid #3b82f6 !important}
+
+/* ─── Slider-row action buttons (Move / Edit / Delete) ──────────
+   The panel-wide rule `.admin-panel *{color:#e2e8f0 !important}` was
+   washing every button's text to the same pale gray, so the red ×
+   and the blue → buttons all looked identical and unreadable.
+   Force a white-pill style with strong, distinct text colors. */
+.admin-slider-item .admin-row-btn{
+  background:#ffffff !important;
+  border:1px solid #cbd5e1 !important;
+  border-radius:6px !important;
+  padding:4px 10px !important;
+  font-size:12px !important;
+  font-weight:700 !important;
+  cursor:pointer;
+  transition:background .15s, border-color .15s;
+  line-height:1.2 !important;
+}
+.admin-slider-item .admin-row-btn:hover{
+  background:#f1f5f9 !important;
+}
+.admin-slider-item .admin-row-btn.row-edit{   color:#0f172a !important; }
+.admin-slider-item .admin-row-btn.row-edit:hover{   border-color:#94a3b8 !important; }
+.admin-slider-item .admin-row-btn.row-move{   color:#1d4ed8 !important; border-color:#bfdbfe !important; }
+.admin-slider-item .admin-row-btn.row-move:hover{   border-color:#1d4ed8 !important; }
+.admin-slider-item .admin-row-btn.row-delete{ color:#b91c1c !important; border-color:#fecaca !important; padding:4px 8px !important; font-size:16px !important; }
+.admin-slider-item .admin-row-btn.row-delete:hover{ border-color:#b91c1c !important; background:#fef2f2 !important; }
