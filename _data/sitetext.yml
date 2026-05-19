@@ -50,6 +50,7 @@ en: &DEFAULT_EN
       image: 참고 이미지/homepage_slider_images/slider_10.jpg
       title: Qualcomm Visit
     slider_archive:
+    - 
     - description: Lab Activities and Team Bonding
       image: 참고 이미지/homepage_slider_images/slider_08.jpg
       title: Team Building
