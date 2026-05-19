@@ -53,6 +53,9 @@ en: &DEFAULT_EN
     - description: Lab Activities and Team Bonding
       image: 참고 이미지/homepage_slider_images/slider_08.jpg
       title: Team Building
+    - description: Lab Celebration and Appreciation
+      image: 참고 이미지/homepage_slider_images/slider_12.jpg
+      title: Teacher's Day
   services:
     title: "Research Areas"
     text: "We develop intelligent systems that learn from real-world perception and interaction—just like humans."
