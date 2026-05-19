@@ -57,14 +57,45 @@ class EditLock:
 
 
 def jekyll_build() -> tuple:
-    """Run Jekyll build. Returns (success, output)."""
+    """Run Jekyll build. Returns (success, output).
+
+    Resolves `bundle` against known install paths so the admin server
+    works regardless of how its PATH was set up at startup. Falls back
+    to plain `bundle` (relying on $PATH) if none of the known paths
+    exist, which keeps things working on dev machines with a normal
+    Ruby install.
+    """
+    bundle_cmd = "bundle"
+    for candidate in (
+        "/home/i0179/miniconda3/envs/RS/bin/bundle",
+        "/usr/local/bin/bundle",
+        "/usr/bin/bundle",
+    ):
+        if os.path.exists(candidate):
+            bundle_cmd = candidate
+            break
+
+    # bundle needs Ruby's gem env to find jekyll's executable. The
+    # conda RS env keeps those gems under share/rubygems/{bin,gems};
+    # without GEM_HOME and the gem bin on PATH, `bundle exec jekyll`
+    # bails with "command not found: jekyll".
+    env = os.environ.copy()
+    if bundle_cmd.startswith("/home/i0179/miniconda3/envs/RS/"):
+        gem_home = "/home/i0179/miniconda3/envs/RS/share/rubygems"
+        env["GEM_HOME"] = gem_home
+        env["PATH"] = (
+            f"{gem_home}/bin:/home/i0179/miniconda3/envs/RS/bin:"
+            + env.get("PATH", "")
+        )
+
     try:
         result = subprocess.run(
-            ["bundle", "exec", "jekyll", "build"],
+            [bundle_cmd, "exec", "jekyll", "build"],
             cwd=SITE_ROOT,
             capture_output=True,
             text=True,
-            timeout=120
+            timeout=120,
+            env=env,
         )
         output = result.stdout + result.stderr
         return result.returncode == 0, output
