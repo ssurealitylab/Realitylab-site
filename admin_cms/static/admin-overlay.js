@@ -1223,17 +1223,27 @@ window._adminSaveSlide = async function(sectionKey, idx){
 window._adminAddSlide = function(sectionKey){
   const sectionLabel = _SLIDER_KEYS[sectionKey].label;
   openPanel('Add to ' + sectionLabel, `
-    <div class="admin-fg"><label>Title</label><input id="af-slide-title" placeholder="Slide title"></div>
-    <div class="admin-fg"><label>Description</label><input id="af-slide-desc" placeholder="Short description"></div>
-    <div class="admin-fg"><label>Image</label>
-      <input id="af-slide-image" value="" readonly style="cursor:pointer" onclick="window._adminImagePicker('slider','af-slide-image')">
-      <div class="hint">Click to upload new image</div></div>
+    <div class="admin-fg"><label>Title <span style="color:#f87171">*</span></label>
+      <input id="af-slide-title" placeholder="Slide title (required)"></div>
+    <div class="admin-fg"><label>Description</label>
+      <input id="af-slide-desc" placeholder="Short description (optional)"></div>
+    <div class="admin-fg"><label>Image <span style="color:#f87171">*</span></label>
+      <input id="af-slide-image" value="" readonly placeholder="Click here to upload an image (required)"
+        style="cursor:pointer" onclick="window._adminImagePicker('slider','af-slide-image')">
+      <div class="hint" style="color:#fbbf24">Required — click the field above to upload, then come back and click Add.</div></div>
+    <div id="af-slide-error" style="display:none;margin:8px 0;padding:10px 12px;background:#7f1d1d;border-radius:8px;color:#fecaca;font-size:13px;font-weight:600"></div>
     <div class="admin-btn-row">
       <button class="admin-btn admin-btn-cancel" onclick="editSlider()">Back</button>
-      <button class="admin-btn admin-btn-primary" onclick="window._adminSaveNewSlide('${sectionKey}')">Add</button>
+      <button class="admin-btn admin-btn-primary" onclick="window._adminSaveNewSlide('${sectionKey}')">Add to ${sectionLabel}</button>
     </div>
   `);
 };
+
+function _showSlideError(msg){
+  const box = document.getElementById('af-slide-error');
+  if (box) { box.textContent = msg; box.style.display = 'block'; }
+  adminToast(msg, 'error');
+}
 
 window._adminSaveNewSlide = async function(sectionKey){
   const slide = {
@@ -1241,19 +1251,27 @@ window._adminSaveNewSlide = async function(sectionKey){
     title:       document.getElementById('af-slide-title').value.trim(),
     description: document.getElementById('af-slide-desc').value.trim(),
   };
-  if(!slide.image||!slide.title){ adminToast('Image and title are required','error'); return; }
-  adminShowLoading('Adding slide...');
+  // Distinguish the two required fields so the user knows which one to fill.
+  if(!slide.title && !slide.image){ _showSlideError('Title and Image are both required.'); return; }
+  if(!slide.title){ _showSlideError('Title is required.'); return; }
+  if(!slide.image){ _showSlideError('Image is required — click the Image field to upload one.'); return; }
+
+  adminShowLoading('Adding to ' + _SLIDER_KEYS[sectionKey].label + '...');
   try{
-    // If slider_archive doesn't exist yet (older sitetext.yml without the field),
-    // POST against a missing list 404s. In that case, seed it via PUT.
     let res = await apiCall('/deploy/sitetext/' + _SLIDER_KEYS[sectionKey].path, 'POST', slide);
+    // Older sitetext.yml without slider_archive: POST will 404; seed via PUT.
     if (res.status !== 'success' && sectionKey === 'slider_archive') {
       res = await apiCall('/deploy/sitetext/' + _SLIDER_KEYS[sectionKey].path, 'PUT', [slide]);
     }
     adminHideLoading();
-    if(res.status==='success'){ adminToast('Saved! Click "Apply" to publish.','success'); checkUnpushed(); editSlider(); }
-    else adminToast(res.message||'Error','error');
-  }catch(e){ adminHideLoading(); adminToast(e.message,'error'); }
+    if(res.status==='success'){
+      adminToast('Saved to ' + _SLIDER_KEYS[sectionKey].label + '! Click "Apply" to publish.','success');
+      checkUnpushed();
+      editSlider();
+    } else {
+      _showSlideError(res.message || res.error || 'Server rejected the request.');
+    }
+  }catch(e){ adminHideLoading(); _showSlideError(e.message || 'Network error'); }
 };
 
 window._adminDeleteSlide = async function(sectionKey, idx){
