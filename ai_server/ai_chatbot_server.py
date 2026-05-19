@@ -201,8 +201,14 @@ def call_llama_server_stream(question, context="", language="ko"):
                     except json.JSONDecodeError:
                         continue
     except Exception as e:
+        # Re-raise so chat_stream's outer except can emit an SSE `error` event;
+        # the browser then routes that into the catch branch in chatbot.html
+        # that shows the "GPU 연구원들이 학습 중" message. Previously this
+        # block did `yield f"Error: {e}"` which the client treated as a normal
+        # text chunk and painted the raw HTTPConnectionPool traceback onto
+        # the page.
         print(f"llama-server stream error: {e}")
-        yield f"Error: {e}"
+        raise
 
 
 @app.route('/health', methods=['GET'])
