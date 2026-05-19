@@ -900,3 +900,4 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 2026-05-18T23:00:22Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.193
 2026/05/19 08:00:22 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
 2026-05-18T23:00:22Z INF Registered tunnel connection connIndex=0 connection=c09b4caa-7318-4aa2-bfdb-528c895ac26f event=0 ip=198.41.200.193 location=icn01 protocol=quic
+[2026-05-20 08:00:15] Killed old admin tunnel PID: 1568265
