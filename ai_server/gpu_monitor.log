@@ -14197,3 +14197,73 @@ Admin URL: https://draw-registration-boulder-buses.trycloudflare.com
 [2026-05-20 18:02:10] admin_server starting (PID: 3244)
 [2026-05-20 18:02:10] Another restart_tunnel.sh is already running (PID: 2939). Exiting.
 [2026-05-20 18:02:15] Admin tunnel not running. Starting restart_admin_tunnel.sh...
+Admin URL: https://involving-wars-among-nature.trycloudflare.com
+[2026-05-20 18:30:01] OK: llama-server healthy
+[2026-05-20 18:30:01] OK: ai_chatbot_server running
+[2026-05-20 19:00:01] OK: llama-server healthy
+[2026-05-20 19:00:01] OK: ai_chatbot_server running
+[2026-05-20 19:30:02] OK: llama-server healthy
+[2026-05-20 19:30:02] OK: ai_chatbot_server running
+[2026-05-20 20:00:01] OK: llama-server healthy
+[2026-05-20 20:00:01] OK: ai_chatbot_server running
+[2026-05-20 20:30:01] OK: llama-server healthy
+[2026-05-20 20:30:01] OK: ai_chatbot_server running
+[2026-05-20 21:00:01] OK: llama-server healthy
+[2026-05-20 21:00:02] OK: ai_chatbot_server running
+[2026-05-20 21:30:01] OK: llama-server healthy
+[2026-05-20 21:30:01] OK: ai_chatbot_server running
+[2026-05-20 22:00:01] OK: llama-server healthy
+[2026-05-20 22:00:01] OK: llama-server healthy
+[2026-05-20 22:00:01] OK: ai_chatbot_server running
+[2026-05-20 22:00:01] OK: ai_chatbot_server running
+[2026-05-20 22:30:01] OK: llama-server healthy
+[2026-05-20 22:30:01] OK: ai_chatbot_server running
+[2026-05-20 23:00:01] OK: llama-server healthy
+[2026-05-20 23:00:01] OK: ai_chatbot_server running
+[2026-05-20 23:30:01] OK: llama-server healthy
+[2026-05-20 23:30:02] OK: ai_chatbot_server running
+[2026-05-21 00:00:02] OK: llama-server healthy
+[2026-05-21 00:00:02] OK: ai_chatbot_server running
+[2026-05-21 00:30:01] OK: llama-server healthy
+[2026-05-21 00:30:02] OK: ai_chatbot_server running
+[2026-05-21 01:00:01] OK: llama-server healthy
+[2026-05-21 01:00:02] OK: ai_chatbot_server running
+[2026-05-21 01:30:02] OK: llama-server healthy
+[2026-05-21 01:30:02] OK: ai_chatbot_server running
+[2026-05-21 02:00:01] OK: llama-server healthy
+[2026-05-21 02:00:01] OK: ai_chatbot_server running
+[2026-05-21 02:30:01] OK: llama-server healthy
+[2026-05-21 02:30:01] OK: ai_chatbot_server running
+[2026-05-21 03:00:01] OK: llama-server healthy
+[2026-05-21 03:00:01] OK: ai_chatbot_server running
+[2026-05-21 03:30:01] OK: llama-server healthy
+[2026-05-21 03:30:01] OK: ai_chatbot_server running
+[2026-05-21 08:00:01] llama-server not running. Checking GPU availability...
+[2026-05-21 08:00:02]   GPU 0: occupied by user 'user0005' (pid 18410, python)
+[2026-05-21 08:00:02]   GPU 1: occupied by user 'user0005' (pid 18211, python)
+[2026-05-21 08:00:02]   GPU 1: occupied by user 'user0005' (pid 18275, python)
+[2026-05-21 08:00:02]   GPU 1: occupied by user 'user0005' (pid 18336, python)
+[2026-05-21 08:00:02]   GPU 2: occupied by user 'user0005' (pid 4722, ray::Trainer.continuous_update_weights)
+[2026-05-21 08:00:02]   GPU 2: occupied by user 'user0005' (pid 4724, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:02]   GPU 2: occupied by user 'user0005' (pid 4728, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:02]   GPU 2: occupied by user 'user0005' (pid 6081, ray::Trainer.continuous_update_weights)
+[2026-05-21 08:00:03]   GPU 2: occupied by user 'user0005' (pid 6085, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:03]   GPU 2: occupied by user 'user0005' (pid 6083, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 13861, python)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 10847, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 10853, ray::Trainer.continuous_update_weights)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 10850, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 12298, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 12300, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 12296, ray::Trainer.continuous_update_weights)
+[2026-05-21 08:00:03]   GPU 3: occupied by user 'user0005' (pid 9407, ray::Trainer.continuous_update_weights)
+[2026-05-21 08:00:04]   GPU 3: occupied by user 'user0005' (pid 9405, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:04]   GPU 3: occupied by user 'user0005' (pid 9404, ray::SelfPlay.continuous_self_play)
+[2026-05-21 08:00:04]   GPU 0: 23664MiB free but OTHER USER is using it - SKIP
+[2026-05-21 08:00:04]   GPU 1: 22592MiB free but OTHER USER is using it - SKIP
+[2026-05-21 08:00:04]   GPU 2: 1111MiB free but OTHER USER is using it - SKIP
+[2026-05-21 08:00:04]   GPU 3: 14141MiB free but OTHER USER is using it - SKIP
+[2026-05-21 08:00:04] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-21 08:00:04] ai_chatbot_server not running. Starting...
+[2026-05-21 08:00:04] ai_chatbot_server starting (PID: 23251)
+[2026-05-21 08:00:12] WARN: ai_chatbot_server may not have started

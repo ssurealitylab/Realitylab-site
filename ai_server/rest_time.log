@@ -5812,3 +5812,65 @@ index, memory.used [MiB]
 2026. 05. 20. (수) 08:00:15 KST: Starting admin tunnel...
 Admin URL: https://booth-officer-pottery-movers.trycloudflare.com
 2026. 05. 20. (수) 08:00:30 KST: All services started
+2026. 05. 21. (목) 04:00:01 KST: === REST TIME START ===
+2026. 05. 21. (목) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 05. 21. (목) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 05. 21. (목) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 05. 21. (목) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 05. 21. (목) 04:00:05 KST: All services stopped
+2026. 05. 21. (목) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 553 MiB
+1, 1624 MiB
+2, 23105 MiB
+3, 10075 MiB
+2026. 05. 21. (목) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 05. 21. (목) 08:00:01 KST: === REST TIME END ===
+2026. 05. 21. (목) 08:00:01 KST: Starting llama-server (GPT-OSS 120B) - finding free GPUs...
+2026. 05. 21. (목) 08:00:02 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:02 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:03 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:04 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:04 KST: GPU 3: occupied by user 'user0005' - SKIP
+2026. 05. 21. (목) 08:00:04 KST: GPU 0: 23664MiB free but other user present - SKIP
+2026. 05. 21. (목) 08:00:04 KST: GPU 1: 22592MiB free but other user present - SKIP
+2026. 05. 21. (목) 08:00:04 KST: GPU 2: 1111MiB free but other user present - SKIP
+2026. 05. 21. (목) 08:00:04 KST: GPU 3: 14141MiB free but other user present - SKIP
+2026. 05. 21. (목) 08:00:04 KST: Not enough free GPUs (need 2, found 0). Skipping llama-server.
+2026. 05. 21. (목) 08:00:04 KST: smart_gpu_monitor will retry later when GPUs become available.
+2026. 05. 21. (목) 08:00:04 KST: GPU status after start:
+index, memory.used [MiB]
+0, 553 MiB
+1, 1624 MiB
+2, 23105 MiB
+3, 10075 MiB
+2026. 05. 21. (목) 08:00:04 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 05. 21. (목) 08:00:04 KST: ai_chatbot_server starting (PID: 23255)
+2026. 05. 21. (목) 08:00:06 KST: Waiting for chatbot server... (1/10)
+2026. 05. 21. (목) 08:00:08 KST: Waiting for chatbot server... (2/10)
+2026. 05. 21. (목) 08:00:10 KST: Waiting for chatbot server... (3/10)
+2026. 05. 21. (목) 08:00:12 KST: Waiting for chatbot server... (4/10)
+2026. 05. 21. (목) 08:00:14 KST: Waiting for chatbot server... (5/10)
+2026. 05. 21. (목) 08:00:16 KST: Waiting for chatbot server... (6/10)
+2026. 05. 21. (목) 08:00:18 KST: ai_chatbot_server is ready!
+2026. 05. 21. (목) 08:00:18 KST: Starting chatbot tunnel...
+[2026-05-21 08:00:18] Another restart_tunnel.sh is already running (PID: 23258). Exiting.
+2026. 05. 21. (목) 08:00:18 KST: admin_server already running, skipping
+2026. 05. 21. (목) 08:00:18 KST: Starting admin tunnel...
+Admin URL: https://portraits-antibodies-fruits-library.trycloudflare.com
+2026. 05. 21. (목) 08:00:33 KST: All services started
