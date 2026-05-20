@@ -2,20 +2,20 @@
 2026-05-20T09:02:16Z INF Requesting new quick Tunnel on trycloudflare.com...
 2026-05-20T09:02:20Z INF +--------------------------------------------------------------------------------------------+
 2026-05-20T09:02:20Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
-2026-05-20T09:02:20Z INF |  https://entries-margaret-pump-lindsay.trycloudflare.com                                   |
+2026-05-20T09:02:20Z INF |  https://involving-wars-among-nature.trycloudflare.com                                     |
 2026-05-20T09:02:20Z INF +--------------------------------------------------------------------------------------------+
 2026-05-20T09:02:20Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
 2026-05-20T09:02:20Z INF Version 2026.3.0 (Checksum 4a9e50e6d6d798e90fcd01933151a90bf7edd99a0a55c28ad18f2e16263a5c30)
 2026-05-20T09:02:20Z INF GOOS: linux, GOVersion: go1.24.13, GoArch: amd64
-2026-05-20T09:02:20Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4005]
+2026-05-20T09:02:20Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
 2026-05-20T09:02:20Z INF Autoupdate frequency is set autoupdateFreq=86400000
-2026-05-20T09:02:20Z INF Generated Connector ID: a1bc187f-cbd1-45b7-9f4b-8c03ecf8ac04
+2026-05-20T09:02:20Z INF Generated Connector ID: a4db1f9f-6c84-43d2-85fb-dd301482d333
 2026-05-20T09:02:20Z INF Initial protocol quic
 2026-05-20T09:02:20Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
 2026-05-20T09:02:20Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
 2026-05-20T09:02:20Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
 2026-05-20T09:02:20Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
-2026-05-20T09:02:20Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2026-05-20T09:02:20Z INF Starting metrics server on 127.0.0.1:20241/metrics
 2026-05-20T09:02:20Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveP256] connIndex=0 event=0 ip=198.41.200.63
 2026/05/20 18:02:20 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
-2026-05-20T09:02:21Z INF Registered tunnel connection connIndex=0 connection=5c5e9466-bc2b-4e59-ad12-1f20b49e9a90 event=0 ip=198.41.200.63 location=icn01 protocol=quic
+2026-05-20T09:02:20Z INF Registered tunnel connection connIndex=0 connection=a70746a9-a4d1-4537-a603-ffa820828f3d event=0 ip=198.41.200.63 location=icn01 protocol=quic

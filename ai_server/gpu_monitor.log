@@ -14014,3 +14014,186 @@ Admin URL: https://draw-registration-boulder-buses.trycloudflare.com
 [2026-05-20 08:00:05] OK: ai_chatbot_server running
 [2026-05-20 08:00:05] Chatbot tunnel not running. Starting restart_tunnel.sh...
 [2026-05-20 08:00:05] Another restart_tunnel.sh is already running (PID: 1971444). Exiting.
+[2026-05-20 08:30:01] llama-server not running. Checking GPU availability...
+[2026-05-20 08:30:01]   GPU 0: occupied by user 'user0005' (pid 1403353, ray::Trainer.continuous_update_weights)
+[2026-05-20 08:30:01]   GPU 0: occupied by user 'user0005' (pid 1401908, ray::Trainer.continuous_update_weights)
+[2026-05-20 08:30:01]   GPU 1: occupied by user 'user0005' (pid 1404784, ray::Trainer.continuous_update_weights)
+[2026-05-20 08:30:01]   GPU 1: occupied by user 'sjw123' (pid 1718345, /home/sjw123/anaconda3/envs/instantid/bin/python3.1)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1785436, ray::Trainer.continuous_update_weights)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1785443, ray::SelfPlay.continuous_self_play)
+[2026-05-20 08:30:02]   GPU 2: occupied by user 'user0005' (pid 1785441, ray::SelfPlay.continuous_self_play)
+[2026-05-20 08:30:02]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 08:30:02]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 08:30:02]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 08:30:02]   GPU 0: 2292MiB free but OTHER USER is using it - SKIP
+[2026-05-20 08:30:02]   GPU 1: 2198MiB free but OTHER USER is using it - SKIP
+[2026-05-20 08:30:02]   GPU 2: 8438MiB free but OTHER USER is using it - SKIP
+[2026-05-20 08:30:02]   GPU 3: 22253MiB free but OTHER USER is using it - SKIP
+[2026-05-20 08:30:02] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-20 08:30:02] OK: ai_chatbot_server running
+[2026-05-20 09:00:01] llama-server not running. Checking GPU availability...
+[2026-05-20 09:00:01]   GPU 0: occupied by user 'user0005' (pid 1403353, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:00:01]   GPU 0: occupied by user 'user0005' (pid 1401908, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:00:01]   GPU 1: occupied by user 'user0005' (pid 1404784, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:00:01]   GPU 1: occupied by user 'sjw123' (pid 1718345, /home/sjw123/anaconda3/envs/instantid/bin/python3.1)
+[2026-05-20 09:00:01]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 09:00:01]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 09:00:01]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 09:00:01]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:00:01]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:00:01]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 09:00:01]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 09:00:01]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 09:00:01]   GPU 0: 2292MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:00:01]   GPU 1: 2190MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:00:01]   GPU 2: 17549MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:00:01]   GPU 3: 22253MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:00:01] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-20 09:00:02] OK: ai_chatbot_server running
+[2026-05-20 09:30:01] llama-server not running. Checking GPU availability...
+[2026-05-20 09:30:01]   GPU 0: occupied by user 'user0005' (pid 1403353, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:30:01]   GPU 0: occupied by user 'user0005' (pid 1401908, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:30:02]   GPU 1: occupied by user 'user0005' (pid 1404784, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:30:02]   GPU 1: occupied by user 'sjw123' (pid 1718345, /home/sjw123/anaconda3/envs/instantid/bin/python3.1)
+[2026-05-20 09:30:02]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 09:30:02]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 09:30:02]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 09:30:02]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:30:02]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 09:30:02]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 09:30:02]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 09:30:02]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 09:30:02]   GPU 0: 2292MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:30:02]   GPU 1: 8816MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:30:02]   GPU 2: 17549MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:30:02]   GPU 3: 22253MiB free but OTHER USER is using it - SKIP
+[2026-05-20 09:30:02] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-20 09:30:02] OK: ai_chatbot_server running
+[2026-05-20 10:00:01] WARN: llama-server process exists but not responding, killing...
+[2026-05-20 10:00:01] llama-server not running. Checking GPU availability...
+[2026-05-20 10:00:01]   GPU 0: occupied by user 'user0005' (pid 1403353, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:01]   GPU 0: occupied by user 'user0005' (pid 1401908, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:01]   GPU 1: occupied by user 'user0005' (pid 1404784, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:01]   GPU 1: occupied by user 'sjw123' (pid 1718345, /home/sjw123/anaconda3/envs/instantid/bin/python3.1)
+[2026-05-20 10:00:01]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 10:00:01]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 10:00:01]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 10:00:01]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:01]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:01]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 10:00:01]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 10:00:02]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 10:00:02]   GPU 3: occupied by user 'jhyim0823' (pid 2029191, .venv/bin/python)
+[2026-05-20 10:00:02]   GPU 0: 2292MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:02]   GPU 1: 2198MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:02]   GPU 2: 17549MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:02]   GPU 3: 3624MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:02] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-20 10:00:02] OK: ai_chatbot_server running
+[2026-05-20 10:00:04] llama-server not running. Checking GPU availability...
+[2026-05-20 10:00:04]   GPU 0: occupied by user 'user0005' (pid 1403353, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:04]   GPU 0: occupied by user 'user0005' (pid 1401908, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:04]   GPU 1: occupied by user 'user0005' (pid 1404784, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:04]   GPU 1: occupied by user 'sjw123' (pid 1718345, /home/sjw123/anaconda3/envs/instantid/bin/python3.1)
+[2026-05-20 10:00:04]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 10:00:04]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 10:00:04]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 10:00:04]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:04]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:00:04]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 10:00:04]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 10:00:05]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 10:00:05]   GPU 3: occupied by user 'jhyim0823' (pid 2029191, .venv/bin/python)
+[2026-05-20 10:00:05]   GPU 0: 2292MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:05]   GPU 1: 2198MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:05]   GPU 2: 17549MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:05]   GPU 3: 3624MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:00:05] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-20 10:00:05] OK: ai_chatbot_server running
+[2026-05-20 10:30:01] llama-server not running. Checking GPU availability...
+[2026-05-20 10:30:01]   GPU 0: occupied by user 'user0005' (pid 1403353, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:30:01]   GPU 0: occupied by user 'user0005' (pid 1401908, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:30:01]   GPU 1: occupied by user 'user0005' (pid 1404784, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:30:01]   GPU 1: occupied by user 'sjw123' (pid 1718345, /home/sjw123/anaconda3/envs/instantid/bin/python3.1)
+[2026-05-20 10:30:01]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 10:30:01]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 10:30:02]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 10:30:02]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:30:02]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 10:30:02]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 10:30:02]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 10:30:02]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 10:30:02]   GPU 3: occupied by user 'jhyim0823' (pid 2029191, .venv/bin/python)
+[2026-05-20 10:30:02]   GPU 0: 2292MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:30:02]   GPU 1: 2202MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:30:02]   GPU 2: 17549MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:30:02]   GPU 3: 3624MiB free but OTHER USER is using it - SKIP
+[2026-05-20 10:30:02] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-20 10:30:02] OK: ai_chatbot_server running
+[2026-05-20 11:00:01] llama-server not running. Checking GPU availability...
+[2026-05-20 11:00:01]   GPU 0: occupied by user 'user0005' (pid 1403353, ray::Trainer.continuous_update_weights)
+[2026-05-20 11:00:01]   GPU 0: occupied by user 'user0005' (pid 1401908, ray::Trainer.continuous_update_weights)
+[2026-05-20 11:00:02]   GPU 1: occupied by user 'user0005' (pid 1404784, ray::Trainer.continuous_update_weights)
+[2026-05-20 11:00:02]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 11:00:02]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 11:00:02]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 11:00:02]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 11:00:02]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 11:00:02]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 11:00:02]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 11:00:02]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 11:00:02]   GPU 3: occupied by user 'jhyim0823' (pid 2029191, .venv/bin/python)
+[2026-05-20 11:00:02]   GPU 0: 2292MiB free but OTHER USER is using it - SKIP
+[2026-05-20 11:00:02]   GPU 1: 22641MiB free but OTHER USER is using it - SKIP
+[2026-05-20 11:00:02]   GPU 2: 17549MiB free but OTHER USER is using it - SKIP
+[2026-05-20 11:00:02]   GPU 3: 3624MiB free but OTHER USER is using it - SKIP
+[2026-05-20 11:00:02] Not enough exclusive GPUs (need 2, found 0). Other users are using GPUs. Skipping.
+[2026-05-20 11:00:02] OK: ai_chatbot_server running
+[2026-05-20 11:30:01] llama-server not running. Checking GPU availability...
+[2026-05-20 11:30:02]   GPU 2: occupied by user 'user0005' (pid 1413006, python)
+[2026-05-20 11:30:02]   GPU 2: occupied by user 'user0005' (pid 1413104, python)
+[2026-05-20 11:30:02]   GPU 2: occupied by user 'user0005' (pid 1413165, python)
+[2026-05-20 11:30:02]   GPU 2: occupied by user 'user0005' (pid 1409033, ray::Trainer.continuous_update_weights)
+[2026-05-20 11:30:02]   GPU 2: occupied by user 'user0005' (pid 1410672, ray::Trainer.continuous_update_weights)
+[2026-05-20 11:30:02]   GPU 3: occupied by user 'user0005' (pid 1413226, python)
+[2026-05-20 11:30:02]   GPU 3: occupied by user 'user0005' (pid 1413292, python)
+[2026-05-20 11:30:02]   GPU 3: occupied by user 'user0005' (pid 1413354, python)
+[2026-05-20 11:30:02]   GPU 0: 23353MiB free, no other users (OK)
+[2026-05-20 11:30:02]   GPU 1: 24203MiB free, no other users (OK)
+[2026-05-20 11:30:02]   GPU 2: 17549MiB free but OTHER USER is using it - SKIP
+[2026-05-20 11:30:02]   GPU 3: 22253MiB free but OTHER USER is using it - SKIP
+[2026-05-20 11:30:02] Starting llama-server on GPUs: 0,1 (verified no other users)
+[2026-05-20 11:30:02] llama-server starting (PID: 2102680, GPUs: 0,1)
+[2026-05-20 11:32:03] WARN: llama-server may still be loading
+[2026-05-20 11:32:03] OK: ai_chatbot_server running
+[2026-05-20 12:00:01] OK: llama-server healthy
+[2026-05-20 12:00:01] OK: ai_chatbot_server running
+[2026-05-20 12:30:01] OK: llama-server healthy
+[2026-05-20 12:30:01] OK: ai_chatbot_server running
+[2026-05-20 13:00:01] OK: llama-server healthy
+[2026-05-20 13:00:01] OK: ai_chatbot_server running
+[2026-05-20 13:30:01] OK: llama-server healthy
+[2026-05-20 13:30:01] OK: ai_chatbot_server running
+[2026-05-20 14:00:01] OK: llama-server healthy
+[2026-05-20 14:00:01] OK: ai_chatbot_server running
+[2026-05-20 18:00:01] llama-server not running. Checking GPU availability...
+[2026-05-20 18:00:01]   GPU 0: 24183MiB free, no other users (OK)
+[2026-05-20 18:00:01]   GPU 1: 24203MiB free, no other users (OK)
+[2026-05-20 18:00:01]   GPU 2: 24203MiB free, no other users (OK)
+[2026-05-20 18:00:01]   GPU 3: 24203MiB free, no other users (OK)
+[2026-05-20 18:00:01] Starting llama-server on GPUs: 0,1 (verified no other users)
+[2026-05-20 18:00:01] llama-server starting (PID: 2998, GPUs: 0,1)
+[2026-05-20 18:02:02] WARN: llama-server may still be loading
+[2026-05-20 18:02:02] ai_chatbot_server not running. Starting...
+[2026-05-20 18:02:02] ai_chatbot_server starting (PID: 3191)
+[2026-05-20 18:02:10] WARN: ai_chatbot_server may not have started
+[2026-05-20 18:02:10] Chatbot tunnel not running. Starting restart_tunnel.sh...
+[2026-05-20 18:02:10] admin_server (CMS) not running. Starting...
+[2026-05-20 18:02:10] admin_server starting (PID: 3244)
+[2026-05-20 18:02:10] Another restart_tunnel.sh is already running (PID: 2939). Exiting.
+[2026-05-20 18:02:15] Admin tunnel not running. Starting restart_admin_tunnel.sh...
