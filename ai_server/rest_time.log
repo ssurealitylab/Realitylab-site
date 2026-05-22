@@ -5932,3 +5932,44 @@ index, memory.used [MiB]
 [2026-05-22 08:00:16] Another restart_tunnel.sh is already running (PID: 70721). Exiting.
 2026. 05. 22. (금) 08:00:16 KST: admin_server already running, skipping
 2026. 05. 22. (금) 08:00:16 KST: Starting admin tunnel...
+Admin URL: https://lynn-mardi-acquire-spelling.trycloudflare.com
+2026. 05. 22. (금) 08:00:31 KST: All services started
+2026. 05. 23. (토) 04:00:01 KST: === REST TIME START ===
+2026. 05. 23. (토) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 05. 23. (토) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 05. 23. (토) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 05. 23. (토) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 05. 23. (토) 04:00:05 KST: All services stopped
+2026. 05. 23. (토) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 12628 MiB
+1, 14 MiB
+2, 12699 MiB
+3, 16 MiB
+2026. 05. 23. (토) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 05. 23. (토) 08:00:01 KST: === REST TIME END ===
+2026. 05. 23. (토) 08:00:01 KST: llama-server already running, skipping start
+2026. 05. 23. (토) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 12628 MiB
+1, 14 MiB
+2, 12699 MiB
+3, 16 MiB
+2026. 05. 23. (토) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 05. 23. (토) 08:00:01 KST: ai_chatbot_server starting (PID: 106785)
+2026. 05. 23. (토) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 05. 23. (토) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 05. 23. (토) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 05. 23. (토) 08:00:09 KST: Waiting for chatbot server... (4/10)
+2026. 05. 23. (토) 08:00:11 KST: Waiting for chatbot server... (5/10)
+2026. 05. 23. (토) 08:00:13 KST: Waiting for chatbot server... (6/10)
+2026. 05. 23. (토) 08:00:15 KST: Waiting for chatbot server... (7/10)
+2026. 05. 23. (토) 08:00:17 KST: Waiting for chatbot server... (8/10)
+2026. 05. 23. (토) 08:00:21 KST: Waiting for chatbot server... (9/10)
+2026. 05. 23. (토) 08:00:23 KST: Waiting for chatbot server... (10/10)
+2026. 05. 23. (토) 08:00:23 KST: Starting chatbot tunnel...
+[2026-05-23 08:00:24] Another restart_tunnel.sh is already running (PID: 106831). Exiting.
+2026. 05. 23. (토) 08:00:25 KST: admin_server already running, skipping
+2026. 05. 23. (토) 08:00:25 KST: Starting admin tunnel...
+Admin URL: https://disks-met-cow-generates.trycloudflare.com
+2026. 05. 23. (토) 08:01:46 KST: All services started
