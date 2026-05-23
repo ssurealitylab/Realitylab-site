@@ -5973,3 +5973,45 @@ index, memory.used [MiB]
 2026. 05. 23. (토) 08:00:25 KST: Starting admin tunnel...
 Admin URL: https://disks-met-cow-generates.trycloudflare.com
 2026. 05. 23. (토) 08:01:46 KST: All services started
+2026. 05. 24. (일) 04:00:01 KST: === REST TIME START ===
+2026. 05. 24. (일) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 05. 24. (일) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 05. 24. (일) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 05. 24. (일) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 05. 24. (일) 04:00:05 KST: All services stopped
+2026. 05. 24. (일) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 955 MiB
+1, 499 MiB
+2, 499 MiB
+3, 14 MiB
+2026. 05. 24. (일) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 05. 24. (일) 08:00:01 KST: === REST TIME END ===
+2026. 05. 24. (일) 08:00:01 KST: Starting llama-server (GPT-OSS 120B) - finding free GPUs...
+2026. 05. 24. (일) 08:00:01 KST: GPU 0: occupied by user 'user0005' - SKIP
+2026. 05. 24. (일) 08:00:01 KST: GPU 1: occupied by user 'user0005' - SKIP
+2026. 05. 24. (일) 08:00:01 KST: GPU 2: occupied by user 'user0005' - SKIP
+2026. 05. 24. (일) 08:00:01 KST: GPU 0: 23262MiB free but other user present - SKIP
+2026. 05. 24. (일) 08:00:01 KST: GPU 1: 23717MiB free but other user present - SKIP
+2026. 05. 24. (일) 08:00:01 KST: GPU 2: 23717MiB free but other user present - SKIP
+2026. 05. 24. (일) 08:00:01 KST: GPU 3: 24203MiB free, no other users (OK)
+2026. 05. 24. (일) 08:00:01 KST: Not enough free GPUs (need 2, found 1). Skipping llama-server.
+2026. 05. 24. (일) 08:00:01 KST: smart_gpu_monitor will retry later when GPUs become available.
+2026. 05. 24. (일) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 955 MiB
+1, 499 MiB
+2, 499 MiB
+3, 14 MiB
+2026. 05. 24. (일) 08:00:02 KST: ai_chatbot_server already running, skipping
+2026. 05. 24. (일) 08:00:02 KST: Starting chatbot tunnel...
+[2026-05-24 08:00:02] ========================================
+[2026-05-24 08:00:02] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-24 08:00:04] Attempt 1/10 - Creating tunnel...
+[2026-05-24 08:00:09] Tunnel URL obtained: https://together-reports-guides-automotive.trycloudflare.com
+[2026-05-24 08:00:15] Health check FAILED, will retry...
+[2026-05-24 08:00:15] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-24 08:02:15] Attempt 2/10 - Creating tunnel...
+[2026-05-24 08:02:19] Tunnel URL obtained: https://boys-carrying-bracelet-telephony.trycloudflare.com
+[2026-05-24 08:02:25] Tunnel health check PASSED!
+[2026-05-24 08:02:25] Updating URLs: https://tumor-figure-ranging-controlling.trycloudflare.com -> https://boys-carrying-bracelet-telephony.trycloudflare.com
