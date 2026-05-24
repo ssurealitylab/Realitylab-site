@@ -60827,3 +60827,24 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 [2026-05-24 08:02:19] Tunnel URL obtained: https://boys-carrying-bracelet-telephony.trycloudflare.com
 [2026-05-24 08:02:25] Tunnel health check PASSED!
 [2026-05-24 08:02:25] Updating URLs: https://tumor-figure-ranging-controlling.trycloudflare.com -> https://boys-carrying-bracelet-telephony.trycloudflare.com
+Version auto-updated to v1313
+[main bfe6d7f] Auto-update Cloudflare Tunnel URL
+ 14 files changed, 401 insertions(+), 30 deletions(-)
+ delete mode 100755 ai_server/cloudflared.new.new
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+   81356c1..bfe6d7f  main -> main
+[2026-05-24 08:02:43] [safe_git_push] push succeeded on attempt 1
+[2026-05-24 08:02:43] Successfully pushed to GitHub!
+[2026-05-24 08:02:43] Tunnel restart completed successfully!
+[2026-05-24 08:02:43] ========================================
+[2026-05-25 08:00:04] ========================================
+[2026-05-25 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-25 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-25 08:00:09] Another restart_tunnel.sh is already running (PID: 177549). Exiting.
+[2026-05-25 08:00:10] Tunnel URL obtained: https://parental-pour-readings-september.trycloudflare.com
+[2026-05-25 08:00:15] Health check FAILED, will retry...
+[2026-05-25 08:00:15] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-25 08:02:15] Attempt 2/10 - Creating tunnel...
+[2026-05-25 08:02:19] Tunnel URL obtained: https://machinery-consisting-ross-gene.trycloudflare.com
+[2026-05-25 08:02:25] Tunnel health check PASSED!
+[2026-05-25 08:02:25] Updating URLs: https://boys-carrying-bracelet-telephony.trycloudflare.com -> https://machinery-consisting-ross-gene.trycloudflare.com
