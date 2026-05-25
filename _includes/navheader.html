@@ -200,9 +200,22 @@
     <div class="more-images-dialog" role="document">
       <button class="more-images-close" type="button" onclick="closeMoreImages()" aria-label="Close">&times;</button>
       <h2 id="moreImagesTitle">Lab Photos</h2>
-      <p class="more-images-subtitle">{{ _all_images.size }} photos</p>
+      {% comment %}
+      Filter out any nil entries or items missing image/title — these
+      can appear if a CMS edit half-failed (we saw 3 null entries
+      slip into slider_archive during an early move-between-sections
+      operation). Without this guard such items render as broken
+      image tiles in the gallery.
+      {% endcomment %}
+      {% assign _visible_images = "" | split: "" %}
+      {% for slide in _all_images %}
+        {% if slide and slide.image and slide.title %}
+          {% assign _visible_images = _visible_images | push: slide %}
+        {% endif %}
+      {% endfor %}
+      <p class="more-images-subtitle">{{ _visible_images.size }} photos</p>
       <div class="more-images-grid">
-        {% for slide in _all_images %}
+        {% for slide in _visible_images %}
         <figure class="more-images-cell"
                 tabindex="0" role="button"
                 aria-label="{{ slide.title | escape }}"

@@ -1291,9 +1291,15 @@ window._adminMoveSlide = async function(fromSection, idx){
   try{
     const data = await apiGet('/data/sitetext');
     const src = data.en.header[fromSection] || [];
-    const dst = data.en.header[toSection]   || [];
+    const dst = (data.en.header[toSection] || []).filter(s => s && s.image && s.title);
     if (idx < 0 || idx >= src.length) { adminHideLoading(); adminToast('Slide not found','error'); return; }
     const [moved] = src.splice(idx, 1);
+    if (!moved || !moved.image || !moved.title) {
+      adminHideLoading();
+      adminToast('Refused to move incomplete slide (missing image/title)','error');
+      editSlider();
+      return;
+    }
     dst.push(moved);
 
     // Two PUTs; if the destination list was missing/empty before this is also

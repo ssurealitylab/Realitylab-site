@@ -243,6 +243,18 @@ def api_deploy_update(filename, data_path):
         new_value = request.get_json()
         if not new_value:
             return jsonify({"error": "No data provided"}), 400
+        # Drop null/incomplete slide entries before saving. Without this,
+        # a buggy client-side Move (e.g. idx out of range → splice returns
+        # [undefined] → JSON serializes as null) silently corrupted the
+        # YAML and the More Images modal rendered broken tiles for each
+        # null entry.
+        if isinstance(new_value, list) and (
+            data_path.endswith('.slider') or data_path.endswith('.slider_archive')
+        ):
+            new_value = [
+                s for s in new_value
+                if s and isinstance(s, dict) and s.get('image') and s.get('title')
+            ]
         errors = validate_data(filename, new_value, path=data_path)
         if errors:
             return jsonify({"status": "error", "errors": errors})
