@@ -60864,3 +60864,24 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 [2026-05-26 08:00:12] Tunnel URL obtained: https://alice-acknowledged-archives-spots.trycloudflare.com
 [2026-05-26 08:00:18] Tunnel health check PASSED!
 [2026-05-26 08:00:18] Updating URLs: https://machinery-consisting-ross-gene.trycloudflare.com -> https://alice-acknowledged-archives-spots.trycloudflare.com
+Version auto-updated to v1318
+[main 1408f70] Auto-update Cloudflare Tunnel URL
+ 15 files changed, 412 insertions(+), 30 deletions(-)
+ create mode 100644 ai_server/admin_tunnel_temp.log
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+   5c5fca9..1408f70  main -> main
+[2026-05-26 08:00:22] [safe_git_push] push succeeded on attempt 1
+[2026-05-26 08:00:22] Successfully pushed to GitHub!
+[2026-05-26 08:00:22] Tunnel restart completed successfully!
+[2026-05-26 08:00:22] ========================================
+[2026-05-27 08:00:04] ========================================
+[2026-05-27 08:00:04] Starting Cloudflare Tunnel restart (Attempt 1/20 today)...
+[2026-05-27 08:00:06] Attempt 1/10 - Creating tunnel...
+[2026-05-27 08:00:11] Tunnel URL obtained: https://era-outer-belief-distances.trycloudflare.com
+[2026-05-27 08:00:12] Another restart_tunnel.sh is already running (PID: 280099). Exiting.
+[2026-05-27 08:00:16] Health check FAILED, will retry...
+[2026-05-27 08:00:16] Waiting 120s before next attempt (exponential backoff)...
+[2026-05-27 08:02:16] Attempt 2/10 - Creating tunnel...
+[2026-05-27 08:02:20] Tunnel URL obtained: https://democracy-apache-wisdom-biz.trycloudflare.com
+[2026-05-27 08:02:26] Tunnel health check PASSED!
+[2026-05-27 08:02:26] Updating URLs: https://alice-acknowledged-archives-spots.trycloudflare.com -> https://democracy-apache-wisdom-biz.trycloudflare.com
