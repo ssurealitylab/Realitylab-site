@@ -1,7 +1,7 @@
 {
   "category": "members",
   "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-  "num_documents": 19,
+  "num_documents": 20,
   "embedding_dim": 384,
   "doc_types": [
     "member"

@@ -117,6 +117,17 @@
     }
   },
   {
+    "content": "박사과정 학생: 박성용 (Sungyong Park)\n연구 분야: Computer Vision, Deep Learning\nGitHub: https://ejqdl02.github.io/\nLinkedIn: https://www.linkedin.com/in/sungyong-park-662a19294/",
+    "metadata": {
+      "type": "member",
+      "language": "ko",
+      "category": "phd_student",
+      "name": "Sungyong Park",
+      "name_ko": "박성용",
+      "research": "Computer Vision, Deep Learning"
+    }
+  },
+  {
     "content": "석사과정 학생: 고민주 (Minjoo Koh)\n연구 분야: 3D Vision, AI for Sports",
     "metadata": {
       "type": "member",
@@ -1298,6 +1309,15 @@
     }
   },
   {
+    "content": "질문: 팀 구성원은 누구인가요?\n답변: Reality Lab의 현재 구성원(2026년 5월 기준)은 다음과 같습니다.\n\n• 책임교수(PI): 김희원 교수 (Prof. Heewon Kim) — heewon@ssu.ac.kr\n• 박사과정 (1명): 박성용 (Sungyong Park) — Computer Vision, Deep Learning\n• 석사과정 (8명):\n  - 고민주 (Minjoo Koh) — 3D Vision, AI for Sports\n  - 고현준 (Hyunjun Kho) — Computer Vision, Deep Learning\n  - 고현서 (Hyunsuh Kho) — Multimodal Learning, Representation Learning\n  - 이주형 (Juhyoung Lee) — Robotics, Physical AI\n  - 서지우 (Jiwoo Seo) — Computer Vision, Deep Learning\n  - 정호재 (Hojae Jeong) — Computer Vision, Generative AI\n  - 최수영 (Sooyoung Choi) — Computer Vision, Deep Learning\n  - 황지원 (Jiwon Hwang) — Computer Vision, Deep Learning\n• 인턴 (10명): 김서영, 송은우, 이재현, 임정하, 김예리, 김현찬, 김재림, 김연서, 강인선, 박현수\n\n자세한 프로필은 홈페이지의 Members 페이지에서 확인하실 수 있습니다.\n키워드: 팀, 구성원, 멤버, 팀원, 연구원, 학생, members, team",
+    "metadata": {
+      "type": "qa",
+      "language": "ko",
+      "category": "faq",
+      "question": "팀 구성원은 누구인가요?"
+    }
+  },
+  {
     "content": "질문: 연구실에 어떻게 지원할 수 있나요?\n답변: Reality Lab에 관심을 가져주셔서 감사합니다! 학부생이나 대학원생 모두 환영합니다. 자세한 지원 방법은 김희원 교수님께 이메일(heewon@ssu.ac.kr)로 문의해주시거나 전화(+82-2-820-0679)로 연락해주세요.\n키워드: 지원, 지원방법, 참여, 입학",
     "metadata": {
       "type": "qa",
@@ -1457,6 +1477,15 @@
       "language": "ko",
       "category": "faq",
       "question": "테크스테이션은 어떤 곳인가요?"
+    }
+  },
+  {
+    "content": "Question: Who are the team members?\nAnswer: Reality Lab's current members (as of May 2026):\n\n• Principal Investigator: Prof. Heewon Kim — heewon@ssu.ac.kr\n• PhD Student (1): Sungyong Park — Computer Vision, Deep Learning\n• Master's Students (8):\n  - Minjoo Koh — 3D Vision, AI for Sports\n  - Hyunjun Kho — Computer Vision, Deep Learning\n  - Hyunsuh Kho — Multimodal Learning, Representation Learning\n  - Juhyoung Lee — Robotics, Physical AI\n  - Jiwoo Seo — Computer Vision, Deep Learning\n  - Hojae Jeong — Computer Vision, Generative AI\n  - Sooyoung Choi — Computer Vision, Deep Learning\n  - Jiwon Hwang — Computer Vision, Deep Learning\n• Interns (10): Seoyoung Kim, Eunwoo Song, Jaehyeon Lee, Jungha Lim, Yeri Kim, Hyeonchan Kim, Jaerim Kim, Yeunsuh Kim, Inseon Kang, Hyunsoo Park\n\nFull profiles are available on the Members page of the website.\nKeywords: team, members, researchers, students, who, people, lab members",
+    "metadata": {
+      "type": "qa",
+      "language": "en",
+      "category": "faq",
+      "question": "Who are the team members?"
     }
   }
 ]
