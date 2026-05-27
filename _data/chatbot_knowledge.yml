@@ -66,16 +66,65 @@ research_areas:
 team_members:
   ko:
   - name: "김희원 교수님"
-    role: "책임교수"
+    role: "책임교수 (PI)"
     email: "heewon@ssu.ac.kr"
   - name: "박성용"
     role: "박사과정"
+    research: "Computer Vision, Deep Learning"
+  - name: "고민주"
+    role: "석사과정"
+    research: "3D Vision, AI for Sports"
+  - name: "고현준"
+    role: "석사과정"
+    research: "Computer Vision, Deep Learning"
   - name: "고현서"
     role: "석사과정"
+    research: "Multimodal Learning, Representation Learning"
+  - name: "이주형"
+    role: "석사과정"
+    research: "Robotics, Physical AI"
+  - name: "서지우"
+    role: "석사과정"
+    research: "Computer Vision, Deep Learning"
   - name: "정호재"
     role: "석사과정"
+    research: "Computer Vision, Generative AI"
+  - name: "최수영"
+    role: "석사과정"
+    research: "Computer Vision, Deep Learning"
   - name: "황지원"
     role: "석사과정"
+    research: "Computer Vision, Deep Learning"
+  - name: "김서영"
+    role: "인턴"
+    research: "Deep Learning, Medical AI"
+  - name: "송은우"
+    role: "인턴"
+    research: "Language Model, Deep Learning"
+  - name: "이재현"
+    role: "인턴"
+    research: "Computer Vision, Deep Learning"
+  - name: "임정하"
+    role: "인턴"
+    research: "Computer Vision, Deep Learning"
+  - name: "김예리"
+    role: "인턴"
+    research: "Deep Learning, Medical AI"
+  - name: "김현찬"
+    role: "인턴"
+    research: "Physical AI, Computer Vision"
+  - name: "김재림"
+    role: "인턴"
+    research: "Computer Vision, Deep Learning"
+  - name: "김연서"
+    role: "인턴"
+    research: "Physical AI"
+  - name: "강인선"
+    role: "인턴"
+    research: "Computer Vision, Physical AI"
+  - name: "박현수"
+    role: "인턴"
+    research: "Physical AI"
 
   en:
   - name: "Prof. Heewon Kim"
@@ -83,16 +132,85 @@ team_members:
     email: "heewon@ssu.ac.kr"
   - name: "Sungyong Park"
     role: "PhD Student"
+    research: "Computer Vision, Deep Learning"
+  - name: "Minjoo Koh"
+    role: "Master's Student"
+    research: "3D Vision, AI for Sports"
+  - name: "Hyunjun Kho"
+    role: "Master's Student"
+    research: "Computer Vision, Deep Learning"
   - name: "Hyunsuh Kho"
     role: "Master's Student"
+    research: "Multimodal Learning, Representation Learning"
+  - name: "Juhyoung Lee"
+    role: "Master's Student"
+    research: "Robotics, Physical AI"
+  - name: "Jiwoo Seo"
+    role: "Master's Student"
+    research: "Computer Vision, Deep Learning"
   - name: "Hojae Jeong"
     role: "Master's Student"
+    research: "Computer Vision, Generative AI"
+  - name: "Sooyoung Choi"
+    role: "Master's Student"
+    research: "Computer Vision, Deep Learning"
   - name: "Jiwon Hwang"
     role: "Master's Student"
+    research: "Computer Vision, Deep Learning"
+  - name: "Seoyoung Kim"
+    role: "Intern"
+    research: "Deep Learning, Medical AI"
+  - name: "Eunwoo Song"
+    role: "Intern"
+    research: "Language Model, Deep Learning"
+  - name: "Jaehyeon Lee"
+    role: "Intern"
+    research: "Computer Vision, Deep Learning"
+  - name: "Jungha Lim"
+    role: "Intern"
+    research: "Computer Vision, Deep Learning"
+  - name: "Yeri Kim"
+    role: "Intern"
+    research: "Deep Learning, Medical AI"
+  - name: "Hyeonchan Kim"
+    role: "Intern"
+    research: "Physical AI, Computer Vision"
+  - name: "Jaerim Kim"
+    role: "Intern"
+    research: "Computer Vision, Deep Learning"
+  - name: "Yeunsuh Kim"
+    role: "Intern"
+    research: "Physical AI"
+  - name: "Inseon Kang"
+    role: "Intern"
+    research: "Computer Vision, Physical AI"
+  - name: "Hyunsoo Park"
+    role: "Intern"
+    research: "Physical AI"
 
 # Custom Q&A pairs that you can configure
 custom_qa:
   ko:
+  - question: "팀 구성원은 누구인가요?"
+    answer: |-
+      Reality Lab의 현재 구성원(2026년 5월 기준)은 다음과 같습니다.
+
+      • 책임교수(PI): 김희원 교수 (Prof. Heewon Kim) — heewon@ssu.ac.kr
+      • 박사과정 (1명): 박성용 (Sungyong Park) — Computer Vision, Deep Learning
+      • 석사과정 (8명):
+        - 고민주 (Minjoo Koh) — 3D Vision, AI for Sports
+        - 고현준 (Hyunjun Kho) — Computer Vision, Deep Learning
+        - 고현서 (Hyunsuh Kho) — Multimodal Learning, Representation Learning
+        - 이주형 (Juhyoung Lee) — Robotics, Physical AI
+        - 서지우 (Jiwoo Seo) — Computer Vision, Deep Learning
+        - 정호재 (Hojae Jeong) — Computer Vision, Generative AI
+        - 최수영 (Sooyoung Choi) — Computer Vision, Deep Learning
+        - 황지원 (Jiwon Hwang) — Computer Vision, Deep Learning
+      • 인턴 (10명): 김서영, 송은우, 이재현, 임정하, 김예리, 김현찬, 김재림, 김연서, 강인선, 박현수
+
+      자세한 프로필은 홈페이지의 Members 페이지에서 확인하실 수 있습니다.
+    keywords: ["팀", "구성원", "멤버", "팀원", "연구원", "학생", "members", "team"]
+
   - question: "연구실에 어떻게 지원할 수 있나요?"
     answer: "Reality Lab에 관심을 가져주셔서 감사합니다! 학부생이나 대학원생 모두 환영합니다. 자세한 지원 방법은 김희원 교수님께 이메일(heewon@ssu.ac.kr)로 문의해주시거나 전화(+82-2-820-0679)로 연락해주세요."
     keywords: ["지원", "지원방법", "참여", "입학"]
@@ -242,7 +360,26 @@ custom_qa:
     - 테크스테이션
     - 로봇
     - 피지컬AI physical
-  en: []
+  en:
+  - question: "Who are the team members?"
+    answer: |-
+      Reality Lab's current members (as of May 2026):
+
+      • Principal Investigator: Prof. Heewon Kim — heewon@ssu.ac.kr
+      • PhD Student (1): Sungyong Park — Computer Vision, Deep Learning
+      • Master's Students (8):
+        - Minjoo Koh — 3D Vision, AI for Sports
+        - Hyunjun Kho — Computer Vision, Deep Learning
+        - Hyunsuh Kho — Multimodal Learning, Representation Learning
+        - Juhyoung Lee — Robotics, Physical AI
+        - Jiwoo Seo — Computer Vision, Deep Learning
+        - Hojae Jeong — Computer Vision, Generative AI
+        - Sooyoung Choi — Computer Vision, Deep Learning
+        - Jiwon Hwang — Computer Vision, Deep Learning
+      • Interns (10): Seoyoung Kim, Eunwoo Song, Jaehyeon Lee, Jungha Lim, Yeri Kim, Hyeonchan Kim, Jaerim Kim, Yeunsuh Kim, Inseon Kang, Hyunsoo Park
+
+      Full profiles are available on the Members page of the website.
+    keywords: ["team", "members", "researchers", "students", "who", "people", "lab members"]
 
 # Pending Q&A - questions waiting to be answered (shown in admin CMS)
 pending_qa:

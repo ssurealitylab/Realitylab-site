@@ -119,6 +119,24 @@ Keywords: {', '.join(area_en['keywords'])}"""
                 "email": faculty['email']
             })
 
+        # PhD Students (was missing — chatbot didn't know about 박성용 / Sungyong Park)
+        for student in members.get('students', {}).get('phd_students', []):
+            achievements_str = f"\n주요 성과: {', '.join(student['achievements'])}" if student.get('achievements') else ""
+            content_ko = f"""박사과정 학생: {student['name_ko']} ({student['name']})
+연구 분야: {student['research']}{achievements_str}"""
+
+            github = f"\nGitHub: {student['github']}" if student.get('github') else ""
+            linkedin = f"\nLinkedIn: {student['linkedin']}" if student.get('linkedin') else ""
+
+            self.add_document(content_ko + github + linkedin, {
+                "type": "member",
+                "language": "ko",
+                "category": "phd_student",
+                "name": student['name'],
+                "name_ko": student['name_ko'],
+                "research": student['research']
+            })
+
         # MS Students
         for student in members.get('students', {}).get('ms_students', []):
             achievements_str = f"\n주요 성과: {', '.join(student['achievements'])}" if student.get('achievements') else ""
