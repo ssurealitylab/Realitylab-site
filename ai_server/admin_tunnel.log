@@ -1368,3 +1368,8 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
    8d5d565..dba2904  main -> main
 [2026-05-31 08:00:23] [safe_git_push] push succeeded on attempt 1
 [2026-05-31 08:00:23] Successfully pushed admin URL to GitHub
+[2026-06-01 08:00:11] Killed old admin tunnel PID: 504016
+[2026-06-01 08:00:13] Starting new admin tunnel...
+[2026-06-01 08:00:13] Started cloudflared PID: 626949
+[2026-06-01 08:00:14] Starting new admin tunnel...
+[2026-06-01 08:00:14] Started cloudflared PID: 626966
