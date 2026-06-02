@@ -16631,3 +16631,66 @@ Admin URL: https://viii-hartford-clan-missions.trycloudflare.com
 [2026-06-02 15:32:10] Another restart_tunnel.sh is already running (PID: 2842). Exiting.
 [2026-06-02 15:32:15] Admin tunnel not running. Starting restart_admin_tunnel.sh...
 Admin URL: https://looks-champagne-lying-farmers.trycloudflare.com
+[2026-06-02 16:00:01] OK: llama-server healthy
+[2026-06-02 16:00:01] OK: ai_chatbot_server running
+[2026-06-02 16:30:01] OK: llama-server healthy
+[2026-06-02 16:30:01] OK: ai_chatbot_server running
+[2026-06-02 17:00:01] OK: llama-server healthy
+[2026-06-02 17:00:01] OK: ai_chatbot_server running
+[2026-06-02 17:30:01] OK: llama-server healthy
+[2026-06-02 17:30:01] OK: ai_chatbot_server running
+[2026-06-02 18:00:01] OK: llama-server healthy
+[2026-06-02 18:00:01] OK: ai_chatbot_server running
+[2026-06-02 18:30:01] OK: llama-server healthy
+[2026-06-02 18:30:01] OK: ai_chatbot_server running
+[2026-06-02 19:00:01] OK: llama-server healthy
+[2026-06-02 19:00:01] OK: ai_chatbot_server running
+[2026-06-02 19:30:01] OK: llama-server healthy
+[2026-06-02 19:30:01] OK: ai_chatbot_server running
+[2026-06-02 20:00:01] OK: llama-server healthy
+[2026-06-02 20:00:01] OK: ai_chatbot_server running
+[2026-06-02 20:30:02] OK: llama-server healthy
+[2026-06-02 20:30:02] OK: ai_chatbot_server running
+[2026-06-02 21:00:01] OK: llama-server healthy
+[2026-06-02 21:00:02] OK: ai_chatbot_server running
+[2026-06-02 21:30:01] OK: llama-server healthy
+[2026-06-02 21:30:01] OK: ai_chatbot_server running
+[2026-06-02 22:00:01] OK: llama-server healthy
+[2026-06-02 22:00:01] OK: llama-server healthy
+[2026-06-02 22:00:01] OK: ai_chatbot_server running
+[2026-06-02 22:00:01] OK: ai_chatbot_server running
+[2026-06-02 22:30:01] OK: llama-server healthy
+[2026-06-02 22:30:01] OK: ai_chatbot_server running
+[2026-06-02 23:00:01] OK: llama-server healthy
+[2026-06-02 23:00:01] OK: ai_chatbot_server running
+[2026-06-02 23:30:01] OK: llama-server healthy
+[2026-06-02 23:30:01] OK: ai_chatbot_server running
+[2026-06-03 00:00:01] OK: llama-server healthy
+[2026-06-03 00:00:01] OK: ai_chatbot_server running
+[2026-06-03 00:30:01] OK: llama-server healthy
+[2026-06-03 00:30:01] OK: ai_chatbot_server running
+[2026-06-03 01:00:01] OK: llama-server healthy
+[2026-06-03 01:00:01] OK: ai_chatbot_server running
+[2026-06-03 01:30:01] OK: llama-server healthy
+[2026-06-03 01:30:01] OK: ai_chatbot_server running
+[2026-06-03 02:00:01] OK: llama-server healthy
+[2026-06-03 02:00:01] OK: ai_chatbot_server running
+[2026-06-03 02:30:01] OK: llama-server healthy
+[2026-06-03 02:30:01] OK: ai_chatbot_server running
+[2026-06-03 03:00:01] OK: llama-server healthy
+[2026-06-03 03:00:01] OK: ai_chatbot_server running
+[2026-06-03 03:30:01] OK: llama-server healthy
+[2026-06-03 03:30:01] OK: ai_chatbot_server running
+[2026-06-03 08:00:02] llama-server not running. Checking GPU availability...
+[2026-06-03 08:00:02]   GPU 0: 24183MiB free, no other users (OK)
+[2026-06-03 08:00:02]   GPU 1: 24203MiB free, no other users (OK)
+[2026-06-03 08:00:02]   GPU 2: 24203MiB free, no other users (OK)
+[2026-06-03 08:00:02]   GPU 3: 24203MiB free, no other users (OK)
+[2026-06-03 08:00:02] Starting llama-server on GPUs: 0,1 (verified no other users)
+[2026-06-03 08:00:02] llama-server starting (PID: 15691, GPUs: 0,1)
+[2026-06-03 08:00:17] llama-server is ready!
+[2026-06-03 08:00:17] ai_chatbot_server not running. Starting...
+[2026-06-03 08:00:17] ai_chatbot_server starting (PID: 15862)
+[2026-06-03 08:00:25] ai_chatbot_server is ready!
+[2026-06-03 08:00:25] Chatbot tunnel not running. Starting restart_tunnel.sh...
+[2026-06-03 08:00:25] Another restart_tunnel.sh is already running (PID: 15748). Exiting.
