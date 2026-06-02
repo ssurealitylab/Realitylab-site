@@ -6344,3 +6344,6 @@ index, memory.used [MiB]
 [2026-06-02 08:00:09] Another restart_tunnel.sh is already running (PID: 654092). Exiting.
 2026. 06. 02. (화) 08:00:09 KST: admin_server already running, skipping
 2026. 06. 02. (화) 08:00:09 KST: Starting admin tunnel...
+cat: /home/i0179/Realitylab-site/ai_server/admin_tunnel_temp.log: No such file or directory
+Admin URL: https://viii-hartford-clan-missions.trycloudflare.com
+2026. 06. 02. (화) 08:00:24 KST: All services started

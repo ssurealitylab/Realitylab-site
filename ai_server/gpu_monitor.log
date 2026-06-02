@@ -16597,3 +16597,37 @@ Admin URL: https://points-appliance-confident-mystery.trycloudflare.com
 [2026-06-02 08:00:11] llama-server is ready!
 [2026-06-02 08:00:11] OK: ai_chatbot_server running
 [2026-06-02 08:00:12] Admin tunnel not running. Starting restart_admin_tunnel.sh...
+Admin URL: https://viii-hartford-clan-missions.trycloudflare.com
+[2026-06-02 08:30:01] OK: llama-server healthy
+[2026-06-02 08:30:01] OK: ai_chatbot_server running
+[2026-06-02 09:00:01] OK: llama-server healthy
+[2026-06-02 09:00:01] OK: ai_chatbot_server running
+[2026-06-02 09:30:01] OK: llama-server healthy
+[2026-06-02 09:30:01] OK: ai_chatbot_server running
+[2026-06-02 10:00:01] OK: llama-server healthy
+[2026-06-02 10:00:01] OK: llama-server healthy
+[2026-06-02 10:00:01] OK: ai_chatbot_server running
+[2026-06-02 10:00:01] OK: ai_chatbot_server running
+[2026-06-02 10:30:01] OK: llama-server healthy
+[2026-06-02 10:30:02] OK: ai_chatbot_server running
+[2026-06-02 11:00:02] OK: llama-server healthy
+[2026-06-02 11:00:02] OK: ai_chatbot_server running
+[2026-06-02 11:30:01] OK: llama-server healthy
+[2026-06-02 11:30:01] OK: ai_chatbot_server running
+[2026-06-02 15:30:01] llama-server not running. Checking GPU availability...
+[2026-06-02 15:30:01]   GPU 0: 24183MiB free, no other users (OK)
+[2026-06-02 15:30:01]   GPU 1: 24203MiB free, no other users (OK)
+[2026-06-02 15:30:01]   GPU 2: 24203MiB free, no other users (OK)
+[2026-06-02 15:30:01]   GPU 3: 24203MiB free, no other users (OK)
+[2026-06-02 15:30:01] Starting llama-server on GPUs: 0,1 (verified no other users)
+[2026-06-02 15:30:01] llama-server starting (PID: 3247, GPUs: 0,1)
+[2026-06-02 15:32:01] WARN: llama-server may still be loading
+[2026-06-02 15:32:02] ai_chatbot_server not running. Starting...
+[2026-06-02 15:32:02] ai_chatbot_server starting (PID: 3376)
+[2026-06-02 15:32:10] WARN: ai_chatbot_server may not have started
+[2026-06-02 15:32:10] Chatbot tunnel not running. Starting restart_tunnel.sh...
+[2026-06-02 15:32:10] admin_server (CMS) not running. Starting...
+[2026-06-02 15:32:10] admin_server starting (PID: 3429)
+[2026-06-02 15:32:10] Another restart_tunnel.sh is already running (PID: 2842). Exiting.
+[2026-06-02 15:32:15] Admin tunnel not running. Starting restart_admin_tunnel.sh...
+Admin URL: https://looks-champagne-lying-farmers.trycloudflare.com
