@@ -1552,3 +1552,54 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
    3f61992..d628034  main -> main
 [2026-06-04 08:00:23] [safe_git_push] push succeeded on attempt 1
 [2026-06-04 08:00:23] Successfully pushed admin URL to GitHub
+[2026-06-05 08:00:10] Killed old admin tunnel PID: 37140
+[2026-06-05 08:00:13] Starting new admin tunnel...
+[2026-06-05 08:00:13] Started cloudflared PID: 67068
+[2026-06-05 08:00:13] Starting new admin tunnel...
+[2026-06-05 08:00:13] Started cloudflared PID: 67077
+[2026-06-05 08:00:17] Admin tunnel URL: https://administrators-narrative-jewellery-gravity.trycloudflare.com
+[2026-06-05 08:00:17] Admin tunnel URL: https://photographs-conversion-finance-hearts.trycloudflare.com
+[2026-06-05 08:00:20] WARN: Admin tunnel returned 000
+[2026-06-05 08:00:20] Updating admin.html: https://boss-lease-corner-mathematics.trycloudflare.com -> https://administrators-narrative-jewellery-gravity.trycloudflare.com
+Version auto-updated to v1341
+[2026-06-05 08:00:20] WARN: Admin tunnel returned 000
+[2026-06-05 08:00:20] Updating admin.html: https://administrators-narrative-jewellery-gravity.trycloudflare.com -> https://photographs-conversion-finance-hearts.trycloudflare.com
+[main 7d155ec] Auto-update admin tunnel URL
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+Version auto-updated to v1342
+[main e98197b] Auto-update admin tunnel URL
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+   9a6f8f9..e98197b  main -> main
+[2026-06-05 08:00:23] [safe_git_push] push succeeded on attempt 1
+[2026-06-05 08:00:23] Successfully pushed admin URL to GitHub
+2026-06-04T23:00:13Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-06-04T23:00:13Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-06-04T23:00:17Z INF +--------------------------------------------------------------------------------------------+
+2026-06-04T23:00:17Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-06-04T23:00:17Z INF |  https://photographs-conversion-finance-hearts.trycloudflare.com                           |
+2026-06-04T23:00:17Z INF +--------------------------------------------------------------------------------------------+
+2026-06-04T23:00:17Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-06-04T23:00:17Z INF Version 2026.5.0 (Checksum 0095e46fdc88855d801c4d304cb1f5dd4bd656116c47ab94c2ad0ae7cda1c7ec)
+2026-06-04T23:00:17Z INF GOOS: linux, GOVersion: go1.26.2, GoArch: amd64
+2026-06-04T23:00:17Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-06-04T23:00:17Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-06-04T23:00:17Z INF Generated Connector ID: 1eb49f87-a9e6-40c0-afd6-5586acf98c95
+2026-06-04T23:00:17Z INF Initial protocol quic
+2026-06-04T23:00:17Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-04T23:00:17Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-04T23:00:17Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-04T23:00:17Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-04T23:00:17Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2026-06-04T23:00:17Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.43
+2026/06/05 08:00:17 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-06-04T23:00:17Z INF Registered tunnel connection connIndex=0 connection=f1034cb5-455f-49d4-8b8e-f060332db50e event=0 ip=198.41.200.43 location=icn01 protocol=quic
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at e98197b731bf8dc629c6d155c31ce36b270b2576 but expected 9a6f8f9a4b047abce344dc964266867ac9eeebd1)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+[2026-06-05 08:00:23] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-06-05 08:00:23] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-06-05 08:00:23] WARNING: Failed to push to GitHub after retries
