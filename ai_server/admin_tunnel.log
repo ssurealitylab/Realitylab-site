@@ -1603,3 +1603,6 @@ error: please commit or stash them.
 [2026-06-05 08:00:23] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
 fatal: No rebase in progress?
 [2026-06-05 08:00:23] WARNING: Failed to push to GitHub after retries
+[2026-06-06 08:00:12] Killed old admin tunnel PID: 67077
+[2026-06-06 08:00:15] Starting new admin tunnel...
+[2026-06-06 08:00:15] Started cloudflared PID: 150366
