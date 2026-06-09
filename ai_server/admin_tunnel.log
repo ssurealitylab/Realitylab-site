@@ -1715,3 +1715,47 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 [2026-06-09 08:00:13] Started cloudflared PID: 370737
 [2026-06-09 08:00:14] Starting new admin tunnel...
 [2026-06-09 08:00:14] Started cloudflared PID: 370755
+[2026-06-09 08:00:18] Admin tunnel URL: https://troubleshooting-involving-new-software.trycloudflare.com
+[2026-06-09 08:00:19] Admin tunnel URL: https://troubleshooting-involving-new-software.trycloudflare.com
+[2026-06-09 08:00:21] WARN: Admin tunnel returned 000
+[2026-06-09 08:00:21] Updating admin.html: https://carefully-honor-retailer-passing.trycloudflare.com -> https://troubleshooting-involving-new-software.trycloudflare.com
+Version auto-updated to v1351
+[main d426b69] Auto-update admin tunnel URL
+ 2 files changed, 4 insertions(+), 4 deletions(-)
+[2026-06-09 08:00:22] WARN: Admin tunnel returned 000
+[2026-06-09 08:00:22] URL unchanged, skipping git push
+2026-06-08T23:00:14Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-06-08T23:00:14Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-06-08T23:00:18Z INF +--------------------------------------------------------------------------------------------+
+2026-06-08T23:00:18Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-06-08T23:00:18Z INF |  https://troubleshooting-involving-new-software.trycloudflare.com                          |
+2026-06-08T23:00:18Z INF +--------------------------------------------------------------------------------------------+
+2026-06-08T23:00:18Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-06-08T23:00:18Z INF Version 2026.5.0 (Checksum 0095e46fdc88855d801c4d304cb1f5dd4bd656116c47ab94c2ad0ae7cda1c7ec)
+2026-06-08T23:00:18Z INF GOOS: linux, GOVersion: go1.26.2, GoArch: amd64
+2026-06-08T23:00:18Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-06-08T23:00:18Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-06-08T23:00:18Z INF Generated Connector ID: 4efd4526-bb02-48a6-ad35-800d8cd39cc7
+2026-06-08T23:00:18Z INF Initial protocol quic
+2026-06-08T23:00:18Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-08T23:00:18Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-08T23:00:18Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-08T23:00:18Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-08T23:00:18Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2026-06-08T23:00:18Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.53
+2026/06/09 08:00:18 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-06-08T23:00:18Z INF Registered tunnel connection connIndex=0 connection=5b4483cc-5bc3-4497-a8f8-8b4b8a19d6bc event=0 ip=198.41.200.53 location=icn01 protocol=quic
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 3a4ba365549839ca47ca24a5d42c824676993c55 but expected e30810cb1b2e4ace52329f8524eb4e598290c807)
+error: failed to push some refs to 'https://github.com/ssurealitylab/ssurealitylab.github.io.git'
+[2026-06-09 08:00:24] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: cannot pull with rebase: You have unstaged changes.
+error: please commit or stash them.
+[2026-06-09 08:00:24] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-06-09 08:00:24] WARNING: Failed to push to GitHub after retries
+[2026-06-10 08:00:12] Killed old admin tunnel PID: 370755
+[2026-06-10 08:00:14] Starting new admin tunnel...
+[2026-06-10 08:00:14] Started cloudflared PID: 476378
+[2026-06-10 08:00:15] Starting new admin tunnel...
+[2026-06-10 08:00:15] Started cloudflared PID: 476396
