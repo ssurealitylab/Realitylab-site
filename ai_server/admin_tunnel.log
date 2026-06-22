@@ -2231,3 +2231,37 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 2026-06-21T23:00:17Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.7
 2026/06/22 08:00:17 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
 2026-06-21T23:00:17Z INF Registered tunnel connection connIndex=0 connection=02434e2d-37e9-4717-b8a9-c0157a8049d6 event=0 ip=198.41.192.7 location=icn06 protocol=quic
+[2026-06-23 08:00:16] Killed old admin tunnel PID: 1427617
+[2026-06-23 08:00:19] Starting new admin tunnel...
+[2026-06-23 08:00:19] Started cloudflared PID: 1491965
+[2026-06-23 08:00:26] Admin tunnel URL: https://sara-paris-awareness-poor.trycloudflare.com
+[2026-06-23 08:00:29] WARN: Admin tunnel returned 000
+[2026-06-23 08:00:29] Updating admin.html: https://remind-updating-configure-lincoln.trycloudflare.com -> https://sara-paris-awareness-poor.trycloudflare.com
+Version auto-updated to v1378
+[main 84b8873] Auto-update admin tunnel URL
+ 2 files changed, 5 insertions(+), 5 deletions(-)
+To https://github.com/ssurealitylab/ssurealitylab.github.io.git
+   88c3477..84b8873  main -> main
+[2026-06-23 08:00:32] [safe_git_push] push succeeded on attempt 1
+[2026-06-23 08:00:32] Successfully pushed admin URL to GitHub
+2026-06-22T23:00:20Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-06-22T23:00:20Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-06-22T23:00:24Z INF +--------------------------------------------------------------------------------------------+
+2026-06-22T23:00:24Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-06-22T23:00:24Z INF |  https://sara-paris-awareness-poor.trycloudflare.com                                       |
+2026-06-22T23:00:24Z INF +--------------------------------------------------------------------------------------------+
+2026-06-22T23:00:24Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-06-22T23:00:24Z INF Version 2026.5.0 (Checksum 0095e46fdc88855d801c4d304cb1f5dd4bd656116c47ab94c2ad0ae7cda1c7ec)
+2026-06-22T23:00:24Z INF GOOS: linux, GOVersion: go1.26.2, GoArch: amd64
+2026-06-22T23:00:24Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-06-22T23:00:24Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-06-22T23:00:24Z INF Generated Connector ID: f3940684-c293-42ef-a68d-001fa9723413
+2026-06-22T23:00:24Z INF Initial protocol quic
+2026-06-22T23:00:24Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-22T23:00:24Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-22T23:00:24Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-22T23:00:24Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-22T23:00:24Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2026-06-22T23:00:24Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.43
+2026/06/23 08:00:24 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-06-22T23:00:24Z INF Registered tunnel connection connIndex=0 connection=996de841-0744-4461-9411-32278527f96e event=0 ip=198.41.200.43 location=icn01 protocol=quic
