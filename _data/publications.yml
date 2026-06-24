@@ -30,6 +30,56 @@ publications:
     keywords: "Few-shot Learning, Fine-grained Image Classification, Data Augmentation, Diffusion Models, Textual Inversion, Metric Learning"
     notes: "* Equal contribution"
 
+  - id: c27
+    title: "CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation"
+    authors: "Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim"
+    venue: "IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)"
+    venue_short: "CVPR26"
+    year: 2026
+    type: conference
+    status: published
+    citation: "[C27] Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, and Heewon Kim, \"CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation,\" Proc. Computer Vision and Pattern Recognition (CVPR), 2026, pp. 3794-3804."
+    image: "assets/img/publications/clp.png"
+    links:
+      pdf: "https://openaccess.thecvf.com/content/CVPR2026/papers/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.pdf"
+      html: "https://openaccess.thecvf.com/content/CVPR2026/html/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.html"
+
+  - id: w3
+    title: "2nd Place at CVPR 2026 Embodied AI Workshop"
+    authors: "Sungyong Park, Sangmin Lee, Dowon Kim, Heewon Kim"
+    venue: "CVPR 2026 Embodied AI Workshop"
+    venue_short: "Arnold Challenge"
+    year: 2026
+    type: workshop
+    status: award
+    citation: "2nd Place at CVPR 2026 Embodied AI Workshop"
+    badge_style: challenge-badge
+
+  - id: w4
+    title: "Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation"
+    authors: "Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim"
+    venue: "CVPR 2026 Embodied AI Workshop"
+    venue_short: "EAI Workshop"
+    year: 2026
+    type: workshop
+    status: published
+    citation: "[W4] Sungyong Park*, Sangmin Lee*, Dowon Kim, and Heewon Kim, \"Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation,\" CVPR 2026 Embodied AI Workshop, 2026."
+    notes: "* Equal contribution<br>Affiliations: Soongsil University, Kairoba"
+
+  - id: w5
+    title: "Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals"
+    authors: "Sungyong Park, Ji Hoon Kim, Heewon Kim"
+    venue: "CVPR 2026 NTIRE Workshop"
+    venue_short: "NTIRE-CVPRW26"
+    year: 2026
+    type: workshop
+    status: published
+    citation: "[W5] Sungyong Park, Ji Hoon Kim, and Heewon Kim, \"Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals,\" Proc. CVPR Workshops (NTIRE), 2026, pp. 2308-2318."
+    image: "assets/img/publications/isid.png"
+    links:
+      pdf: "https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/papers/Park_Toward_Interpretable_Space_Image_Denoising_by_Learning_Cross-Sensor_Celestial_Signals_CVPRW_2026_paper.pdf"
+      html: "https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Park_Toward_Interpretable_Space_Image_Denoising_by_Learning_Cross-Sensor_Celestial_Signals_CVPRW_2026_paper.html"
+
   # 2025 Publications
   - id: c25
     title: "DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI"

@@ -1,11 +1,18 @@
 news:
-- title: ARNOLD Challenge 3rd Place
+- title: "AI Seoul Tech Research Support Program — Selected"
+  date: '2026-06-10'
+  category: "Grants"
+  participants: ["Sungyong Park"]
+  description: "Sungyong Park (PhD) has been selected for the AI Seoul Tech Research Support Program by the Seoul Future Foundation. Congratulations!"
+  image: "ai-seoul-tech.jpg"
+
+- title: ARNOLD Challenge 2nd Place
   date: '2026-06-03'
   category: Awards
   participants:
   - Sungyong Park
   description: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.
-  image: ''
+  image: 'arnold.png'
 - title: "CVPR 2026 Paper Acceptance"
   date: "2026-03-03"
   category: "Publication"
