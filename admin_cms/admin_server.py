@@ -33,6 +33,17 @@ app.config['MAX_CONTENT_LENGTH'] = MAX_UPLOAD_SIZE
 CORS(app, origins=["http://localhost:4010"])
 
 
+@app.errorhandler(413)
+def _too_large(_e):
+    # Without this, Flask's default 413 returns an HTML body. The CMS image
+    # picker calls r.json() on the response, throws on parse, and the user
+    # only sees a generic "Upload failed" toast — exactly the symptom that
+    # made news image uploads look silently broken. Surfacing the limit in
+    # JSON lets the picker show a clear "File too large (max 16MB)" message.
+    mb = MAX_UPLOAD_SIZE // (1024 * 1024)
+    return jsonify({"error": f"File too large. Maximum size: {mb}MB"}), 413
+
+
 # ═══════════════════════════════════════
 # LOGIN PAGE
 # ═══════════════════════════════════════

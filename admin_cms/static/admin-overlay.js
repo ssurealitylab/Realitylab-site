@@ -1404,13 +1404,18 @@ window._adminImagePicker = function(category, inputId){
     fd.append('file', selectedFile);
     try{
       const r = await fetch(API+'/images/'+category+'/upload', {method:'POST', body:fd});
-      const res = await r.json();
-      if(res.path){
+      // Parse defensively — Flask's 413 used to return HTML and crash r.json().
+      let res;
+      try { res = await r.json(); }
+      catch(_) { res = { error: r.status === 413
+            ? 'File too large for server (try a smaller image)'
+            : ('Server error: HTTP ' + r.status) }; }
+      if(r.ok && res.path){
         document.getElementById(inputId).value = isNewsImage ? res.filename : res.path;
         modal.remove();
         adminToast('Image uploaded!','success');
       } else {
-        adminToast(res.error||'Upload failed','error');
+        adminToast(res.error||('Upload failed (HTTP ' + r.status + ')'),'error');
         confirmBtn.textContent = 'Upload & Select';
         confirmBtn.disabled = false;
       }

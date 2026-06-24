@@ -37,7 +37,7 @@ EDITABLE_FILES = {
     "domestic_publications": "domestic_publications.yml",
 }
 
-MAX_UPLOAD_SIZE = 5 * 1024 * 1024  # 5MB
+MAX_UPLOAD_SIZE = 16 * 1024 * 1024  # 16MB
 MAX_BACKUPS = 50
 SESSION_TIMEOUT_HOURS = 4
 LOGIN_RATE_LIMIT = 5  # max failed attempts
