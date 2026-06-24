@@ -326,6 +326,32 @@
     }
   },
   {
+    "content": "뉴스: ARNOLD Challenge 3rd Place\n날짜: 2026-06-03\n카테고리: Awards\n참여자: Sungyong Park\n내용: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.",
+    "metadata": {
+      "type": "news",
+      "language": "ko",
+      "category": "awards",
+      "title": "ARNOLD Challenge 3rd Place",
+      "date": "2026-06-03",
+      "participants": [
+        "Sungyong Park"
+      ]
+    }
+  },
+  {
+    "content": "News: ARNOLD Challenge 3rd Place\nDate: 2026-06-03\nCategory: Awards\nParticipants: Sungyong Park\nDescription: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.",
+    "metadata": {
+      "type": "news",
+      "language": "en",
+      "category": "awards",
+      "title": "ARNOLD Challenge 3rd Place",
+      "date": "2026-06-03",
+      "participants": [
+        "Sungyong Park"
+      ]
+    }
+  },
+  {
     "content": "뉴스: CVPR 2026 Paper Acceptance\n날짜: 2026-03-03\n카테고리: Publication\n참여자: Sungyong Park, Sooyoung Choi, Hyunsuh Kho, Youngjae Choi\n내용: Paper accepted to CVPR 2026: 'CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation' by Sungyong Park, Sooyoung Choi, Hyunsuh Kho, Youngjae Choi, and Heewon Kim. Congratulations!",
     "metadata": {
       "type": "news",
