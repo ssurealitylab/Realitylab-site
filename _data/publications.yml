@@ -80,6 +80,22 @@ publications:
       pdf: "https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/papers/Park_Toward_Interpretable_Space_Image_Denoising_by_Learning_Cross-Sensor_Celestial_Signals_CVPRW_2026_paper.pdf"
       html: "https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Park_Toward_Interpretable_Space_Image_Denoising_by_Learning_Cross-Sensor_Celestial_Signals_CVPRW_2026_paper.html"
 
+  - id: w6
+    title: "FEEL: Emotion-Enriched Text-to-Motion Generation Using Small-Scale Emotion Motion Data"
+    authors: "Youngjae Choi, Hyunseo Koh, Heewon Kim"
+    venue: "CVPR 2026 HuMoGen Workshop"
+    venue_short: "HuMoGen-CVPRW26"
+    year: 2026
+    type: workshop
+    status: published
+    citation: "[W6] Youngjae Choi, Hyunseo Koh, and Heewon Kim, \"FEEL: Emotion-Enriched Text-to-Motion Generation Using Small-Scale Emotion Motion Data,\" Proc. CVPR Workshops (HuMoGen), 2026, pp. 5499-5509."
+    image: "assets/img/publications/feel.png"
+    abstract: "Text-to-motion generation has achieved notable progress in synthesizing realistic human movements, yet existing methods often fail to capture emotional expression, producing similar motions regardless of emotional context. We propose FEEL, a framework that incorporates emotional expression into motion generation without requiring jointly annotated text-emotion-motion data. By leveraging text-motion and emotion-motion datasets through a parallel learning scheme, the model produces motions that remain semantically aligned with the text while expressing the intended emotion with greater fidelity. Our framework modulates posture and velocity according to emotional cues, and additional loss objectives promote a balanced trade-off between emotional expressiveness and text alignment. Evaluation on the HumanML3D dataset shows a 9% improvement in emotion recognition accuracy over state-of-the-art baselines while maintaining competitive motion quality. This framework enables the creation of expressive, emotion-aware virtual characters for applications in animation, gaming, and interactive media."
+    keywords: "Text-to-Motion, Emotion-Aware Generation, Multimodal Learning, Human Motion Synthesis"
+    links:
+      pdf: "https://openaccess.thecvf.com/content/CVPR2026W/HuMoGen/papers/Choi_FEEL_Emotion-Enriched_Text-to-Motion_Generation_Using_Small-Scale_Emotion_Motion_Data_CVPRW_2026_paper.pdf"
+      html: "https://openaccess.thecvf.com/content/CVPR2026W/HuMoGen/html/Choi_FEEL_Emotion-Enriched_Text-to-Motion_Generation_Using_Small-Scale_Emotion_Motion_Data_CVPRW_2026_paper.html"
+
   # 2025 Publications
   - id: c25
     title: "DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI"
