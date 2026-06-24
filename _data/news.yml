@@ -1,4 +1,11 @@
 news:
+- title: ARNOLD Challenge 3rd Place
+  date: '2026-06-03'
+  category: Awards
+  participants:
+  - Sungyong Park
+  description: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.
+  image: ''
 - title: "CVPR 2026 Paper Acceptance"
   date: "2026-03-03"
   category: "Publication"
