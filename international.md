@@ -30,6 +30,75 @@ title: International Publications
       </div>
 
       <div class="row">
+        <!-- CVPR 2026 - CLP -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('c27')" style="cursor: pointer;">
+            <div class="publication-badge">CVPR</div>
+            <div class="external-links">
+              <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i>
+              </a>
+              <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.html" target="_blank" class="external-icon-link website-link" title="OpenAccess" onclick="event.stopPropagation()">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+            <h5 class="list-title">CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation</h5>
+            <p class="list-authors">Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim</p>
+          </div>
+        </div>
+
+        <!-- ARNOLD Challenge 2026 (2nd Place) -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('w3')" style="cursor: pointer;">
+            <div class="publication-badge challenge-badge">ARNOLD Challenge</div>
+            <h5 class="list-title">2nd Place at CVPR 2026 Embodied AI Workshop</h5>
+            <p class="list-authors">Sungyong Park, Sangmin Lee, Dowon Kim, Heewon Kim</p>
+          </div>
+        </div>
+
+        <!-- CVPR 2026 Embodied AI Workshop - Fine-tuning Robotic Foundation Model -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('w4')" style="cursor: pointer;">
+            <div class="publication-badge workshop-badge">CVPRW</div>
+            <h5 class="list-title">Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation</h5>
+            <p class="list-authors">Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim</p>
+          </div>
+        </div>
+
+        <!-- CVPR 2026 NTIRE Workshop - ISID -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('w5')" style="cursor: pointer;">
+            <div class="publication-badge workshop-badge">CVPRW</div>
+            <div class="external-links">
+              <a href="https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/papers/Park_Toward_Interpretable_Space_Image_Denoising_by_Learning_Cross-Sensor_Celestial_Signals_CVPRW_2026_paper.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i>
+              </a>
+              <a href="https://openaccess.thecvf.com/content/CVPR2026W/NTIRE/html/Park_Toward_Interpretable_Space_Image_Denoising_by_Learning_Cross-Sensor_Celestial_Signals_CVPRW_2026_paper.html" target="_blank" class="external-icon-link website-link" title="OpenAccess" onclick="event.stopPropagation()">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+            <h5 class="list-title">Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals</h5>
+            <p class="list-authors">Sungyong Park, Ji Hoon Kim, Heewon Kim</p>
+          </div>
+        </div>
+
+        <!-- CVPR 2026 HuMoGen Workshop - FEEL -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('w6')" style="cursor: pointer;">
+            <div class="publication-badge workshop-badge">CVPRW</div>
+            <div class="external-links">
+              <a href="https://openaccess.thecvf.com/content/CVPR2026W/HuMoGen/papers/Choi_FEEL_Emotion-Enriched_Text-to-Motion_Generation_Using_Small-Scale_Emotion_Motion_Data_CVPRW_2026_paper.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i>
+              </a>
+              <a href="https://openaccess.thecvf.com/content/CVPR2026W/HuMoGen/html/Choi_FEEL_Emotion-Enriched_Text-to-Motion_Generation_Using_Small-Scale_Emotion_Motion_Data_CVPRW_2026_paper.html" target="_blank" class="external-icon-link website-link" title="OpenAccess" onclick="event.stopPropagation()">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+            <h5 class="list-title">FEEL: Emotion-Enriched Text-to-Motion Generation Using Small-Scale Emotion Motion Data</h5>
+            <p class="list-authors">Youngjae Choi, Hyunseo Koh, Heewon Kim</p>
+          </div>
+        </div>
+
         <!-- WACV 2026 - HiGlassRM -->
         <div class="col-12 mb-3">
           <div class="publication-list-item" onclick="openPublicationModal('c26')" style="cursor: pointer;">
@@ -589,10 +658,12 @@ title: International Publications
           <div class="col-md-6">
             <h5>Recent Achievements</h5>
             <ul class="list-unstyled text-left">
-              <li><i class="fas fa-trophy text-warning"></i> ARNOLD Challenge 1st Place</li>
+              <li><i class="fas fa-file-alt text-info"></i> CVPR 2026 Paper Acceptance (CLP)</li>
+              <li><i class="fas fa-file-alt text-info"></i> CVPR 2026 Workshop Acceptances (3 papers)</li>
+              <li><i class="fas fa-trophy text-warning"></i> ARNOLD Challenge 2nd Place (CVPR 2026)</li>
               <li><i class="fas fa-file-alt text-info"></i> WACV 2026 Paper Acceptance (2 papers)</li>
-              <li><i class="fas fa-file-alt text-info"></i> AAAI 2025 Paper Acceptance</li>
-              <li><i class="fas fa-file-alt text-info"></i> CVPR 2025 Paper Acceptance</li>
+              <li><i class="fas fa-trophy text-warning"></i> ARNOLD Challenge 1st Place (CVPR 2025)</li>
+              <li><i class="fas fa-file-alt text-info"></i> CVPR 2025 Paper Acceptance (DynScene)</li>
             </ul>
           </div>
         </div>
