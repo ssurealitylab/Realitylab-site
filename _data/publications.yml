@@ -17,16 +17,6 @@ publications:
     pdf: "https://openaccess.thecvf.com/content/CVPR2026/papers/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.pdf"
     html: "https://openaccess.thecvf.com/content/CVPR2026/html/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.html"
 
-- id: w3
-  title: 2nd Place at CVPR 2026 Embodied AI Workshop
-  authors: Sungyong Park, Heewon Kim
-  venue: CVPR 2026 Embodied AI Workshop
-  venue_short: Arnold Challenge
-  year: 2026
-  type: workshop
-  status: award
-  image: assets/img/publications/2026_06_24_233917.png
-  abstract: ''
 - id: w4
   title: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation
   authors: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim
