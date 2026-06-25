@@ -55,16 +55,17 @@ publications:
   image: assets/img/publications/2026_06_24_233917.png
   abstract: ''
 - id: w4
-  title: "Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation"
-  authors: "Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim"
-  venue: "CVPR 2026 Embodied AI Workshop"
-  venue_short: "EAI Workshop"
+  title: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation
+  authors: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim
+  venue: CVPR 2026 Embodied AI Workshop
+  venue_short: EAI Workshop
   year: 2026
   type: workshop
   status: published
-  citation: "[W4] Sungyong Park*, Sangmin Lee*, Dowon Kim, and Heewon Kim, \"Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation,\" CVPR 2026 Embodied AI Workshop, 2026."
-  notes: "* Equal contribution<br>Affiliations: Soongsil University, Kairoba"
-
+  image: assets/img/publications/2026_06_25_123847.png
+  abstract: "Continuous-state robotic manipulation requires an agent to\ninterpret language goals, estimate object states, and execute\nphysically valid actions toward fine-grained targets.\nHowever, training data for such tasks is sparse: collecting\ndemonstrations for every object, scene, and target state\nis expensive, and synthetic data is useful only when it remains\nexecutable. In this paper, we present the methods\ndeveloped for the ARNOLD Challenge [1] on continuousstate\nrobotic manipulation. PSASI improves continuousstate\nsupervision through state interpolation and phasespecific\ncontrol. FRFM further expands the training distribution\nwith physics-verified dynamic scene generation for\nfoundation-model fine-tuning. Experiments on ARNOLD\nshow that PSASI improves continuous-state manipulation,\nwhile FRFM achieves stronger performance by fine-tuning\na foundation policy with DynScene-generated data."
+  links:
+    pdf: https://github.com/ejqdl02/ejqdl02.github.io/blob/gh-pages/paper/23_Fine_tuning_Robotic_Foundat.pdf
 - id: w5
   title: "Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals"
   authors: "Sungyong Park, Ji Hoon Kim, Heewon Kim"
