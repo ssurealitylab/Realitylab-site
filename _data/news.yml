@@ -1,11 +1,11 @@
 news:
-- title: "AI Seoul Tech Research Support Program — Selected"
+- title: AI Seoul Tech Research Support Program — Selected
   date: '2026-06-10'
-  category: "Grants"
-  participants: ["Sungyong Park"]
-  description: "Sungyong Park (PhD) has been selected for the AI Seoul Tech Research Support Program by the Seoul Future Foundation. Congratulations!"
-  image: "ai-seoul-tech.jpg"
-
+  category: Grants
+  participants:
+  - Sungyong Park
+  description: Sungyong Park (PhD) has been selected for the AI Seoul Tech Research Support Program by the Seoul Future Foundation. Congratulations!
+  image: ai_logo_1_2.jpg
 - title: ARNOLD Challenge 2nd Place
   date: '2026-06-03'
   category: Awards
