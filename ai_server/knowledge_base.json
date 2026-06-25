@@ -326,12 +326,38 @@
     }
   },
   {
-    "content": "뉴스: ARNOLD Challenge 3rd Place\n날짜: 2026-06-03\n카테고리: Awards\n참여자: Sungyong Park\n내용: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.",
+    "content": "뉴스: AI Seoul Tech Research Support Program — Selected\n날짜: 2026-06-10\n카테고리: Grants\n참여자: Sungyong Park\n내용: Sungyong Park (PhD) has been selected for the AI Seoul Tech Research Support Program by the Seoul Future Foundation. Congratulations!",
+    "metadata": {
+      "type": "news",
+      "language": "ko",
+      "category": "grants",
+      "title": "AI Seoul Tech Research Support Program — Selected",
+      "date": "2026-06-10",
+      "participants": [
+        "Sungyong Park"
+      ]
+    }
+  },
+  {
+    "content": "News: AI Seoul Tech Research Support Program — Selected\nDate: 2026-06-10\nCategory: Grants\nParticipants: Sungyong Park\nDescription: Sungyong Park (PhD) has been selected for the AI Seoul Tech Research Support Program by the Seoul Future Foundation. Congratulations!",
+    "metadata": {
+      "type": "news",
+      "language": "en",
+      "category": "grants",
+      "title": "AI Seoul Tech Research Support Program — Selected",
+      "date": "2026-06-10",
+      "participants": [
+        "Sungyong Park"
+      ]
+    }
+  },
+  {
+    "content": "뉴스: ARNOLD Challenge 2nd Place\n날짜: 2026-06-03\n카테고리: Awards\n참여자: Sungyong Park\n내용: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.",
     "metadata": {
       "type": "news",
       "language": "ko",
       "category": "awards",
-      "title": "ARNOLD Challenge 3rd Place",
+      "title": "ARNOLD Challenge 2nd Place",
       "date": "2026-06-03",
       "participants": [
         "Sungyong Park"
@@ -339,12 +365,12 @@
     }
   },
   {
-    "content": "News: ARNOLD Challenge 3rd Place\nDate: 2026-06-03\nCategory: Awards\nParticipants: Sungyong Park\nDescription: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.",
+    "content": "News: ARNOLD Challenge 2nd Place\nDate: 2026-06-03\nCategory: Awards\nParticipants: Sungyong Park\nDescription: 2nd Place in the ARNOLD Challenge at the CVPR 2026 Embodied AI Workshop.",
     "metadata": {
       "type": "news",
       "language": "en",
       "category": "awards",
-      "title": "ARNOLD Challenge 3rd Place",
+      "title": "ARNOLD Challenge 2nd Place",
       "date": "2026-06-03",
       "participants": [
         "Sungyong Park"
@@ -906,7 +932,59 @@
     }
   },
   {
-    "content": "논문: HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation\n저자: Sebin Lee†, Heewon Kim\n연도: 2026\n학회: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\n최신 논문 순위: 최신순 1/33위\n초록: Existing eyeglass removal methods can handle frames and shadows but fail to correct lens-induced geometric distortions, as public datasets lack the necessary supervision. To address this, we introduce the HiGlass Dataset, the first large-scale synthetic dataset providing explicit flow-based supervision for refractive warping. We also propose HiGlassRM, a novel pipeline whose core is a network that explicitly estimates a displacement flowmap to de-warp distorted facial geometry. Experiments on both synthetic and real images show that this flowmap-centric approach, trained on our data, significantly improves identity preservation and perceptual quality over existing methods. Our work demonstrates that explicitly modeling and correcting geometric distortion via flowmap estimation, enabled by targeted supervision, is key to faithful eyeglass removal.\n\nPublication: HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation\nAuthors: Sebin Lee†, Heewon Kim\nYear: 2026\nVenue: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\nRecency: Recency rank: 1/33\nAbstract: Existing eyeglass removal methods can handle frames and shadows but fail to correct lens-induced geometric distortions, as public datasets lack the necessary supervision. To address this, we introduce the HiGlass Dataset, the first large-scale synthetic dataset providing explicit flow-based supervision for refractive warping. We also propose HiGlassRM, a novel pipeline whose core is a network that explicitly estimates a displacement flowmap to de-warp distorted facial geometry. Experiments on both synthetic and real images show that this flowmap-centric approach, trained on our data, significantly improves identity preservation and perceptual quality over existing methods. Our work demonstrates that explicitly modeling and correcting geometric distortion via flowmap estimation, enabled by targeted supervision, is key to faithful eyeglass removal.",
+    "content": "논문: CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation\n저자: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim\n연도: 2026\n학회: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR26)\n최신 논문 순위: 최신순 1/37위\n\n\nPublication: CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation\nAuthors: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim\nYear: 2026\nVenue: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR26)\nRecency: Recency rank: 1/37\n",
+    "metadata": {
+      "type": "publication",
+      "language": "both",
+      "category": "paper",
+      "title": "CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation",
+      "authors": "Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim",
+      "year": "2026",
+      "venue": "CVPR26",
+      "recency_rank": 1
+    }
+  },
+  {
+    "content": "논문: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation\n저자: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim\n연도: 2026\n학회: CVPR 2026 Embodied AI Workshop (EAI Workshop)\n최신 논문 순위: 최신순 2/37위\n초록: Continuous-state robotic manipulation requires an agent to\ninterpret language goals, estimate object states, and execute\nphysically valid actions toward fine-grained targets.\nHowever, training data for such tasks is sparse: collecting\ndemonstrations for every object, scene, and target state\nis expensive, and synthetic data is useful only when it remains\nexecutable. In this paper, we present the methods\ndeveloped for the ARNOLD Challenge [1] on continuousstate\nrobotic manipulation. PSASI improves continuousstate\nsupervision through state interpolation and phasespecific\ncontrol. FRFM further expands the training distribution\nwith physics-verified dynamic scene generation for\nfoundation-model fine-tuning. Experiments on ARNOLD\nshow that PSASI improves continuous-state manipulation,\nwhile FRFM achieves stronger performance by fine-tuning\na foundation policy with DynScene-generated data.\n\nPublication: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation\nAuthors: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 Embodied AI Workshop (EAI Workshop)\nRecency: Recency rank: 2/37\nAbstract: Continuous-state robotic manipulation requires an agent to\ninterpret language goals, estimate object states, and execute\nphysically valid actions toward fine-grained targets.\nHowever, training data for such tasks is sparse: collecting\ndemonstrations for every object, scene, and target state\nis expensive, and synthetic data is useful only when it remains\nexecutable. In this paper, we present the methods\ndeveloped for the ARNOLD Challenge [1] on continuousstate\nrobotic manipulation. PSASI improves continuousstate\nsupervision through state interpolation and phasespecific\ncontrol. FRFM further expands the training distribution\nwith physics-verified dynamic scene generation for\nfoundation-model fine-tuning. Experiments on ARNOLD\nshow that PSASI improves continuous-state manipulation,\nwhile FRFM achieves stronger performance by fine-tuning\na foundation policy with DynScene-generated data.",
+    "metadata": {
+      "type": "publication",
+      "language": "both",
+      "category": "paper",
+      "title": "Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation",
+      "authors": "Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim",
+      "year": "2026",
+      "venue": "EAI Workshop",
+      "recency_rank": 2
+    }
+  },
+  {
+    "content": "논문: Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals\n저자: Sungyong Park, Ji Hoon Kim, Heewon Kim\n연도: 2026\n학회: CVPR 2026 NTIRE Workshop (NTIRE-CVPRW26)\n최신 논문 순위: 최신순 3/37위\n\n\nPublication: Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals\nAuthors: Sungyong Park, Ji Hoon Kim, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 NTIRE Workshop (NTIRE-CVPRW26)\nRecency: Recency rank: 3/37\n",
+    "metadata": {
+      "type": "publication",
+      "language": "both",
+      "category": "paper",
+      "title": "Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals",
+      "authors": "Sungyong Park, Ji Hoon Kim, Heewon Kim",
+      "year": "2026",
+      "venue": "NTIRE-CVPRW26",
+      "recency_rank": 3
+    }
+  },
+  {
+    "content": "논문: FEEL: Emotion-Enriched Text-to-Motion Generation Using Small-Scale Emotion Motion Data\n저자: Youngjae Choi, Hyunseo Koh, Heewon Kim\n연도: 2026\n학회: CVPR 2026 HuMoGen Workshop (HuMoGen-CVPRW26)\n최신 논문 순위: 최신순 4/37위\n초록: Text-to-motion generation has achieved notable progress in synthesizing realistic human movements, yet existing methods often fail to capture emotional expression, producing similar motions regardless of emotional context. We propose FEEL, a framework that incorporates emotional expression into motion generation without requiring jointly annotated text-emotion-motion data. By leveraging text-motion and emotion-motion datasets through a parallel learning scheme, the model produces motions that remain semantically aligned with the text while expressing the intended emotion with greater fidelity. Our framework modulates posture and velocity according to emotional cues, and additional loss objectives promote a balanced trade-off between emotional expressiveness and text alignment. Evaluation on the HumanML3D dataset shows a 9% improvement in emotion recognition accuracy over state-of-the-art baselines while maintaining competitive motion quality. This framework enables the creation of expressive, emotion-aware virtual characters for applications in animation, gaming, and interactive media.\n\nPublication: FEEL: Emotion-Enriched Text-to-Motion Generation Using Small-Scale Emotion Motion Data\nAuthors: Youngjae Choi, Hyunseo Koh, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 HuMoGen Workshop (HuMoGen-CVPRW26)\nRecency: Recency rank: 4/37\nAbstract: Text-to-motion generation has achieved notable progress in synthesizing realistic human movements, yet existing methods often fail to capture emotional expression, producing similar motions regardless of emotional context. We propose FEEL, a framework that incorporates emotional expression into motion generation without requiring jointly annotated text-emotion-motion data. By leveraging text-motion and emotion-motion datasets through a parallel learning scheme, the model produces motions that remain semantically aligned with the text while expressing the intended emotion with greater fidelity. Our framework modulates posture and velocity according to emotional cues, and additional loss objectives promote a balanced trade-off between emotional expressiveness and text alignment. Evaluation on the HumanML3D dataset shows a 9% improvement in emotion recognition accuracy over state-of-the-art baselines while maintaining competitive motion quality. This framework enables the creation of expressive, emotion-aware virtual characters for applications in animation, gaming, and interactive media.",
+    "metadata": {
+      "type": "publication",
+      "language": "both",
+      "category": "paper",
+      "title": "FEEL: Emotion-Enriched Text-to-Motion Generation Using Small-Scale Emotion Motion Data",
+      "authors": "Youngjae Choi, Hyunseo Koh, Heewon Kim",
+      "year": "2026",
+      "venue": "HuMoGen-CVPRW26",
+      "recency_rank": 4
+    }
+  },
+  {
+    "content": "논문: HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation\n저자: Sebin Lee†, Heewon Kim\n연도: 2026\n학회: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\n최신 논문 순위: 최신순 5/37위\n초록: Existing eyeglass removal methods can handle frames and shadows but fail to correct lens-induced geometric distortions, as public datasets lack the necessary supervision. To address this, we introduce the HiGlass Dataset, the first large-scale synthetic dataset providing explicit flow-based supervision for refractive warping. We also propose HiGlassRM, a novel pipeline whose core is a network that explicitly estimates a displacement flowmap to de-warp distorted facial geometry. Experiments on both synthetic and real images show that this flowmap-centric approach, trained on our data, significantly improves identity preservation and perceptual quality over existing methods. Our work demonstrates that explicitly modeling and correcting geometric distortion via flowmap estimation, enabled by targeted supervision, is key to faithful eyeglass removal.\n\nPublication: HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation\nAuthors: Sebin Lee†, Heewon Kim\nYear: 2026\nVenue: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\nRecency: Recency rank: 5/37\nAbstract: Existing eyeglass removal methods can handle frames and shadows but fail to correct lens-induced geometric distortions, as public datasets lack the necessary supervision. To address this, we introduce the HiGlass Dataset, the first large-scale synthetic dataset providing explicit flow-based supervision for refractive warping. We also propose HiGlassRM, a novel pipeline whose core is a network that explicitly estimates a displacement flowmap to de-warp distorted facial geometry. Experiments on both synthetic and real images show that this flowmap-centric approach, trained on our data, significantly improves identity preservation and perceptual quality over existing methods. Our work demonstrates that explicitly modeling and correcting geometric distortion via flowmap estimation, enabled by targeted supervision, is key to faithful eyeglass removal.",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -915,11 +993,11 @@
       "authors": "Sebin Lee†, Heewon Kim",
       "year": "2026",
       "venue": "WACV26",
-      "recency_rank": 1
+      "recency_rank": 5
     }
   },
   {
-    "content": "논문: MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation\n저자: ByungKwan Chae*, Youngjae Choi*, Heewon Kim\n연도: 2026\n학회: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\n최신 논문 순위: 최신순 2/33위\n초록: Personalizing text-to-image diffusion models from only a few images per class remains challenging, especially for fine-grained categories where class-defining cues are subtle. We introduce Metric-Based Textual Inversion (MBTI), a plug-and-play objective that augments textual inversion by explicitly enlarging inter-class margins in the text-embedding space while preserving denoising fidelity. MBTI (i) selects the most confusable previously learned classes as support embeddings via cosine similarity (SES), (ii) contrasts predicted noises under the same diffusion state (timestep and noise) between the supports and the current token (DMM), and (iii) stabilizes training with a time-weighted regularizer aligned to the diffusion objective. Across Flowers102, NABirds, FGVC-Aircraft, Stanford Cars, COCO, and PASCAL VOC, MBTI produces more representative samples and improves few-shot classification under augmentation-for-classification. MBTI requires no model fine-tuning and integrates seamlessly with existing personalization pipelines.\n\nPublication: MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation\nAuthors: ByungKwan Chae*, Youngjae Choi*, Heewon Kim\nYear: 2026\nVenue: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\nRecency: Recency rank: 2/33\nAbstract: Personalizing text-to-image diffusion models from only a few images per class remains challenging, especially for fine-grained categories where class-defining cues are subtle. We introduce Metric-Based Textual Inversion (MBTI), a plug-and-play objective that augments textual inversion by explicitly enlarging inter-class margins in the text-embedding space while preserving denoising fidelity. MBTI (i) selects the most confusable previously learned classes as support embeddings via cosine similarity (SES), (ii) contrasts predicted noises under the same diffusion state (timestep and noise) between the supports and the current token (DMM), and (iii) stabilizes training with a time-weighted regularizer aligned to the diffusion objective. Across Flowers102, NABirds, FGVC-Aircraft, Stanford Cars, COCO, and PASCAL VOC, MBTI produces more representative samples and improves few-shot classification under augmentation-for-classification. MBTI requires no model fine-tuning and integrates seamlessly with existing personalization pipelines.",
+    "content": "논문: MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation\n저자: ByungKwan Chae*, Youngjae Choi*, Heewon Kim\n연도: 2026\n학회: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\n\n초록: Personalizing text-to-image diffusion models from only a few images per class remains challenging, especially for fine-grained categories where class-defining cues are subtle. We introduce Metric-Based Textual Inversion (MBTI), a plug-and-play objective that augments textual inversion by explicitly enlarging inter-class margins in the text-embedding space while preserving denoising fidelity. MBTI (i) selects the most confusable previously learned classes as support embeddings via cosine similarity (SES), (ii) contrasts predicted noises under the same diffusion state (timestep and noise) between the supports and the current token (DMM), and (iii) stabilizes training with a time-weighted regularizer aligned to the diffusion objective. Across Flowers102, NABirds, FGVC-Aircraft, Stanford Cars, COCO, and PASCAL VOC, MBTI produces more representative samples and improves few-shot classification under augmentation-for-classification. MBTI requires no model fine-tuning and integrates seamlessly with existing personalization pipelines.\n\nPublication: MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation\nAuthors: ByungKwan Chae*, Youngjae Choi*, Heewon Kim\nYear: 2026\nVenue: Winter Conference on Applications of Computer Vision (WACV) (WACV26)\n\nAbstract: Personalizing text-to-image diffusion models from only a few images per class remains challenging, especially for fine-grained categories where class-defining cues are subtle. We introduce Metric-Based Textual Inversion (MBTI), a plug-and-play objective that augments textual inversion by explicitly enlarging inter-class margins in the text-embedding space while preserving denoising fidelity. MBTI (i) selects the most confusable previously learned classes as support embeddings via cosine similarity (SES), (ii) contrasts predicted noises under the same diffusion state (timestep and noise) between the supports and the current token (DMM), and (iii) stabilizes training with a time-weighted regularizer aligned to the diffusion objective. Across Flowers102, NABirds, FGVC-Aircraft, Stanford Cars, COCO, and PASCAL VOC, MBTI produces more representative samples and improves few-shot classification under augmentation-for-classification. MBTI requires no model fine-tuning and integrates seamlessly with existing personalization pipelines.",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -928,11 +1006,11 @@
       "authors": "ByungKwan Chae*, Youngjae Choi*, Heewon Kim",
       "year": "2026",
       "venue": "WACV26",
-      "recency_rank": 2
+      "recency_rank": 6
     }
   },
   {
-    "content": "논문: DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI\n저자: Sangmin Lee*, Sungyong Park*, Heewon Kim\n연도: 2025\n학회: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR25)\n최신 논문 순위: 최신순 3/33위\n\n\nPublication: DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI\nAuthors: Sangmin Lee*, Sungyong Park*, Heewon Kim\nYear: 2025\nVenue: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR25)\nRecency: Recency rank: 3/33\n",
+    "content": "논문: DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI\n저자: Sangmin Lee*, Sungyong Park*, Heewon Kim\n연도: 2025\n학회: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR25)\n\n\n\nPublication: DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI\nAuthors: Sangmin Lee*, Sungyong Park*, Heewon Kim\nYear: 2025\nVenue: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR25)\n\n",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -941,11 +1019,11 @@
       "authors": "Sangmin Lee*, Sungyong Park*, Heewon Kim",
       "year": "2025",
       "venue": "CVPR25",
-      "recency_rank": 3
+      "recency_rank": 7
     }
   },
   {
-    "content": "논문: SIDL: A Real-World Dataset for Restoring Smartphone Images with Dirty Lenses\n저자: Sooyoung Choi*†, Sungyong Park*, Heewon Kim\n연도: 2025\n학회: AAAI Conference on Artificial Intelligence (AAAI25)\n최신 논문 순위: 최신순 4/33위\n\n\nPublication: SIDL: A Real-World Dataset for Restoring Smartphone Images with Dirty Lenses\nAuthors: Sooyoung Choi*†, Sungyong Park*, Heewon Kim\nYear: 2025\nVenue: AAAI Conference on Artificial Intelligence (AAAI25)\nRecency: Recency rank: 4/33\n",
+    "content": "논문: SIDL: A Real-World Dataset for Restoring Smartphone Images with Dirty Lenses\n저자: Sooyoung Choi*†, Sungyong Park*, Heewon Kim\n연도: 2025\n학회: AAAI Conference on Artificial Intelligence (AAAI25)\n\n\n\nPublication: SIDL: A Real-World Dataset for Restoring Smartphone Images with Dirty Lenses\nAuthors: Sooyoung Choi*†, Sungyong Park*, Heewon Kim\nYear: 2025\nVenue: AAAI Conference on Artificial Intelligence (AAAI25)\n\n",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -954,11 +1032,11 @@
       "authors": "Sooyoung Choi*†, Sungyong Park*, Heewon Kim",
       "year": "2025",
       "venue": "AAAI25",
-      "recency_rank": 4
+      "recency_rank": 8
     }
   },
   {
-    "content": "논문: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\n저자: Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\n연도: 2025\n학회: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\n최신 논문 순위: 최신순 5/33위\n\n\nPublication: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\nAuthors: Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\nYear: 2025\nVenue: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\nRecency: Recency rank: 5/33\n",
+    "content": "논문: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\n저자: Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\n연도: 2025\n학회: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\n\n\n\nPublication: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\nAuthors: Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\nYear: 2025\nVenue: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\n\n",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -967,7 +1045,7 @@
       "authors": "Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim",
       "year": "2025",
       "venue": "APP3DV25",
-      "recency_rank": 5
+      "recency_rank": 9
     }
   },
   {
@@ -980,7 +1058,7 @@
       "authors": "Youngjae Choi*, Hyunsuh Kho*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim",
       "year": "2025",
       "venue": "BMVC25",
-      "recency_rank": 6
+      "recency_rank": 10
     }
   },
   {
@@ -993,7 +1071,7 @@
       "authors": "Chiyoung Lee*, Yeri Kim*†, Seoyoung Kim*†, Mary Whooley, Heewon Kim",
       "year": "2025",
       "venue": "PLOS ONE",
-      "recency_rank": 7
+      "recency_rank": 11
     }
   },
   {
@@ -1006,7 +1084,7 @@
       "authors": "Do-Ye Kwon*†, Yeon-Ju Oh*†, Heewon Kim",
       "year": "2025",
       "venue": "JEET",
-      "recency_rank": 8
+      "recency_rank": 12
     }
   },
   {
@@ -1019,7 +1097,7 @@
       "authors": "Chiyoung Lee, Heewon Kim, Yeri Kim†, Seoyoung Kim†, et al.",
       "year": "2025",
       "venue": "Brain Stimulation",
-      "recency_rank": 9
+      "recency_rank": 13
     }
   },
   {
@@ -1032,7 +1110,7 @@
       "authors": "Dowon Kim, Chaewoo Lim, Sangmin Lee, Sungyong Park, Heewon Kim",
       "year": "2025",
       "venue": "Arnold Challenge",
-      "recency_rank": 10
+      "recency_rank": 14
     }
   },
   {
@@ -1045,7 +1123,7 @@
       "authors": "Sangmin Lee, Sungyong Park, Heewon Kim",
       "year": "2024",
       "venue": "Arnold Challenge",
-      "recency_rank": 11
+      "recency_rank": 15
     }
   },
   {
@@ -1058,7 +1136,7 @@
       "authors": "Chiyoung Lee, Yeri Kim†, Seoyoung Kim†, Beth Cohen, Kent Kwoh, Hyochol Ahn, Juyoung Park, Heewon Kim",
       "year": "2024",
       "venue": "GSA",
-      "recency_rank": 12
+      "recency_rank": 16
     }
   },
   {
@@ -1071,7 +1149,7 @@
       "authors": "Ji Hoon Bang†, Eun Hee Kim, Hyung Jun Kim, Jong-Won Chung, Woo-Keun Seo, Gyeong-Moon Kim, Dong-Ho Lee, Heewon Kim*, Oh Young Bang*",
       "year": "2024",
       "venue": "IJMS",
-      "recency_rank": 13
+      "recency_rank": 17
     }
   },
   {
@@ -1084,7 +1162,7 @@
       "authors": "Heewon Kim, Kyoung Mu Lee",
       "year": "2023",
       "venue": "ICLR",
-      "recency_rank": 14
+      "recency_rank": 18
     }
   },
   {
@@ -1097,7 +1175,7 @@
       "authors": "Heewon Kim, Kyoung Mu Lee",
       "year": "2023",
       "venue": "TIP",
-      "recency_rank": 15
+      "recency_rank": 19
     }
   },
   {
@@ -1110,7 +1188,7 @@
       "authors": "Sungyong Baik, Myungsub Choi, Janghoon Choi, Heewon Kim, Kyoung Mu Lee",
       "year": "2023",
       "venue": "TPAMI",
-      "recency_rank": 16
+      "recency_rank": 20
     }
   },
   {
@@ -1123,7 +1201,7 @@
       "authors": "Junghun Oh, Heewon Kim, Sungyong Baik, Cheeun Hong, Kyoung Mu Lee",
       "year": "2022",
       "venue": "WACV",
-      "recency_rank": 17
+      "recency_rank": 21
     }
   },
   {
@@ -1136,7 +1214,7 @@
       "authors": "Chiyoung Lee, Heewon Kim",
       "year": "2022",
       "venue": "PLOS ONE",
-      "recency_rank": 18
+      "recency_rank": 22
     }
   },
   {
@@ -1149,7 +1227,7 @@
       "authors": "Heewon Kim, Seokil Hong, Bohyung Han, Heesoo Myeong, Kyoung Mu Lee",
       "year": "2022",
       "venue": "JVCI",
-      "recency_rank": 19
+      "recency_rank": 23
     }
   },
   {
@@ -1162,7 +1240,7 @@
       "authors": "Sungyong Baik, Myungsub Choi, Janghoon Choi, Heewon Kim, Kyoung Mu Lee",
       "year": "2020",
       "venue": "NeurIPS",
-      "recency_rank": 20
+      "recency_rank": 24
     }
   },
   {
@@ -1175,7 +1253,7 @@
       "authors": "Cheeun Hong, Sungyong Baik, Heewon Kim, Seungjun Nah, Kyoung Mu Lee",
       "year": "2022",
       "venue": "ECCV",
-      "recency_rank": 21
+      "recency_rank": 25
     }
   },
   {
@@ -1188,7 +1266,7 @@
       "authors": "Cheeun Hong*, Heewon Kim*, Sungyong Baik, Junghun Oh, Kyoung Mu Lee",
       "year": "2022",
       "venue": "WACV",
-      "recency_rank": 22
+      "recency_rank": 26
     }
   },
   {
@@ -1201,7 +1279,7 @@
       "authors": "Junghun Oh, Heewon Kim, Seungjun Nah, Cheeun Hong, Jonghyun Choi, Kyoung Mu Lee",
       "year": "2022",
       "venue": "CVPR",
-      "recency_rank": 23
+      "recency_rank": 27
     }
   },
   {
@@ -1214,7 +1292,7 @@
       "authors": "Sungyong Baik, Janghoon Choi, Heewon Kim, Dohee Cho, Jaesik Min, and Kyoung Mu Lee",
       "year": "2021",
       "venue": "ICCV",
-      "recency_rank": 24
+      "recency_rank": 28
     }
   },
   {
@@ -1227,7 +1305,7 @@
       "authors": "Heewon Kim, Sungyong Baik, Myungsub Choi, Janghoon Choi, and Kyoung Mu Lee",
       "year": "2021",
       "venue": "ICCV",
-      "recency_rank": 25
+      "recency_rank": 29
     }
   },
   {
@@ -1240,7 +1318,7 @@
       "authors": "Andrey Ignatov, Andres Romero, Heewon Kim, and Radu Timofte",
       "year": "2021",
       "venue": "CVPRW",
-      "recency_rank": 26
+      "recency_rank": 30
     }
   },
   {
@@ -1253,7 +1331,7 @@
       "authors": "Myungsub Choi, Suyoung Lee, Heewon Kim, and Kyoung Mu Lee",
       "year": "2021",
       "venue": "ICCV",
-      "recency_rank": 27
+      "recency_rank": 31
     }
   },
   {
@@ -1266,7 +1344,7 @@
       "authors": "Myungsub Choi, Heewon Kim, Bohyung Han, Ning Xu, and Kyoung Mu Lee",
       "year": "2020",
       "venue": "AAAI",
-      "recency_rank": 28
+      "recency_rank": 32
     }
   },
   {
@@ -1279,7 +1357,7 @@
       "authors": "Seungjun Nah, Sanghyun Son, Radu Timofte, Kyoung Mu Lee, Li Siyao, Ziwei Pan, Xiangyu Xu, Wenxiu Sun, Myungsub Choi, Heewon Kim, Bohyung Han, Ning Xu, Renjie Liao, Alex Schwing, Yuhua Chen, Chen Chen, Kai Zhang, Wangmeng Zuo, Tong Lu, Ran Duan, Tong Lu, Lihe Zhang, Woonsook Park, Manhcuot Tran, George Pisha, Eyal Naor, Lilie Zhang, Kai Zhang, Wangmeng Zuo, Zhimin Tang, Linkai Luo, Shaochui Li, Min Fu, Lei Cai, Wen Heng, Giang Bui, Truc Le, Ye Deng, Sifei Liu, Hyun Young Jung, Tianlong Guo, Hongchang Gao, Jiejun Xu, Ruofan Fang, Yunsong Li, Anmur Mehta, Vishal Monga",
       "year": "2019",
       "venue": "ICCVW",
-      "recency_rank": 29
+      "recency_rank": 33
     }
   },
   {
@@ -1292,7 +1370,7 @@
       "authors": "Heewon Kim, Myungsub Choi, Bee Lim, and Kyoung Mu Lee",
       "year": "2018",
       "venue": "ECCV",
-      "recency_rank": 30
+      "recency_rank": 34
     }
   },
   {
@@ -1305,7 +1383,7 @@
       "authors": "Radu Timofte, Eirikur Agustsson, Luc Van Gool, Ming-Hsuan Yang, Lei Zhang, Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, Kyoung Mu Lee, et al.",
       "year": "2017",
       "venue": "CVPRW",
-      "recency_rank": 31
+      "recency_rank": 35
     }
   },
   {
@@ -1318,7 +1396,7 @@
       "authors": "Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee",
       "year": "2017",
       "venue": "CVPRW17",
-      "recency_rank": 32
+      "recency_rank": 36
     }
   },
   {
@@ -1331,7 +1409,7 @@
       "authors": "Seunghyun Oh†, Heewon Kim",
       "year": "2025",
       "venue": "ICT Express",
-      "recency_rank": 33
+      "recency_rank": 37
     }
   },
   {

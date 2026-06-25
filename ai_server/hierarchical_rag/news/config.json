@@ -1,7 +1,7 @@
 {
   "category": "news",
   "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-  "num_documents": 42,
+  "num_documents": 44,
   "embedding_dim": 384,
   "doc_types": [
     "news"
