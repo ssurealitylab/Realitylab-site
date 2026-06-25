@@ -47,15 +47,6 @@ title: International Publications
           </div>
         </div>
 
-        <!-- ARNOLD Challenge 2026 (2nd Place) -->
-        <div class="col-12 mb-3">
-          <div class="publication-list-item" onclick="openPublicationModal('w3')" style="cursor: pointer;">
-            <div class="publication-badge challenge-badge">ARNOLD Challenge</div>
-            <h5 class="list-title">2nd Place at CVPR 2026 Embodied AI Workshop</h5>
-            <p class="list-authors">Sungyong Park, Sangmin Lee, Dowon Kim, Heewon Kim</p>
-          </div>
-        </div>
-
         <!-- CVPR 2026 Embodied AI Workshop - Fine-tuning Robotic Foundation Model -->
         <div class="col-12 mb-3">
           <div class="publication-list-item" onclick="openPublicationModal('w4')" style="cursor: pointer;">
