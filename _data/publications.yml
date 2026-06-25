@@ -3,33 +3,6 @@
 
 publications:
   # 2026 Publications
-- id: c26
-  title: "HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation"
-  authors: "Sebin Lee†, Heewon Kim"
-  venue: "Winter Conference on Applications of Computer Vision (WACV)"
-  venue_short: "WACV26"
-  year: 2026
-  type: conference
-  status: accepted
-  citation: "[C26] Sebin Lee† and Heewon Kim, \"HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation,\" Proc. Winter Conference on Applications of Computer Vision (WACV), 2026 (accepted)"
-  notes: "† Undergraduate student"
-  image: "assets/img/publications/higlassrm/framework.jpg"
-  abstract: "Existing eyeglass removal methods can handle frames and shadows but fail to correct lens-induced geometric distortions, as public datasets lack the necessary supervision. To address this, we introduce the HiGlass Dataset, the first large-scale synthetic dataset providing explicit flow-based supervision for refractive warping. We also propose HiGlassRM, a novel pipeline whose core is a network that explicitly estimates a displacement flowmap to de-warp distorted facial geometry. Experiments on both synthetic and real images show that this flowmap-centric approach, trained on our data, significantly improves identity preservation and perceptual quality over existing methods. Our work demonstrates that explicitly modeling and correcting geometric distortion via flowmap estimation, enabled by targeted supervision, is key to faithful eyeglass removal."
-
-- id: wacv26_mbti
-  title: "MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation"
-  authors: "ByungKwan Chae*, Youngjae Choi*, Heewon Kim"
-  venue: "Winter Conference on Applications of Computer Vision (WACV)"
-  venue_short: "WACV26"
-  year: 2026
-  type: conference
-  status: accepted
-  citation: "[C25] ByungKwan Chae*, Youngjae Choi*, and Heewon Kim, \"MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation,\" Proc. Winter Conference on Applications of Computer Vision (WACV), 2026 (accepted)"
-  image: "assets/img/publications/mbti-wacv26.png"
-  abstract: "Personalizing text-to-image diffusion models from only a few images per class remains challenging, especially for fine-grained categories where class-defining cues are subtle. We introduce Metric-Based Textual Inversion (MBTI), a plug-and-play objective that augments textual inversion by explicitly enlarging inter-class margins in the text-embedding space while preserving denoising fidelity. MBTI (i) selects the most confusable previously learned classes as support embeddings via cosine similarity (SES), (ii) contrasts predicted noises under the same diffusion state (timestep and noise) between the supports and the current token (DMM), and (iii) stabilizes training with a time-weighted regularizer aligned to the diffusion objective. Across Flowers102, NABirds, FGVC-Aircraft, Stanford Cars, COCO, and PASCAL VOC, MBTI produces more representative samples and improves few-shot classification under augmentation-for-classification. MBTI requires no model fine-tuning and integrates seamlessly with existing personalization pipelines."
-  keywords: "Few-shot Learning, Fine-grained Image Classification, Data Augmentation, Diffusion Models, Textual Inversion, Metric Learning"
-  notes: "* Equal contribution"
-
 - id: c27
   title: "CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation"
   authors: "Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim"
@@ -97,6 +70,33 @@ publications:
     html: "https://openaccess.thecvf.com/content/CVPR2026W/HuMoGen/html/Choi_FEEL_Emotion-Enriched_Text-to-Motion_Generation_Using_Small-Scale_Emotion_Motion_Data_CVPRW_2026_paper.html"
 
   # 2025 Publications
+- id: c26
+  title: "HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation"
+  authors: "Sebin Lee†, Heewon Kim"
+  venue: "Winter Conference on Applications of Computer Vision (WACV)"
+  venue_short: "WACV26"
+  year: 2026
+  type: conference
+  status: accepted
+  citation: "[C26] Sebin Lee† and Heewon Kim, \"HiGlassRM: Learning to Remove High-prescription Glasses via Synthetic Dataset Generation,\" Proc. Winter Conference on Applications of Computer Vision (WACV), 2026 (accepted)"
+  notes: "† Undergraduate student"
+  image: "assets/img/publications/higlassrm/framework.jpg"
+  abstract: "Existing eyeglass removal methods can handle frames and shadows but fail to correct lens-induced geometric distortions, as public datasets lack the necessary supervision. To address this, we introduce the HiGlass Dataset, the first large-scale synthetic dataset providing explicit flow-based supervision for refractive warping. We also propose HiGlassRM, a novel pipeline whose core is a network that explicitly estimates a displacement flowmap to de-warp distorted facial geometry. Experiments on both synthetic and real images show that this flowmap-centric approach, trained on our data, significantly improves identity preservation and perceptual quality over existing methods. Our work demonstrates that explicitly modeling and correcting geometric distortion via flowmap estimation, enabled by targeted supervision, is key to faithful eyeglass removal."
+
+- id: wacv26_mbti
+  title: "MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation"
+  authors: "ByungKwan Chae*, Youngjae Choi*, Heewon Kim"
+  venue: "Winter Conference on Applications of Computer Vision (WACV)"
+  venue_short: "WACV26"
+  year: 2026
+  type: conference
+  status: accepted
+  citation: "[C25] ByungKwan Chae*, Youngjae Choi*, and Heewon Kim, \"MBTI: Metric-Based Textual Inversion for Fine-Grained Image Generation,\" Proc. Winter Conference on Applications of Computer Vision (WACV), 2026 (accepted)"
+  image: "assets/img/publications/mbti-wacv26.png"
+  abstract: "Personalizing text-to-image diffusion models from only a few images per class remains challenging, especially for fine-grained categories where class-defining cues are subtle. We introduce Metric-Based Textual Inversion (MBTI), a plug-and-play objective that augments textual inversion by explicitly enlarging inter-class margins in the text-embedding space while preserving denoising fidelity. MBTI (i) selects the most confusable previously learned classes as support embeddings via cosine similarity (SES), (ii) contrasts predicted noises under the same diffusion state (timestep and noise) between the supports and the current token (DMM), and (iii) stabilizes training with a time-weighted regularizer aligned to the diffusion objective. Across Flowers102, NABirds, FGVC-Aircraft, Stanford Cars, COCO, and PASCAL VOC, MBTI produces more representative samples and improves few-shot classification under augmentation-for-classification. MBTI requires no model fine-tuning and integrates seamlessly with existing personalization pipelines."
+  keywords: "Few-shot Learning, Fine-grained Image Classification, Data Augmentation, Diffusion Models, Textual Inversion, Metric Learning"
+  notes: "* Equal contribution"
+
 - id: c25
   title: "DynScene: Scalable Generation of Dynamic Robotic Manipulation Scenes for Embodied AI"
   authors: "Sangmin Lee*, Sungyong Park*, Heewon Kim"
