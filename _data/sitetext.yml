@@ -16,6 +16,9 @@ en: &DEFAULT_EN
     button: Learn About Our Research
     buttonlink: "#services"
     slider:
+    - description: Cololado, Denver
+      image: 참고 이미지/homepage_slider_images/img_6185.jpg
+      title: CVPR 2026
     - description: With deepest respect.
       image: 참고 이미지/homepage_slider_images/img_2934.jpg
       title: Teacher's Day
@@ -46,9 +49,6 @@ en: &DEFAULT_EN
     - description: Poster Session Participation
       image: 참고 이미지/homepage_slider_images/slider_14.jpg
       title: CVPR 2025
-    - image: 참고 이미지/homepage_slider_images/img_6185.jpg
-      title: CVPR 2026
-      description: Cololado, Denver
     slider_archive:
     - description: Lab Activities and Team Bonding
       image: 참고 이미지/homepage_slider_images/slider_08.jpg
