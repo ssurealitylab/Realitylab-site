@@ -97,3 +97,88 @@
     height: 14px;
   }
 }
+
+/* ─── Orbiting glow ring on nav AI icon ─────────────────────────
+   Visible on every page: a soft static blue-gradient ring sits
+   under the AI icon, and a brighter head orbits the ring once
+   every 2s, leaving a quickly-fading afterimage when it lands
+   back at the start. The pulse step keeps a faint full-ring
+   afterglow visible for a beat before fading. */
+.ai-menu-circular {
+  position: relative;
+  border-radius: 50%;
+  /* Box the pseudo-elements relative to the icon, not the nav row. */
+}
+
+/* The static, gentle gradient ring (the "tube" the light orbits) */
+.ai-menu-circular::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 54px;
+  height: 54px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    rgba(59,130,246,0.18),
+    rgba(96,165,250,0.30),
+    rgba(147,197,253,0.40),
+    rgba(96,165,250,0.30),
+    rgba(59,130,246,0.18)
+  );
+  /* Hollow it out so only a ring shows */
+  -webkit-mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
+          mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
+  animation: ai-ring-afterglow 2s linear infinite;
+}
+
+/* The bright orbiting head — a 360° sweep of a narrow gradient arc */
+.ai-menu-circular::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 54px;
+  height: 54px;
+  transform: translate(-50%, -50%) rotate(0deg);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  background: conic-gradient(
+    from 0deg,
+    rgba(96,165,250,0)        0deg,
+    rgba(96,165,250,0)      300deg,
+    rgba(96,165,250,0.55)   335deg,
+    rgba(191,219,254,0.95)  355deg,
+    #ffffff                 360deg
+  );
+  -webkit-mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
+          mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
+  filter: drop-shadow(0 0 4px rgba(96,165,250,0.85));
+  animation: ai-ring-orbit 2s linear infinite;
+}
+
+/* Keep the AI icon above the glow */
+.ai-menu-circular > * { position: relative; z-index: 1; }
+
+@keyframes ai-ring-orbit {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Static-ring breathing: brightens just as the orbit head completes
+   a lap, mimicking the afterimage settling, then fades back. */
+@keyframes ai-ring-afterglow {
+  0%, 100% {
+    opacity: 0.55;
+    filter: drop-shadow(0 0 0 rgba(96,165,250,0));
+  }
+  92% {
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(147,197,253,0.7));
+  }
+}
