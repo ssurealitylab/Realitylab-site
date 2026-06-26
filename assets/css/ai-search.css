@@ -110,40 +110,50 @@
   /* Box the pseudo-elements relative to the icon, not the nav row. */
 }
 
-/* The static, gentle gradient ring (the "tube" the light orbits) */
+/* The static, gradient ring (the "tube" the light orbits). The ring
+   itself breathes between a deeper navy and a brighter sky tone so
+   the whole tube cycles dark ↔ light on the same 2s beat. */
 .ai-menu-circular::before {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 54px;
-  height: 54px;
+  width: 46px;
+  height: 46px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
+  /* Deep blue → light blue gradient around the ring; filter animation
+     below cycles the perceived saturation/lightness so it reads as
+     "dark blue and light blue alternating". */
   background: conic-gradient(
     from 0deg,
-    rgba(59,130,246,0.18),
-    rgba(96,165,250,0.30),
-    rgba(147,197,253,0.40),
-    rgba(96,165,250,0.30),
-    rgba(59,130,246,0.18)
+    #1d4ed8,
+    #2563eb,
+    #3b82f6,
+    #60a5fa,
+    #93c5fd,
+    #60a5fa,
+    #3b82f6,
+    #2563eb,
+    #1d4ed8
   );
-  /* Hollow it out so only a ring shows */
-  -webkit-mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
-          mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
-  animation: ai-ring-afterglow 2s linear infinite;
+  /* Hollow it out so only a ~4px ring shows. Tighter radii = smaller
+     diameter per user request. */
+  -webkit-mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
+          mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
+  animation: ai-ring-breathe 2s ease-in-out infinite;
 }
 
-/* The bright orbiting head — a 360° sweep of a narrow gradient arc */
+/* The bright orbiting head — a narrow sweeping arc */
 .ai-menu-circular::after {
   content: "";
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 54px;
-  height: 54px;
+  width: 46px;
+  height: 46px;
   transform: translate(-50%, -50%) rotate(0deg);
   border-radius: 50%;
   pointer-events: none;
@@ -156,8 +166,8 @@
     rgba(191,219,254,0.95)  355deg,
     #ffffff                 360deg
   );
-  -webkit-mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
-          mask: radial-gradient(circle, transparent 21px, #000 22px, #000 26px, transparent 27px);
+  -webkit-mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
+          mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
   filter: drop-shadow(0 0 4px rgba(96,165,250,0.85));
   animation: ai-ring-orbit 2s linear infinite;
 }
@@ -170,15 +180,23 @@
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* Static-ring breathing: brightens just as the orbit head completes
-   a lap, mimicking the afterimage settling, then fades back. */
-@keyframes ai-ring-afterglow {
+/* Ring breathes between a deeper, more saturated state ("진한 파랑")
+   and a brighter, lighter state ("연한 파랑"). The 92% spike doubles
+   as the afterimage when the orbit head returns to the start. */
+@keyframes ai-ring-breathe {
   0%, 100% {
-    opacity: 0.55;
-    filter: drop-shadow(0 0 0 rgba(96,165,250,0));
+    /* deep / saturated */
+    opacity: 0.65;
+    filter: brightness(0.75) saturate(1.4);
+  }
+  50% {
+    /* light / airy */
+    opacity: 0.9;
+    filter: brightness(1.35) saturate(0.85);
   }
   92% {
+    /* afterimage flash as orbit head lands */
     opacity: 1;
-    filter: drop-shadow(0 0 8px rgba(147,197,253,0.7));
+    filter: brightness(1.5) saturate(1) drop-shadow(0 0 8px rgba(147,197,253,0.75));
   }
 }
