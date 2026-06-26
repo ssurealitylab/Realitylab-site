@@ -110,9 +110,9 @@
   /* Box the pseudo-elements relative to the icon, not the nav row. */
 }
 
-/* The static, gradient ring (the "tube" the light orbits). The ring
-   itself breathes between a deeper navy and a brighter sky tone so
-   the whole tube cycles dark ↔ light on the same 2s beat. */
+/* The gradient ring (the "tube" the light orbits). The ring rotates
+   slowly so the dark↔light bands flow around it like a wave, and the
+   whole tube breathes between deep and bright on a 2s beat. */
 .ai-menu-circular::before {
   content: "";
   position: absolute;
@@ -124,26 +124,34 @@
   border-radius: 50%;
   pointer-events: none;
   z-index: 0;
-  /* Deep blue → light blue gradient around the ring; filter animation
-     below cycles the perceived saturation/lightness so it reads as
-     "dark blue and light blue alternating". */
+  /* Three deep→light cycles around the ring so as it rotates, you see
+     a wave passing by rather than one giant blob. Tones span navy to
+     sky to keep the dark/light contrast the user asked for. */
   background: conic-gradient(
     from 0deg,
-    #1d4ed8,
-    #2563eb,
+    #1e3a8a,
     #3b82f6,
-    #60a5fa,
     #93c5fd,
-    #60a5fa,
     #3b82f6,
-    #2563eb,
-    #1d4ed8
+    #1e3a8a,
+    #3b82f6,
+    #93c5fd,
+    #3b82f6,
+    #1e3a8a,
+    #3b82f6,
+    #93c5fd,
+    #3b82f6,
+    #1e3a8a
   );
-  /* Hollow it out so only a ~4px ring shows. Tighter radii = smaller
-     diameter per user request. */
+  /* Hollow it out so only a ~4px ring shows. */
   -webkit-mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
           mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
-  animation: ai-ring-breathe 2s ease-in-out infinite;
+  /* Two animations:
+       ai-ring-wave   — rotates the gradient so bands flow around (wave)
+       ai-ring-breathe — modulates brightness/saturation (deep↔light) */
+  animation:
+    ai-ring-wave 3s linear infinite,
+    ai-ring-breathe 2s ease-in-out infinite;
 }
 
 /* The bright orbiting head — a narrow sweeping arc */
@@ -176,6 +184,14 @@
 .ai-menu-circular > * { position: relative; z-index: 1; }
 
 @keyframes ai-ring-orbit {
+  0%   { transform: translate(-50%, -50%) rotate(0deg); }
+  100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* Rotates the gradient on ::before so the dark/light bands sweep
+   around the ring — reads as a wave flowing around. Slower than the
+   orbit head (3s vs 2s) so the two motions stay independent. */
+@keyframes ai-ring-wave {
   0%   { transform: translate(-50%, -50%) rotate(0deg); }
   100% { transform: translate(-50%, -50%) rotate(360deg); }
 }
