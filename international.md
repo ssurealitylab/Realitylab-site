@@ -177,10 +177,10 @@ title: International Publications
           <div class="publication-list-item" onclick="openPublicationModal('j13')" style="cursor: pointer;">
             <div class="publication-badge">Clin J Pain</div>
             <div class="external-links">
-              <a href="https://doi.org/10.1097/AJP.0000000000001364" target="_blank" class="external-icon-link pdf-link" title="DOI" onclick="event.stopPropagation()">
+              <a href="https://journals.lww.com/clinicalpain/abstract/2026/04000/predicting_heterogeneity_of_treatment_effects_to.2.aspx" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
                 <i class="fas fa-file-pdf"></i>
               </a>
-              <a href="https://journals.lww.com/clinicalpain/abstract/2026/04000/predicting_heterogeneity_of_treatment_effects_to.2.aspx" target="_blank" class="external-icon-link website-link" title="Journal Page" onclick="event.stopPropagation()">
+              <a href="https://doi.org/10.1097/AJP.0000000000001364" target="_blank" class="external-icon-link website-link" title="DOI" onclick="event.stopPropagation()">
                 <i class="fas fa-globe"></i>
               </a>
             </div>

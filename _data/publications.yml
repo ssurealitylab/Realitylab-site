@@ -48,7 +48,7 @@ publications:
   citation: "[J13] Chiyoung Lee, Heewon Kim, Seoyoung Kim†, Yeri Kim†, Xiaoxiao Sun, Chen X. Chen, Juyoung Park, Christine Pellegrini, David O. Garcia, Nan-kuei Chen, C. Kent Kwoh, and Hyochol Ahn, \"Predicting Heterogeneity of Treatment Effects to Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain and Symptoms: A Machine Learning Approach,\" The Clinical Journal of Pain, vol. 42, no. 4, p. e1364, Apr. 2026."
   notes: "† Undergraduate student"
   links:
-    html: "https://journals.lww.com/clinicalpain/abstract/2026/04000/predicting_heterogeneity_of_treatment_effects_to.2.aspx"
+    pdf: "https://journals.lww.com/clinicalpain/abstract/2026/04000/predicting_heterogeneity_of_treatment_effects_to.2.aspx"
     doi: "https://doi.org/10.1097/AJP.0000000000001364"
 
 - id: w7
