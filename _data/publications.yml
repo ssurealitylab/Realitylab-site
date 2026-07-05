@@ -37,6 +37,31 @@ publications:
   status: accepted
   notes: "† Co-corresponding author"
 
+- id: j13
+  title: "Predicting Heterogeneity of Treatment Effects to Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain and Symptoms: A Machine Learning Approach"
+  authors: "Chiyoung Lee, Heewon Kim, Seoyoung Kim†, Yeri Kim†, Xiaoxiao Sun, Chen X. Chen, Juyoung Park, Christine Pellegrini, David O. Garcia, Nan-Kuei Chen, C. Kent Kwoh, Hyochol Ahn"
+  venue: "The Clinical Journal of Pain"
+  venue_short: "Clin J Pain"
+  year: 2026
+  type: journal
+  status: published
+  citation: "[J13] Chiyoung Lee, Heewon Kim, Seoyoung Kim†, Yeri Kim†, Xiaoxiao Sun, Chen X. Chen, Juyoung Park, Christine Pellegrini, David O. Garcia, Nan-Kuei Chen, C. Kent Kwoh, and Hyochol Ahn, \"Predicting Heterogeneity of Treatment Effects to Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain and Symptoms: A Machine Learning Approach,\" The Clinical Journal of Pain, vol. 42, no. 4, p. e1364, Apr. 2026."
+  notes: "† Undergraduate student"
+  links:
+    html: "https://journals.lww.com/clinicalpain/abstract/2026/04000/predicting_heterogeneity_of_treatment_effects_to.2.aspx"
+    doi: "https://doi.org/10.1097/AJP.0000000000001364"
+
+- id: w7
+  title: "Multimodal Predictors of Heterogeneity of Treatment Effects in Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain: A Machine Learning Analysis"
+  authors: "Seoyoung Kim†, Yeri Kim†, Chiyoung Lee, Juyoung Park, Hyochol Ahn, Heewon Kim"
+  venue: "CVPR 2026 Workshop"
+  venue_short: "CVPRW26"
+  year: 2026
+  type: workshop
+  status: published
+  image: "assets/img/publications/tdcs2026/poster.png"
+  notes: "† Undergraduate student"
+
 - id: w4
   title: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation
   authors: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim
