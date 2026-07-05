@@ -8,5 +8,5 @@
     "qa"
   ],
   "model_name": "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2",
-  "total_documents": 133
+  "total_documents": 135
 }

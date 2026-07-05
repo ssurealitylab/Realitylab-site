@@ -2414,3 +2414,307 @@ To https://github.com/ssurealitylab/ssurealitylab.github.io.git
 2026-06-25T23:00:50Z INF precheck component="TCP Connectivity" details="HTTP/2 connection successful" run_id=676f00f2-45cd-4d68-a6c3-82d75f9fc022 status=pass target=region2.v2.argotunnel.com
 2026-06-25T23:00:50Z INF precheck component="Cloudflare API" details="API is reachable" run_id=676f00f2-45cd-4d68-a6c3-82d75f9fc022 status=pass target=api.cloudflare.com:443
 2026-06-25T23:00:50Z INF precheck complete hard_fail=false run_id=676f00f2-45cd-4d68-a6c3-82d75f9fc022 suggested_protocol=quic
+[2026-06-27 08:00:13] Killed old admin tunnel PID: 1679422
+[2026-06-27 08:00:17] Starting new admin tunnel...
+[2026-06-27 08:00:17] Started cloudflared PID: 1744217
+[2026-06-27 08:00:19] Admin tunnel URL: https://api.trycloudflare.com
+[2026-06-27 08:00:22] WARN: Admin tunnel returned 000
+[2026-06-27 08:00:22] Updating admin.html: https://licensing-interim-huntington-franklin.trycloudflare.com -> https://api.trycloudflare.com
+                                                                                                                                                                                                                                                                                                                                                                                               [2026-06-29 10:32:16] Starting new admin tunnel...
+[2026-06-29 10:32:16] Started cloudflared PID: 5018
+[2026-06-29 10:32:20] Admin tunnel URL: https://related-habits-likely-personally.trycloudflare.com
+[2026-06-29 10:32:23] WARN: Admin tunnel returned 000
+[2026-06-29 10:32:23] Updating admin.html: https://api.trycloudflare.com -> https://related-habits-likely-personally.trycloudflare.com
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-06-29 10:32:24] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: object file .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393 is empty
+fatal: loose object 1f766941ac36dd7f3eadad109aacd8eb6213d393 (stored in .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393) is corrupt
+[2026-06-29 10:32:24] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-06-29 10:32:24] WARNING: Failed to push to GitHub after retries
+2026-06-29T01:32:16Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-06-29T01:32:16Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-06-29T01:32:20Z INF +--------------------------------------------------------------------------------------------+
+2026-06-29T01:32:20Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-06-29T01:32:20Z INF |  https://related-habits-likely-personally.trycloudflare.com                                |
+2026-06-29T01:32:20Z INF +--------------------------------------------------------------------------------------------+
+2026-06-29T01:32:20Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-06-29T01:32:20Z INF Version 2026.6.1 (Checksum 5861a10a438fe8ddcfebb3b830f83966cbf193edafce0fe2eeb198fbae1f7a22)
+2026-06-29T01:32:20Z INF GOOS: linux, GOVersion: go1.26.4, GoArch: amd64
+2026-06-29T01:32:20Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-06-29T01:32:20Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-06-29T01:32:20Z INF Generated Connector ID: f2d3f5c8-804c-4a8a-bce3-92d635d661c6
+2026-06-29T01:32:20Z INF Initial protocol quic
+2026-06-29T01:32:20Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-29T01:32:20Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026/06/29 10:32:20 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-06-29T01:32:20Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-29T01:32:20Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-29T01:32:20Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2026-06-29T01:32:20Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.167
+2026-06-29T01:32:20Z INF Registered tunnel connection connIndex=0 connection=ce281f01-0d34-4445-9995-c04aa6442df3 event=0 ip=198.41.192.167 location=icn06 protocol=quic
+[2026-06-30 08:00:17] Killed old admin tunnel PID: 5018
+[2026-06-30 08:00:20] Starting new admin tunnel...
+[2026-06-30 08:00:20] Started cloudflared PID: 101061
+[2026-06-30 08:00:24] Admin tunnel URL: https://browser-district-shall-auburn.trycloudflare.com
+[2026-06-30 08:00:27] WARN: Admin tunnel returned 000
+[2026-06-30 08:00:27] Updating admin.html: https://related-habits-likely-personally.trycloudflare.com -> https://browser-district-shall-auburn.trycloudflare.com
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-06-30 08:00:27] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: object file .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393 is empty
+fatal: loose object 1f766941ac36dd7f3eadad109aacd8eb6213d393 (stored in .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393) is corrupt
+[2026-06-30 08:00:27] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-06-30 08:00:27] WARNING: Failed to push to GitHub after retries
+2026-06-29T23:00:20Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-06-29T23:00:20Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-06-29T23:00:23Z INF +--------------------------------------------------------------------------------------------+
+2026-06-29T23:00:23Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-06-29T23:00:23Z INF |  https://browser-district-shall-auburn.trycloudflare.com                                   |
+2026-06-29T23:00:23Z INF +--------------------------------------------------------------------------------------------+
+2026-06-29T23:00:23Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-06-29T23:00:23Z INF Version 2026.6.1 (Checksum 5861a10a438fe8ddcfebb3b830f83966cbf193edafce0fe2eeb198fbae1f7a22)
+2026-06-29T23:00:23Z INF GOOS: linux, GOVersion: go1.26.4, GoArch: amd64
+2026-06-29T23:00:23Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-06-29T23:00:23Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-06-29T23:00:23Z INF Generated Connector ID: 354ab1a8-609a-4f54-be84-a7eaf745fcfe
+2026-06-29T23:00:23Z INF Initial protocol quic
+2026-06-29T23:00:23Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-29T23:00:23Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026/06/30 08:00:23 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-06-29T23:00:23Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-29T23:00:23Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-29T23:00:23Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2026-06-29T23:00:23Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.37
+2026-06-29T23:00:23Z INF Registered tunnel connection connIndex=0 connection=b2b06ce9-7c00-491f-8eb3-c30856355f7c event=0 ip=198.41.192.37 location=icn06 protocol=quic
+[2026-07-01 08:00:09] Killed old admin tunnel PID: 101061
+[2026-07-01 08:00:12] Starting new admin tunnel...
+[2026-07-01 08:00:12] Started cloudflared PID: 156152
+[2026-07-01 08:00:13] Starting new admin tunnel...
+[2026-07-01 08:00:13] Started cloudflared PID: 156170
+[2026-07-01 08:00:16] Admin tunnel URL: https://low-glow-advisor-wagon.trycloudflare.com
+[2026-07-01 08:00:17] Admin tunnel URL: https://low-glow-advisor-wagon.trycloudflare.com
+[2026-07-01 08:00:19] WARN: Admin tunnel returned 000
+[2026-07-01 08:00:19] Updating admin.html: https://browser-district-shall-auburn.trycloudflare.com -> https://low-glow-advisor-wagon.trycloudflare.com
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-01 08:00:20] WARN: Admin tunnel returned 000
+[2026-07-01 08:00:20] URL unchanged, skipping git push
+2026-06-30T23:00:13Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-06-30T23:00:13Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-06-30T23:00:17Z INF +--------------------------------------------------------------------------------------------+
+2026-06-30T23:00:17Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-06-30T23:00:17Z INF |  https://jay-audio-carol-factors.trycloudflare.com                                         |
+2026-06-30T23:00:17Z INF +--------------------------------------------------------------------------------------------+
+2026-06-30T23:00:17Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-06-30T23:00:17Z INF Version 2026.6.1 (Checksum 5861a10a438fe8ddcfebb3b830f83966cbf193edafce0fe2eeb198fbae1f7a22)
+2026-06-30T23:00:17Z INF GOOS: linux, GOVersion: go1.26.4, GoArch: amd64
+2026-06-30T23:00:17Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-06-30T23:00:17Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-06-30T23:00:17Z INF Generated Connector ID: a123cdf8-05af-405a-bc11-79e2d71e889f
+2026-06-30T23:00:17Z INF Initial protocol quic
+2026-06-30T23:00:17Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-30T23:00:17Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026/07/01 08:00:17 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-06-30T23:00:17Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-06-30T23:00:17Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-06-30T23:00:17Z INF Starting metrics server on 127.0.0.1:20243/metrics
+2026-06-30T23:00:17Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.192.47
+2026-06-30T23:00:17Z INF Registered tunnel connection connIndex=0 connection=b9a0a320-aea4-47cf-a5e0-9a6947929425 event=0 ip=198.41.192.47 location=icn06 protocol=quic
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-01 08:00:20] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: object file .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393 is empty
+fatal: loose object 1f766941ac36dd7f3eadad109aacd8eb6213d393 (stored in .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393) is corrupt
+[2026-07-01 08:00:20] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-07-01 08:00:20] WARNING: Failed to push to GitHub after retries
+[2026-07-02 08:00:09] Killed old admin tunnel PID: 156170
+[2026-07-02 08:00:12] Starting new admin tunnel...
+[2026-07-02 08:00:12] Started cloudflared PID: 292559
+[2026-07-02 08:00:12] Starting new admin tunnel...
+[2026-07-02 08:00:12] Started cloudflared PID: 292576
+[2026-07-02 08:00:16] Admin tunnel URL: https://leaves-reseller-constraints-raymond.trycloudflare.com
+[2026-07-02 08:00:16] Admin tunnel URL: https://leaves-reseller-constraints-raymond.trycloudflare.com
+[2026-07-02 08:00:19] WARN: Admin tunnel returned 000
+[2026-07-02 08:00:19] Updating admin.html: https://low-glow-advisor-wagon.trycloudflare.com -> https://leaves-reseller-constraints-raymond.trycloudflare.com
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-02 08:00:19] WARN: Admin tunnel returned 000
+[2026-07-02 08:00:19] URL unchanged, skipping git push
+2026-07-01T23:00:12Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-07-01T23:00:12Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-07-01T23:00:16Z INF +--------------------------------------------------------------------------------------------+
+2026-07-01T23:00:16Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-07-01T23:00:16Z INF |  https://leaves-reseller-constraints-raymond.trycloudflare.com                             |
+2026-07-01T23:00:16Z INF +--------------------------------------------------------------------------------------------+
+2026-07-01T23:00:16Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-07-01T23:00:16Z INF Version 2026.6.1 (Checksum 5861a10a438fe8ddcfebb3b830f83966cbf193edafce0fe2eeb198fbae1f7a22)
+2026-07-01T23:00:16Z INF GOOS: linux, GOVersion: go1.26.4, GoArch: amd64
+2026-07-01T23:00:16Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-07-01T23:00:16Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-07-01T23:00:16Z INF Generated Connector ID: 0fa7d76c-ffcf-4577-b4e0-26b9a38ab987
+2026-07-01T23:00:16Z INF Initial protocol quic
+2026-07-01T23:00:16Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-01T23:00:16Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026/07/02 08:00:16 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-07-01T23:00:16Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-01T23:00:16Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-07-01T23:00:16Z INF Starting metrics server on 127.0.0.1:20243/metrics
+2026-07-01T23:00:16Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.23322026-07-01T23:00:16Z INF Registered tunnel connection connIndex=0 connection=e69dad69-f3ad-4aa1-8d63-b5e3ae6d47d1 event=0 ip=198.41.200.233 location=icn05 protocol=quic
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-02 08:00:20] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: object file .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393 is empty
+fatal: loose object 1f766941ac36dd7f3eadad109aacd8eb6213d393 (stored in .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393) is corrupt
+[2026-07-02 08:00:20] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-07-02 08:00:20] WARNING: Failed to push to GitHub after retries
+[2026-07-03 08:00:10] Killed old admin tunnel PID: 292576
+[2026-07-03 08:00:13] Starting new admin tunnel...
+[2026-07-03 08:00:13] Started cloudflared PID: 732365
+[2026-07-03 08:00:17] Admin tunnel URL: https://view-funny-here-realty.trycloudflare.com
+[2026-07-03 08:00:20] WARN: Admin tunnel returned 000
+[2026-07-03 08:00:20] Updating admin.html: https://leaves-reseller-constraints-raymond.trycloudflare.com -> https://view-funny-here-realty.trycloudflare.com
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-03 08:00:20] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: object file .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393 is empty
+fatal: loose object 1f766941ac36dd7f3eadad109aacd8eb6213d393 (stored in .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393) is corrupt
+[2026-07-03 08:00:20] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-07-03 08:00:20] WARNING: Failed to push to GitHub after retries
+2026-07-02T23:00:13Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-07-02T23:00:13Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-07-02T23:00:17Z INF +--------------------------------------------------------------------------------------------+
+2026-07-02T23:00:17Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-07-02T23:00:17Z INF |  https://view-funny-here-realty.trycloudflare.com                                          |
+2026-07-02T23:00:17Z INF +--------------------------------------------------------------------------------------------+
+2026-07-02T23:00:17Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-07-02T23:00:17Z INF Version 2026.6.1 (Checksum 5861a10a438fe8ddcfebb3b830f83966cbf193edafce0fe2eeb198fbae1f7a22)
+2026-07-02T23:00:17Z INF GOOS: linux, GOVersion: go1.26.4, GoArch: amd64
+2026-07-02T23:00:17Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-07-02T23:00:17Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-07-02T23:00:17Z INF Generated Connector ID: 4487a9bd-7752-4f73-bc3e-edcb48ef47b0
+2026-07-02T23:00:17Z INF Initial protocol quic
+2026-07-02T23:00:17Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-02T23:00:17Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026/07/03 08:00:17 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-07-02T23:00:17Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-02T23:00:17Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-07-02T23:00:17Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2026-07-02T23:00:17Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.63
+2026-07-02T23:00:17Z INF Registered tunnel connection connIndex=0 connection=46a17950-d88f-401f-96ae-56c91d1ec627 event=0 ip=198.41.200.63 location=icn05 protocol=quic
+[2026-07-04 08:00:12] Killed old admin tunnel PID: 732365
+[2026-07-04 08:00:14] Starting new admin tunnel...
+[2026-07-04 08:00:14] Started cloudflared PID: 908371
+[2026-07-04 08:00:15] Starting new admin tunnel...
+[2026-07-04 08:00:15] Started cloudflared PID: 908393
+[2026-07-04 08:00:20] Admin tunnel URL: https://gloves-scotland-mystery-designers.trycloudflare.com
+[2026-07-04 08:00:21] Admin tunnel URL: https://gloves-scotland-mystery-designers.trycloudflare.com
+[2026-07-04 08:00:23] WARN: Admin tunnel returned 000
+[2026-07-04 08:00:23] Updating admin.html: https://view-funny-here-realty.trycloudflare.com -> https://gloves-scotland-mystery-designers.trycloudflare.com
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-04 08:00:23] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: object file .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393 is empty
+fatal: loose object 1f766941ac36dd7f3eadad109aacd8eb6213d393 (stored in .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393) is corrupt
+[2026-07-04 08:00:23] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-07-04 08:00:23] WARNING: Failed to push to GitHub after retries
+2026-07-03T23:00:15Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-07-03T23:00:15Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-07-03T23:00:19Z INF +--------------------------------------------------------------------------------------------+
+2026-07-03T23:00:19Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-07-03T23:00:19Z INF |  https://gloves-scotland-mystery-designers.trycloudflare.com                               |
+2026-07-03T23:00:19Z INF +--------------------------------------------------------------------------------------------+
+2026-07-03T23:00:19Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-07-03T23:00:19Z INF Version 2026.6.1 (Checksum 5861a10a438fe8ddcfebb3b830f83966cbf193edafce0fe2eeb198fbae1f7a22)
+2026-07-03T23:00:19Z INF GOOS: linux, GOVersion: go1.26.4, GoArch: amd64
+2026-07-03T23:00:19Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-07-03T23:00:19Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-07-03T23:00:19Z INF Generated Connector ID: 34592134-b8d7-4a6b-890f-108d16f50b68
+2026-07-03T23:00:19Z INF Initial protocol quic
+2026-07-03T23:00:19Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-03T23:00:19Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026/07/04 08:00:19 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-07-03T23:00:19Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-03T23:00:19Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-07-03T23:00:19Z INF Starting metrics server on 127.0.0.1:20242/metrics
+2026-07-03T23:00:19Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.23
+2026-07-03T23:00:20Z INF Registered tunnel connection connIndex=0 connection=b3895dd3-bef0-4a6b-8cfa-83c077bd1e1f event=0 ip=198.41.200.23 location=icn01 protocol=quic
+[2026-07-04 08:00:24] WARN: Admin tunnel returned 000
+[2026-07-04 08:00:24] URL unchanged, skipping git push
+[2026-07-05 08:00:09] Killed old admin tunnel PID: 908393
+[2026-07-05 08:00:12] Starting new admin tunnel...
+[2026-07-05 08:00:12] Started cloudflared PID: 1004444
+[2026-07-05 08:00:12] Starting new admin tunnel...
+[2026-07-05 08:00:12] Started cloudflared PID: 1004453
+[2026-07-05 08:00:16] Admin tunnel URL: https://working-bubble-courses-elect.trycloudflare.com
+[2026-07-05 08:00:16] Admin tunnel URL: https://working-bubble-courses-elect.trycloudflare.com
+[2026-07-05 08:00:19] WARN: Admin tunnel returned 000
+[2026-07-05 08:00:19] Updating admin.html: https://gloves-scotland-mystery-designers.trycloudflare.com -> https://working-bubble-courses-elect.trycloudflare.com
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-05 08:00:19] WARN: Admin tunnel returned 000
+[2026-07-05 08:00:19] URL unchanged, skipping git push
+2026-07-04T23:00:12Z INF Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps
+2026-07-04T23:00:12Z INF Requesting new quick Tunnel on trycloudflare.com...
+2026-07-04T23:00:16Z INF +--------------------------------------------------------------------------------------------+
+2026-07-04T23:00:16Z INF |  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |
+2026-07-04T23:00:16Z INF |  https://pit-valuation-shipment-mathematics.trycloudflare.com                              |
+2026-07-04T23:00:16Z INF +--------------------------------------------------------------------------------------------+
+2026-07-04T23:00:16Z INF Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp /etc/cloudflared /usr/local/etc/cloudflared]
+2026-07-04T23:00:16Z INF Version 2026.6.1 (Checksum 5861a10a438fe8ddcfebb3b830f83966cbf193edafce0fe2eeb198fbae1f7a22)
+2026-07-04T23:00:16Z INF GOOS: linux, GOVersion: go1.26.4, GoArch: amd64
+2026-07-04T23:00:16Z INF Settings: map[ha-connections:1 protocol:quic url:http://localhost:4010]
+2026-07-04T23:00:16Z INF Autoupdate frequency is set autoupdateFreq=86400000
+2026-07-04T23:00:16Z INF Generated Connector ID: 21e6b434-e1d9-4968-91de-c378d7634c36
+2026-07-04T23:00:16Z INF Initial protocol quic
+2026-07-04T23:00:16Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-04T23:00:16Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026/07/05 08:00:16 failed to sufficiently increase receive buffer size (was: 208 kiB, wanted: 7168 kiB, got: 416 kiB). See https://github.com/quic-go/quic-go/wiki/UDP-Buffer-Sizes for details.
+2026-07-04T23:00:16Z INF ICMP proxy will use 203.253.25.165 as source for IPv4
+2026-07-04T23:00:16Z INF ICMP proxy will use fe80::3ae1:3c0d:ec12:c6ee in zone enp4s0 as source for IPv6
+2026-07-04T23:00:16Z INF Starting metrics server on 127.0.0.1:20241/metrics
+2026-07-04T23:00:16Z INF Tunnel connection curve preferences: [X25519MLKEM768 CurveID(65074) CurveP256] connIndex=0 event=0 ip=198.41.200.53
+2026-07-04T23:00:17Z INF Registered tunnel connection connIndex=0 connection=afeef94d-ca4e-4b15-ae61-8a68c9dc5854 event=0 ip=198.41.200.53 location=icn05 protocol=quic
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+error: object file .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692 is empty
+fatal: loose object ee1d6222cf1f4f51e6cae018a5598636d334f692 (stored in .git/objects/ee/1d6222cf1f4f51e6cae018a5598636d334f692) is corrupt
+[2026-07-05 08:00:20] [safe_git_push] push attempt 1 failed, attempting pull --rebase
+error: object file .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393 is empty
+fatal: loose object 1f766941ac36dd7f3eadad109aacd8eb6213d393 (stored in .git/objects/1f/766941ac36dd7f3eadad109aacd8eb6213d393) is corrupt
+[2026-07-05 08:00:20] [safe_git_push] pull --rebase failed (likely conflict). Aborting and giving up.
+fatal: No rebase in progress?
+[2026-07-05 08:00:20] WARNING: Failed to push to GitHub after retries
+[2026-07-06 08:00:09] Killed old admin tunnel PID: 1004453
+[2026-07-06 08:00:12] Starting new admin tunnel...
+[2026-07-06 08:00:12] Started cloudflared PID: 1105392
+[2026-07-06 08:00:13] Starting new admin tunnel...
+[2026-07-06 08:00:13] Started cloudflared PID: 1105401
+[2026-07-06 08:00:16] Admin tunnel URL: https://completion-announce-image-finish.trycloudflare.com
+[2026-07-06 08:00:17] Admin tunnel URL: https://tile-notre-prophet-hottest.trycloudflare.com

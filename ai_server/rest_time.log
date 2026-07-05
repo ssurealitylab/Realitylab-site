@@ -7217,3 +7217,287 @@ index, memory.used [MiB]
 2026. 06. 26. (금) 08:00:37 KST: Starting admin tunnel...
 Admin URL: https://licensing-interim-huntington-franklin.trycloudflare.com
 2026. 06. 26. (금) 08:00:53 KST: All services started
+2026. 06. 27. (토) 04:00:01 KST: === REST TIME START ===
+2026. 06. 27. (토) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 06. 27. (토) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 06. 27. (토) 04:00:04 KST: Force killing llama-server...
+2026. 06. 27. (토) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 06. 27. (토) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 06. 27. (토) 04:00:05 KST: All services stopped
+2026. 06. 27. (토) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 06. 27. (토) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 06. 27. (토) 08:00:01 KST: === REST TIME END ===
+2026. 06. 27. (토) 08:00:01 KST: llama-server already running, skipping start
+2026. 06. 27. (토) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 06. 27. (토) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 06. 27. (토) 08:00:01 KST: ai_chatbot_server starting (PID: 1744009)
+2026. 06. 27. (토) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 06. 27. (토) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 06. 27. (토) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 06. 27. (토) 08:00:09 KST: Waiting for chatbot server... (4/10)
+2026. 06. 27. (토) 08:00:11 KST: Waiting for chatbot server... (5/10)
+2026. 06. 27. (토) 08:00:13 KST: ai_chatbot_server is ready!
+2026. 06. 27. (토) 08:00:13 KST: Starting chatbot tunnel...
+[2026-06-27 08:00:13] Another restart_tunnel.sh is already running (PID: 1744105). Exiting.
+2026. 06. 27. (토) 08:00:13 KST: admin_server already running, skipping
+2026. 06. 27. (토) 08:00:13 KST: Starting admin tunnel...
+                                                                                                2026. 06. 30. (화) 04:00:01 KST: === REST TIME START ===
+2026. 06. 30. (화) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 06. 30. (화) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 06. 30. (화) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 06. 30. (화) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 06. 30. (화) 04:00:05 KST: All services stopped
+2026. 06. 30. (화) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 06. 30. (화) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 06. 30. (화) 08:00:01 KST: === REST TIME END ===
+2026. 06. 30. (화) 08:00:01 KST: Starting llama-server (GPT-OSS 120B) - finding free GPUs...
+2026. 06. 30. (화) 08:00:01 KST: GPU 0: 24183MiB free, no other users (OK)
+2026. 06. 30. (화) 08:00:01 KST: GPU 1: 24203MiB free, no other users (OK)
+2026. 06. 30. (화) 08:00:01 KST: GPU 2: 24203MiB free, no other users (OK)
+2026. 06. 30. (화) 08:00:01 KST: GPU 3: 24203MiB free, no other users (OK)
+2026. 06. 30. (화) 08:00:01 KST: Selected GPUs: 0,1
+2026. 06. 30. (화) 08:00:01 KST: llama-server starting (PID: 100819, GPUs: 0,1)
+2026. 06. 30. (화) 08:00:06 KST: Waiting for model to load... (1/24)
+2026. 06. 30. (화) 08:00:11 KST: Waiting for model to load... (2/24)
+2026. 06. 30. (화) 08:00:17 KST: llama-server is ready!
+2026. 06. 30. (화) 08:00:17 KST: GPU status after start:
+index, memory.used [MiB]
+0, 16313 MiB
+1, 15861 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 06. 30. (화) 08:00:17 KST: ai_chatbot_server already running, skipping
+2026. 06. 30. (화) 08:00:17 KST: Starting chatbot tunnel...
+[2026-06-30 08:00:17] Another restart_tunnel.sh is already running (PID: 100876). Exiting.
+2026. 06. 30. (화) 08:00:17 KST: admin_server already running, skipping
+2026. 06. 30. (화) 08:00:17 KST: Starting admin tunnel...
+error: object file .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b is empty
+fatal: loose object 0698d831e137e222ee8714987f3b820d592c4d9b (stored in .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b) is corrupt
+Admin URL: https://browser-district-shall-auburn.trycloudflare.com
+2026. 06. 30. (화) 08:00:27 KST: All services started
+2026. 07. 01. (수) 04:00:01 KST: === REST TIME START ===
+2026. 07. 01. (수) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 07. 01. (수) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 07. 01. (수) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 07. 01. (수) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 07. 01. (수) 04:00:05 KST: All services stopped
+2026. 07. 01. (수) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 18265 MiB
+2026. 07. 01. (수) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 07. 01. (수) 08:00:01 KST: === REST TIME END ===
+2026. 07. 01. (수) 08:00:01 KST: llama-server already running, skipping start
+2026. 07. 01. (수) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 18265 MiB
+2026. 07. 01. (수) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 07. 01. (수) 08:00:01 KST: ai_chatbot_server starting (PID: 155889)
+2026. 07. 01. (수) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 07. 01. (수) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 07. 01. (수) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 07. 01. (수) 08:00:09 KST: ai_chatbot_server is ready!
+2026. 07. 01. (수) 08:00:09 KST: Starting chatbot tunnel...
+[2026-07-01 08:00:09] Another restart_tunnel.sh is already running (PID: 156016). Exiting.
+2026. 07. 01. (수) 08:00:09 KST: admin_server already running, skipping
+2026. 07. 01. (수) 08:00:09 KST: Starting admin tunnel...
+error: object file .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b is empty
+fatal: loose object 0698d831e137e222ee8714987f3b820d592c4d9b (stored in .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b) is corrupt
+cat: /home/i0179/Realitylab-site/ai_server/admin_tunnel_temp.log: No such file or directory
+Admin URL: https://low-glow-advisor-wagon.trycloudflare.com
+2026. 07. 01. (수) 08:00:20 KST: All services started
+2026. 07. 02. (목) 04:00:01 KST: === REST TIME START ===
+2026. 07. 02. (목) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 07. 02. (목) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 07. 02. (목) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 07. 02. (목) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 07. 02. (목) 04:00:05 KST: All services stopped
+2026. 07. 02. (목) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 18225 MiB
+2026. 07. 02. (목) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 07. 02. (목) 08:00:01 KST: === REST TIME END ===
+2026. 07. 02. (목) 08:00:01 KST: llama-server already running, skipping start
+2026. 07. 02. (목) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 18225 MiB
+2026. 07. 02. (목) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 07. 02. (목) 08:00:01 KST: ai_chatbot_server starting (PID: 292285)
+2026. 07. 02. (목) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 07. 02. (목) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 07. 02. (목) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 07. 02. (목) 08:00:09 KST: ai_chatbot_server is ready!
+2026. 07. 02. (목) 08:00:09 KST: Starting chatbot tunnel...
+[2026-07-02 08:00:09] Another restart_tunnel.sh is already running (PID: 292417). Exiting.
+2026. 07. 02. (목) 08:00:09 KST: admin_server already running, skipping
+2026. 07. 02. (목) 08:00:09 KST: Starting admin tunnel...
+error: object file .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b is empty
+fatal: loose object 0698d831e137e222ee8714987f3b820d592c4d9b (stored in .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b) is corrupt
+cat: /home/i0179/Realitylab-site/ai_server/admin_tunnel_temp.log: No such file or directory
+Admin URL: https://leaves-reseller-constraints-raymond.trycloudflare.com
+2026. 07. 02. (목) 08:00:20 KST: All services started
+2026. 07. 03. (금) 04:00:01 KST: === REST TIME START ===
+2026. 07. 03. (금) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 07. 03. (금) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 07. 03. (금) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 07. 03. (금) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 07. 03. (금) 04:00:05 KST: All services stopped
+2026. 07. 03. (금) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 03. (금) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 07. 03. (금) 08:00:01 KST: === REST TIME END ===
+2026. 07. 03. (금) 08:00:01 KST: llama-server already running, skipping start
+2026. 07. 03. (금) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 03. (금) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 07. 03. (금) 08:00:01 KST: ai_chatbot_server starting (PID: 732029)
+2026. 07. 03. (금) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 07. 03. (금) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 07. 03. (금) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 07. 03. (금) 08:00:09 KST: ai_chatbot_server is ready!
+2026. 07. 03. (금) 08:00:09 KST: Starting chatbot tunnel...
+[2026-07-03 08:00:10] Another restart_tunnel.sh is already running (PID: 732170). Exiting.
+2026. 07. 03. (금) 08:00:10 KST: admin_server already running, skipping
+2026. 07. 03. (금) 08:00:10 KST: Starting admin tunnel...
+error: object file .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b is empty
+fatal: loose object 0698d831e137e222ee8714987f3b820d592c4d9b (stored in .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b) is corrupt
+Admin URL: https://view-funny-here-realty.trycloudflare.com
+2026. 07. 03. (금) 08:00:20 KST: All services started
+2026. 07. 04. (토) 04:00:01 KST: === REST TIME START ===
+2026. 07. 04. (토) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 07. 04. (토) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 07. 04. (토) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 07. 04. (토) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 07. 04. (토) 04:00:05 KST: All services stopped
+2026. 07. 04. (토) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 04. (토) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 07. 04. (토) 08:00:01 KST: === REST TIME END ===
+2026. 07. 04. (토) 08:00:01 KST: Starting llama-server (GPT-OSS 120B) - finding free GPUs...
+2026. 07. 04. (토) 08:00:01 KST: GPU 0: 24183MiB free, no other users (OK)
+2026. 07. 04. (토) 08:00:01 KST: GPU 1: 24203MiB free, no other users (OK)
+2026. 07. 04. (토) 08:00:02 KST: GPU 2: 24203MiB free, no other users (OK)
+2026. 07. 04. (토) 08:00:02 KST: GPU 3: 24203MiB free, no other users (OK)
+2026. 07. 04. (토) 08:00:02 KST: Selected GPUs: 0,1
+2026. 07. 04. (토) 08:00:02 KST: llama-server starting (PID: 908170, GPUs: 0,1)
+2026. 07. 04. (토) 08:00:07 KST: Waiting for model to load... (1/24)
+2026. 07. 04. (토) 08:00:12 KST: llama-server is ready!
+2026. 07. 04. (토) 08:00:12 KST: GPU status after start:
+index, memory.used [MiB]
+0, 16313 MiB
+1, 15861 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 04. (토) 08:00:12 KST: ai_chatbot_server already running, skipping
+2026. 07. 04. (토) 08:00:12 KST: Starting chatbot tunnel...
+[2026-07-04 08:00:12] Another restart_tunnel.sh is already running (PID: 908201). Exiting.
+2026. 07. 04. (토) 08:00:12 KST: admin_server already running, skipping
+2026. 07. 04. (토) 08:00:12 KST: Starting admin tunnel...
+cat: /home/i0179/Realitylab-site/ai_server/admin_tunnel_temp.log: No such file or directory
+Admin URL: https://gloves-scotland-mystery-designers.trycloudflare.com
+2026. 07. 04. (토) 08:00:24 KST: All services started
+2026. 07. 05. (일) 04:00:01 KST: === REST TIME START ===
+2026. 07. 05. (일) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 07. 05. (일) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 07. 05. (일) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 07. 05. (일) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 07. 05. (일) 04:00:05 KST: All services stopped
+2026. 07. 05. (일) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 05. (일) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 07. 05. (일) 08:00:01 KST: === REST TIME END ===
+2026. 07. 05. (일) 08:00:01 KST: llama-server already running, skipping start
+2026. 07. 05. (일) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 05. (일) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 07. 05. (일) 08:00:01 KST: ai_chatbot_server starting (PID: 1004177)
+2026. 07. 05. (일) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 07. 05. (일) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 07. 05. (일) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 07. 05. (일) 08:00:09 KST: ai_chatbot_server is ready!
+2026. 07. 05. (일) 08:00:09 KST: Starting chatbot tunnel...
+[2026-07-05 08:00:09] Another restart_tunnel.sh is already running (PID: 1004294). Exiting.
+2026. 07. 05. (일) 08:00:09 KST: admin_server already running, skipping
+2026. 07. 05. (일) 08:00:09 KST: Starting admin tunnel...
+error: object file .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b is empty
+fatal: loose object 0698d831e137e222ee8714987f3b820d592c4d9b (stored in .git/objects/06/98d831e137e222ee8714987f3b820d592c4d9b) is corrupt
+cat: /home/i0179/Realitylab-site/ai_server/admin_tunnel_temp.log: No such file or directory
+Admin URL: https://working-bubble-courses-elect.trycloudflare.com
+2026. 07. 05. (일) 08:00:20 KST: All services started
+2026. 07. 06. (월) 04:00:01 KST: === REST TIME START ===
+2026. 07. 06. (월) 04:00:01 KST: Stopping ai_chatbot_server...
+2026. 07. 06. (월) 04:00:02 KST: Stopping llama-server to free GPU memory...
+2026. 07. 06. (월) 04:00:04 KST: llama-server stopped, GPU 0,2 freed
+2026. 07. 06. (월) 04:00:04 KST: Stopping chatbot cloudflared tunnel...
+2026. 07. 06. (월) 04:00:05 KST: All services stopped
+2026. 07. 06. (월) 04:00:05 KST: GPU status after stop:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 06. (월) 04:00:05 KST: Rest time active until 8 AM KST
+2026. 07. 06. (월) 08:00:01 KST: === REST TIME END ===
+2026. 07. 06. (월) 08:00:01 KST: llama-server already running, skipping start
+2026. 07. 06. (월) 08:00:01 KST: GPU status after start:
+index, memory.used [MiB]
+0, 33 MiB
+1, 14 MiB
+2, 14 MiB
+3, 14 MiB
+2026. 07. 06. (월) 08:00:01 KST: Starting ai_chatbot_server.py (port 4005)...
+2026. 07. 06. (월) 08:00:01 KST: ai_chatbot_server starting (PID: 1105130)
+2026. 07. 06. (월) 08:00:03 KST: Waiting for chatbot server... (1/10)
+2026. 07. 06. (월) 08:00:05 KST: Waiting for chatbot server... (2/10)
+2026. 07. 06. (월) 08:00:07 KST: Waiting for chatbot server... (3/10)
+2026. 07. 06. (월) 08:00:09 KST: ai_chatbot_server is ready!
+2026. 07. 06. (월) 08:00:09 KST: Starting chatbot tunnel...
+[2026-07-06 08:00:09] Another restart_tunnel.sh is already running (PID: 1105246). Exiting.
+2026. 07. 06. (월) 08:00:09 KST: admin_server already running, skipping
+2026. 07. 06. (월) 08:00:09 KST: Starting admin tunnel...

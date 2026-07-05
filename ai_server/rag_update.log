@@ -10204,3 +10204,699 @@ Summary:
 ========================================
 [2026. 06. 26. (금) 00:00:20 KST] RAG Update Completed!
 ========================================
+
+========================================
+[2026. 06. 27. (토) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 06. 27. (토) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 06. 27. (토) 00:00:01 KST] Knowledge base built successfully
+[2026. 06. 27. (토) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.83it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  1.48it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  2.85it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  2.50it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  1.17it/s]Batches: 100%|██████████| 2/2 [00:01<00:00,  2.18it/s]Batches: 100%|██████████| 2/2 [00:01<00:00,  1.93it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 20.40it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.79it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.78it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.60it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  2.59it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 06. 27. (토) 00:00:21 KST] Hierarchical RAG index built successfully
+[2026. 06. 27. (토) 00:00:21 KST] Step 3/3: Restarting chatbot server...
+[2026. 06. 27. (토) 00:00:29 KST] Chatbot server restarted (PID: 1735303)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 06. 27. (토) 00:00:29 KST] RAG Update Completed!
+========================================
+
+========================================
+[2026. 06. 30. (화) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 06. 30. (화) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 06. 30. (화) 00:00:01 KST] Knowledge base built successfully
+[2026. 06. 30. (화) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.52it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  4.51it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  4.23it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  7.22it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  3.73it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  5.81it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 25.37it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 18.03it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.56it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.55it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 06. 30. (화) 00:00:10 KST] Hierarchical RAG index built successfully
+[2026. 06. 30. (화) 00:00:10 KST] Step 3/3: Restarting chatbot server...
+[2026. 06. 30. (화) 00:00:18 KST] Chatbot server restarted (PID: 84053)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 06. 30. (화) 00:00:18 KST] RAG Update Completed!
+========================================
+
+========================================
+[2026. 07. 01. (수) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 07. 01. (수) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 07. 01. (수) 00:00:01 KST] Knowledge base built successfully
+[2026. 07. 01. (수) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.98it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.97it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  3.56it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.19it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  3.61it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  5.56it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 29.51it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.36it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.50it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.49it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 07. 01. (수) 00:00:11 KST] Hierarchical RAG index built successfully
+[2026. 07. 01. (수) 00:00:11 KST] Step 3/3: Restarting chatbot server...
+[2026. 07. 01. (수) 00:00:19 KST] Chatbot server restarted (PID: 144212)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 07. 01. (수) 00:00:19 KST] RAG Update Completed!
+========================================
+
+========================================
+[2026. 07. 02. (목) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 07. 02. (목) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 07. 02. (목) 00:00:01 KST] Knowledge base built successfully
+[2026. 07. 02. (목) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.97it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.96it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  3.61it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.09it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  2.97it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  4.88it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 28.20it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 16.88it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.72it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.71it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 07. 02. (목) 00:00:11 KST] Hierarchical RAG index built successfully
+[2026. 07. 02. (목) 00:00:11 KST] Step 3/3: Restarting chatbot server...
+[2026. 07. 02. (목) 00:00:19 KST] Chatbot server restarted (PID: 263200)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 07. 02. (목) 00:00:19 KST] RAG Update Completed!
+========================================
+
+========================================
+[2026. 07. 03. (금) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 07. 03. (금) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 07. 03. (금) 00:00:01 KST] Knowledge base built successfully
+[2026. 07. 03. (금) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.34it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.33it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  4.04it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.98it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  4.08it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.27it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 28.14it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 21.71it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.05it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.04it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 07. 03. (금) 00:00:12 KST] Hierarchical RAG index built successfully
+[2026. 07. 03. (금) 00:00:12 KST] Step 3/3: Restarting chatbot server...
+[2026. 07. 03. (금) 00:00:20 KST] Chatbot server restarted (PID: 489271)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 07. 03. (금) 00:00:20 KST] RAG Update Completed!
+========================================
+
+========================================
+[2026. 07. 04. (토) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 07. 04. (토) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 07. 04. (토) 00:00:01 KST] Knowledge base built successfully
+[2026. 07. 04. (토) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.67it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.67it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  4.01it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.53it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  2.83it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  4.58it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 29.97it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.09it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.47it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  6.46it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 07. 04. (토) 00:00:10 KST] Hierarchical RAG index built successfully
+[2026. 07. 04. (토) 00:00:10 KST] Step 3/3: Restarting chatbot server...
+[2026. 07. 04. (토) 00:00:18 KST] Chatbot server restarted (PID: 880014)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 07. 04. (토) 00:00:18 KST] RAG Update Completed!
+========================================
+
+========================================
+[2026. 07. 05. (일) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 07. 05. (일) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 07. 05. (일) 00:00:01 KST] Knowledge base built successfully
+[2026. 07. 05. (일) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  8.18it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  8.16it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  3.85it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.32it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  3.31it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  5.31it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 35.02it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 23.07it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.49it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  5.49it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 07. 05. (일) 00:00:10 KST] Hierarchical RAG index built successfully
+[2026. 07. 05. (일) 00:00:10 KST] Step 3/3: Restarting chatbot server...
+[2026. 07. 05. (일) 00:00:18 KST] Chatbot server restarted (PID: 971936)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 07. 05. (일) 00:00:18 KST] RAG Update Completed!
+========================================
+
+========================================
+[2026. 07. 06. (월) 00:00:01 KST] Starting RAG Update...
+========================================
+[2026. 07. 06. (월) 00:00:01 KST] Step 1/3: Building knowledge base from local files...
+Building knowledge base...
+- Extracting lab info...
+- Extracting research areas...
+- Extracting member information...
+- Extracting news...
+- Extracting publications...
+- Extracting Q&A pairs...
+
+Total documents created: 135
+
+Knowledge base saved to: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+Total size: 89.67 KB
+
+=== Knowledge Base Statistics ===
+  lab_info: 2 documents
+  research_area: 10 documents
+  member: 20 documents
+  news: 44 documents
+  publication: 39 documents
+  qa: 20 documents
+[2026. 07. 06. (월) 00:00:01 KST] Knowledge base built successfully
+[2026. 07. 06. (월) 00:00:01 KST] Step 2/3: Building hierarchical RAG index...
+Loading knowledge base from: /home/i0179/Realitylab-site/ai_server/knowledge_base.json
+  Loaded 135 documents
+
+Loading embedding model: sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2
+  Model loaded successfully
+
+============================================================
+Building Hierarchical RAG System
+============================================================
+
+=== Building members Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  8.23it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  8.22it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/members
+     Index: 20 vectors
+
+=== Building news Index ===
+  Documents: 44
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  4.00it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.93it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/news
+     Index: 44 vectors
+
+=== Building publications Index ===
+  Documents: 39
+Batches:   0%|          | 0/2 [00:00<?, ?it/s]Batches:  50%|█████     | 1/2 [00:00<00:00,  4.05it/s]Batches: 100%|██████████| 2/2 [00:00<00:00,  6.22it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/publications
+     Index: 39 vectors
+
+=== Building lab_info Index ===
+  Documents: 2
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 31.99it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/lab_info
+     Index: 2 vectors
+
+=== Building research Index ===
+  Documents: 10
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00, 22.78it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/research
+     Index: 10 vectors
+
+=== Building qa Index ===
+  Documents: 20
+Batches:   0%|          | 0/1 [00:00<?, ?it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.36it/s]Batches: 100%|██████████| 1/1 [00:00<00:00,  7.35it/s]
+  ✅ Saved to: /home/i0179/Realitylab-site/ai_server/hierarchical_rag/qa
+     Index: 20 vectors
+
+============================================================
+✅ Hierarchical RAG Build Complete!
+Output directory: /home/i0179/Realitylab-site/ai_server/hierarchical_rag
+============================================================
+[2026. 07. 06. (월) 00:00:11 KST] Hierarchical RAG index built successfully
+[2026. 07. 06. (월) 00:00:11 KST] Step 3/3: Restarting chatbot server...
+[2026. 07. 06. (월) 00:00:19 KST] Chatbot server restarted (PID: 1066688)
+
+Summary:
+  Knowledge base documents: 135
+
+========================================
+[2026. 07. 06. (월) 00:00:19 KST] RAG Update Completed!
+========================================
