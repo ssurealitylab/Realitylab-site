@@ -164,13 +164,13 @@ publications:
 
 - id: c24
   title: "Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields"
-  authors: "Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim"
+  authors: "Hyunsuh Koh*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim"
   venue: "International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop)"
   venue_short: "APP3DV25"
   year: 2025
   type: conference
   status: accepted
-  citation: "[C24] Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, and Heewon Kim, \"Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields,\" Proc. International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop), 2025 (accepted)"
+  citation: "[C24] Hyunsuh Koh*, Seunghyun Oh*, Jungyun Jang*, and Heewon Kim, \"Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields,\" Proc. International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop), 2025 (accepted)"
   image: "assets/img/publications/iprf/pipeline.png"
   notes: "* Equal contribution"
   links:
@@ -181,13 +181,13 @@ publications:
 
 - id: c23
   title: "Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models"
-  authors: "Youngjae Choi*, Hyunsuh Kho*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim"
+  authors: "Youngjae Choi*, Hyunsuh Koh*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim"
   venue: "British Machine Vision Conference (BMVC)"
   venue_short: "BMVC25"
   year: 2025
   type: conference
   status: accepted
-  citation: "[C23] Youngjae Choi*, Hyunsuh Kho*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, and Heewon Kim, \"UDT: Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models,\" Proc. British Machine Vision Conference (BMVC), 2025 (accepted)"
+  citation: "[C23] Youngjae Choi*, Hyunsuh Koh*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, and Heewon Kim, \"UDT: Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models,\" Proc. British Machine Vision Conference (BMVC), 2025 (accepted)"
   image: "assets/img/publications/udt/architecture.png"
   abstract: "Diffusion models achieve impressive image synthesis, yet unsupervised methods for latent space exploration remain limited in fine-grained class translation. Existing approaches struggle with fine-grained class translation, often producing low-diversity outputs within parent classes or inconsistent child-class mappings across images. We propose UDT (Unsupervised Discovery of Transformations), a framework that incorporates hierarchical structure into unsupervised direction discovery. UDT leverages parent-class prompts to decompose predicted noise into class-general and class-specific components, ensuring translations remain within the parent domain while enabling disentangled child-class transformations. A hierarchy-aware contrastive loss further enforces consistency, with each direction corresponding to a distinct child class. Experiments on dogs, cats, birds, and flowers show that UDT outperforms state-of-the-art methods both qualitatively and quantitatively. Moreover, UDT supports controllable interpolation, allowing for the smooth generation of intermediate classes (e.g., mixed breeds). These results demonstrate UDT as a general and effective solution for fine-grained image translation."
   notes: "* Equal contribution"
@@ -516,14 +516,14 @@ publications:
 
 - id: c1
   title: "Enhanced Deep Residual Networks for Single Image Super-Resolution"
-  authors: "Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee"
+  authors: "Bee Lim*, Sanghyun Son*, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee"
   venue: "2nd NTIRE: New Trends in Image Restoration and Enhancement workshop and challenge on image super-resolution in conjunction with CVPR 2017"
   venue_short: "CVPRW17"
   year: 2017
   type: conference
   status: published
-  citation: "[C1] Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee, \"Enhanced Deep Residual Networks for Single Image Super-Resolution,\" 2nd NTIRE: New Trends in Image Restoration and Enhancement workshop and challenge on image super-resolution in conjunction with CVPR 2017. (Challenge Winners, Best Paper Award of Workshop)"
-  notes: "Challenge Winners, Best Paper Award of Workshop"
+  citation: "[C1] Bee Lim*, Sanghyun Son*, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee, \"Enhanced Deep Residual Networks for Single Image Super-Resolution,\" 2nd NTIRE: New Trends in Image Restoration and Enhancement workshop and challenge on image super-resolution in conjunction with CVPR 2017. (Challenge Winners, Best Paper Award of Workshop)"
+  notes: "* Equal contribution<br>Challenge Winners, Best Paper Award of Workshop"
   links:
     paper: "https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/papers/Lim_Enhanced_Deep_Residual_CVPR_2017_paper.pdf"
     pdf: "https://openaccess.thecvf.com/content_cvpr_2017_workshops/w12/papers/Lim_Enhanced_Deep_Residual_CVPR_2017_paper.pdf"

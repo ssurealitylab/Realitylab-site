@@ -16,8 +16,8 @@ news:
 - title: "CVPR 2026 Paper Acceptance"
   date: "2026-03-03"
   category: "Publication"
-  participants: ["Sungyong Park", "Sooyoung Choi", "Hyunsuh Kho", "Youngjae Choi"]
-  description: "Paper accepted to CVPR 2026: 'CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation' by Sungyong Park, Sooyoung Choi, Hyunsuh Kho, Youngjae Choi, and Heewon Kim. Congratulations!"
+  participants: ["Sungyong Park", "Sooyoung Choi", "Hyunsuh Koh", "Youngjae Choi"]
+  description: "Paper accepted to CVPR 2026: 'CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation' by Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, and Heewon Kim. Congratulations!"
   image: "cvpr2026.png"
 
 - title: "LG AI Research Internship"
@@ -51,7 +51,7 @@ news:
 - title: "BMVC 2025 Paper Acceptance"
   date: "2025-07-26"
   category: "Publication"
-  participants: ["Youngjae Choi", "Hyunsuh Kho", "Hojae Jeong", "Byungkwan Chae"]
+  participants: ["Youngjae Choi", "Hyunsuh Koh", "Hojae Jeong", "Byungkwan Chae"]
   description: "Paper accepted to BMVC 2025"
   image: "bmvc2025.png"
 

@@ -37,7 +37,7 @@ students:
     github: ""
     linkedin: ""
 
-  - name: "Hyunjun Kho"
+  - name: "Hyunjun Koh"
     name_ko: "고현준"
     email: "soongsil.ai.24@gmail.com"
     university: "CSW, Suwon University, B.S."
@@ -46,7 +46,7 @@ students:
     github: ""
     linkedin: ""
 
-  - name: "Hyunsuh Kho"
+  - name: "Hyunsuh Koh"
     name_ko: "고현서"
     email: "por1329@naver.com"
     research: "Multimodal Learning, Representation Learning"

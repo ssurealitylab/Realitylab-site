@@ -136,10 +136,10 @@ team_members:
   - name: "Minjoo Koh"
     role: "Master's Student"
     research: "3D Vision, AI for Sports"
-  - name: "Hyunjun Kho"
+  - name: "Hyunjun Koh"
     role: "Master's Student"
     research: "Computer Vision, Deep Learning"
-  - name: "Hyunsuh Kho"
+  - name: "Hyunsuh Koh"
     role: "Master's Student"
     research: "Multimodal Learning, Representation Learning"
   - name: "Juhyoung Lee"
@@ -199,8 +199,8 @@ custom_qa:
       • 박사과정 (1명): 박성용 (Sungyong Park) — Computer Vision, Deep Learning
       • 석사과정 (8명):
         - 고민주 (Minjoo Koh) — 3D Vision, AI for Sports
-        - 고현준 (Hyunjun Kho) — Computer Vision, Deep Learning
-        - 고현서 (Hyunsuh Kho) — Multimodal Learning, Representation Learning
+        - 고현준 (Hyunjun Koh) — Computer Vision, Deep Learning
+        - 고현서 (Hyunsuh Koh) — Multimodal Learning, Representation Learning
         - 이주형 (Juhyoung Lee) — Robotics, Physical AI
         - 서지우 (Jiwoo Seo) — Computer Vision, Deep Learning
         - 정호재 (Hojae Jeong) — Computer Vision, Generative AI
@@ -369,8 +369,8 @@ custom_qa:
       • PhD Student (1): Sungyong Park — Computer Vision, Deep Learning
       • Master's Students (8):
         - Minjoo Koh — 3D Vision, AI for Sports
-        - Hyunjun Kho — Computer Vision, Deep Learning
-        - Hyunsuh Kho — Multimodal Learning, Representation Learning
+        - Hyunjun Koh — Computer Vision, Deep Learning
+        - Hyunsuh Koh — Multimodal Learning, Representation Learning
         - Juhyoung Lee — Robotics, Physical AI
         - Jiwoo Seo — Computer Vision, Deep Learning
         - Hojae Jeong — Computer Vision, Generative AI
