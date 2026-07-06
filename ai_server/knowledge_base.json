@@ -139,23 +139,23 @@
     }
   },
   {
-    "content": "석사과정 학생: 고현준 (Hyunjun Kho)\n연구 분야: Computer Vision, Deep Learning",
+    "content": "석사과정 학생: 고현준 (Hyunjun Koh)\n연구 분야: Computer Vision, Deep Learning",
     "metadata": {
       "type": "member",
       "language": "ko",
       "category": "ms_student",
-      "name": "Hyunjun Kho",
+      "name": "Hyunjun Koh",
       "name_ko": "고현준",
       "research": "Computer Vision, Deep Learning"
     }
   },
   {
-    "content": "석사과정 학생: 고현서 (Hyunsuh Kho)\n연구 분야: Multimodal Learning, Representation Learning",
+    "content": "석사과정 학생: 고현서 (Hyunsuh Koh)\n연구 분야: Multimodal Learning, Representation Learning",
     "metadata": {
       "type": "member",
       "language": "ko",
       "category": "ms_student",
-      "name": "Hyunsuh Kho",
+      "name": "Hyunsuh Koh",
       "name_ko": "고현서",
       "research": "Multimodal Learning, Representation Learning"
     }
@@ -216,17 +216,6 @@
     }
   },
   {
-    "content": "인턴: 김서영 (Seoyoung Kim)\n연구 분야: Deep Learning, Medical AI",
-    "metadata": {
-      "type": "member",
-      "language": "ko",
-      "category": "intern",
-      "name": "Seoyoung Kim",
-      "name_ko": "김서영",
-      "research": "Deep Learning, Medical AI"
-    }
-  },
-  {
     "content": "인턴: 송은우 (Eunwoo Song)\n연구 분야: Language Model, Deep Learning",
     "metadata": {
       "type": "member",
@@ -256,39 +245,6 @@
       "category": "intern",
       "name": "Jungha Lim",
       "name_ko": "임정하",
-      "research": "Computer Vision, Deep Learning"
-    }
-  },
-  {
-    "content": "인턴: 김예리 (Yeri Kim)\n연구 분야: Deep Learning, Medical AI",
-    "metadata": {
-      "type": "member",
-      "language": "ko",
-      "category": "intern",
-      "name": "Yeri Kim",
-      "name_ko": "김예리",
-      "research": "Deep Learning, Medical AI"
-    }
-  },
-  {
-    "content": "인턴: 김현찬 (Hyeonchan Kim)\n연구 분야: Physical AI, Computer Vision\nGitHub: https://github.com/holiday0726",
-    "metadata": {
-      "type": "member",
-      "language": "ko",
-      "category": "intern",
-      "name": "Hyeonchan Kim",
-      "name_ko": "김현찬",
-      "research": "Physical AI, Computer Vision"
-    }
-  },
-  {
-    "content": "인턴: 김재림 (Jaerim Kim)\n연구 분야: Computer Vision, Deep Learning",
-    "metadata": {
-      "type": "member",
-      "language": "ko",
-      "category": "intern",
-      "name": "Jaerim Kim",
-      "name_ko": "김재림",
       "research": "Computer Vision, Deep Learning"
     }
   },
@@ -378,7 +334,7 @@
     }
   },
   {
-    "content": "뉴스: CVPR 2026 Paper Acceptance\n날짜: 2026-03-03\n카테고리: Publication\n참여자: Sungyong Park, Sooyoung Choi, Hyunsuh Kho, Youngjae Choi\n내용: Paper accepted to CVPR 2026: 'CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation' by Sungyong Park, Sooyoung Choi, Hyunsuh Kho, Youngjae Choi, and Heewon Kim. Congratulations!",
+    "content": "뉴스: CVPR 2026 Paper Acceptance\n날짜: 2026-03-03\n카테고리: Publication\n참여자: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi\n내용: Paper accepted to CVPR 2026: 'CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation' by Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, and Heewon Kim. Congratulations!",
     "metadata": {
       "type": "news",
       "language": "ko",
@@ -388,13 +344,13 @@
       "participants": [
         "Sungyong Park",
         "Sooyoung Choi",
-        "Hyunsuh Kho",
+        "Hyunsuh Koh",
         "Youngjae Choi"
       ]
     }
   },
   {
-    "content": "News: CVPR 2026 Paper Acceptance\nDate: 2026-03-03\nCategory: Publication\nParticipants: Sungyong Park, Sooyoung Choi, Hyunsuh Kho, Youngjae Choi\nDescription: Paper accepted to CVPR 2026: 'CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation' by Sungyong Park, Sooyoung Choi, Hyunsuh Kho, Youngjae Choi, and Heewon Kim. Congratulations!",
+    "content": "News: CVPR 2026 Paper Acceptance\nDate: 2026-03-03\nCategory: Publication\nParticipants: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi\nDescription: Paper accepted to CVPR 2026: 'CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation' by Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, and Heewon Kim. Congratulations!",
     "metadata": {
       "type": "news",
       "language": "en",
@@ -404,7 +360,7 @@
       "participants": [
         "Sungyong Park",
         "Sooyoung Choi",
-        "Hyunsuh Kho",
+        "Hyunsuh Koh",
         "Youngjae Choi"
       ]
     }
@@ -522,7 +478,7 @@
     }
   },
   {
-    "content": "뉴스: BMVC 2025 Paper Acceptance\n날짜: 2025-07-26\n카테고리: Publication\n참여자: Youngjae Choi, Hyunsuh Kho, Hojae Jeong, Byungkwan Chae\n내용: Paper accepted to BMVC 2025",
+    "content": "뉴스: BMVC 2025 Paper Acceptance\n날짜: 2025-07-26\n카테고리: Publication\n참여자: Youngjae Choi, Hyunsuh Koh, Hojae Jeong, Byungkwan Chae\n내용: Paper accepted to BMVC 2025",
     "metadata": {
       "type": "news",
       "language": "ko",
@@ -531,14 +487,14 @@
       "date": "2025-07-26",
       "participants": [
         "Youngjae Choi",
-        "Hyunsuh Kho",
+        "Hyunsuh Koh",
         "Hojae Jeong",
         "Byungkwan Chae"
       ]
     }
   },
   {
-    "content": "News: BMVC 2025 Paper Acceptance\nDate: 2025-07-26\nCategory: Publication\nParticipants: Youngjae Choi, Hyunsuh Kho, Hojae Jeong, Byungkwan Chae\nDescription: Paper accepted to BMVC 2025",
+    "content": "News: BMVC 2025 Paper Acceptance\nDate: 2025-07-26\nCategory: Publication\nParticipants: Youngjae Choi, Hyunsuh Koh, Hojae Jeong, Byungkwan Chae\nDescription: Paper accepted to BMVC 2025",
     "metadata": {
       "type": "news",
       "language": "en",
@@ -547,7 +503,7 @@
       "date": "2025-07-26",
       "participants": [
         "Youngjae Choi",
-        "Hyunsuh Kho",
+        "Hyunsuh Koh",
         "Hojae Jeong",
         "Byungkwan Chae"
       ]
@@ -932,7 +888,7 @@
     }
   },
   {
-    "content": "논문: CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation\n저자: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim\n연도: 2026\n학회: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR26)\n최신 논문 순위: 최신순 1/39위\n\n\nPublication: CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation\nAuthors: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim\nYear: 2026\nVenue: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR26)\nRecency: Recency rank: 1/39\n",
+    "content": "논문: CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation\n저자: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim\n연도: 2026\n학회: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR26)\n최신 논문 순위: 최신순 1/41위\n\n\nPublication: CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation\nAuthors: Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim\nYear: 2026\nVenue: IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (CVPR26)\nRecency: Recency rank: 1/41\n",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -945,7 +901,7 @@
     }
   },
   {
-    "content": "논문: CulinaryCut: A Physics-Grounded Cutting Benchmark for Vision-Language-Action Models\n저자: Hyunseo Koh*, Chang-Yong Song*, Youngjae Choi*, Misa Viveiros, David Hyde, Heewon Kim\n연도: 2026\n학회: European Conference on Computer Vision (ECCV) (ECCV26)\n최신 논문 순위: 최신순 2/39위\n\n\nPublication: CulinaryCut: A Physics-Grounded Cutting Benchmark for Vision-Language-Action Models\nAuthors: Hyunseo Koh*, Chang-Yong Song*, Youngjae Choi*, Misa Viveiros, David Hyde, Heewon Kim\nYear: 2026\nVenue: European Conference on Computer Vision (ECCV) (ECCV26)\nRecency: Recency rank: 2/39\n",
+    "content": "논문: CulinaryCut: A Physics-Grounded Cutting Benchmark for Vision-Language-Action Models\n저자: Hyunseo Koh*, Chang-Yong Song*, Youngjae Choi*, Misa Viveiros, David Hyde, Heewon Kim\n연도: 2026\n학회: European Conference on Computer Vision (ECCV) (ECCV26)\n최신 논문 순위: 최신순 2/41위\n\n\nPublication: CulinaryCut: A Physics-Grounded Cutting Benchmark for Vision-Language-Action Models\nAuthors: Hyunseo Koh*, Chang-Yong Song*, Youngjae Choi*, Misa Viveiros, David Hyde, Heewon Kim\nYear: 2026\nVenue: European Conference on Computer Vision (ECCV) (ECCV26)\nRecency: Recency rank: 2/41\n",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -958,7 +914,7 @@
     }
   },
   {
-    "content": "논문: PrintAnything: Learning Geometric Plan Map for 3D Printing G-code Generation from Unoriented Point Clouds\n저자: Sangmin Hong, Daniel Sungho Jung, Heewon Kim†, Kyoung Mu Lee†\n연도: 2026\n학회: European Conference on Computer Vision (ECCV) (ECCV26)\n최신 논문 순위: 최신순 3/39위\n\n\nPublication: PrintAnything: Learning Geometric Plan Map for 3D Printing G-code Generation from Unoriented Point Clouds\nAuthors: Sangmin Hong, Daniel Sungho Jung, Heewon Kim†, Kyoung Mu Lee†\nYear: 2026\nVenue: European Conference on Computer Vision (ECCV) (ECCV26)\nRecency: Recency rank: 3/39\n",
+    "content": "논문: PrintAnything: Learning Geometric Plan Map for 3D Printing G-code Generation from Unoriented Point Clouds\n저자: Sangmin Hong, Daniel Sungho Jung, Heewon Kim†, Kyoung Mu Lee†\n연도: 2026\n학회: European Conference on Computer Vision (ECCV) (ECCV26)\n최신 논문 순위: 최신순 3/41위\n\n\nPublication: PrintAnything: Learning Geometric Plan Map for 3D Printing G-code Generation from Unoriented Point Clouds\nAuthors: Sangmin Hong, Daniel Sungho Jung, Heewon Kim†, Kyoung Mu Lee†\nYear: 2026\nVenue: European Conference on Computer Vision (ECCV) (ECCV26)\nRecency: Recency rank: 3/41\n",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -971,7 +927,33 @@
     }
   },
   {
-    "content": "논문: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation\n저자: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim\n연도: 2026\n학회: CVPR 2026 Embodied AI Workshop (EAI Workshop)\n최신 논문 순위: 최신순 4/39위\n초록: Continuous-state robotic manipulation requires an agent to\ninterpret language goals, estimate object states, and execute\nphysically valid actions toward fine-grained targets.\nHowever, training data for such tasks is sparse: collecting\ndemonstrations for every object, scene, and target state\nis expensive, and synthetic data is useful only when it remains\nexecutable. In this paper, we present the methods\ndeveloped for the ARNOLD Challenge [1] on continuousstate\nrobotic manipulation. PSASI improves continuousstate\nsupervision through state interpolation and phasespecific\ncontrol. FRFM further expands the training distribution\nwith physics-verified dynamic scene generation for\nfoundation-model fine-tuning. Experiments on ARNOLD\nshow that PSASI improves continuous-state manipulation,\nwhile FRFM achieves stronger performance by fine-tuning\na foundation policy with DynScene-generated data.\n\nPublication: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation\nAuthors: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 Embodied AI Workshop (EAI Workshop)\nRecency: Recency rank: 4/39\nAbstract: Continuous-state robotic manipulation requires an agent to\ninterpret language goals, estimate object states, and execute\nphysically valid actions toward fine-grained targets.\nHowever, training data for such tasks is sparse: collecting\ndemonstrations for every object, scene, and target state\nis expensive, and synthetic data is useful only when it remains\nexecutable. In this paper, we present the methods\ndeveloped for the ARNOLD Challenge [1] on continuousstate\nrobotic manipulation. PSASI improves continuousstate\nsupervision through state interpolation and phasespecific\ncontrol. FRFM further expands the training distribution\nwith physics-verified dynamic scene generation for\nfoundation-model fine-tuning. Experiments on ARNOLD\nshow that PSASI improves continuous-state manipulation,\nwhile FRFM achieves stronger performance by fine-tuning\na foundation policy with DynScene-generated data.",
+    "content": "논문: Predicting Heterogeneity of Treatment Effects to Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain and Symptoms: A Machine Learning Approach\n저자: Chiyoung Lee, Heewon Kim, Seoyoung Kim†, Yeri Kim†, Xiaoxiao Sun, Chen X. Chen, Juyoung Park, Christine Pellegrini, David O. Garcia, Nan-kuei Chen, C. Kent Kwoh, Hyochol Ahn\n연도: 2026\n학회: The Clinical Journal of Pain (Clin J Pain)\n최신 논문 순위: 최신순 4/41위\n\n\nPublication: Predicting Heterogeneity of Treatment Effects to Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain and Symptoms: A Machine Learning Approach\nAuthors: Chiyoung Lee, Heewon Kim, Seoyoung Kim†, Yeri Kim†, Xiaoxiao Sun, Chen X. Chen, Juyoung Park, Christine Pellegrini, David O. Garcia, Nan-kuei Chen, C. Kent Kwoh, Hyochol Ahn\nYear: 2026\nVenue: The Clinical Journal of Pain (Clin J Pain)\nRecency: Recency rank: 4/41\n",
+    "metadata": {
+      "type": "publication",
+      "language": "both",
+      "category": "paper",
+      "title": "Predicting Heterogeneity of Treatment Effects to Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain and Symptoms: A Machine Learning Approach",
+      "authors": "Chiyoung Lee, Heewon Kim, Seoyoung Kim†, Yeri Kim†, Xiaoxiao Sun, Chen X. Chen, Juyoung Park, Christine Pellegrini, David O. Garcia, Nan-kuei Chen, C. Kent Kwoh, Hyochol Ahn",
+      "year": "2026",
+      "venue": "Clin J Pain",
+      "recency_rank": 4
+    }
+  },
+  {
+    "content": "논문: Multimodal Predictors of Heterogeneity of Treatment Effects in Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain: A Machine Learning Analysis\n저자: Seoyoung Kim†, Yeri Kim†, Chiyoung Lee, Juyoung Park, Hyochol Ahn, Heewon Kim\n연도: 2026\n학회: CVPR 2026 Workshop (CVPRW26)\n최신 논문 순위: 최신순 5/41위\n\n\nPublication: Multimodal Predictors of Heterogeneity of Treatment Effects in Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain: A Machine Learning Analysis\nAuthors: Seoyoung Kim†, Yeri Kim†, Chiyoung Lee, Juyoung Park, Hyochol Ahn, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 Workshop (CVPRW26)\nRecency: Recency rank: 5/41\n",
+    "metadata": {
+      "type": "publication",
+      "language": "both",
+      "category": "paper",
+      "title": "Multimodal Predictors of Heterogeneity of Treatment Effects in Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain: A Machine Learning Analysis",
+      "authors": "Seoyoung Kim†, Yeri Kim†, Chiyoung Lee, Juyoung Park, Hyochol Ahn, Heewon Kim",
+      "year": "2026",
+      "venue": "CVPRW26",
+      "recency_rank": 5
+    }
+  },
+  {
+    "content": "논문: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation\n저자: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim\n연도: 2026\n학회: CVPR 2026 Embodied AI Workshop (EAI Workshop)\n\n초록: Continuous-state robotic manipulation requires an agent to\ninterpret language goals, estimate object states, and execute\nphysically valid actions toward fine-grained targets.\nHowever, training data for such tasks is sparse: collecting\ndemonstrations for every object, scene, and target state\nis expensive, and synthetic data is useful only when it remains\nexecutable. In this paper, we present the methods\ndeveloped for the ARNOLD Challenge [1] on continuousstate\nrobotic manipulation. PSASI improves continuousstate\nsupervision through state interpolation and phasespecific\ncontrol. FRFM further expands the training distribution\nwith physics-verified dynamic scene generation for\nfoundation-model fine-tuning. Experiments on ARNOLD\nshow that PSASI improves continuous-state manipulation,\nwhile FRFM achieves stronger performance by fine-tuning\na foundation policy with DynScene-generated data.\n\nPublication: Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation\nAuthors: Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 Embodied AI Workshop (EAI Workshop)\n\nAbstract: Continuous-state robotic manipulation requires an agent to\ninterpret language goals, estimate object states, and execute\nphysically valid actions toward fine-grained targets.\nHowever, training data for such tasks is sparse: collecting\ndemonstrations for every object, scene, and target state\nis expensive, and synthetic data is useful only when it remains\nexecutable. In this paper, we present the methods\ndeveloped for the ARNOLD Challenge [1] on continuousstate\nrobotic manipulation. PSASI improves continuousstate\nsupervision through state interpolation and phasespecific\ncontrol. FRFM further expands the training distribution\nwith physics-verified dynamic scene generation for\nfoundation-model fine-tuning. Experiments on ARNOLD\nshow that PSASI improves continuous-state manipulation,\nwhile FRFM achieves stronger performance by fine-tuning\na foundation policy with DynScene-generated data.",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -980,11 +962,11 @@
       "authors": "Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim",
       "year": "2026",
       "venue": "EAI Workshop",
-      "recency_rank": 4
+      "recency_rank": 6
     }
   },
   {
-    "content": "논문: Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals\n저자: Sungyong Park, Ji Hoon Kim, Heewon Kim\n연도: 2026\n학회: CVPR 2026 NTIRE Workshop (NTIRE-CVPRW26)\n최신 논문 순위: 최신순 5/39위\n\n\nPublication: Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals\nAuthors: Sungyong Park, Ji Hoon Kim, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 NTIRE Workshop (NTIRE-CVPRW26)\nRecency: Recency rank: 5/39\n",
+    "content": "논문: Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals\n저자: Sungyong Park, Ji Hoon Kim, Heewon Kim\n연도: 2026\n학회: CVPR 2026 NTIRE Workshop (NTIRE-CVPRW26)\n\n\n\nPublication: Toward Interpretable Space Image Denoising by Learning Cross-Sensor Celestial Signals\nAuthors: Sungyong Park, Ji Hoon Kim, Heewon Kim\nYear: 2026\nVenue: CVPR 2026 NTIRE Workshop (NTIRE-CVPRW26)\n\n",
     "metadata": {
       "type": "publication",
       "language": "both",
@@ -993,7 +975,7 @@
       "authors": "Sungyong Park, Ji Hoon Kim, Heewon Kim",
       "year": "2026",
       "venue": "NTIRE-CVPRW26",
-      "recency_rank": 5
+      "recency_rank": 7
     }
   },
   {
@@ -1006,7 +988,7 @@
       "authors": "Youngjae Choi, Hyunseo Koh, Heewon Kim",
       "year": "2026",
       "venue": "HuMoGen-CVPRW26",
-      "recency_rank": 6
+      "recency_rank": 8
     }
   },
   {
@@ -1019,7 +1001,7 @@
       "authors": "Sebin Lee†, Heewon Kim",
       "year": "2026",
       "venue": "WACV26",
-      "recency_rank": 7
+      "recency_rank": 9
     }
   },
   {
@@ -1032,7 +1014,7 @@
       "authors": "ByungKwan Chae*, Youngjae Choi*, Heewon Kim",
       "year": "2026",
       "venue": "WACV26",
-      "recency_rank": 8
+      "recency_rank": 10
     }
   },
   {
@@ -1045,7 +1027,7 @@
       "authors": "Sangmin Lee*, Sungyong Park*, Heewon Kim",
       "year": "2025",
       "venue": "CVPR25",
-      "recency_rank": 9
+      "recency_rank": 11
     }
   },
   {
@@ -1058,33 +1040,33 @@
       "authors": "Sooyoung Choi*†, Sungyong Park*, Heewon Kim",
       "year": "2025",
       "venue": "AAAI25",
-      "recency_rank": 10
+      "recency_rank": 12
     }
   },
   {
-    "content": "논문: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\n저자: Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\n연도: 2025\n학회: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\n\n\n\nPublication: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\nAuthors: Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\nYear: 2025\nVenue: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\n\n",
+    "content": "논문: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\n저자: Hyunsuh Koh*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\n연도: 2025\n학회: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\n\n\n\nPublication: Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields\nAuthors: Hyunsuh Koh*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim\nYear: 2025\nVenue: International Workshop on Application-driven Point Cloud Processing and 3D Vision (APP3DV, ACM MM Workshop) (APP3DV25)\n\n",
     "metadata": {
       "type": "publication",
       "language": "both",
       "category": "paper",
       "title": "Intrinsic-Guided Photorealistic Style Transfer for Radiance Fields",
-      "authors": "Hyunsuh Kho*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim",
+      "authors": "Hyunsuh Koh*, Seunghyun Oh*, Jungyun Jang*, Heewon Kim",
       "year": "2025",
       "venue": "APP3DV25",
-      "recency_rank": 11
+      "recency_rank": 13
     }
   },
   {
-    "content": "논문: Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models\n저자: Youngjae Choi*, Hyunsuh Kho*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim\n연도: 2025\n학회: British Machine Vision Conference (BMVC) (BMVC25)\n\n초록: Diffusion models achieve impressive image synthesis, yet unsupervised methods for latent space exploration remain limited in fine-grained class translation. Existing approaches struggle with fine-grained class translation, often producing low-diversity outputs within parent classes or inconsistent child-class mappings across images. We propose UDT (Unsupervised Discovery of Transformations), a framework that incorporates hierarchical structure into unsupervised direction discovery. UDT leverages parent-class prompts to decompose predicted noise into class-general and class-specific components, ensuring translations remain within the parent domain while enabling disentangled child-class transformations. A hierarchy-aware contrastive loss further enforces consistency, with each direction corresponding to a distinct child class. Experiments on dogs, cats, birds, and flowers show that UDT outperforms state-of-the-art methods both qualitatively and quantitatively. Moreover, UDT supports controllable interpolation, allowing for the smooth generation of intermediate classes (e.g., mixed breeds). These results demonstrate UDT as a general and effective solution for fine-grained image translation.\n\nPublication: Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models\nAuthors: Youngjae Choi*, Hyunsuh Kho*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim\nYear: 2025\nVenue: British Machine Vision Conference (BMVC) (BMVC25)\n\nAbstract: Diffusion models achieve impressive image synthesis, yet unsupervised methods for latent space exploration remain limited in fine-grained class translation. Existing approaches struggle with fine-grained class translation, often producing low-diversity outputs within parent classes or inconsistent child-class mappings across images. We propose UDT (Unsupervised Discovery of Transformations), a framework that incorporates hierarchical structure into unsupervised direction discovery. UDT leverages parent-class prompts to decompose predicted noise into class-general and class-specific components, ensuring translations remain within the parent domain while enabling disentangled child-class transformations. A hierarchy-aware contrastive loss further enforces consistency, with each direction corresponding to a distinct child class. Experiments on dogs, cats, birds, and flowers show that UDT outperforms state-of-the-art methods both qualitatively and quantitatively. Moreover, UDT supports controllable interpolation, allowing for the smooth generation of intermediate classes (e.g., mixed breeds). These results demonstrate UDT as a general and effective solution for fine-grained image translation.",
+    "content": "논문: Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models\n저자: Youngjae Choi*, Hyunsuh Koh*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim\n연도: 2025\n학회: British Machine Vision Conference (BMVC) (BMVC25)\n\n초록: Diffusion models achieve impressive image synthesis, yet unsupervised methods for latent space exploration remain limited in fine-grained class translation. Existing approaches struggle with fine-grained class translation, often producing low-diversity outputs within parent classes or inconsistent child-class mappings across images. We propose UDT (Unsupervised Discovery of Transformations), a framework that incorporates hierarchical structure into unsupervised direction discovery. UDT leverages parent-class prompts to decompose predicted noise into class-general and class-specific components, ensuring translations remain within the parent domain while enabling disentangled child-class transformations. A hierarchy-aware contrastive loss further enforces consistency, with each direction corresponding to a distinct child class. Experiments on dogs, cats, birds, and flowers show that UDT outperforms state-of-the-art methods both qualitatively and quantitatively. Moreover, UDT supports controllable interpolation, allowing for the smooth generation of intermediate classes (e.g., mixed breeds). These results demonstrate UDT as a general and effective solution for fine-grained image translation.\n\nPublication: Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models\nAuthors: Youngjae Choi*, Hyunsuh Koh*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim\nYear: 2025\nVenue: British Machine Vision Conference (BMVC) (BMVC25)\n\nAbstract: Diffusion models achieve impressive image synthesis, yet unsupervised methods for latent space exploration remain limited in fine-grained class translation. Existing approaches struggle with fine-grained class translation, often producing low-diversity outputs within parent classes or inconsistent child-class mappings across images. We propose UDT (Unsupervised Discovery of Transformations), a framework that incorporates hierarchical structure into unsupervised direction discovery. UDT leverages parent-class prompts to decompose predicted noise into class-general and class-specific components, ensuring translations remain within the parent domain while enabling disentangled child-class transformations. A hierarchy-aware contrastive loss further enforces consistency, with each direction corresponding to a distinct child class. Experiments on dogs, cats, birds, and flowers show that UDT outperforms state-of-the-art methods both qualitatively and quantitatively. Moreover, UDT supports controllable interpolation, allowing for the smooth generation of intermediate classes (e.g., mixed breeds). These results demonstrate UDT as a general and effective solution for fine-grained image translation.",
     "metadata": {
       "type": "publication",
       "language": "both",
       "category": "paper",
       "title": "Unsupervised Discovery of Transformations between Fine-Grained Classes in Diffusion Models",
-      "authors": "Youngjae Choi*, Hyunsuh Kho*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim",
+      "authors": "Youngjae Choi*, Hyunsuh Koh*, Hojae Jeong*, Byungkwan Chae*, Sungyong Park, Heewon Kim",
       "year": "2025",
       "venue": "BMVC25",
-      "recency_rank": 12
+      "recency_rank": 14
     }
   },
   {
@@ -1097,7 +1079,7 @@
       "authors": "Chiyoung Lee*, Yeri Kim*†, Seoyoung Kim*†, Mary Whooley, Heewon Kim",
       "year": "2025",
       "venue": "PLOS ONE",
-      "recency_rank": 13
+      "recency_rank": 15
     }
   },
   {
@@ -1110,7 +1092,7 @@
       "authors": "Do-Ye Kwon*†, Yeon-Ju Oh*†, Heewon Kim",
       "year": "2025",
       "venue": "JEET",
-      "recency_rank": 14
+      "recency_rank": 16
     }
   },
   {
@@ -1123,7 +1105,7 @@
       "authors": "Chiyoung Lee, Heewon Kim, Yeri Kim†, Seoyoung Kim†, et al.",
       "year": "2025",
       "venue": "Brain Stimulation",
-      "recency_rank": 15
+      "recency_rank": 17
     }
   },
   {
@@ -1136,7 +1118,7 @@
       "authors": "Dowon Kim, Chaewoo Lim, Sangmin Lee, Sungyong Park, Heewon Kim",
       "year": "2025",
       "venue": "Arnold Challenge",
-      "recency_rank": 16
+      "recency_rank": 18
     }
   },
   {
@@ -1149,7 +1131,7 @@
       "authors": "Sangmin Lee, Sungyong Park, Heewon Kim",
       "year": "2024",
       "venue": "Arnold Challenge",
-      "recency_rank": 17
+      "recency_rank": 19
     }
   },
   {
@@ -1162,7 +1144,7 @@
       "authors": "Chiyoung Lee, Yeri Kim†, Seoyoung Kim†, Beth Cohen, Kent Kwoh, Hyochol Ahn, Juyoung Park, Heewon Kim",
       "year": "2024",
       "venue": "GSA",
-      "recency_rank": 18
+      "recency_rank": 20
     }
   },
   {
@@ -1175,7 +1157,7 @@
       "authors": "Ji Hoon Bang†, Eun Hee Kim, Hyung Jun Kim, Jong-Won Chung, Woo-Keun Seo, Gyeong-Moon Kim, Dong-Ho Lee, Heewon Kim*, Oh Young Bang*",
       "year": "2024",
       "venue": "IJMS",
-      "recency_rank": 19
+      "recency_rank": 21
     }
   },
   {
@@ -1188,7 +1170,7 @@
       "authors": "Heewon Kim, Kyoung Mu Lee",
       "year": "2023",
       "venue": "ICLR",
-      "recency_rank": 20
+      "recency_rank": 22
     }
   },
   {
@@ -1201,7 +1183,7 @@
       "authors": "Heewon Kim, Kyoung Mu Lee",
       "year": "2023",
       "venue": "TIP",
-      "recency_rank": 21
+      "recency_rank": 23
     }
   },
   {
@@ -1214,7 +1196,7 @@
       "authors": "Sungyong Baik, Myungsub Choi, Janghoon Choi, Heewon Kim, Kyoung Mu Lee",
       "year": "2023",
       "venue": "TPAMI",
-      "recency_rank": 22
+      "recency_rank": 24
     }
   },
   {
@@ -1227,7 +1209,7 @@
       "authors": "Junghun Oh, Heewon Kim, Sungyong Baik, Cheeun Hong, Kyoung Mu Lee",
       "year": "2022",
       "venue": "WACV",
-      "recency_rank": 23
+      "recency_rank": 25
     }
   },
   {
@@ -1240,7 +1222,7 @@
       "authors": "Chiyoung Lee, Heewon Kim",
       "year": "2022",
       "venue": "PLOS ONE",
-      "recency_rank": 24
+      "recency_rank": 26
     }
   },
   {
@@ -1253,7 +1235,7 @@
       "authors": "Heewon Kim, Seokil Hong, Bohyung Han, Heesoo Myeong, Kyoung Mu Lee",
       "year": "2022",
       "venue": "JVCI",
-      "recency_rank": 25
+      "recency_rank": 27
     }
   },
   {
@@ -1266,7 +1248,7 @@
       "authors": "Sungyong Baik, Myungsub Choi, Janghoon Choi, Heewon Kim, Kyoung Mu Lee",
       "year": "2020",
       "venue": "NeurIPS",
-      "recency_rank": 26
+      "recency_rank": 28
     }
   },
   {
@@ -1279,7 +1261,7 @@
       "authors": "Cheeun Hong, Sungyong Baik, Heewon Kim, Seungjun Nah, Kyoung Mu Lee",
       "year": "2022",
       "venue": "ECCV",
-      "recency_rank": 27
+      "recency_rank": 29
     }
   },
   {
@@ -1292,7 +1274,7 @@
       "authors": "Cheeun Hong*, Heewon Kim*, Sungyong Baik, Junghun Oh, Kyoung Mu Lee",
       "year": "2022",
       "venue": "WACV",
-      "recency_rank": 28
+      "recency_rank": 30
     }
   },
   {
@@ -1305,7 +1287,7 @@
       "authors": "Junghun Oh, Heewon Kim, Seungjun Nah, Cheeun Hong, Jonghyun Choi, Kyoung Mu Lee",
       "year": "2022",
       "venue": "CVPR",
-      "recency_rank": 29
+      "recency_rank": 31
     }
   },
   {
@@ -1318,7 +1300,7 @@
       "authors": "Sungyong Baik, Janghoon Choi, Heewon Kim, Dohee Cho, Jaesik Min, and Kyoung Mu Lee",
       "year": "2021",
       "venue": "ICCV",
-      "recency_rank": 30
+      "recency_rank": 32
     }
   },
   {
@@ -1331,7 +1313,7 @@
       "authors": "Heewon Kim, Sungyong Baik, Myungsub Choi, Janghoon Choi, and Kyoung Mu Lee",
       "year": "2021",
       "venue": "ICCV",
-      "recency_rank": 31
+      "recency_rank": 33
     }
   },
   {
@@ -1344,7 +1326,7 @@
       "authors": "Andrey Ignatov, Andres Romero, Heewon Kim, and Radu Timofte",
       "year": "2021",
       "venue": "CVPRW",
-      "recency_rank": 32
+      "recency_rank": 34
     }
   },
   {
@@ -1357,7 +1339,7 @@
       "authors": "Myungsub Choi, Suyoung Lee, Heewon Kim, and Kyoung Mu Lee",
       "year": "2021",
       "venue": "ICCV",
-      "recency_rank": 33
+      "recency_rank": 35
     }
   },
   {
@@ -1370,7 +1352,7 @@
       "authors": "Myungsub Choi, Heewon Kim, Bohyung Han, Ning Xu, and Kyoung Mu Lee",
       "year": "2020",
       "venue": "AAAI",
-      "recency_rank": 34
+      "recency_rank": 36
     }
   },
   {
@@ -1383,7 +1365,7 @@
       "authors": "Seungjun Nah, Sanghyun Son, Radu Timofte, Kyoung Mu Lee, Li Siyao, Ziwei Pan, Xiangyu Xu, Wenxiu Sun, Myungsub Choi, Heewon Kim, Bohyung Han, Ning Xu, Renjie Liao, Alex Schwing, Yuhua Chen, Chen Chen, Kai Zhang, Wangmeng Zuo, Tong Lu, Ran Duan, Tong Lu, Lihe Zhang, Woonsook Park, Manhcuot Tran, George Pisha, Eyal Naor, Lilie Zhang, Kai Zhang, Wangmeng Zuo, Zhimin Tang, Linkai Luo, Shaochui Li, Min Fu, Lei Cai, Wen Heng, Giang Bui, Truc Le, Ye Deng, Sifei Liu, Hyun Young Jung, Tianlong Guo, Hongchang Gao, Jiejun Xu, Ruofan Fang, Yunsong Li, Anmur Mehta, Vishal Monga",
       "year": "2019",
       "venue": "ICCVW",
-      "recency_rank": 35
+      "recency_rank": 37
     }
   },
   {
@@ -1396,7 +1378,7 @@
       "authors": "Heewon Kim, Myungsub Choi, Bee Lim, and Kyoung Mu Lee",
       "year": "2018",
       "venue": "ECCV",
-      "recency_rank": 36
+      "recency_rank": 38
     }
   },
   {
@@ -1409,20 +1391,20 @@
       "authors": "Radu Timofte, Eirikur Agustsson, Luc Van Gool, Ming-Hsuan Yang, Lei Zhang, Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, Kyoung Mu Lee, et al.",
       "year": "2017",
       "venue": "CVPRW",
-      "recency_rank": 37
+      "recency_rank": 39
     }
   },
   {
-    "content": "논문: Enhanced Deep Residual Networks for Single Image Super-Resolution\n저자: Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee\n연도: 2017\n학회: 2nd NTIRE: New Trends in Image Restoration and Enhancement workshop and challenge on image super-resolution in conjunction with CVPR 2017 (CVPRW17)\n\n\n\nPublication: Enhanced Deep Residual Networks for Single Image Super-Resolution\nAuthors: Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee\nYear: 2017\nVenue: 2nd NTIRE: New Trends in Image Restoration and Enhancement workshop and challenge on image super-resolution in conjunction with CVPR 2017 (CVPRW17)\n\n",
+    "content": "논문: Enhanced Deep Residual Networks for Single Image Super-Resolution\n저자: Bee Lim*, Sanghyun Son*, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee\n연도: 2017\n학회: 2nd NTIRE: New Trends in Image Restoration and Enhancement workshop and challenge on image super-resolution in conjunction with CVPR 2017 (CVPRW17)\n\n\n\nPublication: Enhanced Deep Residual Networks for Single Image Super-Resolution\nAuthors: Bee Lim*, Sanghyun Son*, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee\nYear: 2017\nVenue: 2nd NTIRE: New Trends in Image Restoration and Enhancement workshop and challenge on image super-resolution in conjunction with CVPR 2017 (CVPRW17)\n\n",
     "metadata": {
       "type": "publication",
       "language": "both",
       "category": "paper",
       "title": "Enhanced Deep Residual Networks for Single Image Super-Resolution",
-      "authors": "Bee Lim, Sanghyun Son, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee",
+      "authors": "Bee Lim*, Sanghyun Son*, Heewon Kim, Seungjun Nah, and Kyoung Mu Lee",
       "year": "2017",
       "venue": "CVPRW17",
-      "recency_rank": 38
+      "recency_rank": 40
     }
   },
   {
@@ -1435,11 +1417,11 @@
       "authors": "Seunghyun Oh†, Heewon Kim",
       "year": "2025",
       "venue": "ICT Express",
-      "recency_rank": 39
+      "recency_rank": 41
     }
   },
   {
-    "content": "질문: 팀 구성원은 누구인가요?\n답변: Reality Lab의 현재 구성원(2026년 5월 기준)은 다음과 같습니다.\n\n• 책임교수(PI): 김희원 교수 (Prof. Heewon Kim) — heewon@ssu.ac.kr\n• 박사과정 (1명): 박성용 (Sungyong Park) — Computer Vision, Deep Learning\n• 석사과정 (8명):\n  - 고민주 (Minjoo Koh) — 3D Vision, AI for Sports\n  - 고현준 (Hyunjun Kho) — Computer Vision, Deep Learning\n  - 고현서 (Hyunsuh Kho) — Multimodal Learning, Representation Learning\n  - 이주형 (Juhyoung Lee) — Robotics, Physical AI\n  - 서지우 (Jiwoo Seo) — Computer Vision, Deep Learning\n  - 정호재 (Hojae Jeong) — Computer Vision, Generative AI\n  - 최수영 (Sooyoung Choi) — Computer Vision, Deep Learning\n  - 황지원 (Jiwon Hwang) — Computer Vision, Deep Learning\n• 인턴 (10명): 김서영, 송은우, 이재현, 임정하, 김예리, 김현찬, 김재림, 김연서, 강인선, 박현수\n\n자세한 프로필은 홈페이지의 Members 페이지에서 확인하실 수 있습니다.\n키워드: 팀, 구성원, 멤버, 팀원, 연구원, 학생, members, team",
+    "content": "질문: 팀 구성원은 누구인가요?\n답변: Reality Lab의 현재 구성원(2026년 5월 기준)은 다음과 같습니다.\n\n• 책임교수(PI): 김희원 교수 (Prof. Heewon Kim) — heewon@ssu.ac.kr\n• 박사과정 (1명): 박성용 (Sungyong Park) — Computer Vision, Deep Learning\n• 석사과정 (8명):\n  - 고민주 (Minjoo Koh) — 3D Vision, AI for Sports\n  - 고현준 (Hyunjun Koh) — Computer Vision, Deep Learning\n  - 고현서 (Hyunsuh Koh) — Multimodal Learning, Representation Learning\n  - 이주형 (Juhyoung Lee) — Robotics, Physical AI\n  - 서지우 (Jiwoo Seo) — Computer Vision, Deep Learning\n  - 정호재 (Hojae Jeong) — Computer Vision, Generative AI\n  - 최수영 (Sooyoung Choi) — Computer Vision, Deep Learning\n  - 황지원 (Jiwon Hwang) — Computer Vision, Deep Learning\n• 인턴 (10명): 김서영, 송은우, 이재현, 임정하, 김예리, 김현찬, 김재림, 김연서, 강인선, 박현수\n\n자세한 프로필은 홈페이지의 Members 페이지에서 확인하실 수 있습니다.\n키워드: 팀, 구성원, 멤버, 팀원, 연구원, 학생, members, team",
     "metadata": {
       "type": "qa",
       "language": "ko",
@@ -1610,7 +1592,7 @@
     }
   },
   {
-    "content": "Question: Who are the team members?\nAnswer: Reality Lab's current members (as of May 2026):\n\n• Principal Investigator: Prof. Heewon Kim — heewon@ssu.ac.kr\n• PhD Student (1): Sungyong Park — Computer Vision, Deep Learning\n• Master's Students (8):\n  - Minjoo Koh — 3D Vision, AI for Sports\n  - Hyunjun Kho — Computer Vision, Deep Learning\n  - Hyunsuh Kho — Multimodal Learning, Representation Learning\n  - Juhyoung Lee — Robotics, Physical AI\n  - Jiwoo Seo — Computer Vision, Deep Learning\n  - Hojae Jeong — Computer Vision, Generative AI\n  - Sooyoung Choi — Computer Vision, Deep Learning\n  - Jiwon Hwang — Computer Vision, Deep Learning\n• Interns (10): Seoyoung Kim, Eunwoo Song, Jaehyeon Lee, Jungha Lim, Yeri Kim, Hyeonchan Kim, Jaerim Kim, Yeunsuh Kim, Inseon Kang, Hyunsoo Park\n\nFull profiles are available on the Members page of the website.\nKeywords: team, members, researchers, students, who, people, lab members",
+    "content": "Question: Who are the team members?\nAnswer: Reality Lab's current members (as of May 2026):\n\n• Principal Investigator: Prof. Heewon Kim — heewon@ssu.ac.kr\n• PhD Student (1): Sungyong Park — Computer Vision, Deep Learning\n• Master's Students (8):\n  - Minjoo Koh — 3D Vision, AI for Sports\n  - Hyunjun Koh — Computer Vision, Deep Learning\n  - Hyunsuh Koh — Multimodal Learning, Representation Learning\n  - Juhyoung Lee — Robotics, Physical AI\n  - Jiwoo Seo — Computer Vision, Deep Learning\n  - Hojae Jeong — Computer Vision, Generative AI\n  - Sooyoung Choi — Computer Vision, Deep Learning\n  - Jiwon Hwang — Computer Vision, Deep Learning\n• Interns (10): Seoyoung Kim, Eunwoo Song, Jaehyeon Lee, Jungha Lim, Yeri Kim, Hyeonchan Kim, Jaerim Kim, Yeunsuh Kim, Inseon Kang, Hyunsoo Park\n\nFull profiles are available on the Members page of the website.\nKeywords: team, members, researchers, students, who, people, lab members",
     "metadata": {
       "type": "qa",
       "language": "en",
