@@ -1,188 +1,131 @@
-# Agency Jekyll Theme
-[![RubyGems Downloads](https://img.shields.io/gem/dt/jekyll-agency?label=gem%20downloads)](https://rubygems.org/gems/jekyll-agency)
-[![LICENSE](https://img.shields.io/badge/license-MIT-blue)](/LICENSE.txt)
-[![Tip Me via PayPal](https://img.shields.io/badge/PayPal-tip_me-green?logo=paypal)](https://www.paypal.me/raviriley)
-[![template button](https://img.shields.io/badge/Generate_theme_from_template-2ea44f)][generate]
-[![Featured on Jekyll-Themes.com](https://img.shields.io/badge/featured%20on-JekyllThemes-red.svg)](https://jekyll-themes.com/agency-jekyll-theme/)
+# Reality Lab — Soongsil University
 
-## Preview - click for live demo
+Official website source and management infrastructure for the Reality Lab
+at Soongsil University (숭실대학교 리얼리티 연구실).
 
-[![screenshot](/screenshot.PNG)][demo-page]
+**Live site**: [reality.ssu.ac.kr](https://reality.ssu.ac.kr)
+**Hosted by**: GitHub Pages
+**Theme base**: Agency Bootstrap → Jekyll
 
-## Warning
+---
 
-> :warning: **Notice for those using legacy Formspree contact forms:** :warning:
->
-> Email-based forms are being [phased out](https://help.formspree.io/hc/en-us/articles/360056076314) by Formspree. [#11](https://github.com/raviriley/agency-jekyll-theme/pull/11) updated this theme to use the [new Formspree structure](https://help.formspree.io/hc/en-us/articles/360017735154-How-to-prevent-spam). Click [here](https://help.formspree.io/hc/en-us/articles/360056076314) for instructions on updating your site's form.
+## What lives in this repo
 
-## About
+The repo bundles four things that used to live on separate machines:
 
-This is the [Agency Bootstrap theme](https://startbootstrap.com/themes/agency/), converted to a gem-based Jekyll theme with GitHub Pages support.
+| Piece | Where | What it does |
+|---|---|---|
+| **Static site** | `_data/`, `_includes/`, `_layouts/`, `_sass/`, `assets/`, `*.md`, `*.html` | Jekyll source. Built by GitHub Pages, served at reality.ssu.ac.kr |
+| **AI Chatbot backend** | [`ai_server/`](ai_server/) | Flask + hierarchical RAG + OpenAI Chat Completions |
+| **Admin CMS** | [`admin_cms/`](admin_cms/) | Password-protected UI to edit `_data/*.yml` (publications, members, news) with backups, audit log, and git commit |
+| **Ops scripts** | [`scripts/migrate/`](scripts/migrate/), `ai_server/*.sh` | Server bootstrap, cron, tunnel management, history cleanup |
 
-While this has been done before, [here](https://github.com/y7kim/agency-jekyll-theme), [here](https://github.com/SotiriosVrachas/jekyll-theme-startbootstrap-agency), and [here](https://github.com/laklau/agency-jekyll-theme/), these are outdated and have not been updated or maintained for years. I built this theme from the most recent Bootstrap source.
+Only the static site is public. The chatbot and admin are reached through
+Cloudflare Tunnels whose URLs are auto-committed back into the repo so the
+site can link to them.
 
-I also added a lot of new features that go beyond the original theme's capabilities:
+---
 
-- GitHub Pages support
-- [template repo][template] to get up and running in minutes
-- contact form functionality powered by [Formspree.io](https://formspree.io)
-- multiple language support (currently English, Spanish, & German)
-- custom pages
-- 404 page
-- legal/Privacy Policy page
-- Google Analytics support
-- Markdown support
-- custom images
-- logo support (instead of just title text)
-- automatically updating copyright years
-- custom navigation bar, even without the header image(s)
-- customizable footer
-- custom accent color and dark/light colors
-- horizontal scrolling support for client section
-<!--
-- custom colors with automatic gradient generation (coming soon)
-- site title logo text font customization (coming soon)
-- horizontal scrolling support for portfolio section (coming soon)
-- about section (different from the timeline) -->
+## Quick start (local development)
 
-The Jekyll structure of this theme includes:
-
-- `_portfolio` files - what generate the portfolio grid. YAML front matter handles all the details
-- the `page` layout allows custom pages, as seen in the legal and 404 pages
-- `sitetext.yml` enables complete customization of all site text
-- `navigation.yml` enables fully customizable navigation
-- `style.yml` enables fully customizable colors, background images, and other style-related things
-
-**If you enjoy this theme, please consider [supporting me](https://www.paypal.me/raviriley) to continue developing and maintaining it.**
-
-<div align="center">
-
-[![Support via PayPal](https://cdn.rawgit.com/twolfson/paypal-github-button/1.0.0/dist/button.svg)](https://www.paypal.me/raviriley)
-
-</div>
-
-## Installation
-
-There are three ways to install this theme:
-
-1. As a gem-based theme
-2. Use the [starter template][template] (best for GitHub Pages)
-3. As a remote theme
-
-#### 1. Gem-based Theme Installation
-
-Replace the contents of your `_config.yml` file with the sample [\_config.yml](https://raw.githubusercontent.com/raviriley/agency-jekyll-theme/master/_config.yml).
-
-Install the gem with:
-
-```sh
-$ bundle add jekyll-agency
+```bash
+git clone git@github.com:ssurealitylab/ssurealitylab.github.io.git
+cd ssurealitylab.github.io
+bundle install
+bundle exec jekyll serve --trace
+open http://localhost:4000
 ```
 
-Or manually.
+For chatbot + admin work, follow the setup in [`scripts/migrate/README.md`](scripts/migrate/README.md)
+— the same script that bootstraps a fresh production server works locally too.
 
-1. Add this line to your Jekyll site's `Gemfile`:
-   ```ruby
-   gem "jekyll-agency"
-   ```
-2. Then execute:
-   ```sh
-   $ bundle install
-   ```
+---
 
-#### 2. Using the [Starter Template][template]
+## Editing content
 
-This is the fastest and easiest way to get up and running on GitHub Pages.
+Most non-code changes happen in `_data/`:
 
-Simply generate your own repository by clicking the button below. Then replace the sample content with your own and configure for your needs.
+| File | What it drives |
+|---|---|
+| `_data/publications.yml` | All publications (see [`_data/README_PUBLICATIONS.md`](_data/README_PUBLICATIONS.md)) |
+| `_data/members.yml` | Faculty / students / interns / alumni |
+| `_data/news.yml` | News feed on the homepage |
+| `_data/research_areas.yml` | Research area cards |
+| `_data/version.yml` | Auto-updated footer version (see [`VERSION_UPDATE.md`](VERSION_UPDATE.md)) |
 
-<div align="center">
+Two ways to edit them:
 
-[![Use this template](https://img.shields.io/badge/Generate-Use_this_template-2ea44f?style=for-the-badge)][generate]
+1. **Admin CMS** — recommended. Open the admin URL, log in, use the form UI. It validates the schema, keeps a timestamped backup, and commits + pushes for you.
+2. **Directly in git** — for large or structural changes. Push to `main`; GitHub Pages rebuilds in 1–3 minutes.
 
-</div>
-    
-#### 3. Remote Theme Installation
+> The `international.md` publication list is **hardcoded HTML**, not driven
+> from `publications.yml`. When you add a paper, update **both**. See the
+> comment block at the top of `international.md` for the pattern.
 
-Replace your `_config.yml` file with the starter [\_config.yml](https://raw.githubusercontent.com/raviriley/agency-jekyll-theme-starter/master/_config.yml).
+---
 
-Replace your `Gemfile` with the starter [Gemfile](https://raw.githubusercontent.com/raviriley/agency-jekyll-theme-starter/master/Gemfile).
+## Repo layout
 
-Then install gems.
-
-```sh
-$ bundle install
+```
+├── _data/                     Site data (edit these to update the site)
+│   ├── publications.yml       All papers — schema in README_PUBLICATIONS.md
+│   ├── members.yml            Lab roster
+│   ├── news.yml               Homepage news
+│   └── ...
+├── _includes/                 Reusable Jekyll partials (nav, chatbot widget)
+├── _layouts/                  Page templates
+├── _sass/                     Sass sources
+├── _portfolio/                Portfolio grid entries
+├── assets/img/                Site images (publications, members, logos)
+├── ai_server/                 Chatbot backend — see ai_server/README.md
+├── admin_cms/                 Admin CMS — see admin_cms/README.md
+├── scripts/migrate/           Server bootstrap + hand-off — see its README
+├── index.md, faculty.md, ...  Top-level Jekyll pages
+├── international.md           HARDCODED paper list (see caveat above)
+└── _config.yml                Jekyll config
 ```
 
-<!--
-## Documentation and Usage
+Directories intentionally **not** committed (see `.gitignore`):
+- `_site/`, `vendor/`, `.venv/` — build/runtime output
+- `.env`, `admin_cms/admin_config.json` — secrets
+- `finetune_env/`, `reality_lab_qwen*/`, `qwen_reality_lab_lora/` — legacy ML experiments (predate the OpenAI-backed chatbot)
 
-**TODO:** Write usage instructions here. Describe available layouts, includes, or assets.
+---
 
-navheader is used only for the home page. nav is used everywhere else.
+## Deployment / hand-off to a new server
 
-Layouts:
+Everything needed to move the chatbot + admin + tunnels to a fresh box is
+in [`scripts/migrate/`](scripts/migrate/). The new person only needs:
+1. This repo's URL
+2. An OpenAI API key
+3. A password of their choice for the admin UI
 
-Includes:
-
--->
-
-## Contributing
-
-This project is intended to be a welcoming space for collaboration. If you have an idea, suggestion, feature request, etc., feel free to open an issue or pull request.
-
-For bug reports, follow the provided template.
-
-#### Improvements - Up for Grabs
-
-- [x] multiple language support thanks to [@rbenitezpagan](https://github.com/rbenitezpagan)
-  - [x] Spanish thanks to [@rbenitezpagan](https://github.com/rbenitezpagan)
-  - [x] German thanks to [@bkfirmen](https://github.com/bkfirmen)
-  - [ ] Chinese
-  - [ ] Arabic
-  - [ ] etc
-- [ ] customizable background coloring for each section
-
-## Development
-
-To set up your environment to develop this theme, clone this repo or your fork.
-
-```sh
-$ git clone https://github.com/raviriley/agency-jekyll-theme.git
-$ cd agency-jekyll-theme
+Then:
+```bash
+git clone <this repo>
+./scripts/migrate/bootstrap_new_server.sh
+# fill in .env when it asks
+./scripts/migrate/bootstrap_new_server.sh   # idempotent — resumes from where it stopped
 ```
 
-Then run:
+See `scripts/migrate/README.md` for the full playbook, systemd units, cron
+template, and rollback procedure.
 
-```sh
-$ bundle install
-```
+---
 
-To test the theme, run this. (Using the `--trace` flag for verbose errors.)
+## Related docs
 
-```sh
-$ bundle exec jekyll serve --trace
-```
+- **[`scripts/migrate/README.md`](scripts/migrate/README.md)** — server hand-off playbook
+- **[`ai_server/README.md`](ai_server/README.md)** — chatbot internals
+- **[`admin_cms/README.md`](admin_cms/README.md)** — admin CMS
+- **[`_data/README_PUBLICATIONS.md`](_data/README_PUBLICATIONS.md)** — publications YAML schema
+- **[`VERSION_UPDATE.md`](VERSION_UPDATE.md)** — footer version-bump mechanism
+- **[`WORKFLOW_SETUP.md`](WORKFLOW_SETUP.md)** — one-time GitHub Actions setup
 
-Then open your browser at:
-
-- http://localhost:4000
-
-Add pages, documents, data, etc. like normal to test the theme's contents. As you make modifications, your site will regenerate and you should see the changes in the browser after a refresh.
+---
 
 ## License
 
-The theme is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-<!--
-
-## Example Implementations
-
-- [CV Enterprises](https://cventerprises.org)
-- [Mortazavi Lab at UC Irvine](https://mortazavilab.github.io/)
-
--->
-
-[demo-page]: https://raviriley.github.io/agency-jekyll-theme-starter/
-[template]: https://github.com/raviriley/agency-jekyll-theme-starter
-[generate]: https://github.com/raviriley/agency-jekyll-theme-starter/generate
+Theme base under MIT (see [`LICENSE.txt`](LICENSE.txt)). Site content
+(text, images, member info) belongs to Reality Lab and is not covered by
+that license.
