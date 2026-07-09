@@ -96,6 +96,19 @@ function Test-LocalChatbot {
     } catch { return $false }
 }
 
+function Wait-LocalChatbot {
+    # At logon both this and the chatbot start at once, and the chatbot spends
+    # ~30s loading the embedding model. Don't lose the race.
+    param([int] $TimeoutSec = 300)
+    $deadline = (Get-Date).AddSeconds($TimeoutSec)
+    while ((Get-Date) -lt $deadline) {
+        if (Test-LocalChatbot) { return $true }
+        Write-Log 'waiting for local chatbot...'
+        Start-Sleep -Seconds 10
+    }
+    return $false
+}
+
 function Stop-Tunnel {
     # Match on the command line rather than the image name: other cloudflared
     # instances (e.g. the admin tunnel) must survive.
@@ -255,9 +268,9 @@ Set-Content -Path $LockFile -Value $PID -Encoding ascii
 
 try {
     if (-not (Test-Path $Cloudflared)) { throw "cloudflared not found at $Cloudflared" }
-    if (-not (Test-LocalChatbot)) { throw "local chatbot is not answering on 127.0.0.1:$Port - start run-chatbot.bat first" }
 
     Write-Log '=== tunnel watchdog starting ==='
+    if (-not (Wait-LocalChatbot)) { throw "local chatbot never came up on 127.0.0.1:$Port - start run-chatbot.bat" }
     $url = Get-SiteUrl
     if ($url -and (Test-TunnelHealthy $url)) {
         Write-Log "existing tunnel already healthy: $url"
