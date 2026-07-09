@@ -1,0 +1,25 @@
+# Reality Lab AI Server — Cron for the OpenAI-backed chatbot
+#
+# Install:
+#   crontab scripts/migrate/crontab.new-server.txt
+#
+# Assumes:
+#   - Repo is at $HOME/Realitylab-site (override with REALITY_HOME in the env)
+#   - Python 3.10+, cloudflared, git are on PATH
+#   - .env in the repo root has OPENAI_API_KEY
+
+# --- Optional daily bounce (keeps memory/tunnels fresh; disable if unwanted) ---
+# 04:00 - stop chatbot + chatbot tunnel
+0 4 * * * $HOME/Realitylab-site/ai_server/stop_ai_server.sh >> $HOME/Realitylab-site/ai_server/rest_time.log 2>&1
+# 08:00 - start chatbot + chatbot tunnel + admin CMS + admin tunnel
+0 8 * * * $HOME/Realitylab-site/ai_server/start_server_and_tunnel.sh >> $HOME/Realitylab-site/ai_server/rest_time.log 2>&1
+
+# --- Tunnel watchdog (every 10 min, outside rest window) ---
+*/10 8-23,0-3 * * * $HOME/Realitylab-site/ai_server/monitor_tunnel.sh >> $HOME/Realitylab-site/ai_server/tunnel_monitor.log 2>&1
+
+# --- RAG refresh (nightly) ---
+0 0 * * * $HOME/Realitylab-site/ai_server/update_rag.sh >> $HOME/Realitylab-site/ai_server/rag_update.log 2>&1
+
+# --- Removed vs old server ---
+# smart_gpu_monitor.sh    (no local GPU inference — using OpenAI API)
+# 10/22h GPU availability check (same reason)

@@ -1,0 +1,18 @@
+[Unit]
+Description=Reality Lab AI Chatbot (OpenAI-backed)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=%i
+WorkingDirectory=/home/%i/Realitylab-site/ai_server
+EnvironmentFile=/home/%i/Realitylab-site/.env
+ExecStart=/home/%i/Realitylab-site/.venv/bin/python3 /home/%i/Realitylab-site/ai_server/ai_chatbot_server.py --port 4005
+Restart=always
+RestartSec=5
+StandardOutput=append:/home/%i/Realitylab-site/ai_server/chatbot.service.log
+StandardError=append:/home/%i/Realitylab-site/ai_server/chatbot.service.log
+
+[Install]
+WantedBy=multi-user.target

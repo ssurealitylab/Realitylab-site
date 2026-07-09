@@ -51,3 +51,15 @@ admin_cms/admin_config.json
 admin_cms/backups/
 admin_cms/.edit_lock
 admin_cms/audit_log.jsonl
+
+# Secrets
+.env
+.env.local
+
+# Runtime state (don't re-commit auto-generated tunnel/monitor logs)
+ai_server/*.log
+ai_server/*.pid
+ai_server/tunnel_temp.log
+ai_server/admin_tunnel_temp.log
+ai_server/restart_tunnel.lock
+ai_server/daily_attempts.txt
