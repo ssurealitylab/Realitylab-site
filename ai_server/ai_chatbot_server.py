@@ -154,11 +154,12 @@ def _build_messages(question, context, language):
 def call_openai(question, context="", language="ko"):
     """Call OpenAI Chat Completions (non-streaming)."""
     try:
+        # gpt-5.x rejects max_tokens (wants max_completion_tokens) and accepts
+        # only the default temperature, so neither knob is passed.
         resp = openai_client.chat.completions.create(
             model=OPENAI_MODEL,
             messages=_build_messages(question, context, language),
-            temperature=0.7,
-            max_tokens=1024,
+            max_completion_tokens=1024,
             stream=False,
             timeout=120,
         )
@@ -181,8 +182,7 @@ def call_openai_stream(question, context="", language="ko"):
         stream = openai_client.chat.completions.create(
             model=OPENAI_MODEL,
             messages=_build_messages(question, context, language),
-            temperature=0.7,
-            max_tokens=1024,
+            max_completion_tokens=1024,
             stream=True,
             timeout=120,
         )
