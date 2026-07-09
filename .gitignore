@@ -14,9 +14,10 @@ vendor/
 ehthumbs.db
 Thumbs.db
 
-# IDE files
+# IDE / agent files
 .vscode/
 .idea/
+.claude/
 *.swp
 *.swo
 
@@ -63,3 +64,5 @@ ai_server/tunnel_temp.log
 ai_server/admin_tunnel_temp.log
 ai_server/restart_tunnel.lock
 ai_server/daily_attempts.txt
+ai_server/rate_limit_until.txt
+ai_server/tunnel_temp.log.out
