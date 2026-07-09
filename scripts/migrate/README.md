@@ -40,48 +40,46 @@ curl -s http://localhost:4006/health | jq
 ./scripts/migrate/bfg_apply.sh
 ```
 
-### 2) 새 서버에서
+### 2) 새 서버에서 — **오직 git + OpenAI 키 하나**로 끝
+
+새 사람에게 넘겨줄 때 알려줘야 할 것:
+1. GitHub repo URL (또는 SSH key 등록 방법)
+2. **OpenAI API key** (한 개, 필수)
+3. **원하는 admin 비밀번호** (자기가 새로 정함)
+
+그 이상은 필요 없습니다. 나머지는 스크립트가 다 처리합니다.
 
 ```bash
-# 1. GitHub SSH key 등록 (또는 https + PAT)
-ssh-keygen -t ed25519 -C 'reality-lab-new-server'
-cat ~/.ssh/id_ed25519.pub  # → GitHub Settings > Deploy keys 또는 개인키에 추가
-
-# 2. clone + bootstrap
-git clone git@github.com:JuHyoungLee02/Realitylab-site.git ~/Realitylab-site
+# 1. clone
+git clone git@github.com:ssurealitylab/ssurealitylab.github.io.git ~/Realitylab-site
 cd ~/Realitylab-site
+
+# 2. bootstrap — 시스템 패키지, Jekyll, Python venv, RAG index 자동 셋업.
+#    도중에 admin 비밀번호를 물어봅니다 (bcrypt 해시로 저장됨).
+./scripts/migrate/bootstrap_new_server.sh
+# → 처음엔 .env를 만들고 멈춤. OPENAI_API_KEY 넣고:
+$EDITOR .env
+
+# 3. bootstrap 다시 실행 (idempotent — 이번엔 챗봇 smoke test까지 통과)
 ./scripts/migrate/bootstrap_new_server.sh
 
-# 3. 시크릿 (구 서버에서 SCP)
-#   admin_cms/admin_config.json
-#   ai_server/name_mapping.json
-#   ai_server/knowledge_base.json
-#   ai_server/hierarchical_rag/
-#   .env  (OPENAI_API_KEY)
-#   ~/.cloudflared/  (cert 재사용하려면)
-
-# 4. .env 최종 확인 후 재실행 (idempotent)
-./scripts/migrate/bootstrap_new_server.sh
-
-# 5. systemd 서비스 등록
+# 4. systemd + 크론
 sudo cp scripts/migrate/systemd/reality-chatbot.service /etc/systemd/system/reality-chatbot@.service
 sudo cp scripts/migrate/systemd/reality-admin.service   /etc/systemd/system/reality-admin@.service
 sudo systemctl daemon-reload
 sudo systemctl enable --now reality-chatbot@$USER reality-admin@$USER
-
-# 6. 크론
 crontab scripts/migrate/crontab.new-server.txt
-crontab -l
 
-# 7. 튜널 (한쪽씩 검증)
+# 5. 튜널 (cloudflared --url ephemeral, 로그인 불필요)
 $HOME/Realitylab-site/ai_server/restart_tunnel.sh
 $HOME/Realitylab-site/ai_server/restart_admin_tunnel.sh
 
-# 8. E2E 검증
-curl -s http://localhost:4005/health | jq          # 챗봇
-curl -s http://localhost:4010/health | jq          # admin
-# 브라우저: reality.ssu.ac.kr → AI 챗 시도, admin 페이지 로그인
+# 6. E2E 검증
+curl -s http://localhost:4005/health | jq   # 챗봇
+curl -s http://localhost:4010/health | jq   # admin
 ```
+
+**시크릿 SCP는 필요 없습니다** — `hierarchical_rag/`, `name_mapping.json`, `knowledge_base.json`은 git에 들어가 있고, `admin_config.json`은 bootstrap이 새로 생성해줍니다.
 
 ### 3) 컷오버
 
