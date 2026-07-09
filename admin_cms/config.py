@@ -1,7 +1,12 @@
 """Admin CMS Configuration"""
 import os
 
-SITE_ROOT = "/data2/i0179/Realitylab-site"
+# Repo root is the parent of admin_cms/. Deriving it keeps the CMS working
+# from any checkout location; SITE_ROOT overrides it when the CMS runs
+# against a repo other than the one it was imported from.
+SITE_ROOT = os.environ.get("SITE_ROOT") or os.path.dirname(
+    os.path.dirname(os.path.abspath(__file__))
+)
 DATA_DIR = os.path.join(SITE_ROOT, "_data")
 SITE_DIR = os.path.join(SITE_ROOT, "_site")
 BACKUP_DIR = os.path.join(SITE_ROOT, "admin_cms", "backups")

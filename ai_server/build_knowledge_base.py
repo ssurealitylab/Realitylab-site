@@ -328,13 +328,14 @@ Keywords: {', '.join(qa['keywords'])}"""
 
 def main():
     # Build knowledge base
-    site_root = "/home/i0179/Realitylab-site"
+    here = Path(__file__).resolve().parent
+    site_root = str(here.parent)
     builder = KnowledgeBaseBuilder(site_root)
 
     documents = builder.build()
 
     # Save to JSON
-    output_file = "/home/i0179/Realitylab-site/ai_server/knowledge_base.json"
+    output_file = str(here / "knowledge_base.json")
     builder.save_to_json(output_file)
 
     # Print statistics

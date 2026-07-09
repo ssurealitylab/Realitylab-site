@@ -200,7 +200,7 @@ class HierarchicalRetriever:
 
 def test_retriever():
     """Test the hierarchical retriever"""
-    retriever = HierarchicalRetriever("/home/i0179/Realitylab-site/ai_server/hierarchical_rag")
+    retriever = HierarchicalRetriever(str(Path(__file__).resolve().parent / "hierarchical_rag"))
     retriever.load()
 
     # Test queries

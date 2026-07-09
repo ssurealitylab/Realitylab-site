@@ -111,7 +111,7 @@ class RAGRetriever:
 
 def test_retriever():
     """Test the RAG retriever"""
-    retriever = RAGRetriever("/home/i0179/Realitylab-site/ai_server/vector_db")
+    retriever = RAGRetriever(str(Path(__file__).resolve().parent / "vector_db"))
     retriever.load()
 
     # Test queries

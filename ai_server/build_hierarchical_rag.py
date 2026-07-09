@@ -133,8 +133,9 @@ class HierarchicalRAGBuilder:
 
 
 def main():
-    kb_path = "/home/i0179/Realitylab-site/ai_server/knowledge_base.json"
-    output_dir = "/home/i0179/Realitylab-site/ai_server/hierarchical_rag"
+    here = Path(__file__).resolve().parent
+    kb_path = str(here / "knowledge_base.json")
+    output_dir = str(here / "hierarchical_rag")
 
     builder = HierarchicalRAGBuilder(kb_path, output_dir)
     builder.build()
