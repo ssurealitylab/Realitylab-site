@@ -1,0 +1,5 @@
+# Admin CMS dependencies. The chatbot's ai_server/requirements.txt already
+# covers flask / flask-cors / pyyaml, which the CMS also imports.
+bcrypt>=4.0
+Pillow>=10.0
+ruamel.yaml>=0.17

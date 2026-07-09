@@ -39,6 +39,24 @@ open http://localhost:4000
 For chatbot + admin work, follow the setup in [`scripts/migrate/README.md`](scripts/migrate/README.md)
 — the same script that bootstraps a fresh production server works locally too.
 
+Python deps live in two files: [`ai_server/requirements.txt`](ai_server/requirements.txt)
+(chatbot) and [`admin_cms/requirements.txt`](admin_cms/requirements.txt) (CMS).
+
+### Running on Windows
+
+The chatbot and CMS are platform-neutral — they pick their file-lock, process
+detach, and `bundle` lookup per platform — so a plain checkout runs as-is. Two
+things bite anyway, neither of them a code problem:
+
+- **Ruby.** Install [RubyInstaller **with MSYS2**](https://rubyinstaller.org/)
+  (`x64-mingw-ucrt`), not conda's ruby. Conda ships an `mswin` build, and
+  `commonmarker` / `eventmachine` do not compile under MSVC. Keep `BUNDLE_PATH`
+  **outside** the repo, or Jekyll scans `vendor/` and dies parsing a gem's own
+  `site_template` fixture.
+- **Console encoding.** Set `PYTHONUTF8=1`. On a cp949 console the servers'
+  emoji progress prints raise, and the exception takes `load_rag()` down with
+  it — leaving a chatbot that starts fine and then answers with no RAG context.
+
 ---
 
 ## Editing content

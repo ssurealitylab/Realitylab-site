@@ -60,8 +60,8 @@ fi
 source "$REPO_ROOT/.venv/bin/activate"
 pip install --upgrade pip
 pip install -r ai_server/requirements.txt
-pip install bcrypt   # required by admin_cms
-ok "chatbot dependencies installed in .venv"
+pip install -r admin_cms/requirements.txt
+ok "chatbot + admin dependencies installed in .venv"
 
 # ---- 4/8 .env --------------------------------------------------------------
 step "4/8 .env (OpenAI credentials)"
@@ -108,7 +108,7 @@ fi
 
 # ---- 7/8 Smoke tests ------------------------------------------------------
 step "7/8 Smoke tests"
-python3 -c "import openai, flask, flask_cors, pytz, bcrypt, sentence_transformers; print('imports OK')" \
+python3 -c "import openai, flask, flask_cors, pytz, bcrypt, sentence_transformers, faiss, PIL, ruamel.yaml; print('imports OK')" \
     && ok "python imports OK"
 
 if [ -n "${OPENAI_API_KEY:-}" ] || grep -q '^OPENAI_API_KEY=sk-[A-Za-z0-9_-]\{20,\}' "$REPO_ROOT/.env" 2>/dev/null; then
