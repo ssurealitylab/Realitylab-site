@@ -54,6 +54,20 @@ $RATE_LIMIT_COOLDOWN = 3600
 $DAILY_MAX_ATTEMPTS  = 20
 $URL_RE              = 'https://[a-z0-9-]+\.trycloudflare\.com'
 
+function Invoke-Git {
+    # git writes ordinary progress to stderr. Under $ErrorActionPreference='Stop'
+    # PowerShell 5.1 turns those lines into a terminating NativeCommandError, so
+    # a *successful* push would abort this script. Run git with the preference
+    # relaxed and judge it by its exit code instead.
+    param([Parameter(ValueFromRemainingArguments)] [string[]] $GitArgs)
+    $prev = $ErrorActionPreference
+    $ErrorActionPreference = 'Continue'
+    try {
+        $output = & git @GitArgs 2>&1 | Out-String
+        return [pscustomobject]@{ Code = $LASTEXITCODE; Output = $output.Trim() }
+    } finally { $ErrorActionPreference = $prev }
+}
+
 function Write-Log {
     param([string] $Message)
     $line = "[{0}] {1}" -f (Get-Date -Format 'yyyy-MM-dd HH:mm:ss'), $Message
@@ -149,19 +163,21 @@ function Publish-Url {
     try {
         # Stage only the two files: `git add -A` would sweep whatever else the
         # working tree happens to be carrying on this machine.
-        git add -- '_includes/chatbot.html' '_includes/bug-report.html' | Out-Null
-        git commit -m "Auto-update Cloudflare Tunnel URL" 2>&1 | Out-Null
-        if ($LASTEXITCODE -ne 0) { Write-Log "nothing to commit"; return }
+        Invoke-Git add -- '_includes/chatbot.html' '_includes/bug-report.html' | Out-Null
+        if ((Invoke-Git commit -m 'Auto-update Cloudflare Tunnel URL').Code -ne 0) {
+            Write-Log 'nothing to commit'; return
+        }
 
         for ($i = 1; $i -le 3; $i++) {
-            git push origin $Branch 2>&1 | Out-Null
-            if ($LASTEXITCODE -eq 0) { Write-Log "pushed (attempt $i)"; return }
+            if ((Invoke-Git push origin $Branch).Code -eq 0) { Write-Log "pushed (attempt $i)"; return }
             Write-Log "push attempt $i failed; pull --rebase"
-            git rebase --abort 2>&1 | Out-Null
-            git pull --rebase origin $Branch 2>&1 | Out-Null
-            if ($LASTEXITCODE -ne 0) { git rebase --abort 2>&1 | Out-Null; Write-Log "rebase conflict; giving up"; return }
+            Invoke-Git rebase --abort | Out-Null
+            if ((Invoke-Git pull --rebase origin $Branch).Code -ne 0) {
+                Invoke-Git rebase --abort | Out-Null
+                Write-Log 'rebase conflict; giving up'; return
+            }
         }
-        Write-Log "WARNING: exhausted push attempts; GitHub Pages will serve the stale URL"
+        Write-Log 'WARNING: exhausted push attempts; GitHub Pages will serve the stale URL'
     } finally { Pop-Location }
 }
 
