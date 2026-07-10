@@ -65,4 +65,7 @@ ai_server/admin_tunnel_temp.log
 ai_server/restart_tunnel.lock
 ai_server/daily_attempts.txt
 ai_server/rate_limit_until.txt
-ai_server/tunnel_temp.log.out
+ai_server/admin_url.txt
+ai_server/admin_daily_attempts.txt
+ai_server/restart_admin_tunnel.lock
+ai_server/*.log.out
