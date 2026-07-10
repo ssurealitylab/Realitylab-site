@@ -60,10 +60,12 @@ else
     echo "[$(date)] Step 3/3: SKIP chatbot restart (RESTART_CHATBOT=$RESTART_CHATBOT)"
 fi
 
-# Summary
-KB_FILE="$SCRIPT_DIR/knowledge_base.json"
-if [ -f "$KB_FILE" ]; then
-    DOCS_COUNT=$($PYTHON -c "import json; f=open('$KB_FILE'); data=json.load(f); print(len(data)); f.close()")
+# Summary. Interpolating $SCRIPT_DIR into the python source breaks under Git
+# Bash on Windows: the shell hands over an MSYS path (/c/Users/...) that a
+# native python cannot open. We are still cd'd into the script's directory from
+# step 1, so pass a relative path instead.
+if [ -f knowledge_base.json ]; then
+    DOCS_COUNT=$($PYTHON -c "import json; print(len(json.load(open('knowledge_base.json', encoding='utf-8'))))")
     echo ""
     echo "Summary:"
     echo "  Knowledge base documents: $DOCS_COUNT"
