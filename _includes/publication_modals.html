@@ -464,28 +464,11 @@
       </div>
       {% endif %}
 
-      {% if pub.id == 'c26' %}
-      <!-- HiGlassRM Abstract Section -->
-      <div class="method-image-section mb-4">
-        <h5 class="method-image-title">Abstract</h5>
-        <div class="abstract-content">
-          <p>{{ pub.abstract }}</p>
-        </div>
-      </div>
-      {% endif %}
-
-      {% if pub.id == 'wacv26_mbti' %}
-      <!-- MBTI Abstract Section -->
-      <div class="method-image-section mb-4">
-        <h5 class="method-image-title">Abstract</h5>
-        <div class="abstract-content">
-          <p>{{ pub.abstract }}</p>
-        </div>
-      </div>
-      {% endif %}
-
-      {% if pub.id == 'c23' %}
-      <!-- UDT Abstract Section -->
+      <!-- Abstract. Driven by the YAML field, so a new paper only needs
+           `abstract:` in publications.yml. This used to be one id-gated copy of
+           the same block per paper (c26, wacv26_mbti, c23), which meant adding a
+           paper's abstract to the data silently rendered nothing. -->
+      {% if pub.abstract %}
       <div class="method-image-section mb-4">
         <h5 class="method-image-title">Abstract</h5>
         <div class="abstract-content">

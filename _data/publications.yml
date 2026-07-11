@@ -51,6 +51,20 @@ publications:
     pdf: "https://journals.lww.com/clinicalpain/abstract/2026/04000/predicting_heterogeneity_of_treatment_effects_to.2.aspx"
     doi: "https://doi.org/10.1097/AJP.0000000000001364"
 
+- id: w8
+  title: "Towards Thermal-Aware Humanoid Locomotion: Estimating Unobserved Winding Temperatures"
+  authors: "Eunwoo Song*, Sangmin Lee*†, Yeonji Kim, Heewon Kim‡"
+  venue: "CVPR 2026 Workshop"
+  venue_short: "CVPRW26"
+  year: 2026
+  type: workshop
+  status: published
+  abstract: "Sustained humanoid locomotion is bounded by progressive torque degradation from motor heating, and failure is driven by the unobservable winding temperature rather than the measurable housing. First-order models cannot represent the winding state, while standard second-order LPTNs assume embedded winding sensors and treat each actuator in isolation, both invalid on humanoid servo-integrated actuators. We adapt the coupled second-order LPTN with physically-informed regularizers derived from non-destructive teardown of commercial servos and an inter-motor coupling term for shared housings and PLA-frame conduction, identified from only the integer-quantized housing temperature. On the ToddlerBot platform with 30 actuators, the identified model recovers the unobserved winding state with physically consistent behavior across 10 walk sessions. Lacking an embedded winding sensor, we validate the estimate not by pointwise accuracy but by physical consistency and by an independent resistance-thermometry measurement on the load-bearing joints, providing a foundation for thermal-aware locomotion policies."
+  citation: "[W8] Eunwoo Song*, Sangmin Lee*, Yeonji Kim, and Heewon Kim, \"Towards Thermal-Aware Humanoid Locomotion: Estimating Unobserved Winding Temperatures,\" Proc. CVPR Workshops, 2026."
+  notes: "* Equal contribution, † Now at Qualcomm, ‡ Corresponding author"
+  links:
+    pdf: "/assets/pdf/towards_thermal_aware_humanoid_locomotion.pdf"
+
 - id: w7
   title: "Multimodal Predictors of Heterogeneity of Treatment Effects in Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain: A Machine Learning Analysis"
   authors: "Seoyoung Kim†, Yeri Kim†, Chiyoung Lee, Juyoung Park, Hyochol Ahn, Heewon Kim"
