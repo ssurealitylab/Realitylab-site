@@ -114,10 +114,20 @@ function Invoke-Git {
     param([Parameter(ValueFromRemainingArguments)] [string[]] $GitArgs)
     $prev = $ErrorActionPreference
     $ErrorActionPreference = 'Continue'
+    # If the stored credential expires, git otherwise tries to open an
+    # interactive auth prompt. In this headless task that call blocks forever:
+    # the push never returns, the retry/WARNING logic below never runs, and the
+    # site keeps serving whatever stale URL was last pushed. Force git to fail
+    # fast instead so the failure is logged and visible.
+    $prevPrompt = $env:GIT_TERMINAL_PROMPT
+    $env:GIT_TERMINAL_PROMPT = '0'
     try {
         $output = & git @GitArgs 2>&1 | Out-String
         return [pscustomobject]@{ Code = $LASTEXITCODE; Output = $output.Trim() }
-    } finally { $ErrorActionPreference = $prev }
+    } finally {
+        $ErrorActionPreference = $prev
+        $env:GIT_TERMINAL_PROMPT = $prevPrompt
+    }
 }
 
 function Write-Log {
@@ -238,8 +248,18 @@ function Publish-Url {
         }
 
         for ($i = 1; $i -le 3; $i++) {
-            if ((Invoke-Git push origin $Branch).Code -eq 0) { Write-Log "pushed (attempt $i)"; return }
-            Write-Log "push attempt $i failed; pull --rebase"
+            $push = Invoke-Git push origin $Branch
+            if ($push.Code -eq 0) { Write-Log "pushed (attempt $i)"; return }
+            # Log the reason. Auth failure ("could not read Username",
+            # "Authentication failed", "terminal prompts disabled") means the
+            # stored credential expired and someone has to refresh it -- a pull
+            # --rebase will not help, so bail out loudly rather than spinning.
+            $reason = ($push.Output -split "`n" | Select-Object -Last 1).Trim()
+            Write-Log "push attempt $i failed: $reason"
+            if ($push.Output -match 'Authentication failed|could not read Username|terminal prompts disabled|Permission denied|fatal: could not read') {
+                Write-Log 'AUTH FAILURE: git credential expired. Run `git push` once by hand to refresh it. GitHub Pages will serve the stale URL until then.'
+                return
+            }
             Invoke-Git rebase --abort | Out-Null
             if ((Invoke-Git pull --rebase origin $Branch).Code -ne 0) {
                 Invoke-Git rebase --abort | Out-Null
