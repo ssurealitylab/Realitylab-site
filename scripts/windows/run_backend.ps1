@@ -20,7 +20,14 @@ param(
 
     [string] $RepoRoot,
     [string] $Python = "$env:USERPROFILE\anaconda3\envs\RS\python.exe",
-    [int]    $Port
+    [int]    $Port,
+
+    # The admin CMS runs `bundle exec jekyll build` after every edit. It
+    # inherits this process's environment, so Ruby has to be on PATH and
+    # BUNDLE_PATH has to point at the out-of-repo gem dir, or the build step
+    # fails with "command not found: jekyll" and every save is rolled back.
+    [string] $RubyBin    = 'C:\Ruby33-x64\bin',
+    [string] $BundlePath = "$env:USERPROFILE\Desktop\RS\gems-win"
 )
 
 $ErrorActionPreference = 'Stop'
@@ -49,8 +56,17 @@ if ($Service -eq 'chatbot') {
     # This account carries an OPENAI_API_KEY for other projects, and
     # load_dotenv() will not override an already-set variable.
     $env:OPENAI_API_KEY = ''
-} elseif (-not (Test-Path (Join-Path $RepoRoot 'admin_cms\admin_config.json'))) {
-    throw 'admin_cms\admin_config.json missing - run admin_cms/set_admin_password.py'
+} else {
+    if (-not (Test-Path (Join-Path $RepoRoot 'admin_cms\admin_config.json'))) {
+        throw 'admin_cms\admin_config.json missing - run admin_cms/set_admin_password.py'
+    }
+    # Give the admin server the same Ruby/gem environment the .bat launchers set
+    # up, so its post-save `bundle exec jekyll build` can find jekyll. The out-
+    # of-repo BUNDLE_PATH matters twice over: it is where the gems actually live,
+    # and keeping it out of the repo stops Jekyll from scanning vendor/ and dying
+    # on a gem's own site_template fixture.
+    if (Test-Path $RubyBin) { $env:PATH = "$RubyBin;$env:PATH" }
+    $env:BUNDLE_PATH = $BundlePath
 }
 
 # Bind to loopback only: the apps default to 0.0.0.0, and the tunnel is the

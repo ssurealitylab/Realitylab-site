@@ -95,12 +95,17 @@ def jekyll_build() -> tuple:
         "/home/i0179/miniconda3/envs/RS/bin/bundle",
         "/usr/local/bin/bundle",
         "/usr/bin/bundle",
+        # Windows RubyInstaller. Checked explicitly because the admin server
+        # may run without this on PATH (e.g. launched from Task Scheduler),
+        # in which case the shutil.which below would miss it and jekyll_build
+        # would fall through to a bare "bundle" that cannot find jekyll.
+        r"C:\Ruby33-x64\bin\bundle.bat",
     ):
         if os.path.exists(candidate):
             bundle_cmd = candidate
             break
-    # Nothing at the known POSIX paths (dev boxes, Windows): fall back to PATH,
-    # which also resolves bundle.bat from a RubyInstaller install.
+    # Nothing at the known paths (other dev boxes): fall back to PATH, which
+    # also resolves bundle / bundle.bat from a normal Ruby install.
     bundle_cmd = bundle_cmd or shutil.which("bundle") or "bundle"
 
     # bundle needs Ruby's gem env to find jekyll's executable. The
@@ -115,6 +120,22 @@ def jekyll_build() -> tuple:
             f"{gem_home}/bin:/home/i0179/miniconda3/envs/RS/bin:"
             + env.get("PATH", "")
         )
+    elif os.name == "nt":
+        # bundle.bat shells out to ruby.exe, so Ruby's bin has to be on PATH;
+        # when the admin server is launched without it (e.g. from Task
+        # Scheduler), bundle.bat runs but dies with "ruby.exe is not
+        # recognized".
+        ruby_bin = r"C:\Ruby33-x64\bin"
+        if os.path.isdir(ruby_bin) and ruby_bin.lower() not in env.get("PATH", "").lower():
+            env["PATH"] = ruby_bin + os.pathsep + env.get("PATH", "")
+        # The gems live outside the repo (keeping them inside makes Jekyll scan
+        # vendor/ and choke on a gem's site_template fixture). If the launcher
+        # did not export BUNDLE_PATH, point bundler at that dir; without it
+        # bundler looks in the repo and reports jekyll as missing.
+        if not env.get("BUNDLE_PATH"):
+            gems = os.path.join(os.path.expanduser("~"), "Desktop", "RS", "gems-win")
+            if os.path.isdir(gems):
+                env["BUNDLE_PATH"] = gems
 
     try:
         result = subprocess.run(
