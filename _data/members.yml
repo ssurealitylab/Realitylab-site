@@ -151,14 +151,14 @@ students:
     photo: assets/img/members/hyunsoo_park.jpg
     github: https://github.com/hyunsoopark4/hyunsoopark4
     linkedin: https://www.linkedin.com/in/%ED%98%84%EC%88%98-%EB%B0%95-04b48835a/
-  - name: Sunghyun Ku
-    name_ko: 구성현
-    email: paul2paulku@gmail.com
-    university: CSE, Tech University of Korea, B.S.
-    research: Deep Learning, Computer Vision
-    photo: ''
+  - email: paul2paulku@gmail.com
     github: ''
     linkedin: ''
+    name: Sunghyun Ku
+    name_ko: 구성현
+    photo: assets/img/members/sunghyun_ku.jpg
+    research: Deep Learning, Computer Vision
+    university: CSE, Tech University of Korea, B.S.
 robots:
   description: "Research Robots"
   members:
