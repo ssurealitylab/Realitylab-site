@@ -118,8 +118,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 46px;
-  height: 46px;
+  width: 58px;
+  height: 58px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   pointer-events: none;
@@ -141,8 +141,8 @@
   );
   /* Hollow it out so only a ~4px ring shows. Tighter radii = smaller
      diameter per user request. */
-  -webkit-mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
-          mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
+  -webkit-mask: radial-gradient(circle, transparent 23px, #000 24px, #000 27px, transparent 28px);
+          mask: radial-gradient(circle, transparent 23px, #000 24px, #000 27px, transparent 28px);
   animation: ai-ring-breathe 2s ease-in-out infinite;
 }
 
@@ -152,8 +152,8 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  width: 46px;
-  height: 46px;
+  width: 58px;
+  height: 58px;
   transform: translate(-50%, -50%) rotate(0deg);
   border-radius: 50%;
   pointer-events: none;
@@ -166,8 +166,8 @@
     rgba(59,130,246,0.98)   355deg,
     #bfdbfe                 360deg
   );
-  -webkit-mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
-          mask: radial-gradient(circle, transparent 17px, #000 18px, #000 22px, transparent 23px);
+  -webkit-mask: radial-gradient(circle, transparent 23px, #000 24px, #000 27px, transparent 28px);
+          mask: radial-gradient(circle, transparent 23px, #000 24px, #000 27px, transparent 28px);
   /* Two-layer halo: an inner light-blue bloom (reads on the dark home hero) and
      an outer NAVY glow. Navy (#1e3a8a) is dark enough to show against white AND
      against the pale blue-purple gradient behind the nav on the publications
