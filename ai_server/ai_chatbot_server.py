@@ -72,13 +72,16 @@ openai_client = OpenAI(
 # the notice instead of a generic error, while scripted abuse costs no tokens.
 from collections import deque
 
-RL_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "6"))         # per IP / 60s
-RL_PER_HOUR = int(os.environ.get("RATE_LIMIT_PER_HOUR", "100"))     # per IP / hour
+# Per-visitor DAILY quota. Each visitor gets RL_PER_DAY questions per calendar
+# day in KST; the counter resets at KST midnight (00:00) because the per-IP key
+# is the KST date string — when the date rolls over, the count starts fresh. A
+# small global per-minute cap blunts distributed floods without touching normal
+# visitors.
+RL_PER_DAY = int(os.environ.get("RATE_LIMIT_PER_DAY", "15"))               # per IP / day (KST)
 RL_GLOBAL_PER_MIN = int(os.environ.get("RATE_LIMIT_GLOBAL_PER_MIN", "60"))  # all IPs / 60s
 
 _rl_lock = threading.Lock()
-_rl_ip_min = {}      # ip -> deque[timestamps] within last 60s
-_rl_ip_hour = {}     # ip -> deque[timestamps] within last 3600s
+_rl_daily = {}            # ip -> [kst_day_str, count] for the current KST day
 _rl_global_min = deque()  # timestamps within last 60s (all clients)
 
 
@@ -93,46 +96,55 @@ def _client_ip():
     return request.remote_addr or "unknown"
 
 
-def _prune(dq, now, window):
-    while dq and now - dq[0] > window:
-        dq.popleft()
+def _kst_day():
+    """KST calendar date string; changes at 00:00 KST, driving the daily reset."""
+    return datetime.now(KST).strftime("%Y-%m-%d")
 
 
 def check_rate_limit():
     """Return (allowed: bool, scope: str). Records the hit when allowed."""
     now = time.time()
     ip = _client_ip()
+    today = _kst_day()
     with _rl_lock:
-        _prune(_rl_global_min, now, 60)
+        # global per-minute safety net (distributed flood protection)
+        while _rl_global_min and now - _rl_global_min[0] > 60:
+            _rl_global_min.popleft()
         if len(_rl_global_min) >= RL_GLOBAL_PER_MIN:
             return False, "global"
 
-        dqm = _rl_ip_min.setdefault(ip, deque())
-        dqh = _rl_ip_hour.setdefault(ip, deque())
-        _prune(dqm, now, 60)
-        _prune(dqh, now, 3600)
-        if len(dqm) >= RL_PER_MIN:
-            return False, "ip_min"
-        if len(dqh) >= RL_PER_HOUR:
-            return False, "ip_hour"
+        entry = _rl_daily.get(ip)
+        if entry is None or entry[0] != today:
+            entry = [today, 0]          # new visitor, or a new KST day → reset
+            _rl_daily[ip] = entry
+        if entry[1] >= RL_PER_DAY:
+            return False, "ip_day"
 
         # allowed — record the hit
-        dqm.append(now)
-        dqh.append(now)
+        entry[1] += 1
         _rl_global_min.append(now)
 
-        # opportunistic cleanup so idle IPs don't accumulate forever
-        if len(_rl_ip_min) > 2048:
-            for k in [k for k, v in _rl_ip_min.items() if not v]:
-                _rl_ip_min.pop(k, None)
-                _rl_ip_hour.pop(k, None)
+        # opportunistic cleanup of yesterday's stale entries
+        if len(_rl_daily) > 4096:
+            for k in [k for k, v in _rl_daily.items() if v[0] != today]:
+                _rl_daily.pop(k, None)
         return True, ""
 
 
-def _rate_limit_message(language):
+def _rate_limit_message(language, scope=""):
+    if scope == "global":
+        # transient site-wide burst, not the visitor's personal daily cap
+        if language == "en":
+            return "⚠️ The assistant is a little busy right now. Please try again in a moment!"
+        return "⚠️ 지금 이용자가 많아요. 잠시 후 다시 시도해 주세요!"
+    # personal daily quota exhausted — warm "come back tomorrow" note
     if language == "en":
-        return "⚠️ Too many requests. Please wait a moment and try again."
-    return "⚠️ 요청이 너무 많습니다. 잠시 후 다시 시도해주세요."
+        return (f"🙏 You've used up today's {RL_PER_DAY} questions! "
+                "Thanks so much for your curiosity about Reality Lab — "
+                "please come back and chat with me again tomorrow 😊")
+    return (f"🙏 오늘 준비된 질문 {RL_PER_DAY}번을 모두 사용하셨어요! "
+            "Reality Lab에 관심 가져주셔서 정말 감사합니다 — "
+            "내일 다시 찾아와 주시면 반갑게 답변해 드릴게요 😊")
 
 SYSTEM_PROMPT_KO = """당신은 숭실대학교 Reality Lab(리얼리티 연구실)의 AI 어시스턴트입니다.
 연구실의 정보, 구성원, 연구 분야, 논문 등에 대한 질문에 친절하고 정확하게 답변해주세요.
@@ -289,9 +301,9 @@ def health_check():
         "api_key_present": bool(os.environ.get("OPENAI_API_KEY")),
         "rest_time": is_rest_time(),
         "rate_limit": {
-            "per_min": RL_PER_MIN,
-            "per_hour": RL_PER_HOUR,
+            "per_day": RL_PER_DAY,
             "global_per_min": RL_GLOBAL_PER_MIN,
+            "resets": "00:00 KST",
         },
     })
 
@@ -326,7 +338,7 @@ def chat():
     if not allowed:
         print(f"[RateLimit] blocked {_client_ip()} scope={scope}")
         return jsonify({
-            "response": _rate_limit_message(language),
+            "response": _rate_limit_message(language, scope),
             "status": "rate_limited",
         })
 
@@ -386,7 +398,7 @@ def chat_stream():
     if not allowed:
         print(f"[RateLimit] blocked {_client_ip()} scope={scope} (stream)")
         def limited_response():
-            yield f"data: {json.dumps({'text': _rate_limit_message(language), 'done': False})}\n\n"
+            yield f"data: {json.dumps({'text': _rate_limit_message(language, scope), 'done': False})}\n\n"
             yield f"data: {json.dumps({'done': True})}\n\n"
         return Response(limited_response(), mimetype='text/event-stream')
 
