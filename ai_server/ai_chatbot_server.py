@@ -57,6 +57,83 @@ openai_client = OpenAI(
     base_url=OPENAI_BASE_URL,
 )
 
+# ---------------------------------------------------------------------------
+# Abuse protection: per-client rate limiting.
+#
+# Only /chat and /chat/stream (which spend OpenAI tokens) are limited; /health
+# and /heartbeat are polled by the frontend and stay open. The server sits
+# behind a Cloudflare quick tunnel, so request.remote_addr is always the tunnel
+# (127.0.0.1); the real visitor IP arrives in CF-Connecting-IP. Keying on that
+# gives true per-visitor limits instead of one shared bucket.
+#
+# Limits are sliding-window, in-memory (single Flask process). Env-overridable.
+# A rejected request returns HTTP 200 with a friendly message and never calls
+# OpenAI — matching the existing is_rest_time() convention so the chat UI shows
+# the notice instead of a generic error, while scripted abuse costs no tokens.
+from collections import deque
+
+RL_PER_MIN = int(os.environ.get("RATE_LIMIT_PER_MIN", "6"))         # per IP / 60s
+RL_PER_HOUR = int(os.environ.get("RATE_LIMIT_PER_HOUR", "100"))     # per IP / hour
+RL_GLOBAL_PER_MIN = int(os.environ.get("RATE_LIMIT_GLOBAL_PER_MIN", "60"))  # all IPs / 60s
+
+_rl_lock = threading.Lock()
+_rl_ip_min = {}      # ip -> deque[timestamps] within last 60s
+_rl_ip_hour = {}     # ip -> deque[timestamps] within last 3600s
+_rl_global_min = deque()  # timestamps within last 60s (all clients)
+
+
+def _client_ip():
+    """Real visitor IP behind the Cloudflare tunnel."""
+    cf = request.headers.get("CF-Connecting-IP")
+    if cf:
+        return cf.strip()
+    xff = request.headers.get("X-Forwarded-For")
+    if xff:
+        return xff.split(",")[0].strip()
+    return request.remote_addr or "unknown"
+
+
+def _prune(dq, now, window):
+    while dq and now - dq[0] > window:
+        dq.popleft()
+
+
+def check_rate_limit():
+    """Return (allowed: bool, scope: str). Records the hit when allowed."""
+    now = time.time()
+    ip = _client_ip()
+    with _rl_lock:
+        _prune(_rl_global_min, now, 60)
+        if len(_rl_global_min) >= RL_GLOBAL_PER_MIN:
+            return False, "global"
+
+        dqm = _rl_ip_min.setdefault(ip, deque())
+        dqh = _rl_ip_hour.setdefault(ip, deque())
+        _prune(dqm, now, 60)
+        _prune(dqh, now, 3600)
+        if len(dqm) >= RL_PER_MIN:
+            return False, "ip_min"
+        if len(dqh) >= RL_PER_HOUR:
+            return False, "ip_hour"
+
+        # allowed — record the hit
+        dqm.append(now)
+        dqh.append(now)
+        _rl_global_min.append(now)
+
+        # opportunistic cleanup so idle IPs don't accumulate forever
+        if len(_rl_ip_min) > 2048:
+            for k in [k for k, v in _rl_ip_min.items() if not v]:
+                _rl_ip_min.pop(k, None)
+                _rl_ip_hour.pop(k, None)
+        return True, ""
+
+
+def _rate_limit_message(language):
+    if language == "en":
+        return "⚠️ Too many requests. Please wait a moment and try again."
+    return "⚠️ 요청이 너무 많습니다. 잠시 후 다시 시도해주세요."
+
 SYSTEM_PROMPT_KO = """당신은 숭실대학교 Reality Lab(리얼리티 연구실)의 AI 어시스턴트입니다.
 연구실의 정보, 구성원, 연구 분야, 논문 등에 대한 질문에 친절하고 정확하게 답변해주세요.
 제공된 참고자료를 기반으로 답변하되, 참고자료에 없는 내용은 "정확한 정보를 찾지 못했습니다"라고 말씀해주세요.
@@ -211,6 +288,11 @@ def health_check():
         "model_name": OPENAI_MODEL,
         "api_key_present": bool(os.environ.get("OPENAI_API_KEY")),
         "rest_time": is_rest_time(),
+        "rate_limit": {
+            "per_min": RL_PER_MIN,
+            "per_hour": RL_PER_HOUR,
+            "global_per_min": RL_GLOBAL_PER_MIN,
+        },
     })
 
 
@@ -237,6 +319,16 @@ def chat():
 
     mode = data.get('mode', 'deep')
     language = detect_language(question)
+
+    # Reject floods before spending tokens (outside request_lock so rejected
+    # requests return immediately instead of queueing behind the lock).
+    allowed, scope = check_rate_limit()
+    if not allowed:
+        print(f"[RateLimit] blocked {_client_ip()} scope={scope}")
+        return jsonify({
+            "response": _rate_limit_message(language),
+            "status": "rate_limited",
+        })
 
     print(f"\n[Chat] Mode: {mode}, Language: {language}")
     print(f"[Chat] Question: {question}")
@@ -289,6 +381,15 @@ def chat_stream():
         return jsonify({"error": "No question provided"}), 400
 
     language = detect_language(question)
+
+    allowed, scope = check_rate_limit()
+    if not allowed:
+        print(f"[RateLimit] blocked {_client_ip()} scope={scope} (stream)")
+        def limited_response():
+            yield f"data: {json.dumps({'text': _rate_limit_message(language), 'done': False})}\n\n"
+            yield f"data: {json.dumps({'done': True})}\n\n"
+        return Response(limited_response(), mimetype='text/event-stream')
+
     context, verified_by_researchers = get_rag_context(question, language)
 
     start_time = time.time()
