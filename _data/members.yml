@@ -135,14 +135,6 @@ students:
     github: "https://github.com/daeGULLL"
     linkedin: ""
 
-  - name: Inseon Kang
-    name_ko: 강인선
-    email: kangis901@naver.com
-    university: AI Software Engineering, Soongsil University, B.S.
-    research: Computer Vision, Physical AI
-    photo: assets/img/members/inseon_kang.jpg
-    github: ''
-    linkedin: ''
   - name: Hyunsoo Park
     name_ko: 박현수
     email: hyunsoopark41@gmail.com
@@ -409,3 +401,11 @@ alumni:
     research: "Computer Vision, Deep Learning"
     period: "26.~26.7"
     photo: "assets/img/members/jaerim_kim.png"
+
+  - name: "Inseon Kang"
+    name_ko: "강인선"
+    email: "kangis901@naver.com"
+    university: "AI Software Engineering, Soongsil University, B.S."
+    research: "Computer Vision, Physical AI"
+    period: "26.5~26.7"
+    photo: "assets/img/members/inseon_kang.jpg"

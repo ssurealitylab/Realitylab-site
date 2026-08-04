@@ -65,6 +65,19 @@ publications:
   links:
     pdf: "/assets/pdf/towards_thermal_aware_humanoid_locomotion.pdf"
 
+- id: w9
+  title: "Keep the Flow: Continuous High-Precision Bimanual Manipulation in Constrained Spaces"
+  authors: "Hojae Jeong*, Juhyoung Lee*, Eunwoo Song, Jaerim Kim, Heewon Kim†"
+  venue: "CVPR 2026 Workshop"
+  venue_short: "CVPRW26"
+  year: 2026
+  type: workshop
+  status: published
+  abstract: "Recent robotic datasets have scaled generalist policies, but most lack strict metric constraints for precise object placement. To address this, we introduce Keep the Flow, a real-world bimanual humanoid dataset explicitly designed for spatially constrained manipulation. We collect these demonstrations via VR teleoperation on a Unitree G1 humanoid equipped with three-fingered Dex3-1 hands, covering both Single-row and Multi-row task formations. To ensure high-precision annotations, an automated overhead RGB-D verification loop filters out demonstrations whose final placement error exceeds 2cm. Furthermore, we develop an action-state-preserving visual augmentation pipeline that combines SAM2-based object recoloring with workspace grid removal."
+  notes: "* Equal contribution<br>† Corresponding author"
+  links:
+    pdf: "/assets/pdf/keep_the_flow.pdf"
+
 - id: w7
   title: "Multimodal Predictors of Heterogeneity of Treatment Effects in Transcranial Direct Current Stimulation for Knee Osteoarthritis Pain: A Machine Learning Analysis"
   authors: "Seoyoung Kim†, Yeri Kim†, Chiyoung Lee, Juyoung Park, Hyochol Ahn, Heewon Kim"
