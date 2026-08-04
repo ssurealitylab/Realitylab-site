@@ -477,9 +477,22 @@
       </div>
       {% endif %}
 
+      {% comment %}
+        Citation: use the explicit `citation:` field when present; otherwise
+        auto-build one from the paper's own fields so no paper ever renders an
+        empty grey citation box. Add `pages:` in publications.yml to append
+        "pp. X-Y" to the auto-generated form.
+      {% endcomment %}
+      {% assign citation_text = pub.citation | default: "" | strip %}
+      {% if citation_text == "" %}
+        {% capture citation_text %}[{{ pub.id | upcase }}] {{ pub.authors }}, "{{ pub.title }}," {{ pub.venue }}, {{ pub.year }}{% if pub.pages %}, pp. {{ pub.pages }}{% endif %}.{% endcapture %}
+        {% assign citation_text = citation_text | strip %}
+      {% endif %}
+      {% if citation_text != "" %}
       <div class="citation-box">
-        <p>{{ pub.citation }}</p>
+        <p>{{ citation_text }}</p>
       </div>
+      {% endif %}
       {% if pub.notes %}
       <p class="mt-3"><small>{{ pub.notes }}</small></p>
       {% endif %}
