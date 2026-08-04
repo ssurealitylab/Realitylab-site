@@ -79,6 +79,20 @@ title: International Publications
           </div>
         </div>
 
+        <!-- CVPR 2026 Workshop - Keep the Flow -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('w9')" style="cursor: pointer;">
+            <div class="publication-badge workshop-badge">CVPRW</div>
+            <div class="external-links">
+              <a href="{{ site.baseurl }}/assets/pdf/keep_the_flow.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i>
+              </a>
+            </div>
+            <h5 class="list-title">Keep the Flow: Continuous High-Precision Bimanual Manipulation in Constrained Spaces</h5>
+            <p class="list-authors">Hojae Jeong*, Juhyoung Lee*, Eunwoo Song, Jaerim Kim, Heewon Kim</p>
+          </div>
+        </div>
+
         <!-- CVPR 2026 Embodied AI Workshop - Fine-tuning Robotic Foundation Model -->
         <div class="col-12 mb-3">
           <div class="publication-list-item" onclick="openPublicationModal('w4')" style="cursor: pointer;">
