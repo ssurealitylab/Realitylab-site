@@ -56,6 +56,7 @@ admin_cms/audit_log.jsonl
 # Secrets
 .env
 .env.local
+.env.*
 
 # Runtime state (don't re-commit auto-generated tunnel/monitor logs)
 ai_server/*.log
