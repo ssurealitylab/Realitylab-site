@@ -27,6 +27,24 @@ students:
     github: "https://ejqdl02.github.io/"
     linkedin: "https://www.linkedin.com/in/sungyong-park-662a19294/"
 
+  - name: Juhyoung Lee
+    name_ko: 이주형
+    email: i0179@naver.com
+    university: EE. Korea National University of Transportation, B.S.
+    research: Robotics, Physical AI
+    photo: assets/img/members/juhyoung_lee.jpg
+    github: https://github.com/JuHyoungLee02
+    linkedin: https://www.linkedin.com/in/juhyoung-lee-3588a8314
+
+  - name: "Hojae Jeong"
+    name_ko: "정호재"
+    email: "98eddiechung@gmail.com"
+    university: "SWE, Soongsil University, B.S."
+    research: "Computer Vision, Generative AI"
+    photo: "assets/img/members/hojae_jeong.jpg"
+    github: "https://github.com/JEONG-HO-JAE"
+    linkedin: "https://www.linkedin.com/in/98hojae-jeong"
+
   ms_students:
   - name: "Minjoo Koh"
     name_ko: "고민주"
@@ -54,14 +72,6 @@ students:
     github: ""
     linkedin: ""
 
-  - name: Juhyoung Lee
-    name_ko: 이주형
-    email: i0179@naver.com
-    university: EE. Korea National University of Transportation, B.S.
-    research: Robotics, Physical AI
-    photo: assets/img/members/juhyoung_lee.jpg
-    github: https://github.com/JuHyoungLee02
-    linkedin: https://www.linkedin.com/in/juhyoung-lee-3588a8314
   - name: "Jiwoo Seo"
     name_ko: "서지우"
     email: "jiwooindaeyo@gmail.com"
@@ -70,15 +80,6 @@ students:
     photo: "assets/img/members/jiwoo_seo.jpg"
     github: ""
     linkedin: ""
-
-  - name: "Hojae Jeong"
-    name_ko: "정호재"
-    email: "98eddiechung@gmail.com"
-    university: "SWE, Soongsil University, B.S."
-    research: "Computer Vision, Generative AI"
-    photo: "assets/img/members/hojae_jeong.jpg"
-    github: "https://github.com/JEONG-HO-JAE"
-    linkedin: "https://www.linkedin.com/in/98hojae-jeong"
 
   - name: "Sooyoung Choi"
     name_ko: "최수영"
@@ -151,6 +152,24 @@ students:
     photo: assets/img/members/sunghyun_ku.jpg
     research: Deep Learning, Computer Vision
     university: CSE, Tech University of Korea, B.S.
+
+  - name: "Seungmi Lee"
+    name_ko: "이승미"
+    email: "leeseoungmi1110@gmail.com"
+    university: "Media, Soongsil University, B.S.<br>CSE, Soongsil University, B.S."
+    research: "Physical AI"
+    photo: "assets/img/members/seungmi_lee.jpg"
+    github: ""
+    linkedin: ""
+
+  - name: "Kim"
+    name_ko: "김철현"
+    email: "huyni0000@naver.com"
+    university: "AI Software Engineering, Soongsil University, B.S."
+    research: "Physical AI"
+    photo: "assets/img/members/cheolhyeon_kim.jpg"
+    github: ""
+    linkedin: ""
 robots:
   description: "Research Robots"
   members:
