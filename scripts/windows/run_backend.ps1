@@ -73,6 +73,17 @@ if ($Service -eq 'chatbot') {
 # intended way in. Timestamp header so restarts are visible in the log.
 Add-Content -Path $logFile -Value "`n[$(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')] starting $Service on 127.0.0.1:$Port" -Encoding utf8
 
+# Clear any stale instance still holding the port. When Task Scheduler stops the
+# task it kills this wrapper but NOT the detached python child (Start-Process is
+# not a job), so a previous server can be left orphaned on $Port. It belongs to
+# the same S4U user as this restart, so we can terminate it without elevation —
+# which an interactive/admin session cannot do. This makes `schtasks /End` +
+# `/Run` (or Stop/Start-ScheduledTask) a reliable restart with no UAC.
+Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue |
+    Select-Object -ExpandProperty OwningProcess -Unique |
+    ForEach-Object { try { Stop-Process -Id $_ -Force -ErrorAction Stop } catch {} }
+Start-Sleep -Milliseconds 700
+
 # Start-Process rather than `& python ... *>> log`: with $ErrorActionPreference
 # 'Stop', PowerShell 5.1 turns each stderr line from a native command into a
 # terminating error, and Flask greets us on stderr ("WARNING: This is a
