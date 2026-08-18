@@ -6,6 +6,13 @@ news:
   description: "Paper accepted to BMVC 2026: 'EA-IID: Exposure-Aware Intrinsic Image Decomposition for Exposure Correction' by Hyunjun Koh, Hyunseo Koh, and Heewon Kim. Congratulations!"
   image: "eaiid_flow.png"
 
+- title: "ECCV 2026 - 2 Papers Have Been Accepted!"
+  date: "2026-06-18"
+  category: "Publication"
+  participants: ["Hyunseo Koh", "Chang-Yong Song", "Youngjae Choi", "Sangmin Hong"]
+  description: "Two papers accepted to ECCV 2026: (1) 'CulinaryCut: A Physics-Grounded Cutting Benchmark for Vision-Language-Action Models' by Hyunseo Koh, Chang-Yong Song, Youngjae Choi, Misa Viveiros, David Hyde, and Heewon Kim, and (2) 'PrintAnything: Learning Geometric Plan Map for 3D Printing G-code Generation from Unoriented Point Clouds' by Sangmin Hong, Daniel Sungho Jung, Heewon Kim, and Kyoung Mu Lee. Congratulations!"
+  image: "eccv2026.png"
+
 - title: AI Seoul Tech Research Support Program — Selected
   date: '2026-06-10'
   category: Grants
