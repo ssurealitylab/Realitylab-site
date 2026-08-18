@@ -30,6 +30,20 @@ title: International Publications
       </div>
 
       <div class="row">
+        <!-- BMVC 2026 - EA-IID -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('c30')" style="cursor: pointer;">
+            <div class="publication-badge">BMVC</div>
+            <div class="external-links">
+              <a href="https://hyunjun-koh.github.io/EA-IID/" target="_blank" class="external-icon-link website-link" title="Project Page" onclick="event.stopPropagation()">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+            <h5 class="list-title">EA-IID: Exposure-Aware Intrinsic Image Decomposition for Exposure Correction</h5>
+            <p class="list-authors">Hyunjun Koh, Hyunseo Koh, Heewon Kim</p>
+          </div>
+        </div>
+
         <!-- CVPR 2026 - CLP -->
         <div class="col-12 mb-3">
           <div class="publication-list-item" onclick="openPublicationModal('c27')" style="cursor: pointer;">

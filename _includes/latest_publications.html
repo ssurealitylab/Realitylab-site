@@ -24,8 +24,9 @@
       <div class="col-lg-4 col-md-6 mb-4">
         <div class="publication-card-home" onclick="openPublicationModal('{{ pub.id }}')" style="cursor: pointer;">
           <div class="publication-image-container">
-            {% if pub.image and pub.image != "" %}
-              <img src="{{ site.baseurl }}/{{ pub.image }}" alt="{{ pub.venue_short }} {{ pub.year }}" class="publication-img-home">
+            {% assign card_img = pub.thumbnail | default: pub.image %}
+            {% if card_img and card_img != "" %}
+              <img src="{{ site.baseurl }}/{{ card_img }}" alt="{{ pub.venue_short }} {{ pub.year }}" class="publication-img-home">
             {% else %}
               <div class="publication-placeholder-icon">
                 <i class="fas fa-file-alt"></i>

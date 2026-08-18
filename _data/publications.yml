@@ -3,6 +3,20 @@
 
 publications:
   # 2026 Publications
+- id: c30
+  title: "EA-IID: Exposure-Aware Intrinsic Image Decomposition for Exposure Correction"
+  authors: "Hyunjun Koh, Hyunseo Koh, Heewon Kim"
+  venue: "British Machine Vision Conference (BMVC)"
+  venue_short: "BMVC26"
+  year: 2026
+  type: conference
+  status: accepted
+  abstract: "Exposure correction aims to recover visually faithful images from under- or over-exposed inputs. Existing methods often entangle exposure-dependent illumination with intrinsic scene reflectance, leading to unstable restoration. We revisit this task from the perspective of intrinsic image decomposition and propose Exposure-Aware Intrinsic Image Decomposition (EA-IID), a framework that explicitly enforces exposure-invariant albedo while using shading to model the residual photometric transformation toward canonical exposure. To achieve this, our approach leverages uncertainty-aware pseudo-supervision and cross-exposure consistency regularization, enabling robust learning without ground-truth albedo annotations. Extensive experiments show that EA-IID improves albedo consistency across exposure variations and achieves strong exposure-correction performance on multiple benchmarks, highlighting the benefit of explicitly modeling exposure-invariant intrinsic structure."
+  image: "assets/img/publications/eaiid/overview.png"
+  thumbnail: "assets/img/publications/eaiid/bmvc-2026-logo-small.png"
+  links:
+    website: "https://hyunjun-koh.github.io/EA-IID/"
+
 - id: c27
   title: "CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation"
   authors: "Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim"
