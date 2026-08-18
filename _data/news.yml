@@ -1,4 +1,11 @@
 news:
+- title: "BMVC 2026 Paper Acceptance"
+  date: "2026-08-08"
+  category: "Publication"
+  participants: ["Hyunjun Koh", "Hyunseo Koh"]
+  description: "Paper accepted to BMVC 2026: 'EA-IID: Exposure-Aware Intrinsic Image Decomposition for Exposure Correction' by Hyunjun Koh, Hyunseo Koh, and Heewon Kim. Congratulations!"
+  image: "bmvc2026.png"
+
 - title: AI Seoul Tech Research Support Program — Selected
   date: '2026-06-10'
   category: Grants
