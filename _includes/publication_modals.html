@@ -17,6 +17,11 @@
             <i class="fas fa-file-pdf"></i>
           </a>
           {% endif %}
+          {% if pub.links.arxiv %}
+          <a href="{{ pub.links.arxiv }}" target="_blank" class="modal-icon-link active arxiv-link" title="arXiv" onclick="event.stopPropagation()">
+            <i class="fas fa-file-lines"></i>
+          </a>
+          {% endif %}
           {% if pub.links.website %}
           <a href="{{ pub.links.website }}" target="_blank" class="modal-icon-link active website-link" title="Website" onclick="event.stopPropagation()">
             <i class="fas fa-globe"></i>

@@ -111,6 +111,11 @@ title: International Publications
         <div class="col-12 mb-3">
           <div class="publication-list-item" onclick="openPublicationModal('w4')" style="cursor: pointer;">
             <div class="publication-badge workshop-badge">CVPRW</div>
+            <div class="external-links">
+              <a href="https://github.com/ejqdl02/ejqdl02.github.io/blob/gh-pages/paper/23_Fine_tuning_Robotic_Foundat.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i>
+              </a>
+            </div>
             <h5 class="list-title">Fine-tuning Robotic Foundation Model Using Dynamic Scene Generation</h5>
             <p class="list-authors">Sungyong Park*, Sangmin Lee*, Dowon Kim, Heewon Kim</p>
           </div>
@@ -318,7 +323,7 @@ title: International Publications
           <div class="publication-list-item" onclick="openPublicationModal('c20j9')" style="cursor: pointer;">
             <div class="publication-badge">Brain Stimulation</div>
             <div class="external-links">
-              <a href="https://www.brainstimjrnl.com/article/S1935-861X%2824%2900905-7/fulltext" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+              <a href="https://www.brainstimjrnl.com/article/S1935-861X(25)00009-6/fulltext" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
                 <i class="fas fa-file-pdf"></i>
               </a>
             </div>
@@ -435,7 +440,7 @@ title: International Publications
           <div class="publication-list-item" onclick="openPublicationModal('c15_2023')" style="cursor: pointer;">
             <div class="publication-badge">ICLR</div>
             <div class="external-links">
-              <a href="https://openreview.net/pdf?id=SHvF5xaueVv" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+              <a href="https://openreview.net/pdf?id=NO0ThzteQdI" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
                 <i class="fas fa-file-pdf"></i>
               </a>
             </div>
@@ -568,6 +573,9 @@ title: International Publications
               <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Baik_Meta-Learning_With_Task-Adaptive_Loss_Function_for_Few-Shot_Learning_ICCV_2021_paper.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
                 <i class="fas fa-file-pdf"></i>
               </a>
+              <a href="https://arxiv.org/abs/2110.03909" target="_blank" class="external-icon-link arxiv-link" title="arXiv" onclick="event.stopPropagation()">
+                <i class="fas fa-file-lines"></i>
+              </a>
               <a href="https://github.com/baiksung/MeTAL" target="_blank" class="external-icon-link github-link" title="GitHub" onclick="event.stopPropagation()">
                 <i class="fab fa-github"></i>
               </a>
@@ -598,6 +606,9 @@ title: International Publications
             <div class="external-links">
               <a href="https://openaccess.thecvf.com/content/ICCV2021/papers/Kim_Searching_for_Controllable_Image_Restoration_Networks_ICCV_2021_paper.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
                 <i class="fas fa-file-pdf"></i>
+              </a>
+              <a href="https://arxiv.org/abs/2012.11225" target="_blank" class="external-icon-link arxiv-link" title="arXiv" onclick="event.stopPropagation()">
+                <i class="fas fa-file-lines"></i>
               </a>
             </div>
             <h5 class="list-title">Searching for Controllable Image Restoration Networks</h5>
