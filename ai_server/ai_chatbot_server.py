@@ -21,6 +21,7 @@ import time
 from datetime import datetime
 
 import pytz
+import yaml
 from flask import Flask, request, jsonify, Response, stream_with_context
 from flask_cors import CORS
 
@@ -151,6 +152,7 @@ SYSTEM_PROMPT_KO = """당신은 숭실대학교 Reality Lab(리얼리티 연구�
 제공된 참고자료를 기반으로 답변하되, 참고자료에 없는 내용은 "정확한 정보를 찾지 못했습니다"라고 말씀해주세요.
 중요: 참고자료에 나오는 주소, 이름, 고유명사, 숫자는 절대 변경하거나 추측하지 마세요. 그대로 인용하세요.
 중요: 답변에 【참고자료】, [출처], (참고자료 1) 같은 인용 마크나 각주를 절대 포함하지 마세요. 자연스러운 문장으로만 답변하세요.
+답변은 핵심만 간결하게(2~3문장 이내) 해주세요. 구성원을 물으면 참고자료의 명단을 그대로 간단히 정리해 알려주세요.
 답변은 한국어로 해주세요."""
 
 SYSTEM_PROMPT_EN = """You are an AI assistant for Reality Lab at Soongsil University.
@@ -158,6 +160,7 @@ Answer questions about the lab's information, members, research areas, and publi
 Base your answers on the provided reference materials. If information is not available, say so.
 IMPORTANT: Never modify or guess addresses, names, proper nouns, or numbers from the reference materials. Quote them exactly as provided.
 IMPORTANT: Never include citation marks, footnotes, or references like [1], (source 1), 【reference】 in your answer. Just write naturally.
+Keep answers brief and to the point (2-3 sentences). For member questions, simply list the roster from the reference material.
 Answer in English."""
 
 
@@ -205,12 +208,115 @@ def detect_language(text):
     return 'ko' if korean_chars > len(text) * 0.1 else 'en'
 
 
+# ---------------------------------------------------------------------------
+# Live team roster. Member/team questions are answered straight from
+# _data/members.yml (not the baked-in knowledge base), so the reply always
+# reflects the current lab. Alumni are excluded and robots come last. The file
+# is re-read only when its mtime changes.
+_MEMBERS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..", "_data", "members.yml")
+_members_cache = {"mtime": None, "ko": "", "en": "", "names": set()}
+
+_MEMBER_Q_KEYWORDS = (
+    "구성원", "멤버", "팀원", "팀 ", "학생", "인턴", "박사", "석사", "누구", "누가",
+    "연구원", "사람", "교수", "로봇", "member", "team", "who", "student", "intern",
+    "people", "robot", "faculty", "professor", "staff", "roster",
+)
+
+
+def _clean(s):
+    return (s or "").replace("<br>", ", ").strip()
+
+
+def _rebuild_members():
+    with open(_MEMBERS_PATH, encoding="utf-8") as f:
+        data = yaml.safe_load(f) or {}
+    names = set()
+
+    def note(m):
+        for k in ("name", "name_ko"):
+            v = _clean(m.get(k))
+            if v:
+                names.add(v)
+
+    def line(m, lang):
+        note(m)
+        name, ko = _clean(m.get("name")), _clean(m.get("name_ko"))
+        who = f"{ko}({name})" if ko and lang == "ko" else name + (f" ({ko})" if ko else "")
+        extra = [x for x in (_clean(m.get("research")), _clean(m.get("email"))) if x]
+        return f"  - {who}" + (" — " + ", ".join(extra) if extra else "")
+
+    students = data.get("students", {}) or {}
+    groups = [
+        ("지도교수", "Faculty", data.get("faculty", []) or []),
+        ("박사과정", "PhD Students", students.get("phd_students", []) or []),
+        ("석사과정", "MS Students", students.get("ms_students", []) or []),
+        ("인턴", "Interns", students.get("interns", []) or []),
+    ]
+    ko_parts = ["[Reality Lab 현재 구성원]"]
+    en_parts = ["[Reality Lab current members]"]
+    for ko_h, en_h, lst in groups:
+        if not lst:
+            continue
+        ko_parts.append(f"● {ko_h}:")
+        en_parts.append(f"* {en_h}:")
+        for m in lst:
+            ko_parts.append(line(m, "ko"))
+            en_parts.append(line(m, "en"))
+    # Robots last
+    robots = (data.get("robots", {}) or {}).get("members", []) or []
+    if robots:
+        ko_parts.append("● 로봇:")
+        en_parts.append("* Robots:")
+        for r in robots:
+            note(r)
+            name, ko = _clean(r.get("name")), _clean(r.get("name_ko"))
+            model = _clean(r.get("model"))
+            ko_parts.append(f"  - {ko}({name})" if ko else f"  - {name}")
+            if model:
+                ko_parts[-1] += f" — {model}"
+            en_parts.append(f"  - {name}" + (f" — {model}" if model else ""))
+
+    _members_cache.update(
+        mtime=os.path.getmtime(_MEMBERS_PATH),
+        ko="\n".join(ko_parts),
+        en="\n".join(en_parts),
+        names=names,
+    )
+
+
+def get_team_roster(language="ko"):
+    try:
+        if _members_cache["mtime"] != os.path.getmtime(_MEMBERS_PATH):
+            _rebuild_members()
+    except Exception as e:
+        print(f"members.yml read error: {e}")
+        return "", set()
+    return (_members_cache["ko"] if language == "ko" else _members_cache["en"]), _members_cache["names"]
+
+
+def is_member_question(question, names):
+    low = question.lower()
+    if any(k in low for k in _MEMBER_Q_KEYWORDS):
+        return True
+    return any(n and n in question for n in names)
+
+
 def get_rag_context(question, language='ko'):
+    # Member/team questions → answer from the live members.yml roster.
+    roster, names = get_team_roster(language)
+    if roster and is_member_question(question, names):
+        return roster, True
+
     if rag_retriever is None:
         return "", False
 
     try:
         results = rag_retriever.search(question, k=5, min_score=0.15)
+        # Drop stale member docs — member info comes only from the live roster.
+        results = [
+            r for r in results
+            if r.get('metadata', {}).get('type') != 'member' and r.get('type') != 'member'
+        ]
         if results:
             context = rag_retriever.format_context(results, language=language)
             has_verified = any(
