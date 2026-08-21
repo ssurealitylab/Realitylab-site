@@ -199,7 +199,7 @@ robots:
     name_ko: 가로
     model: RedRabbitRobotics RX-1(heavily modified)
     joined: Dec 2025
-    photo: ''
+    photo: assets/img/members/garo.jpg
     bio: A custom humanoid built on the Red Rabbit Robotics platform, featuring tuned gearboxes, in-house interface and hardware upgrades, and a chassis redesigned for Vision-Language-Action (VLA) integration — extended with a custom-developed wheeled mobile base and lift body for full-body mobility.
     specs:
       height: 2M
@@ -212,7 +212,7 @@ robots:
     name_ko: 나로
     model: ToddlerBot (Stanford open-source humanoid)
     joined: December 2025
-    photo: ''
+    photo: assets/img/members/naro.jpg
     bio: "Reality Lab's compact humanoid, built on Stanford's open-source ToddlerBot platform. Fully 3D-printed and driven by Dynamixel smart servos, NARO is used for whole-body loco-manipulation research and low-cost sim-to-real policy learning."
     specs:
       height: 56 cm
@@ -225,7 +225,7 @@ robots:
     name_ko: 마로
     model: ROBOTIS AI Worker FFW-SG2 (mobile)
     joined: August 2026
-    photo: ''
+    photo: assets/img/members/maro.jpg
     bio: "Reality Lab's mobile manipulation platform, the mobile variant of ROBOTIS' AI Worker. A swerve-drive base carries dual 7-DoF arms on a lift body, with an NVIDIA Jetson AGX Orin, three RGB-D cameras and two LiDARs, supporting Vision-Language-Action research in real service environments."
     specs:
       height: 162 cm
