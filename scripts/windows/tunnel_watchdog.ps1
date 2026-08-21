@@ -43,6 +43,16 @@ param(
     [switch] $Once
 )
 
+# The chatbot moved to a Cloudflare Worker (reality-lab-chatbot.i0179.workers.dev),
+# which has a fixed hostname and needs no PC. This watchdog must not run for it
+# any more: it would start a quick tunnel and overwrite the Worker URL baked into
+# chatbot.html / bug-report.html with a throwaway *.trycloudflare.com one.
+# The admin CMS still runs locally, so -Service admin is untouched.
+if ($Service -eq 'chatbot') {
+    Write-Host "chatbot tunnel retired - served by Cloudflare Worker. Nothing to do."
+    exit 0
+}
+
 $ErrorActionPreference = 'Stop'
 
 if (-not $RepoRoot) { $RepoRoot = (Resolve-Path (Join-Path $PSScriptRoot '..\..')).Path }
