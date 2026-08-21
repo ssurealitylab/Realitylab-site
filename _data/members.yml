@@ -170,6 +170,15 @@ students:
     photo: "assets/img/members/cheolhyeon_kim.jpg"
     github: ""
     linkedin: ""
+
+  - name: "Subin Kang"
+    name_ko: "강수빈"
+    email: "kangbin61@gmail.com"
+    university: "AI Software Engineering, Soongsil University, B.S."
+    research: "Computer Vision, Robotics"
+    photo: "assets/img/members/subin_kang.jpg"
+    github: ""
+    linkedin: ""
 robots:
   description: "Research Robots"
   members:
