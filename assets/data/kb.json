@@ -6,5 +6,8 @@ permalink: /assets/data/kb.json
   "generated": "{{ site.time | date_to_xmlschema }}",
   "members": {{ site.data.members | jsonify }},
   "publications": {{ site.data.publications.publications | jsonify }},
-  "news": {{ site.data.news.news | jsonify }}
+  "news": {{ site.data.news.news | jsonify }},
+  "lab_info": {{ site.data.chatbot_knowledge.lab_info | jsonify }},
+  "research_areas": {{ site.data.chatbot_knowledge.research_areas | jsonify }},
+  "custom_qa": {{ site.data.chatbot_knowledge.custom_qa | jsonify }}
 }

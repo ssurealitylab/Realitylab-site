@@ -73,7 +73,7 @@ const detectLanguage = (text) => {
 
 /* --------------------------------------------------------------- knowledge */
 
-let kbCache = { at: 0, text: '' };
+let kbCache = { at: 0, text: '', qa: [] };
 
 const clean = (s) => String(s || '').replace(/<br>/g, ', ').trim();
 
@@ -81,6 +81,19 @@ function buildContext(kb) {
   const out = [];
   const m = kb.members || {};
   const st = m.students || {};
+
+  const info = (kb.lab_info && (kb.lab_info.ko || kb.lab_info.en)) || null;
+  if (info) {
+    out.push('[연구실 정보]');
+    const fields = [
+      ['이름', info.full_name || info.name], ['설립', info.established],
+      ['위치', info.location], ['책임교수', info.director],
+      ['이메일', info.email], ['전화', info.phone],
+      ['미션', info.mission], ['비전', info.vision],
+    ];
+    fields.forEach(([k, v]) => { if (v) out.push(`  - ${k}: ${clean(v)}`); });
+    out.push('');
+  }
 
   const person = (p) => {
     const name = clean(p.name);
@@ -129,6 +142,15 @@ function buildContext(kb) {
     );
   }
 
+  const areas = kb.research_areas || [];
+  if (areas.length) {
+    out.push('', '[연구 분야]');
+    areas.forEach((a) => {
+      const k = a.ko || a.en || a;
+      if (k && k.name) out.push(`  - ${clean(k.name)}: ${clean(k.description).slice(0, 200)}`);
+    });
+  }
+
   const news = (kb.news || []).slice(0, 15);
   if (news.length) {
     out.push('', '[최근 소식]');
@@ -137,17 +159,38 @@ function buildContext(kb) {
     );
   }
 
-  return out.join('\n');
+  // Researcher-written answers. The roster ones are dropped: they were frozen in
+  // 2026-05 and the live list above supersedes them.
+  const qaAll = [...((kb.custom_qa && kb.custom_qa.ko) || []), ...((kb.custom_qa && kb.custom_qa.en) || [])];
+  const qa = qaAll.filter((x) => x && x.question && x.answer && !/구성원|멤버|team member/i.test(x.question));
+  if (qa.length) {
+    out.push('', '[연구원이 직접 확인한 문답]');
+    qa.forEach((x) => out.push(`  Q: ${clean(x.question)}\n  A: ${clean(x.answer)}`));
+  }
+
+  return { text: out.join('\n'), qa: qa.map((x) => clean(x.question)) };
+}
+
+// Only claim "verified by researchers" when the question actually lines up with
+// one of those hand-written entries, rather than on every answer.
+function matchesVerifiedQa(question, qaQuestions) {
+  const tokens = (s) => (s.toLowerCase().match(/[가-힣a-z0-9]{2,}/g) || []);
+  const asked = new Set(tokens(question));
+  if (!asked.size) return false;
+  return (qaQuestions || []).some((q) => {
+    const shared = tokens(q).filter((t) => asked.has(t));
+    return shared.length >= 2;
+  });
 }
 
 async function getContext(env) {
   const now = Date.now();
-  if (kbCache.text && now - kbCache.at < 10 * 60 * 1000) return kbCache.text;
+  if (kbCache.text && now - kbCache.at < 10 * 60 * 1000) return kbCache;
   const res = await fetch(env.KB_URL, { cf: { cacheTtl: 300, cacheEverything: true } });
   if (!res.ok) throw new Error(`kb fetch ${res.status}`);
-  const text = buildContext(await res.json());
-  kbCache = { at: now, text };
-  return text;
+  const built = buildContext(await res.json());
+  kbCache = { at: now, text: built.text, qa: built.qa };
+  return kbCache;
 }
 
 /* ------------------------------------------------------------- rate limits */
@@ -288,18 +331,22 @@ export default {
       }
 
       let context = '';
+      let qaQuestions = [];
       try {
-        context = await getContext(env);
+        const kb = await getContext(env);
+        context = kb.text;
+        qaQuestions = kb.qa;
       } catch {
         context = '';
       }
+      const verified = matchesVerifiedQa(question, qaQuestions);
 
       if (data.mode === 'search') {
         return json({
           response: context,
           status: context ? 'success' : 'no_results',
           mode: 'search',
-          verified_by_researchers: Boolean(context),
+          verified_by_researchers: verified,
         });
       }
 
@@ -324,11 +371,11 @@ export default {
           response: text,
           status: 'success',
           mode: data.mode || 'deep',
-          verified_by_researchers: Boolean(context),
+          verified_by_researchers: verified,
         });
       }
 
-      return streamAnswer(upstream, started, Boolean(context));
+      return streamAnswer(upstream, started, verified);
     }
 
     return json({ error: 'Not found' }, 404);
