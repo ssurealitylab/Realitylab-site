@@ -44,23 +44,6 @@ title: International Publications
           </div>
         </div>
 
-        <!-- CVPR 2026 - CLP -->
-        <div class="col-12 mb-3">
-          <div class="publication-list-item" onclick="openPublicationModal('c27')" style="cursor: pointer;">
-            <div class="publication-badge">CVPR</div>
-            <div class="external-links">
-              <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
-                <i class="fas fa-file-pdf"></i>
-              </a>
-              <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.html" target="_blank" class="external-icon-link website-link" title="OpenAccess" onclick="event.stopPropagation()">
-                <i class="fas fa-globe"></i>
-              </a>
-            </div>
-            <h5 class="list-title">CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation</h5>
-            <p class="list-authors">Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim</p>
-          </div>
-        </div>
-
         <!-- ECCV 2026 - CulinaryCut -->
         <div class="col-12 mb-3">
           <div class="publication-list-item" onclick="openPublicationModal('c28')" style="cursor: pointer;">
@@ -76,6 +59,23 @@ title: International Publications
             <div class="publication-badge">ECCV</div>
             <h5 class="list-title">PrintAnything: Learning Geometric Plan Map for 3D Printing G-code Generation from Unoriented Point Clouds</h5>
             <p class="list-authors">Sangmin Hong, Daniel Sungho Jung, Heewon Kim†, Kyoung Mu Lee†</p>
+          </div>
+        </div>
+
+        <!-- CVPR 2026 - CLP -->
+        <div class="col-12 mb-3">
+          <div class="publication-list-item" onclick="openPublicationModal('c27')" style="cursor: pointer;">
+            <div class="publication-badge">CVPR</div>
+            <div class="external-links">
+              <a href="https://openaccess.thecvf.com/content/CVPR2026/papers/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.pdf" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
+                <i class="fas fa-file-pdf"></i>
+              </a>
+              <a href="https://openaccess.thecvf.com/content/CVPR2026/html/Park_CLP_A_Real-World_Dataset_of_Contaminated_Lens_Protectors_for_Robust_CVPR_2026_paper.html" target="_blank" class="external-icon-link website-link" title="OpenAccess" onclick="event.stopPropagation()">
+                <i class="fas fa-globe"></i>
+              </a>
+            </div>
+            <h5 class="list-title">CLP: A Real-World Dataset of Contaminated Lens Protectors for Robust Semantic Segmentation</h5>
+            <p class="list-authors">Sungyong Park, Sooyoung Choi, Hyunsuh Koh, Youngjae Choi, Heewon Kim</p>
           </div>
         </div>
 
