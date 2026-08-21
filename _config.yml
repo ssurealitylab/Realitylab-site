@@ -82,6 +82,7 @@ plugins:
 
 exclude:
   - finetune_env
+  - worker
   - ai_server
   - admin_cms
   - .claude

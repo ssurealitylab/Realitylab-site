@@ -1,0 +1,21 @@
+name = "reality-lab-chatbot"
+main = "src/index.js"
+compatibility_date = "2026-08-01"
+
+[vars]
+# Knowledge is pulled from the live site, so members/publications/news edits go
+# live without redeploying this Worker.
+KB_URL = "https://reality.ssu.ac.kr/assets/data/kb.json"
+OPENAI_MODEL = "gpt-5.6-luna"
+RATE_LIMIT_PER_DAY = "15"
+RATE_LIMIT_GLOBAL_PER_MIN = "60"
+# 04:00-08:00 KST quiet window, inherited from the PC-hosted server.
+# Set to "0" to answer around the clock now that no PC has to stay awake.
+REST_WINDOW = "1"
+
+# Daily per-visitor quota lives here. Create it once with:
+#   npx wrangler kv namespace create RL
+# then paste the printed id below.
+[[kv_namespaces]]
+binding = "RL"
+id = "PUT_KV_ID_HERE"

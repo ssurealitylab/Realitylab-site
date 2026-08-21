@@ -71,3 +71,6 @@ ai_server/admin_daily_attempts.txt
 ai_server/restart_admin_tunnel.lock
 ai_server/*.log.out
 ai_server/*.log.err
+worker/.dev.vars
+worker/node_modules/
+.wrangler/

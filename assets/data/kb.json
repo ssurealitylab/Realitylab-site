@@ -1,0 +1,10 @@
+---
+layout: null
+permalink: /assets/data/kb.json
+---
+{
+  "generated": "{{ site.time | date_to_xmlschema }}",
+  "members": {{ site.data.members | jsonify }},
+  "publications": {{ site.data.publications.publications | jsonify }},
+  "news": {{ site.data.news.news | jsonify }}
+}
