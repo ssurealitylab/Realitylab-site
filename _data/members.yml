@@ -208,6 +208,32 @@ robots:
       speed: 3m/s
       battery: ~7 hours runtime
       payload: 0.4 kg (per arm)
+  - name: NARO
+    name_ko: 나로
+    model: ToddlerBot (Stanford open-source humanoid)
+    joined: December 2025
+    photo: ''
+    bio: "Reality Lab's compact humanoid, built on Stanford's open-source ToddlerBot platform. Fully 3D-printed and driven by Dynamixel smart servos, NARO is used for whole-body loco-manipulation research and low-cost sim-to-real policy learning."
+    specs:
+      height: 56 cm
+      weight: 3.4 kg
+      dof: 30 Joints (7 per arm, 6 per leg, 2 neck, 2 waist)
+      speed: Up to 0.25 m/s walking
+      battery: ~19 min continuous walking
+      payload: 1.5 kg (40% of body weight)
+  - name: MARO
+    name_ko: 마로
+    model: ROBOTIS AI Worker FFW-SG2 (mobile)
+    joined: August 2026
+    photo: ''
+    bio: "Reality Lab's mobile manipulation platform, the mobile variant of ROBOTIS' AI Worker. A swerve-drive base carries dual 7-DoF arms on a lift body, with an NVIDIA Jetson AGX Orin, three RGB-D cameras and two LiDARs, supporting Vision-Language-Action research in real service environments."
+    specs:
+      height: 162 cm
+      weight: 90 kg
+      dof: 25 Joints (7 per arm, plus head, lift, and mobile base)
+      speed: Up to 1.5 m/s (swerve drive)
+      battery: 2,040 Wh (25 V, 80 Ah)
+      payload: 3 kg (per arm, 5 kg peak)
 alumni:
   description: "Former Lab Members"
   former_ms_students:
