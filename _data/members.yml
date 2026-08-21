@@ -182,19 +182,6 @@ students:
 robots:
   description: "Research Robots"
   members:
-  - name: DARO
-    name_ko: 다로
-    model: Unitree G1 EDU
-    joined: January 2026
-    photo: assets/img/members/unitree_g1.jpg
-    bio: Reality Lab's third humanoid robot member. Capable of dynamic locomotion, object manipulation, and learning new skills through reinforcement learning.
-    specs:
-      height: 127 cm
-      weight: 35 kg
-      dof: 23+ Joints (43 DoF with hands)
-      speed: Up to 2 m/s walking
-      battery: ~2 hours runtime
-      payload: 0.5 kg (per arm)
   - name: GARO
     name_ko: 가로
     model: RedRabbitRobotics RX-1(heavily modified)
@@ -221,6 +208,19 @@ robots:
       speed: Up to 0.25 m/s walking
       battery: ~19 min continuous walking
       payload: 1.5 kg (40% of body weight)
+  - name: DARO
+    name_ko: 다로
+    model: Unitree G1 EDU
+    joined: January 2026
+    photo: assets/img/members/unitree_g1.jpg
+    bio: Reality Lab's third humanoid robot member. Capable of dynamic locomotion, object manipulation, and learning new skills through reinforcement learning.
+    specs:
+      height: 127 cm
+      weight: 35 kg
+      dof: 23+ Joints (43 DoF with hands)
+      speed: Up to 2 m/s walking
+      battery: ~2 hours runtime
+      payload: 0.5 kg (per arm)
   - name: MARO
     name_ko: 마로
     model: ROBOTIS AI Worker FFW-SG2 (mobile)

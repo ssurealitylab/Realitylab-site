@@ -793,6 +793,15 @@ h2:first-of-type {
   justify-content: start;
 }
 
+/* Robot photos are full-body shots, not head-and-shoulders portraits, so the
+   circular `cover` crop chopped their heads off. Fit them by height instead and
+   let the leftover width show as white. Robots only - people keep `cover`. */
+.robots-grid .member-photo img,
+[id^="modal-robot-"] .modal-photo img {
+  object-fit: contain;
+  background: #ffffff;
+}
+
 .robot-bio {
   font-size: 0.95rem;
   color: #495057;
