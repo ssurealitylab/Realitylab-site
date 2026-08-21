@@ -182,45 +182,6 @@ students:
 robots:
   description: "Research Robots"
   members:
-  - name: GARO
-    name_ko: 가로
-    model: RedRabbitRobotics RX-1(heavily modified)
-    joined: Dec 2025
-    photo: assets/img/members/garo.jpg
-    bio: A custom humanoid built on the Red Rabbit Robotics platform, featuring tuned gearboxes, in-house interface and hardware upgrades, and a chassis redesigned for Vision-Language-Action (VLA) integration — extended with a custom-developed wheeled mobile base and lift body for full-body mobility.
-    specs:
-      height: 2M
-      weight: 60kg
-      dof: 21DOF
-      speed: 3m/s
-      battery: ~7 hours runtime
-      payload: 0.4 kg (per arm)
-  - name: NARO
-    name_ko: 나로
-    model: ToddlerBot (Stanford open-source humanoid)
-    joined: December 2025
-    photo: assets/img/members/naro.jpg
-    bio: "Reality Lab's compact humanoid, built on Stanford's open-source ToddlerBot platform. Fully 3D-printed and driven by Dynamixel smart servos, NARO is used for whole-body loco-manipulation research and low-cost sim-to-real policy learning."
-    specs:
-      height: 56 cm
-      weight: 3.4 kg
-      dof: 30 Joints (7 per arm, 6 per leg, 2 neck, 2 waist)
-      speed: Up to 0.25 m/s walking
-      battery: ~19 min continuous walking
-      payload: 1.5 kg (40% of body weight)
-  - name: DARO
-    name_ko: 다로
-    model: Unitree G1 EDU
-    joined: January 2026
-    photo: assets/img/members/unitree_g1.jpg
-    bio: Reality Lab's third humanoid robot member. Capable of dynamic locomotion, object manipulation, and learning new skills through reinforcement learning.
-    specs:
-      height: 127 cm
-      weight: 35 kg
-      dof: 23+ Joints (43 DoF with hands)
-      speed: Up to 2 m/s walking
-      battery: ~2 hours runtime
-      payload: 0.5 kg (per arm)
   - name: MARO
     name_ko: 마로
     model: ROBOTIS AI Worker FFW-SG2 (mobile)
@@ -234,6 +195,46 @@ robots:
       speed: Up to 1.5 m/s (swerve drive)
       battery: 2,040 Wh (25 V, 80 Ah)
       payload: 3 kg (per arm, 5 kg peak)
+  - name: DARO
+    name_ko: 다로
+    model: Unitree G1 EDU
+    joined: January 2026
+    photo: assets/img/members/unitree_g1.jpg
+    bio: Reality Lab's third humanoid robot member. Capable of dynamic locomotion, object manipulation, and learning new skills through reinforcement learning.
+    specs:
+      height: 127 cm
+      weight: 35 kg
+      dof: 23+ Joints (43 DoF with hands)
+      speed: Up to 2 m/s walking
+      battery: ~2 hours runtime
+      payload: 0.5 kg (per arm)
+  - name: NARO
+    name_ko: 나로
+    model: ToddlerBot (Stanford open-source humanoid)
+    joined: December 2025
+    photo: assets/img/members/naro.jpg
+    bio: "Reality Lab's compact humanoid, built on Stanford's open-source ToddlerBot platform. Fully 3D-printed and driven by Dynamixel smart servos, NARO is used for whole-body loco-manipulation research and low-cost sim-to-real policy learning."
+    specs:
+      height: 56 cm
+      weight: 3.4 kg
+      dof: 30 Joints (7 per arm, 6 per leg, 2 neck, 2 waist)
+      speed: Up to 0.25 m/s walking
+      battery: ~19 min continuous walking
+      payload: 1.5 kg (40% of body weight)
+  - name: GARO
+    name_ko: 가로
+    model: RedRabbitRobotics RX-1(heavily modified)
+    joined: Dec 2025
+    photo: assets/img/members/garo.jpg
+    bio: A custom humanoid built on the Red Rabbit Robotics platform, featuring tuned gearboxes, in-house interface and hardware upgrades, and a chassis redesigned for Vision-Language-Action (VLA) integration — extended with a custom-developed wheeled mobile base and lift body for full-body mobility.
+    specs:
+      height: 2M
+      weight: 60kg
+      dof: 21DOF
+      speed: 3m/s
+      battery: ~7 hours runtime
+      payload: 0.4 kg (per arm)
+
 alumni:
   description: "Former Lab Members"
   former_ms_students:
