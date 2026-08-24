@@ -416,6 +416,7 @@ keywords: Reality Lab students, 리얼리티랩 학생, Soongsil University, 숭
         <p class="modal-research"><strong>Model:</strong> {{ robot.model }}</p>
         <p class="modal-research"><strong>Joined:</strong> {{ robot.joined }}</p>
 
+        <div class="modal-scroll">
         {% if robot.bio %}
         <p class="robot-bio">{{ robot.bio }}</p>
         {% endif %}
@@ -433,6 +434,7 @@ keywords: Reality Lab students, 리얼리티랩 학생, Soongsil University, 숭
           </ul>
         </div>
         {% endif %}
+        </div>
 
       </div>
     </div>
@@ -668,6 +670,23 @@ keywords: Reality Lab students, 리얼리티랩 학생, Soongsil University, 숭
   max-height: none;
   overflow-y: auto;
   overscroll-behavior: contain;
+}
+
+/* Robot modals scroll from the bio down, so the intro text is reachable too.
+   Only the photo, name and Model/Joined line stay pinned. */
+.member-modal .modal-info > .modal-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* One scrollbar: inside that region the specs box just flows. */
+.member-modal .modal-scroll .modal-achievements {
+  flex: 0 0 auto;
+  max-height: none;
+  overflow: visible;
 }
 
 @keyframes modalSlideIn {
