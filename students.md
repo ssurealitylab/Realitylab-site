@@ -644,15 +644,28 @@ keywords: Reality Lab students, 리얼리티랩 학생, Soongsil University, 숭
   flex-shrink: 0;
 }
 
-/* Scroll the body, not the whole card. Relying on .modal-content's own
-   overflow left cases where no scrollbar appeared at all and the tail of a long
-   bio was simply unreachable. min-height:0 is required: a flex item defaults to
-   min-height:auto, which refuses to shrink below its content and kills the
-   scroll. */
+/* Name and intro stay put; only the trailing block (Achievements for people,
+   Specifications for robots) scrolls. min-height:0 is the load-bearing bit: a
+   flex item defaults to min-height:auto and refuses to shrink below its own
+   content, which is what stopped any scrollbar appearing. */
 .member-modal .modal-info {
+  display: flex;
+  flex-direction: column;
   flex: 1 1 auto;
   min-height: 0;
   width: 100%;
+  overflow: hidden;
+}
+
+.member-modal .modal-info > * {
+  flex-shrink: 0;
+}
+
+.member-modal .modal-achievements {
+  flex: 1 1 auto;
+  min-height: 0;
+  /* was a flat 300px, which clipped whenever the modal had less room than that */
+  max-height: none;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
@@ -824,11 +837,6 @@ h2:first-of-type {
 
 .robot-specs {
   background: #f8f9fa;
-  /* .modal-achievements caps itself at 300px and scrolls. Nested inside the
-     modal's own scroller that gave two scrollbars and cut the specs off, so let
-     them flow and let the modal do the scrolling. */
-  max-height: none;
-  overflow: visible;
 }
 
 .robot-specs strong {
