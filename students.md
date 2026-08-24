@@ -638,11 +638,23 @@ keywords: Reality Lab students, 리얼리티랩 학생, Soongsil University, 숭
   overflow-y: auto;
 }
 
-/* Children of a scrolling flex column shrink by default, so a long bio got
-   compressed instead of making the modal scroll, and the overflow was clipped
-   with no way to reach it. */
+/* The photo and the close button keep their size; .modal-info below is the one
+   part allowed to shrink, so it becomes the scroll region. */
 .modal-content > * {
   flex-shrink: 0;
+}
+
+/* Scroll the body, not the whole card. Relying on .modal-content's own
+   overflow left cases where no scrollbar appeared at all and the tail of a long
+   bio was simply unreachable. min-height:0 is required: a flex item defaults to
+   min-height:auto, which refuses to shrink below its content and kills the
+   scroll. */
+.member-modal .modal-info {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 @keyframes modalSlideIn {
