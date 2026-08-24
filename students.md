@@ -638,6 +638,13 @@ keywords: Reality Lab students, 리얼리티랩 학생, Soongsil University, 숭
   overflow-y: auto;
 }
 
+/* Children of a scrolling flex column shrink by default, so a long bio got
+   compressed instead of making the modal scroll, and the overflow was clipped
+   with no way to reach it. */
+.modal-content > * {
+  flex-shrink: 0;
+}
+
 @keyframes modalSlideIn {
   from {
     opacity: 0;
@@ -805,6 +812,11 @@ h2:first-of-type {
 
 .robot-specs {
   background: #f8f9fa;
+  /* .modal-achievements caps itself at 300px and scrolls. Nested inside the
+     modal's own scroller that gave two scrollbars and cut the specs off, so let
+     them flow and let the modal do the scrolling. */
+  max-height: none;
+  overflow: visible;
 }
 
 .robot-specs strong {
