@@ -389,6 +389,7 @@ keywords: Reality Lab students, 리얼리티랩 학생, Soongsil University, 숭
 <div class="members-grid robots-grid">
   {% for robot in site.data.members.robots.members %}
   <div class="member-card clickable-card" onclick="openMemberModal('robot-{{ robot.name | slugify }}')">
+    <img class="robot-perch" src="{{ site.baseurl }}/assets/img/members/robot_perch.webp" alt="" aria-hidden="true">
     <div class="member-photo">
       <img src="{{ robot.photo }}" alt="{{ robot.name }}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjIwMCIgdmlld0JveD0iMCAwIDIwMCAyMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjAwIiBmaWxsPSIjZjNmNGY2Ii8+CjxjaXJjbGUgY3g9IjEwMCIgY3k9IjgwIiByPSIzMCIgZmlsbD0iIzllYTNhOCIvPgo8cGF0aCBkPSJNNjAgMTYwYzAtMjIuMDkgMTcuOTEtNDAgNDAtNDBzNDAgMTcuOTEgNDAgNDB2MjBINjB2LTIweiIgZmlsbD0iIzllYTNhOCIvPgo8L3N2Zz4K'">
     </div>
@@ -842,6 +843,42 @@ h2:first-of-type {
 .robots-grid {
   grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
   justify-content: start;
+}
+
+/* Hover a robot card and a pixel robot drops in to sit on its top-right edge,
+   legs swinging over the border. Robots only; the people cards are untouched. */
+.robots-grid .member-card {
+  position: relative;
+}
+
+/* The sprite overhangs the card, so lift the hovered card above its neighbours
+   or the next card in the grid paints over the robot's legs. */
+.robots-grid .member-card:hover {
+  z-index: 5;
+}
+
+.robots-grid .robot-perch {
+  position: absolute;
+  top: -56px;          /* the sprite's seat sits 56% down, so this parks it on the edge */
+  right: 16px;
+  width: 65px;
+  z-index: 3;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  pointer-events: none;
+  image-rendering: pixelated;
+}
+
+.robots-grid .member-card:hover .robot-perch {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .robots-grid .robot-perch {
+    transition: none;
+  }
 }
 
 .robot-bio {
