@@ -664,7 +664,7 @@ title: International Publications
         <!-- ICCVW 2019 -->
         <div class="col-12 mb-3">
           <div class="publication-list-item" onclick="openPublicationModal('c4')" style="cursor: pointer;">
-            <div class="publication-badge">ICCVW</div>
+            <div class="publication-badge workshop-badge">ICCVW</div>
             <div class="external-links">
               <a href="https://arxiv.org/pdf/2005.01233" target="_blank" class="external-icon-link pdf-link" title="PDF" onclick="event.stopPropagation()">
                 <i class="fas fa-file-pdf"></i>
@@ -922,11 +922,16 @@ title: International Publications
   -webkit-backdrop-filter: blur(10px) !important;
 }
 
-/* Challenge Badge - Orange-Yellow */
-.publication-badge.challenge-badge {
+/* Challenge and workshop badges - orange-gold.
+   .workshop-badge was used on nine cards but never styled, so those CVPRW
+   badges fell back to the blue default. The glow is restated here too: the base
+   rule's box-shadow is blue, which left the orange badges ringed in blue. */
+.publication-badge.challenge-badge,
+.publication-badge.workshop-badge {
   background: rgba(255, 167, 38, 0.15) !important;
   color: #ffa726 !important;
   border: 1.5px solid #ffa726 !important;
+  box-shadow: 0 2px 8px rgba(255, 167, 38, 0.35);
   backdrop-filter: blur(10px) !important;
   -webkit-backdrop-filter: blur(10px) !important;
 }
