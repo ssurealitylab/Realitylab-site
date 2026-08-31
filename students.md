@@ -859,7 +859,7 @@ h2:first-of-type {
 
 .robots-grid .robot-perch {
   position: absolute;
-  top: -65px;          /* seat on the edge: thighs above the border, shins dangling below */
+  top: -69px;          /* seat on the edge: thighs above the border, shins dangling below */
   right: 16px;
   width: 65px;
   z-index: 3;
