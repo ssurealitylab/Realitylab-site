@@ -859,7 +859,7 @@ h2:first-of-type {
 
 .robots-grid .robot-perch {
   position: absolute;
-  top: -56px;          /* the sprite's seat sits 56% down, so this parks it on the edge */
+  top: -74px;          /* seat on the edge: thighs above the border, shins dangling below */
   right: 16px;
   width: 65px;
   z-index: 3;
