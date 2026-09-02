@@ -4,6 +4,7 @@
 User-agent: *
 Allow: /
 Disallow: /members.html
+Disallow: /cstore/
 
 # Sitemap location
 Sitemap: https://ssurealitylab.github.io/sitemap.xml
