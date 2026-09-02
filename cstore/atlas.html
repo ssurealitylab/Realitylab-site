@@ -250,6 +250,14 @@
   }
 
   .gallery { position: relative; display: flex; flex-direction: column; gap: 6px; }
+  .card.drop { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 8%, var(--surface)); }
+  .card.drop .shot, .card.drop .g-add { border-color: var(--accent); }
+  .drop-hint {
+    position: absolute; inset: 0; z-index: 2; display: grid; place-items: center;
+    pointer-events: none; border: 2px dashed var(--accent); border-radius: 2px;
+    background: color-mix(in srgb, var(--accent) 14%, transparent);
+    font-family: Archivo, sans-serif; font-size: 13px; color: var(--ink);
+  }
   .strip { display: flex; flex-wrap: wrap; gap: 6px; }
   .g-item, .g-add {
     position: relative; width: 62px; height: 62px; border-radius: 2px; overflow: hidden;
@@ -487,8 +495,9 @@
           ? await claude.use("db") : null;
       } catch (e) { store = null; }
       const note = document.getElementById("photo-note");
-      const how = "기물 카드의 + 를 누르면 실물 사진(JPG · PNG)을 붙일 수 있다. " +
-        "한 기물에 여러 장 넣을 수 있고, 사진을 누르면 크게 넘겨 볼 수 있다. ";
+      const how = "기물 카드에 사진 파일(JPG · PNG)을 끌어다 놓거나 + 를 눌러 " +
+        "고르면 붙는다. 한 기물에 여러 장 넣을 수 있고, 사진을 누르면 크게 " +
+        "넘겨 볼 수 있다. ";
       if (store) {
         note.textContent = how + "붙인 사진은 이 페이지를 여는 모두에게 보인다.";
         store.collection("photos").onSnapshot((snap) => {
@@ -621,6 +630,55 @@
       box.hidden = false;
     }
 
+    // 브라우저 기본 동작(파일을 열어 버린다)을 막아 둔다. 카드 밖에 떨어뜨려도
+    // 페이지가 날아가지 않는다.
+    ["dragover", "drop"].forEach((ev) => {
+      window.addEventListener(ev, (e) => {
+        if (e.dataTransfer && Array.prototype.indexOf.call(
+            e.dataTransfer.types || [], "Files") >= 0) e.preventDefault();
+      });
+    });
+
+    function hasFiles(e) {
+      return !!e.dataTransfer && Array.prototype.indexOf.call(
+        e.dataTransfer.types || [], "Files") >= 0;
+    }
+
+    function dropTarget(card, f, busy) {
+      let depth = 0;
+      const hint = document.createElement("div");
+      hint.className = "drop-hint";
+      hint.textContent = "여기에 놓으면 " + f.name + " 사진으로 붙는다";
+      const off = () => {
+        depth = 0;
+        card.classList.remove("drop");
+        if (hint.parentNode) hint.remove();
+      };
+      card.addEventListener("dragenter", (e) => {
+        if (!hasFiles(e)) return;
+        e.preventDefault();
+        depth++;
+        card.classList.add("drop");
+        if (!hint.parentNode) card.appendChild(hint);
+      });
+      card.addEventListener("dragover", (e) => {
+        if (hasFiles(e)) { e.preventDefault(); e.dataTransfer.dropEffect = "copy"; }
+      });
+      card.addEventListener("dragleave", (e) => {
+        if (!hasFiles(e)) return;
+        if (--depth <= 0) off();
+      });
+      card.addEventListener("drop", (e) => {
+        if (!hasFiles(e)) return;
+        e.preventDefault();
+        off();
+        const files = Array.prototype.filter.call(
+          e.dataTransfer.files, (x) => /^image\//.test(x.type));
+        if (files.length) attach(f.no, files, busy);
+        else alert("이미지 파일만 붙일 수 있다 (JPG · PNG · WebP).");
+      });
+    }
+
     function photoSlot(f) {
       const el = document.createElement("div");
       el.className = "gallery";
@@ -694,6 +752,7 @@
         el.appendChild(strip);
       };
       slots[f.no] = draw;
+      el._busy = busy;
       draw();
       return el;
     }
@@ -754,7 +813,9 @@
       el.querySelector(".sub").textContent = f.sub;
       el.querySelector(".note").textContent = f.note;
       el.querySelector(".why").textContent = f.why;
-      el.insertBefore(photoSlot(f), el.querySelector(".dims"));
+      const slot = photoSlot(f);
+      el.insertBefore(slot, el.querySelector(".dims"));
+      dropTarget(el, f, slot._busy);
       el.style.order = f.no;
       const size = f.kb > 1024 ? (f.kb / 1024).toFixed(1) + " MB"
                                : f.kb.toFixed(0) + " KB";
