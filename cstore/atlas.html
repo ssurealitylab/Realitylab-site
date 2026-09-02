@@ -367,12 +367,6 @@
   <div class="plan-legend" id="legend"></div>
 
   <h2>기물</h2>
-  <p class="sec-note">
-    치수는 USD 에서 실측한 바운딩 박스(가로 × 세로 × 높이). 받는 파일은 USD 와
-    텍스처를 함께 담은 zip 이다 — USD 만 받으면 재질이 통째로 빠진다. 전부 필요한 기물이지만
-    <b>10 → 12 → 11</b> 셋은 과제 어디에도 안 닿아서 가장 늦게 만들거나 구해도 된다.
-  </p>
-  <p class="sec-note" id="photo-note"></p>
   <div class="tiers" id="tiers"></div>
   <div class="sort" role="group" aria-label="정렬">
     <button data-sort="no" aria-pressed="true">번호 순</button>
@@ -494,12 +488,7 @@
         store = (typeof claude !== "undefined" && claude.use)
           ? await claude.use("db") : null;
       } catch (e) { store = null; }
-      const note = document.getElementById("photo-note");
-      const how = "기물 카드에 사진 파일(JPG · PNG)을 끌어다 놓거나 + 를 눌러 " +
-        "고르면 붙는다. 한 기물에 여러 장 넣을 수 있고, 사진을 누르면 크게 " +
-        "넘겨 볼 수 있다. ";
       if (store) {
-        note.textContent = how + "붙인 사진은 이 페이지를 여는 모두에게 보인다.";
         store.collection("photos").onSnapshot((snap) => {
           const next = {};
           snap.docs.forEach((d) => {
@@ -517,9 +506,6 @@
           redrawAll();
         }, () => {});
       } else {
-        note.textContent = how +
-          "여기서는 이 브라우저에만 저장된다 — 모두에게 보이게 하려면 " +
-          "claude.ai 아티팩트 쪽에서 붙이면 된다.";
         D.fixtures.forEach((f) => {
           const l = local.list(f.no);
           if (l.length) shots[f.no] = byTime(l);
